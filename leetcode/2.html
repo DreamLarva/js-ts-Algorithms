@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /*Longest Substring Without Repeating Characters：
+     Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
+     思路实际上是十分巧妙的，我们事先建立一个数组，用来记录所有字符的出现位置，初试的时候因为我们计数肯定是从第一个字符开始，第一个字符的下标为0，那么我们就就将先将初试的时候各个字符出现的位置设置成-1，那么我们首先从第一个字符开始往后计数，每次发现一个字符就就这个字符出现的位置改成现在的位置，这个时候我们开始计数的位置还是0，一旦我们往后不断更新最大的不重复子字符串的长度的时候，第一个重复的字符出现了，那么这个时候我们就要更新开始的位置了，因为什么呢，因为我们的字符串里不能包含两个相同的字符，因此这个时候只有两种选择：一种是起点选在原来的起点，重点选在两个重复的字符之间，这种情况显然我们已经考虑过了，因此这个时候要做的就是将字符开始的位置搬运到这个重复字符第一次出现的位置之后的那个位置上就可以了。而我们怎么更新这个字符最新出现的位置呢？在一次循环的最后更新就可以了，非常的巧妙。*/
+        //创建一个都是-1的数组
+    function lengthOfLongestSubstring(s){
+        var locs=[]
+        var idx = -1, max = 0;//idx为当前子串的开始位置-1
+        for (var  i = 0; i < s.length; i++)
+        {
+            //如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置+1
+            if (locs[s[i]] > idx)
+            {
+                idx = locs[s[i]];
+                console.log(idx)
+            }
+
+            if (i - idx > max)
+            {
+                max = i - idx;
+            }
+
+            locs[s[i]] = i;
+            console.log(locs)
+        }
+        return max;
+    }
+    console.log(lengthOfLongestSubstring("abcacdedsdd"))
+</script>
+</body>
+</html>

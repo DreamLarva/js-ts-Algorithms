@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+     * 有n个人随机排座位 相邻号码的不能坐在一起*/
+    function test() {
+
+//        console.time("arr")
+        var arr = numArr(500, 1);
+        var result = [];
+        var target, _filter;
+        for ( var i = 0, len = arr.length, temp; i < len; i++ ) {
+            if ( i === 0 ) {
+                temp = Math.floor(Math.random() * arr.length);
+                result.push(arr[ temp ]);
+                arr.splice(temp, 1);
+//            console.log(result, arr)
+            } else if ( len - i <= 2 && arr.every(function ( _v, _i, _a ) {
+                        return _v + 1 == result[ i - 1 ] || _v - 1 == result[ i - 1 ]
+                    }) ) {
+                if ( len - i === 2 ) {
+                    for ( var j = 0; j < 2; j++ ) {
+                        temp = Math.floor(Math.random() * (result.length - 2));
+                        result.splice(temp, 0, arr[ 0 ]);
+                        arr.shift();
+//                    console.log(result,arr)
+                    }
+                    break
+                } else if ( len - i === 1 ) {
+                    var tempArr = numArr(result.length - 1);
+                    if ( result[ result.length - 1 ] == arr[ 0 ] + 1 ) {
+                        target = result.indexOf(arr[ 0 ] - 1)
+                    } else {
+                        target = result.indexOf(arr[ 0 ] + 1)
+                    }
+
+                    _filter = tempArr.filter(function ( _v, _i, _a ) {
+                        return _v != target && _v != target + 1
+                    })
+                    temp = Math.floor(Math.random() * _filter.length - 1);
+                    result.splice(_filter[ temp ], 0, arr[ 0 ]);
+                    arr.shift();
+//                console.log(result,arr)
+                }
+
+            } else {
+                _filter = arr.filter(function ( _v, _i, _a ) {
+                    return _v + 1 != result[ i - 1 ] && _v - 1 != result[ i - 1 ]
+                });
+                temp = Math.floor(Math.random() * _filter.length);
+                result.push(_filter[ temp ]);
+                arr.splice(arr.indexOf(_filter[ temp ]), 1);
+//            console.log(result,arr)
+            }
+        }
+//        console.timeEnd("arr")
+//        console.log(result)
+
+
+        // 校验
+        result.reduce(function ( p, c, i, a ) {
+            if ( c == p + 1 || c == p - 1 ) {
+                console.log("数值有误")
+            }
+        })
+    }
+
+
+    //    生成一个长度为n 从start开始的依次增加的 数组
+    function numArr( length, start ) {
+        /* var arr = [...new Array(length)];
+         var start = (start || 0) - 1;
+
+         arr.reduce(function(previousValu ,currentValue ,currentIndex ,array ){
+         return array[currentIndex] = ++previousValu
+         },start);
+         return arr*/
+        var start = (start || 0);
+        for ( var arr = [], i = 0; i < length; i++ ) {
+            if ( i == 0 ) {
+                arr[ 0 ] = start
+            } else {
+                arr[ arr.length ] = arr[ arr.length - 1 ] + 1
+            }
+        }
+        return arr
+    }
+
+
+    console.time("stat");
+    test();
+    console.timeEnd("stat")
+
+
+    // 开始一个结果数组插入一个数
+    // 再随机取一个数字 找到结果数组中 相邻的数字的相邻位置 排除这些位置随机插入
+    // 开始(前4数的时候)可能出现没有位置可以插入 这个时候在随机一个数字即可
+    // 4个数的时候还是 进行随机排列判断 判断是不是正确 然后再随机排列为好
+    function randomQueue( arr = [] ) {
+        var result = [];
+        var len = arr.length;
+        var _backup = [].concat(arr);
+
+
+        var randomNum = 0;
+        var insertPosition = [];
+        while ( arr.length !== 0 ) {
+            do {
+                randomNum = random(0, arr.length - 1 + 1); // 随机如果要包含上限 那么上限需要+1
+                insertPosition = ifCanInsert(result, arr[ randomNum ]);
+                // 如果
+            } while ( insertPosition.length === 0 );
+            // 切下随机的元素
+            var spliceElement = arr.splice(randomNum, 1);
+            // 随机的选取可插入位置
+            var randomPosition = random(0, insertPosition.length ); // 随机如果要包含上限 那么上限需要+1
+            // 插入
+//            console.log(result,randomPosition,insertPosition, spliceElement[ 0 ])
+            result.splice(insertPosition[randomPosition], 0, spliceElement[ 0 ]);
+        }
+
+        return result
+    }
+
+    // 判断是否是有位置可以插入 可以的话返回可以插入的位置组成的数组 否则返回false
+    function ifCanInsert( arr, num ) {
+        if ( arr.length === 0 ) {
+            return [ 0 ]
+        }
+        var len = arr.length;
+        var pre = num - 1;
+        var next = num + 1;
+        // 如果查到的位置是 0 那么禁止的位置就是0 和 1 , 如果查到的位置是1 那么禁止的位置技术 1 和 2
+        var banPositionArr = banPosition(arr, pre).concat(banPosition(arr, next));
+        // 去重
+        banPositionArr = [ ...new Set(banPositionArr) ];
+        // 生成一个全位置的数组去除 禁止的位置
+        var position = numArr(len + 1); // 默认可插入的位置比数组的长度大1
+        position = position.filter(v=>banPositionArr.indexOf(v) === -1);
+        return position
+    }
+    // 传入一个数组和一个数字返回 禁止的位置 没有的话返回[]
+    function banPosition( arr, num ) {
+        var position = arr.indexOf(num);
+        if ( position !== -1 ) {
+            return [ position, position + 1 ]
+        } else {
+            return []
+        }
+    }
+
+    // 生成一个在范围内的随机整数
+    function random( min, max ) {
+        return Math.floor(Math.random() * (max - min) + min)
+    }
+
+
+    // 校检
+    function isRight( arr ) {
+        var result = true;
+        arr.reduce(function ( p, c, i, a ) {
+            if ( c == p + 1 || c == p - 1 ) {
+                result = false
+            }
+            return c
+        });
+        return result
+    }
+
+    console.time("second");
+    var result = randomQueue(numArr(50));
+    console.timeEnd("second");
+//    console.log(result);
+    console.log(isRight(result));
+
+
+
+</script>
+</body>
+</html>

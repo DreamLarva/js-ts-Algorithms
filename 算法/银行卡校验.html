@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+</head>
+<body>
+
+<input type="text" id="bankCard">
+<button id="btn">校验</button>
+<p id="result"></p>
+
+<script>
+  $("#btn").click(function () {
+    $("#result").text(bankNoValidate($("#bankCard").val()))
+  });
+
+
+  function bankNoValidate(num) {
+    num += "";
+    var Last = parseInt(num.substr(-1));
+    var withoutLast = num.slice(0, -1);
+
+    withoutLast = withoutLast.split("").reverse().reduce(function (prev, current, index, all) {
+      prev = parseInt(prev);
+      current = parseInt(current);
+      if (index === 1) {
+        current = current + process(prev * 2)
+      } else if (index % 2 === 1) {
+        current = prev + current
+      } else if (index % 2 === 0) {
+        current = prev + process(current * 2)
+      }
+      return current
+    });
+
+    function process(num) {
+      return num > 9 ? Math.floor(num / 10) + num % 10 : num
+    }
+
+
+    console.log(withoutLast, Last);
+    return (withoutLast + Last) % 10 === 0
+  }
+
+
+  console.log(bankNoValidate("6217002255962693679"))
+
+
+
+</script>
+</body>
+</html>

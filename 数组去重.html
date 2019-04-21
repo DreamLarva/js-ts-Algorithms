@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // es6 数组去重 转换成set 然后转换回来
+    function qc( arr ) {
+        return [ ...new Set(arr) ]
+    }
+    var b = 1;
+    var arr = [ 1, 2, 3, 4, 1, 2, 3, "1", "2", "1", b, {}, [] ];
+    console.log(qc(arr))
+
+    function qx( arr ) {
+        var result = [];
+        arr.sort(function ( a, b ) {
+            if ( a == b && (typeof a !== typeof b) ) {
+                if ( typeof b === "string" ) {
+                    return 1
+                } else {
+                    return -1
+                }
+
+            }
+            return b - a
+
+        }).reduce(function ( previousValue, currentValue, currentIndex, array ) {
+
+            if ( previousValue === currentValue ) {
+
+            } else {
+                result.push(currentValue)
+            }
+            return currentValue
+        }, Symbol());
+        return result
+    }
+    function a() {
+        return 1
+    }
+    var b = 1;
+    var arr = [ 1, 2, 3, 4, 1, 2, 3, "1", "2", "1", b, {}, [] ];
+    console.log(arr);
+    console.log(qx(arr))
+</script>
+</body>
+</html>

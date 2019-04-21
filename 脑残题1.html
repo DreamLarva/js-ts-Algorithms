@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a=1;
+    var b={
+        a:2,
+        b:function(){
+            console.log(this.a);
+        }(),
+        f:this.f=function(){
+            console.log(this.a);
+        }
+    };
+    function f(){ console.log(3); }
+    f();
+    b.f();
+    (b.f)();
+    (0,b.f)();
+
+    /**
+     *而在对象b中的属性f中，是一个函数表达式，b.f:this.f=function(){...}相当于b.f=this.f=function(){...}，这个赋值是立即发生的，只是函数体内不立即执行，所以也就是说，b.f和this.f都指向了这个匿名函数，而这个this是window，变成了b.f=window.f=function(){...}，于是这个window.f覆盖了由于声明提升到顶的那个f（那个f也是在window下的），明白了这个再看：
+     第一个“1”，题目理解没错，是因为b.b是个立即执行的函数，输出的
+     第二个“1”，是f()的输出，也就是window.f()，这个根据上面的分析，看到由于声明提升和对象内覆盖赋值，这个执行的是console.log(this.a);函数体，this指向window，所以是1；
+     第三个“2”，是b.f()的输出，因为b.f也是指向了那个函数体，但此时this指向调用这个函数的对象b，所以是输出2；
+     第四个“2”，无非是上面的那个变成了函数表达式，b.f还是对原来函数的引用，this的值得到维持，没啥，还是一样的；
+     第五个“1”,在执行函数之前括号里是一个逗号表达式，我们知道逗号表达式，是取最后一项的值作为整个表达式的值，但是这个时候，this的值不能得到维持，因为这个逗号表达式相当于把原来的函数体赋值给了整个表达式做表达式的值，这时候的this就变成了window，所以输出1
+
+     具体问题可以见 函数表达式 和 函数声明的html
+     * */
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*  var obj = {
+     foo: function () {
+     return this === obj;
+     }
+     };
+     console.log(obj.foo()); // true
+     console.log((obj.foo)()); //true
+     console.log((obj.foo = obj.foo)()); // false
+     console.log((false || obj.foo)()); // false
+
+
+     setTimeout(function () {
+     console.log("A")
+     },0)
+     Promise.resolve().then(function () {
+     console.log("B")
+     })
+     console.log("C")*/
+    var a = 2;
+
+    function foo() {
+        return this.a;
+    }
+    foo(); // 2
+
+    // 隐式绑定
+    function foo() {
+        return this.a;
+    }
+    var obj = {
+        a: 3,
+        foo: foo
+    }
+    console.log(obj.foo()); // 3
+    console.log(foo.call(obj)); // 3
+
+    // 隐式丢失
+    obj.foo = obj.foo;
+    console.log(obj.foo()); // 2
+
+
+    console.log("-----------------")
+
+    {
+        var length = 10;
+
+        function fn() {
+            console.log(this.length)
+        }
+
+        let obj = {
+            length: 5,
+            method: function (fn) {
+                fn()
+                fn.call(obj)
+                arguments[0]()
+            }
+        }
+        obj.method (fn)
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // 手动先动总共参数的 长度 长度一到自动开始执行
+  function sub_curry(fn /*, variable number of args */) {
+    var args = [].slice.call(arguments, 1);
+    return function () {
+      return fn.apply(this, args.concat(...arguments));
+    };
+  }
+  function curry(fn, length) {
+    // capture fn's # of parameters
+    length = length || fn.length;
+    return function () {
+      if (arguments.length < length) {
+        // not all arguments have been specified. Curry once more.
+        var combined = [fn].concat(...arguments);
+        return length - arguments.length > 0
+          ? curry(sub_curry.apply(this, combined), length - arguments.length)
+          : sub_curry.call(this, combined);
+      } else {
+        // all arguments have been specified, actually call function
+        return fn.apply(this, arguments);
+      }
+    };
+  }
+
+  var fn = curry(function (a, b, c) {
+    return [a, b, c];
+  });
+
+  // these are all equivalent
+  fn("a", "b", "c");
+  fn("a", "b", "c");
+  fn("a", "b")("c");
+  fn("a")("b", "c");
+  //  console.log(fn("a")("b")("c"))
+
+
+  var sum = curry(function (a, b) {
+    return a + b;
+  });
+
+
+  // 不限定总参数的长度 当没有参数时 执行
+  const adder = function () {
+    const _args = [];
+    return function () {
+      if (arguments.length === 0) {
+        return _args.reduce(function (a, b) {
+          return a + b;
+        });
+      }
+      [].push.apply(_args, [].slice.call(arguments));
+    }
+  };
+  const sum1 = adder();
+  //  console.log(sum1(1)(2, 3)(4, 5, 6)());
+
+  // 不需要再无参数最后再调用一次
+  function add() {
+    const args = Array.prototype.slice.call(arguments);
+
+    const fn = function () {
+      const arg_fn = Array.prototype.slice.call(arguments);
+      return add.apply(null, args.concat(arg_fn));
+    };
+
+    // chrome 会调用 ie不会反正正确的值
+    fn.valueOf = function () {
+      console.log("valueOf");
+      return args.reduce(function (a, b) {
+        return a + b;
+      })
+    };
+    // chrome 和 firefox 都能正常自动调用 toString ie不能返回正确的值
+    fn.toString = function () {
+      console.log("toSting");
+      return args.reduce(function (a, b) {
+        return a + b;
+      })
+    };
+    return fn;
+  }
+
+  var result = add(1)(2, 3)(4, 5, 6, 7);
+  //  console.log(result)
+
+
+  //普通的柯里化
+  const cost = (function () {
+    const argsArr = [];
+    return function (...args) {
+      if (args.length === 0) {
+        let money = 0;
+        for (let i = 0, l = argsArr.length; i < l; i++) {
+          money += argsArr[i]
+        }
+        return money
+      } else {
+        argsArr.push(...args);
+      }
+    }
+  }());
+
+  cost(100);
+  cost(100);
+  cost(100);
+  cost(100);
+  //  console.log("cost", cost())
+
+
+  const curring = function (fn) {
+    const argsArr = [];
+    return function (...args) {
+      if (args.length === 0) {
+        return fn.call(this, argsArr)
+      } else {
+        argsArr.push(...args)
+      }
+    }
+  };
+
+  const afterCurry = curring(function (arr) {
+    return arr.reduce((p, v) => p + v)
+  });
+  afterCurry(100);
+  afterCurry(100);
+  afterCurry(100);
+  afterCurry(100);
+  //  console.log(afterCurry());
+
+
+  // 反柯里化1
+  Function.prototype.uncurrying1= function () {
+    const _self = this;
+    return function () {
+      // 从参数列表中 取取出第一个参数 也就是原来 调用的时候 aa.bb 的aa
+      const obj = Array.prototype.shift.call(arguments);
+      return _self.apply(obj, arguments)
+    }
+  };
+
+  Function.prototype.uncurrying2 = function () {
+    const _self = this;
+    return function () {
+      return Function.prototype.call.apply(_self,arguments)
+      // 相当于 _self.call(arguments[0],arguments[1]...)
+      //                   arguments[0]也就是原来的 obj
+    }
+  };
+
+  var slice1 = Array.prototype.slice.uncurrying1();
+  var slice2 = Array.prototype.slice.uncurrying2();
+
+  (function () {
+    console.log(slice1(arguments));
+    console.log(Array.isArray(slice1(arguments)))
+  }(1, 2, 3));
+
+  // 注意这里两个连在一起的 自执行函数 必须有 分号!
+
+  (function () {
+    console.log(slice2(arguments));
+    console.log(Array.isArray(slice2(arguments)))
+  }(4, 5, 6))
+
+
+</script>
+</body>
+</html>

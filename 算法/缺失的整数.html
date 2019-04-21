@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    {
+        //    连续1~100的整数 缺了其中一个现在有99个 求缺失的那一个
+        for (let i = 1, arr = []; i <= 100; i++) {
+            if (i != 47) {
+                arr[i] = i
+            }
+
+        }
+        //    console.log(arr);
+        let result = 0;
+        arr.forEach(function (v, i, a) {
+            result += v
+        })
+        //    console.log(result)
+
+        for (let i = 1, total = 0, arr = []; i <= 100; i++) {
+            total += i
+        }
+        //    console.log(total -result)
+        /* 找缺失的数 一定是有规律的数 给的必定是数组或是对象
+         * 所以排序后的序号和值一定有他的对应关系
+         * 也可以直接从中判断缺失的值*/
+    }
+    //一个无序数组里的如干个正整数,范围从1~100,其中99个整数都出现了欧数次,只有一个整数出现了奇数次,如何找到这个出现奇数次的整数
+    var arr = []
+    for (var i = 1; i <= 100; i++) {
+        if (i != 47) {
+            for (var j = 1; j <= 2; j++) {
+                arr.push(i)
+            }
+        } else {
+            arr.push(i)
+        }
+    }
+    //    console.log(arr);
+
+    //位或同一个 数偶数次 则这个值不会变 最后留下的值就是 奇数次的值
+    result = 0;
+    arr.forEach(function (v, i, a) {
+        result = result ^ v;
+    });
+    //    console.log(result);
+
+
+    // 一个无序数组里的如干个正整数,范围从1~100,其中98个整数都出现了偶数次,只有2个整数出现了奇数次,如何找到这两个出现奇数次的整数
+    var arr = [];
+    for (var i = 1; i <= 100; i++) {
+        if (i != 9 && i != 12) {
+            for (var j = 1; j <= 2; j++) {
+                arr.push(i)
+            }
+        } else {
+            arr.push(i)
+        }
+    }
+    //    console.log(arr)
+    /* 依然先依次异或 ^
+     * 最终得到的结果是两个出现奇数次的值 的 异或后的值*/
+    var result = 0;
+    arr.forEach(function (v, i, a) {
+        result = result ^ v;
+    });
+    //    console.log(result)
+
+    /* 9二进制  1001
+     * 12二进制 1100
+     * 9^12=5    101
+     * 可以得出5 的1的位置就 这两个数的 不同的部分
+     * 这里应为最后一位不同直接可以 将原来的数组分成奇数组 和偶数组 在进行异或运算(分治法)
+     * */
+    //    将数组分成奇数组 和 偶数组
+    var arr_odd = [], arr_even = [];
+    arr.forEach(function (v, i, a) {
+        if (v & 1) {
+            arr_odd.push(v)
+        } else {
+            arr_even.push(v)
+        }
+    });
+    //    console.log(arr_odd,arr_even)
+    var result1 = 0;
+    arr_odd.forEach(function (v, i, a) {
+        result1 = result1 ^ v;
+    });
+
+    console.log();
+    var result2 = 0;
+    arr_even.forEach(function (v, i, a) {
+        result2 = result2 ^ v;
+    });
+    console.log(result1, result2)
+</script>
+</body>
+</html>

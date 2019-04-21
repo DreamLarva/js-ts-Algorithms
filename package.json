@@ -1,0 +1,23 @@
+{
+  "name": "js-ts-rs-Algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.两数之和.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreamLarva/js-ts-rs-Algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DreamLarva/js-ts-rs-Algorithms/issues"
+  },
+  "homepage": "https://github.com/DreamLarva/js-ts-rs-Algorithms#readme",
+  "devDependencies": {
+    "node-ts": "^5.0.0"
+  }
+}

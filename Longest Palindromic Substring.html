@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+
+     Example:
+
+     Input: "babad"
+
+     Output: "bab"
+
+     Note: "aba" is also a valid answer.
+     Example:
+
+     Input: "cbbd"
+
+     Output: "bb"*/
+    /**
+     * @param {string} s
+     * @return {string}
+     */
+
+    var longestPalindrome = function (s) {
+        var str = [...s];
+        var result = [];
+        if (str.join("") === str.reverse().join("")) {
+            return str.join("")
+        }
+        str.forEach((v, i, a)=> {
+            if (v === a[i + 1]) {
+                let temp = 1;
+                while ((i - temp >= 0) && (i + 1 + temp <= a.length - 1) && (a[i + 1 + temp] === a[i - temp])) {
+                    temp++
+                }
+                temp--;
+
+                if (result.length <= 1 + 2 * temp) {
+                    result = a.slice(i - temp, i + 1 + temp + 1)
+                }
+
+            }
+            if (a[i + 1] === a[i - 1]) {
+                let temp = 1;
+                while ((i - temp >= 0) && (i + temp <= a.length - 1) && (a[i + temp] === a[i - temp])) {
+                    temp++
+                }
+                console.log(temp);
+
+                temp--;
+                if (result.length <= 1 + 2 * temp) {
+                    result = a.slice(i - temp, i + temp + 1)
+                }
+            }
+        });
+        return result.join("") || str[0]
+    };
+    console.time();
+    console.log(longestPalindrome("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aliquid amet architecto culpa, cupiditate dicta distinctio eligendi facere maxime nesciunt obcaecati odit perferendis quaerat quod sint ullam ut veniam."));
+    console.timeEnd();
+</script>
+</body>
+</html>

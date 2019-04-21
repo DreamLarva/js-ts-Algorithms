@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 找出字符串中出现最多的值
+    var str ="123asdasfzxczxc啊23位asdasd123";
+    function maxTime(str){
+        result = [];
+        while(str.length){
+            var reg = new RegExp(str[0],"g");
+            result.push({[str[0]]: str.match(reg).length});
+            str = str.replace(reg,"")
+        }
+        return result.sort(function (a,b) {
+            b = b[Object.keys(b)[0]];
+            a = a[Object.keys(a)[0]];
+            return b-a
+        })
+    }
+
+    console.time("t")
+    for(var a = 0;a<=1000;a++){
+        maxTime(str)
+    }
+    console.timeEnd("t")
+    console.log(maxTime(str))
+</script>
+</body>
+</html>

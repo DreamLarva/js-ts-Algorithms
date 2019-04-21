@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    通过一个输入框，输入一个自定义的数组，例如 1,4,5,23,2,17,24,10000000。请把他按照中间高两边低进行排序，最后的结果是
+// 1,4,5,23,10000000,24,17,2，算法越准确越好，请注意左右翼数据数据的平衡性。
+    var data = [1,4,5,23,2,17,24,10000000];
+
+    data.sort((a,b)=>b-a);
+
+    console.log(data);
+    var newData = data.splice(0,1);
+    // 左一个右一个 然后右一个左一个(错)
+    var r = 0;
+    data.forEach(function(v,i,a){
+        if(r&1){
+            if(i&1){
+                newData.unshift(v)
+                r++
+            }else{
+                newData.push(v)
+            }
+        }else {
+            if(i&1){
+                newData.push(v)
+                r++
+            }else{
+                newData.unshift(v)
+            }
+        }
+    });
+
+
+
+    console.log(newData);
+
+    // 正确办法应该是 去除一个最大值 然后背包问题的算法 将剩余的 之分成两组 (最接近去除最大值的 剩余值的综合的二分之一)
+
+
+</script>
+</body>
+</html>

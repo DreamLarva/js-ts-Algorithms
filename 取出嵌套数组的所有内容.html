@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [1, [2, 3, [4, 5,], 6], 7, [8, 9,[10,11,[12]]]];
+    var result = [];
+    function iterTree1(arr) {
+        if (Array.isArray(arr)) {
+            arr.forEach(function (v, i, a) {
+                return iterTree1(v)
+            })
+        } else {
+            result.push(arr)
+        }
+        return result
+    }
+
+
+    function iterTree2(arr) {
+        var result = [];
+        function iter(arr) {
+            if (Array.isArray(arr)) {
+                arr.forEach(v=> iter(v))
+            } else {
+                result.push(arr)
+            }
+        }
+
+        iter(arr)
+        return result
+    }
+
+    // 废弃
+    /*function iterTree3(arr) {
+        var result = [];
+        function iter(arr) {
+            if (Array.isArray(arr) && arr.every(v=>!Array.isArray(v))) {
+                result = [...result, ...arr]
+            } else if (Array.isArray(arr)) {
+                arr.forEach(v => iter(v))
+            } else {
+                result.push(arr)
+            }
+        }
+
+        iter(arr)
+        return result
+    }*/
+
+    // 最快
+    function* iterTree4(tree){
+        if(Array.isArray(tree)){
+            for(let i=0;i<tree.length;i++){
+                yield * iterTree4(tree[i])
+            }
+        }else {
+            yield tree
+        }
+    }
+
+    console.time("a1")
+    for(var i=0;i<10000;i++){
+        iterTree1(arr)
+    }
+    console.timeEnd("a1")
+
+
+
+</script>
+</body>
+</html>

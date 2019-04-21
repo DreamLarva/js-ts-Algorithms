@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+
+     P   A   H   N
+     A P L S I I G
+     Y   I   R
+     And then read line by line: "PAHNAPLSIIGYIR"
+     Write the code that will take a string and make this conversion given a number of rows:
+
+     string convert(string text, int nRows);
+     convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".*/
+
+    /*
+     *  123456789 ,3 => 159246837*/
+
+    function convert(s, numRows) {
+        if (s.length === 0 || numRows === 1) return s;
+        const arr = new Array(numRows).fill(1).map(() => []);
+        const strLen = s.length;
+        const loopArr = explainLoopArr(numRows);
+        for (let i = 0, k = 0; i < strLen; k++) {
+            let {loopTime, startIndex, order} = byStep(loopArr, k);
+            console.log(byStep(loopArr, k));
+            for (let j = 0; j < loopTime && i < strLen; j++) {
+                arr[startIndex].push(s[i]);
+                startIndex += order;
+                i++;
+            }
+            console.log(arr.join("\n"));
+        }
+
+
+        return Array.prototype.concat.apply([], arr).join("")
+    }
+
+
+    function explainLoopArr(num) {
+        const result = [];
+        let times = 2;
+        while (num >= 1 && times-->0) {
+            result.push(num);
+            num -= 2;
+        }
+        return [...result, ...result.slice(1, -1)]
+    }
+
+    function byStep(arr, k) {
+        const arrLength = arr.length;
+
+        const loopTime = k % arrLength;
+
+        const order = k % 2 === 0 || arrLength === 1 ? 1 : -1;
+        const startIndex = k % 2 === 0 || arrLength === 1  ?
+            (arr[0] - arr[loopTime]) / 2 :
+            (arr[0] - 1) - (arr[0] - arr[loopTime]) / 2;
+
+
+        return {
+            loopTime: arr[loopTime],
+            startIndex,
+            order
+        }
+    }
+
+
+//    console.log(convert("ABC", 2) === "ACB");
+    console.log(convert("ABCD",3) === "ABDC")
+</script>
+</body>
+</html>
