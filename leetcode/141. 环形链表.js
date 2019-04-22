@@ -11,7 +11,7 @@
  * @return {boolean}
  */
 var hasCycle = function (head) {
-    if(head === null)return false;
+    if (head === null) return false;
     let fast_pointer = head;
     let slow_pointer = head;
     do {

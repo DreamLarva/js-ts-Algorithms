@@ -48,9 +48,9 @@ ListNode.prototype.toArray = function () {
  */
 
 var mergeTwoLists = function (l1, l2) {
-    if(l2.next == null){
+    if (l2.next == null) {
         return l1
-    } else if(l1.next == null){
+    } else if (l1.next == null) {
         return l2
     }
 
@@ -59,10 +59,10 @@ var mergeTwoLists = function (l1, l2) {
         if (l1 === null) {
             arr.push(l2.val);
             l2 = l2.next;
-        }else if (l2 === null) {
+        } else if (l2 === null) {
             arr.push(l1.val);
             l1 = l1.next;
-        }else if (l1.val < l2.val) {
+        } else if (l1.val < l2.val) {
             arr.push(l1.val);
             l1 = l1.next;
         } else {

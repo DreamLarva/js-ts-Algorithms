@@ -7,7 +7,7 @@ class ListNode {
     toString() {
         const result = [];
         let node = this;
-        while(node !== null){
+        while (node !== null) {
             result.push(node.val);
             node = node.next
         }

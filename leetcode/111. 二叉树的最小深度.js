@@ -30,17 +30,17 @@
  */
 var minDepth = function (root) {
     if (root === null) return 0;
-    const {left,right} = root;
-    if(!left && !right){
+    const {left, right} = root;
+    if (!left && !right) {
         return 1
-    }else if(left && !right){
+    } else if (left && !right) {
         return minDepth(root.left) + 1
-    }else if(!left && right){
+    } else if (!left && right) {
         return minDepth(root.right) + 1
-    }else{
+    } else {
         return Math.min(
-             minDepth(root.left) ,
-             minDepth(root.right),
+            minDepth(root.left),
+            minDepth(root.right),
         ) + 1
     }
 };

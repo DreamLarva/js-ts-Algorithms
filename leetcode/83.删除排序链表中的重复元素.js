@@ -40,13 +40,13 @@ Langs: c cpp csharp golang java javascript kotlin php python python3 ruby rust s
  * @return {ListNode}
  */
 var deleteDuplicates = function (head) {
-    if (head === null)return null;
+    if (head === null) return null;
     // 新链表的尾节点
     let tail = head;
     // 正在准备插入的原节点
     let currentNode = head.next;
     while (currentNode !== null) {
-        if(currentNode.val !== tail.val){
+        if (currentNode.val !== tail.val) {
             tail.next = currentNode;
             tail = tail.next;
         }
@@ -59,7 +59,7 @@ var deleteDuplicates = function (head) {
 
 const {createLinkedList} = require("./util/linked_list");
 const linkedList = createLinkedList(
-    [1,1,2,3,3]);
-const uniqueLinkedList =  deleteDuplicates(linkedList);
+    [1, 1, 2, 3, 3]);
+const uniqueLinkedList = deleteDuplicates(linkedList);
 console.log(uniqueLinkedList.toString());
 

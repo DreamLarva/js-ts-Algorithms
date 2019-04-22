@@ -41,7 +41,7 @@ class ListNode<T> {
         let tmp: ListNode<T> | null = this;
         while (tmp !== null) {
             result.push(tmp.val);
-            tmp = tmp.next
+            tmp = tmp.next;
         }
         return result;
     }
@@ -56,9 +56,9 @@ class ListNode<T> {
 
 var mergeTwoLists = function <T>(l1: ListNode<T> | null, l2: ListNode<T> | null) {
     if (l2!.next == null) {
-        return l1
+        return l1;
     } else if (l1!.next == null) {
-        return l2
+        return l2;
     }
 
     const arr = [];
@@ -91,17 +91,18 @@ function create_Linked_list<T>(arr: T[]) {
         cur.next = temp;
         cur = temp;
     }
-    return root
+    return root;
 }
 
 import assert from "assert";
+
 assert.deepStrictEqual(
     mergeTwoLists(
         create_Linked_list([1, 2, 4]),
-        create_Linked_list([1, 3, 4])
+        create_Linked_list([1, 3, 4]),
     )!.toArray(),
 
-    [1, 1, 2, 3, 4, 4]
+    [1, 1, 2, 3, 4, 4],
 );
 
 

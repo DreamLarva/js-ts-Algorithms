@@ -52,10 +52,10 @@ var levelOrderBottom = function <T>(root: TreeNode<T>) {
 
         result.unshift(cache);
         current_layer_nodes = [...next_layer_nodes];
-        next_layer_nodes.length = 0
+        next_layer_nodes.length = 0;
     }
 
-    return result
+    return result;
 };
 
-export {}
+export {};

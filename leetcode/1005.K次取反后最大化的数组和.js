@@ -55,7 +55,7 @@
  * @param {number} K
  * @return {number}
  */
-const largestSumAfterKNegations  = function (A, K) {
+const largestSumAfterKNegations = function (A, K) {
     A.sort((a, b) => a - b);
     // 获取负数的个数
     const negative_count = A.filter(a => a < 0).length;

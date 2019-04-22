@@ -65,7 +65,7 @@ type rightType = ")" | "]" | "}";
 
 var isValid = function (s: string) {
     // 使用栈
-    const stack:Array<leftType | rightType> = [];
+    const stack: Array<leftType | rightType> = [];
 
     for (const char of s) {
         // 如果是有右侧
@@ -82,12 +82,12 @@ var isValid = function (s: string) {
         }
         // 如果是左侧就 push 进stack
         else {
-            stack.push(<leftType>char)
+            stack.push(<leftType>char);
         }
     }
 
     // 循环完毕 没有任何内容的就算正确
-    return stack.length === 0
+    return stack.length === 0;
 
 };
 
@@ -96,12 +96,12 @@ function last<T>(arr: T[]): T {
 }
 
 
-
 function isPair(left: leftType, right: rightType) {
     return leftPart.indexOf(left) === rightPart.indexOf(right);
 }
 
 import assert from "assert";
+
 assert.strictEqual(isValid("()"), true);
 assert.strictEqual(isValid("(){}()[]"), true);
 assert.strictEqual(isValid("(){}({(())})[]"), true);

@@ -61,12 +61,12 @@
  * @param {number} val
  * @return {number}
  */
-var removeElement = function (nums:number[], val:number) {
+var removeElement = function (nums: number[], val: number) {
     const len = nums.length;
     let index = 0;
     for (let pointer = 0; pointer < len; pointer++) {
 
-        if(nums[pointer] !== val){
+        if (nums[pointer] !== val) {
             nums[index] = nums[pointer];
             index++;
         }
@@ -81,7 +81,8 @@ var removeElement = function (nums:number[], val:number) {
 *
 * */
 import assert from "assert";
+
 const arr = [0, 1, 2, 2, 3, 0, 4, 2];
 arr.length = removeElement(arr, 2);
-console.log(arr)
+console.log(arr);
 assert.deepStrictEqual(arr, [0, 1, 3, 0, 4]);

@@ -59,9 +59,9 @@ var merge = function (nums1, m, nums2, n) {
 
 
 {
-    const nums1 =[1,2,3,0,0,0];
-    const nums2 = [2,5,6];
-    merge(nums1, 3  , nums2, nums2.length);
+    const nums1 = [1, 2, 3, 0, 0, 0];
+    const nums2 = [2, 5, 6];
+    merge(nums1, 3, nums2, nums2.length);
     console.log(nums1);
 
 }

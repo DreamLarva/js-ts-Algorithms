@@ -35,7 +35,7 @@ var maxDepth = function (root: TreeNode<any> | null): number {
         Math.max(
             maxDepth(root.left) + 1,
             maxDepth(root.right) + 1,
-        )
+        );
 };
 
-export {}
+export {};

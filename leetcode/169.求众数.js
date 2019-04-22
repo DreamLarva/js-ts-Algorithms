@@ -32,6 +32,7 @@ function solution1(nums) {
         if (len - nums.length >= halfLen) return filterNode;
     }
 }
+
 /**
  * 摩尔投票法
  * 众数 : 出现次数 大于半数 的数
@@ -42,14 +43,14 @@ function solution1(nums) {
  *      1.如果所有非众数的数 都两两抵消 则只剩众数
  *      2.如果每个众数都与 非众数两两抵消 则只剩众数 因为众数 > 半数
  * */
-function solution2(nums){
+function solution2(nums) {
     let tmp = [];
     let index = 0;
-    while (index < nums.length){
+    while (index < nums.length) {
         const current = nums[index];
-        if(tmp.length === 0){
+        if (tmp.length === 0) {
             tmp.push(current)
-        }else{
+        } else {
             const first = tmp[0];
             if (first === current) {
                 tmp.push(current)
@@ -61,24 +62,24 @@ function solution2(nums){
     }
     return tmp[0]
 }
-function solution3(nums){
-    let result = null,count = 0;
+
+function solution3(nums) {
+    let result = null, count = 0;
     let index = 0;
-    while (index < nums.length){
+    while (index < nums.length) {
         const current = nums[index];
-        if(current === result){
+        if (current === result) {
             count++
-        }else if(count === 0){
+        } else if (count === 0) {
             result = current;
             count = 1;
-        }else{
+        } else {
             count--
         }
         index++;
     }
     return result
 }
-
 
 
 console.log(solution3([6, 5, 5]));

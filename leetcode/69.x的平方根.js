@@ -45,4 +45,4 @@ var mySqrt = function (x) {
 };
 
 
-console.log( mySqrt(4));
+console.log(mySqrt(4));

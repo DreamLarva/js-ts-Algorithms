@@ -29,12 +29,14 @@
     function foo() {
         return this.a;
     }
+
     foo(); // 2
 
     // 隐式绑定
     function foo() {
         return this.a;
     }
+
     var obj = {
         a: 3,
         foo: foo
@@ -64,10 +66,8 @@
                 arguments[0]()
             }
         }
-        obj.method (fn)
+        obj.method(fn)
     }
-
-
 
 
 </script>

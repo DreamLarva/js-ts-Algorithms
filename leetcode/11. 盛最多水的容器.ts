@@ -33,14 +33,14 @@ var maxArea = function (height: number[]) {
     while (left !== right) {
         tVolume = Math.min(height[left], height[right]) * (right - left);
         if (tVolume > result) {
-            result = tVolume
+            result = tVolume;
         }
         Math.min(height[left], height[right]);
         if (height[left] > height[right]) {
-            right--
+            right--;
         } else {
-            left++
+            left++;
         }
     }
-    return result
+    return result;
 };

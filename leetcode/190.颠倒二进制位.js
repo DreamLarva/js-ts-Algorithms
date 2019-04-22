@@ -49,19 +49,19 @@ var reverseBits = function (n) {
 };
 
 var reverseBits2 = function (n) {
-    return parseInt((n).toString(2).padStart(32,'0').split('').reverse().join(''),2)
+    return parseInt((n).toString(2).padStart(32, '0').split('').reverse().join(''), 2)
 };
 
 /**
  * 数学方法 10进制 转 2进制 然后手动操作位数
  * */
-var reverseBits3 = function(n){
+var reverseBits3 = function (n) {
     let nums = new Array(32).fill(0);
     let count = 0;
     while (n) {
-        nums[count] = n%2;
+        nums[count] = n % 2;
         count += 1;
-        n = Math.trunc(n/2);
+        n = Math.trunc(n / 2);
     }
     let num = nums.join('');
     return Number.parseInt(num, 2)

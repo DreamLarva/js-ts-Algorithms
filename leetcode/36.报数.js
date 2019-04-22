@@ -82,7 +82,7 @@ class Count {
  * @return {string}
  */
 var countAndSay = function (n) {
-    if(n-- === 1){
+    if (n-- === 1) {
         return "1";
     }
     let result = new Count().add("1");

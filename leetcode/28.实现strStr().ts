@@ -40,7 +40,7 @@
  * @param {string} needle
  * @return {number}
  */
-var strStr = function (haystack:string, needle:string) {
+var strStr = function (haystack: string, needle: string) {
     return kmp(haystack, needle);
 };
 
@@ -54,7 +54,7 @@ var strStr = function (haystack:string, needle:string) {
  *      abcabc      =>      [ -1, 0, 0, -1, 0, 0 ]
  *      abad        =>      [ -1, 0, -1, 1 ]
  * */
-function getNext(ps:string) {
+function getNext(ps: string) {
     const next = Array(ps.length).fill(0);
     next[0] = -1;
     let j = 0;
@@ -75,7 +75,7 @@ function getNext(ps:string) {
     return next;
 }
 
-function kmp(ts:string, ps:string) {
+function kmp(ts: string, ps: string) {
     let i = 0;
     let j = 0;
     const next = getNext(ps);

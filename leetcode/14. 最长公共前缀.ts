@@ -59,21 +59,21 @@ var _longestCommonPrefix = function (strs: string[]) {
             }
 
         }
-        return result[0]
+        return result[0];
 
     } else {
-        return ""
+        return "";
     }
 };
 
 
 var longestCommonPrefix = function (strs: string[]) {
     if (strs.length === 0) {
-        return ""
+        return "";
     }
 
     if (strs.length === 1) {
-        return strs[0]
+        return strs[0];
     }
     let result: string;
 
@@ -100,7 +100,7 @@ var longestCommonPrefix = function (strs: string[]) {
             result = temp_str;
         }
 
-    return result!
+    return result!;
 };
 
 const {strictEqual} = require("assert");

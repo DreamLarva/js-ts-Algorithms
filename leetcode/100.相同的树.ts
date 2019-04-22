@@ -92,3 +92,4 @@ tree2.left = new TreeNode(1);
 tree2.right = new TreeNode(3);
 
 console.log(isSameTree(tree1, tree2));
+export {};

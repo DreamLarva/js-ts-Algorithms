@@ -55,18 +55,18 @@ class TreeNode<T> {
  */
 var isSymmetric = function (root: TreeNode<number> | null) {
     if (root == null) {
-        return true
+        return true;
     }
     return recursion(root.left, root.right);
 };
 
 function recursion(left: TreeNode<number> | null, right: TreeNode<number> | null): boolean {
     if (left == null || right == null) {
-        return left == null && right == null
+        return left == null && right == null;
     }
     return left.val === right.val &&
         recursion(left.left, right.right) &&
-        recursion(left.right, right.left)
+        recursion(left.right, right.left);
 }
 
 
@@ -74,4 +74,4 @@ const {createBinTree} = require("./util/BinTree");
 
 console.log(isSymmetric(createBinTree([1, 2, 2, 3, 4, 4, 3])));
 
-export {}
+export {};

@@ -78,12 +78,12 @@ var isSameTree = function (p, q) {
     return p.val === q.val ? isSameTree(p.left, q.left) && isSameTree(p.right, q.right) : false;
 };
 
-const tree1 = new  TreeNode(1);
+const tree1 = new TreeNode(1);
 tree1.left = new TreeNode(2);
 tree1.right = new TreeNode(3);
 
-const tree2 = new  TreeNode(1);
+const tree2 = new TreeNode(1);
 tree2.left = new TreeNode(1);
 tree2.right = new TreeNode(3);
 
-console.log(isSameTree(tree1,tree2));
+console.log(isSameTree(tree1, tree2));

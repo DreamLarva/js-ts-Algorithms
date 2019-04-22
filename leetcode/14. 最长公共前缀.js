@@ -70,11 +70,11 @@ var _longestCommonPrefix = function (strs) {
 
 
 var longestCommonPrefix = function (strs) {
-    if (strs.length === 0){
+    if (strs.length === 0) {
         return ""
     }
 
-    if(strs.length === 1){
+    if (strs.length === 1) {
         return strs[0]
     }
     let result = "";
@@ -106,4 +106,4 @@ var longestCommonPrefix = function (strs) {
 };
 
 strictEqual(longestCommonPrefix(["flower", "flow", "flight"]), "fl");
-strictEqual(longestCommonPrefix(["dog","racecar","car"]), "");
+strictEqual(longestCommonPrefix(["dog", "racecar", "car"]), "");

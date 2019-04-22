@@ -22,7 +22,7 @@ var getRow = function (rowIndex) {
     if (rowIndex === 2) return [1, 1];
     const result = [1, 1];
     for (let i = 2; i <= rowIndex; i++) {
-        for (let j = result.length ; j >= 0; j--) {
+        for (let j = result.length; j >= 0; j--) {
             result[j] = (result[j] || 0) + (result[j - 1] || 0);
         }
     }

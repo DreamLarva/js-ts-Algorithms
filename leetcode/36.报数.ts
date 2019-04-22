@@ -52,12 +52,12 @@ class Count {
 
     addMany(str: string) {
         str.split("").forEach((character) => this.add(character));
-        return this
+        return this;
     }
 
     add(character: string) {
         if (this.data.length === 0) {
-            this.data.push({text: character, count: 1})
+            this.data.push({text: character, count: 1});
         } else {
             const last = this.getLast();
             if (last.text === character) {
@@ -66,7 +66,7 @@ class Count {
                 this.data.push({text: character, count: 1});
             }
         }
-        return this
+        return this;
     }
 
     toString() {

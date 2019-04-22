@@ -51,7 +51,7 @@ var groupAnagrams = function (strs) {
 
     const cache = {};
     for (let i = 0; i < strs.length; i++) {
-        if(strs[i] === ""){
+        if (strs[i] === "") {
             if (cache[""]) {
                 cache[""].push(strs[i]);
             } else {
@@ -62,7 +62,7 @@ var groupAnagrams = function (strs) {
         const hash = strs[i]
             .split("")
             .map(v => primeFloatArr[v.charCodeAt(0) - 97])
-            .reduce((pre, cur) =>  pre * cur);
+            .reduce((pre, cur) => pre * cur);
 
         if (cache[hash]) {
             cache[hash].push(strs[i]);
@@ -80,4 +80,4 @@ var groupAnagrams = function (strs) {
 console.log(groupAnagrams([
     "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzy",
     "yzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
-    ]))
+]))

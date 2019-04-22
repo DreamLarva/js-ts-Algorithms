@@ -28,7 +28,7 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLastWord = function (s:string) {
+var lengthOfLastWord = function (s: string) {
     s = s.trim();
     const lastSpaceIndex = s.lastIndexOf(" ");
     return lastSpaceIndex === -1 ?

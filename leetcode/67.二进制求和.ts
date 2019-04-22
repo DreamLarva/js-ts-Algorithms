@@ -33,15 +33,15 @@ Langs: c cpp csharp golang java javascript kotlin php python python3 ruby rust s
  * @param {string} b
  * @return {string}
  */
-var addBinary = function (a:string, b:string) {
+var addBinary = function (a: string, b: string) {
     let result = "";
     let carry_over = 0;
     let a_index = a.length - 1;
     let b_index = b.length - 1;
     while (carry_over === 1 || a_index >= 0 || b_index >= 0) {
         let count_1 = carry_over;
-        if(a[a_index]) count_1 += parseInt(a[a_index]);
-        if(b[b_index]) count_1 += parseInt(b[b_index]);
+        if (a[a_index]) count_1 += parseInt(a[a_index]);
+        if (b[b_index]) count_1 += parseInt(b[b_index]);
 
         if (count_1 === 0) {
             result = "0" + result;
@@ -59,20 +59,20 @@ var addBinary = function (a:string, b:string) {
         a_index--;
         b_index--;
     }
-    return result
+    return result;
 };
 
 /**
  * best performance
  * */
-var addBinary2 = function (a:string, b:string) {
+var addBinary2 = function (a: string, b: string) {
     let [i, j] = [a.length - 1, b.length - 1];
     let carry = 0;
     let ans = "";
     while (i >= 0 || j >= 0 || carry) {
         let sum = 0;
-        if (i >= 0) sum += Number(a[i]) ;
-        if (j >= 0) sum += Number(b[j]) ;
+        if (i >= 0) sum += Number(a[i]);
+        if (j >= 0) sum += Number(b[j]);
         sum += carry;
         carry = ~~(sum / 2);
         sum = sum % 2;
@@ -85,11 +85,12 @@ var addBinary2 = function (a:string, b:string) {
 
 
 import assert from "assert";
+
 assert.strictEqual(
     addBinary2("11", "1"),
-    "100"
+    "100",
 );
 assert.strictEqual(
     addBinary("1010", "1011"),
-    "10101"
+    "10101",
 );

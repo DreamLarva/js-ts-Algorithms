@@ -40,8 +40,8 @@ var addBinary = function (a, b) {
     let b_index = b.length - 1;
     while (carry_over === 1 || a_index >= 0 || b_index >= 0) {
         let count_1 = carry_over;
-        if(a[a_index]) count_1 += parseInt(a[a_index]);
-        if(b[b_index]) count_1 += parseInt(b[b_index]);
+        if (a[a_index]) count_1 += parseInt(a[a_index]);
+        if (b[b_index]) count_1 += parseInt(b[b_index]);
 
         if (count_1 === 0) {
             result = "0" + result;
@@ -95,7 +95,7 @@ assert.strictEqual(
 );
 const benchmark = require('benchmark');
 const suite = new benchmark.Suite;
-const args = ["1111001010000100101000001001111111111111111111111111111111111111111111111111111111111111111111","1100011111111101000000000000000000111111111111111111111111111111100000000000000000111000100"]
+const args = ["1111001010000100101000001001111111111111111111111111111111111111111111111111111111111111111111", "1100011111111101000000000000000000111111111111111111111111111111100000000000000000111000100"]
 suite
     .add('1', function () {
         addBinary2(...args)

@@ -36,7 +36,7 @@ A[i] 为 0 或 1
 /**
  * 正确的解法
  * */
-function prefixesDivBy52(A){
+function prefixesDivBy52(A) {
     // 暂存上一次的结果
     let num = 0;
     return A.map(val => {
@@ -71,8 +71,6 @@ function isPrefixesDivBy5(arr) {
     }, 0);
     return (all_single + last) % 5 === 0;
 }
-
-
 
 
 const assert = require("assert");

@@ -59,15 +59,15 @@
 
 const leftPart = ["(", "[", "{"];
 const rightPart = [")", "]", "}"];
-var isValid = function(s) {
+var isValid = function (s) {
     // 使用栈
     const stack = [];
 
-    for(const char of s){
+    for (const char of s) {
         // 如果是有右侧
-        if(rightPart.includes(char)){
+        if (rightPart.includes(char)) {
             // 检查stack 顶 是不是 和现在这个是一组的
-            if(isPair(last(stack), char)){
+            if (isPair(last(stack), char)) {
                 // 是一组就弹出一个左侧的
                 stack.pop();
             }
@@ -77,7 +77,7 @@ var isValid = function(s) {
 
         }
         // 如果是左侧就 push 进stack
-        else{
+        else {
             stack.push(char)
         }
     }
@@ -87,17 +87,17 @@ var isValid = function(s) {
 
 };
 
-function last(arr){
+function last(arr) {
     return arr[arr.length - 1];
 }
 
-function isPair(left,right){
+function isPair(left, right) {
     return leftPart.indexOf(left) === rightPart.indexOf(right);
 }
 
 const assert = require("assert");
-assert.strictEqual(isValid("()"),true)
-assert.strictEqual(isValid("(){}()[]"),true)
-assert.strictEqual(isValid("(){}({(())})[]"),true)
-assert.strictEqual(isValid("((){}({(())})[])"),true)
-assert.strictEqual(isValid("((){}({(())})[])("),false)
+assert.strictEqual(isValid("()"), true)
+assert.strictEqual(isValid("(){}()[]"), true)
+assert.strictEqual(isValid("(){}({(())})[]"), true)
+assert.strictEqual(isValid("((){}({(())})[])"), true)
+assert.strictEqual(isValid("((){}({(())})[])("), false)

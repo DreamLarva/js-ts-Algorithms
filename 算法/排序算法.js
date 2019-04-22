@@ -145,7 +145,7 @@ function shellSortWithStaticGaps(arr) {
             // 相当于将 从arr[j]开始 想做 每间隔gaps[g]的元素 组成的数组进行插入排序
             // arr[j - gaps[g]]> temp 而不是再比较 两个间隔之间的元素 是因为 在i值更小的时候已经比较过了 所以只要比temp和上一次间隔的元素的大小就能判断是不是要对当前i和当前间隔进行插入排序
             let j;
-            for (j =  i; j >= gaps[g] && arr[j - gaps[g]] > temp; j -= gaps[g]) {
+            for (j = i; j >= gaps[g] && arr[j - gaps[g]] > temp; j -= gaps[g]) {
                 arr[j] = arr[j - gaps[g]];
 //                    console.log(arr.join(" "))
             }

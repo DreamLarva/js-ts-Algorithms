@@ -59,13 +59,13 @@ var removeDuplicates = function (nums) {
     const len = nums.length;
 
     // 第一个数据 放过
-    if(len === 1 || len === 0){
+    if (len === 1 || len === 0) {
         return len;
     }
 
     // 第n个数据 不能 n - 1 相同
     let index = 0;
-    for (let pointer = 1; pointer < len ; pointer++) {
+    for (let pointer = 1; pointer < len; pointer++) {
         if (nums[index] === nums[pointer]) {
 
         } else {
@@ -78,8 +78,8 @@ var removeDuplicates = function (nums) {
 
 
 const assert = require("assert");
-const arr = [1,2,2,2,3];
-const len  = removeDuplicates(arr);
+const arr = [1, 2, 2, 2, 3];
+const len = removeDuplicates(arr);
 arr.length = len
-assert.deepStrictEqual(arr,[1,2,3])
+assert.deepStrictEqual(arr, [1, 2, 3])
 

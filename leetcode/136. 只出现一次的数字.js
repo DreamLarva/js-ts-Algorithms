@@ -26,5 +26,5 @@ var singleNumber = function (nums) {
     for (num of nums) {
         result ^= num;
     }
-    return  result
+    return result
 };

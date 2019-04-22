@@ -25,6 +25,7 @@
  * 如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
  *
  */
+
 /**
  * @param {number[]} nums
  * @return {number}
@@ -35,12 +36,12 @@
  * 从位置1开始 每个位置都为 当前位置可以去取到的最大值
  * 然后n位置 会按照 n-1 位置 再判断 如果n-1 为负
  * */
-function solution(nums:number[]) {
+function solution(nums: number[]) {
     const len = nums.length;
     for (let i = 1; i < len; i++) {
-        nums[i] = nums[i] + Math.max(nums[i - 1], 0)
+        nums[i] = nums[i] + Math.max(nums[i - 1], 0);
     }
-    return Math.max(...nums)
+    return Math.max(...nums);
 }
 
 /**

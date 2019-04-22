@@ -91,14 +91,14 @@ assert.strictEqual(
 
 const benchmark = require('benchmark');
 const suite = new benchmark.Suite;
-const  a = [1,2,3,4,5,6,7,8,9,10,12,12,42,45,65,75,86,86,86,101,102,105],
+const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 12, 42, 45, 65, 75, 86, 86, 86, 101, 102, 105],
     b = 2;
 suite
     .add('顺序查找', function () {
-        solution1(a,b)
+        solution1(a, b)
     })
     .add('二分法', function () {
-        solution2(a,b)
+        solution2(a, b)
     })
     .on('cycle', function (event) {
         console.log(String(event.target));

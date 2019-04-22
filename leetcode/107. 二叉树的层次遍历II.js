@@ -31,7 +31,7 @@
  * @return {number[][]}
  */
 var levelOrderBottom = function (root) {
-    if(root === null)return [];
+    if (root === null) return [];
     let current_layer_nodes = [root];
     let next_layer_nodes = [];
     const result = [];
@@ -39,7 +39,7 @@ var levelOrderBottom = function (root) {
     while (current_layer_nodes.length) {
         const cache = [];
         current_layer_nodes.forEach(node => {
-            if(node !== null){
+            if (node !== null) {
                 const {left, right, val} = node;
                 cache.push(val);
                 if (left) next_layer_nodes.push(left);

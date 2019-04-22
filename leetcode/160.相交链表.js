@@ -72,5 +72,4 @@ var getIntersectionNode = function (headA, headB) {
     return listNodeA
 
 
-
 };

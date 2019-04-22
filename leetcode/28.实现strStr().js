@@ -99,14 +99,14 @@ function kmp(ts, ps) {
 
 const benchmark = require('benchmark');
 const suite = new benchmark.Suite;
-const  ts = "asdasdsadasasdasdsadavasd",
+const ts = "asdasdsadasasdasdsadavasd",
     ps = "asdasdasdsa";
 suite
     .add('indexOf', function () {
-       ts.indexOf(ps)
+        ts.indexOf(ps)
     })
     .add('KMP', function () {
-        kmp(ts ,ps)
+        kmp(ts, ps)
     })
     .on('cycle', function (event) {
         console.log(String(event.target));

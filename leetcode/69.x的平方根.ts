@@ -41,7 +41,7 @@ var mySqrt = function (x: number) {
     while (Math.abs((0.5 * (y + x / y)) - y) >= 0.00001) {
         y = 0.5 * (y + x / y);
     }
-    return ~~y
+    return ~~y;
 };
 
 

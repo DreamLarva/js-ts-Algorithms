@@ -42,4 +42,4 @@ var convertToTitle = function (n) {
     return result
 };
 
-console.log(convertToTitle( 27));
+console.log(convertToTitle(27));

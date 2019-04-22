@@ -64,7 +64,7 @@ var deleteDuplicates = function (head: ListNode<number>) {
     }
     // 保证最后一个 后没有多余的节点
     tail.next = null;
-    return head
+    return head;
 };
 
 const {createLinkedList} = require("./util/linked_list");

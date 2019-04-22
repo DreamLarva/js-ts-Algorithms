@@ -31,7 +31,7 @@ var isPalindrome1 = function (s) {
     let i = 0;
     const len = after_filter.length;
     while (i < ~~(len / 2)) {
-        if(after_filter[i] !== after_filter[len - 1 - i])return false;
+        if (after_filter[i] !== after_filter[len - 1 - i]) return false;
         i++;
     }
 

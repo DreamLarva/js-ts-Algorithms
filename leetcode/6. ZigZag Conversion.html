@@ -44,7 +44,7 @@
     function explainLoopArr(num) {
         const result = [];
         let times = 2;
-        while (num >= 1 && times-->0) {
+        while (num >= 1 && times-- > 0) {
             result.push(num);
             num -= 2;
         }
@@ -57,7 +57,7 @@
         const loopTime = k % arrLength;
 
         const order = k % 2 === 0 || arrLength === 1 ? 1 : -1;
-        const startIndex = k % 2 === 0 || arrLength === 1  ?
+        const startIndex = k % 2 === 0 || arrLength === 1 ?
             (arr[0] - arr[loopTime]) / 2 :
             (arr[0] - 1) - (arr[0] - arr[loopTime]) / 2;
 
@@ -70,8 +70,8 @@
     }
 
 
-//    console.log(convert("ABC", 2) === "ACB");
-    console.log(convert("ABCD",3) === "ABDC")
+    //    console.log(convert("ABC", 2) === "ACB");
+    console.log(convert("ABCD", 3) === "ABDC")
 </script>
 </body>
 </html>

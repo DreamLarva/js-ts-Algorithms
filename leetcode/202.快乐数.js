@@ -22,7 +22,7 @@ var isHappy = function (n) {
     while (true) {
         n = step(n);
         if (n === 1) return true;
-        if(memo.has(n)) return false;
+        if (memo.has(n)) return false;
         memo.add(n);
     }
 };

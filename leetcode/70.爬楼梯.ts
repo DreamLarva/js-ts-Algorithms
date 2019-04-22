@@ -50,7 +50,7 @@ Langs: c cpp csharp golang java javascript kotlin php python python3 ruby rust s
  * 所以是动态规划问题 n 级台阶的走法是 n-1级的走法 + n-2级的走法
  * fn(n) = fn(n - 1) + fn(n - 2)
  * */
-function solution1(n:number) {
+function solution1(n: number) {
     if (n === 1) return 1;
     let current = 1;
     let last = 1;
@@ -58,21 +58,21 @@ function solution1(n:number) {
     while (--n) {
         const temp = current + last;
         last = current;
-        current = temp
+        current = temp;
     }
 
-    return current
+    return current;
 }
 
 /**
  * 既然是斐波那契数列就能够使用斐波那契通项公式
  * */
-function solution2(n:number) {
+function solution2(n: number) {
     const sqrt_5 = Math.sqrt(5);
     n = n + 1;
     return sqrt_5 / 5 * (
         Math.pow((1 + sqrt_5) / 2, n) - Math.pow((1 - sqrt_5) / 2, n)
-    )
+    );
 }
 
-console.log(solution2(4))
+console.log(solution2(4));

@@ -8,32 +8,39 @@
         body {
             font-size: 12px;
         }
+
         dt {
             width: 100px;
             text-align: right;
         }
+
         dl {
             clear: both;
-            overflow:hidden;
+            overflow: hidden;
         }
+
         dl.hl {
-            background:#ddd;
+            background: #ddd;
         }
+
         dt, dd {
-            float:left;
+            float: left;
             height: 40px;
             line-height: 40px;
             margin-left: 10px;
         }
+
         button {
             font-size: 14px;
             font-weight: bold;
             padding: 4px 4px;
         }
+
         .disabled {
-            color:#999;
+            color: #999;
             border: 1px dashed #666;
         }
+
         .active {
             color: red;
         }
@@ -42,7 +49,7 @@
 <body>
 
 <p>
-    <textarea id="data_area" cols="100" rows="10">
+    <textarea cols="100" id="data_area" rows="10">
 [
    { "颜色": "红", "尺码": "大", "型号": "A", "skuId": "3158055" },
    { "颜色": "白", "尺码": "大", "型号": "A", "skuId": "3158054" },
@@ -110,14 +117,16 @@
             var key = keys[i];
             var items = data[key]
 
-            output += '<dl data-type="'+ key +'" data-idx="'+ i +'">'
-            output += '<dt>'+ key +':</dt>'
+            output += '<dl data-type="' + key + '" data-idx="' + i + '">'
+            output += '<dt>' + key + ':</dt>'
             output += '<dd>'
             for (var j = 0; j < items.length; j++) {
                 var item = items[j]
                 var cName = j == 0 ? 'active' : ''
-                if (j == 0) { selectedCache.push(item) }
-                output += '<button data-title="'+ item +'" class="'+ cName +'" value="'+ item +'">'+ item +'</button> '
+                if (j == 0) {
+                    selectedCache.push(item)
+                }
+                output += '<button data-title="' + item + '" class="' + cName + '" value="' + item + '">' + item + '</button> '
             }
             output += '</dd>'
             output += '</dl>'
@@ -129,7 +138,9 @@
 
     function getAllKeys(arr) {
         var result = []
-        for (var i = 0; i < arr.length; i++) { result.push(arr[i].path) }
+        for (var i = 0; i < arr.length; i++) {
+            result.push(arr[i].path)
+        }
         return result
     }
 
@@ -161,13 +172,14 @@
      **/
     function powerset(arr) {
         var ps = [[]];
-        for (var i=0; i < arr.length; i++) {
+        for (var i = 0; i < arr.length; i++) {
             for (var j = 0, len = ps.length; j < len; j++) {
                 ps.push(ps[j].concat(arr[i]));
             }
         }
         return ps;
     }
+
     /**
      * 生成所有子集是否可选、库存状态 map
      */
@@ -201,12 +213,12 @@
     function trimSpliter(str, spliter) {
         // ⊙abc⊙ => abc
         // ⊙a⊙⊙b⊙c⊙ => a⊙b⊙c
-        var reLeft        = new RegExp('^' + spliter + '+', 'g');
-        var reRight       = new RegExp(spliter + '+$', 'g');
+        var reLeft = new RegExp('^' + spliter + '+', 'g');
+        var reRight = new RegExp(spliter + '+$', 'g');
         var reSpliter = new RegExp(spliter + '+', 'g');
         return str.replace(reLeft, '')
-                .replace(reRight, '')
-                .replace(reSpliter, spliter)
+            .replace(reRight, '')
+            .replace(reSpliter, spliter)
     }
 
     /**
@@ -242,9 +254,9 @@
                 copy[i] = item
 
                 var curr = trimSpliter(copy.join(spliter), spliter)
-                var $item = $('dl').filter('[data-type="'+ key +'"]').find('[value="'+ item +'"]')
+                var $item = $('dl').filter('[data-type="' + key + '"]').find('[value="' + item + '"]')
 
-                var titleStr = '['+ copy.join('-') +']'
+                var titleStr = '[' + copy.join('-') + ']'
 
                 if (res[curr]) {
                     $item.removeClass('disabled')
@@ -290,10 +302,10 @@
          */
         for (var i = 0; i < keys.length; i++) {
             var item = keys[i]
-            var $curr = $('dl[data-type="'+ item +'"]')
+            var $curr = $('dl[data-type="' + item + '"]')
             if (item == type) continue
 
-            var $lastSelected = $curr.find('button[value="'+ selectedCache[i] +'"]')
+            var $lastSelected = $curr.find('button[value="' + selectedCache[i] + '"]')
 
             // 缓存的已选属性没有 disabled (可以被选择)
             if (!$lastSelected.hasClass('disabled')) {
@@ -310,7 +322,7 @@
     function highLighAttr() {
         for (var i = 0; i < keys.length; i++) {
             var key = keys[i]
-            var $curr = $('dl[data-type="'+ key +'"]')
+            var $curr = $('dl[data-type="' + key + '"]')
             if ($curr.find('.active').length < 1) {
                 $curr.addClass('hl')
             } else {
@@ -379,6 +391,7 @@
         var title = $(el).data('title');
         if (title) $(el).attr('title', title);
     }
+
     function setAllTitle() {
         $('#app').find('button').each(setTitle)
     }

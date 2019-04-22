@@ -38,28 +38,28 @@
  */
 var plusOne = function (digits) {
     let isCarryOver = false;
-    if(digits[digits.length - 1] === 9){
+    if (digits[digits.length - 1] === 9) {
         isCarryOver = true;
         digits[digits.length - 1] = 0;
-    }else{
+    } else {
         digits[digits.length - 1]++;
-        return  digits
+        return digits
     }
 
     for (let i = digits.length - 2; i >= 0; i--) {
-        if(digits[i] === 9 && isCarryOver){
+        if (digits[i] === 9 && isCarryOver) {
             isCarryOver = true;
             digits[i] = 0;
-        }else if(isCarryOver){
+        } else if (isCarryOver) {
             digits[i]++;
             isCarryOver = false;
             break;
-        }else{
+        } else {
             break;
         }
     }
 
-    if(isCarryOver){
+    if (isCarryOver) {
         digits.unshift(1)
     }
 

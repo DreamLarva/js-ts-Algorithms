@@ -30,8 +30,8 @@
  */
 var titleToNumber = function (s) {
     return s.split("").reduceRight((pre, cur, index) =>
-         pre + (cur.charCodeAt(0) - 65 + 1) * (26 ** (s.length - 1 - index))
-    , 0)
+        pre + (cur.charCodeAt(0) - 65 + 1) * (26 ** (s.length - 1 - index))
+        , 0)
 };
 
 console.log(titleToNumber("AB"))

@@ -66,7 +66,7 @@ var removeElement = function (nums, val) {
     let index = 0;
     for (let pointer = 0; pointer < len; pointer++) {
 
-        if(nums[pointer] !== val){
+        if (nums[pointer] !== val) {
             nums[index] = nums[pointer];
             index++;
         }
