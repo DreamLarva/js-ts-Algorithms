@@ -19,7 +19,7 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function (strs) {
+var groupAnagrams = function (strs: string[]) {
     const primeFloatArr = [
         2,
         3,
@@ -49,7 +49,7 @@ var groupAnagrams = function (strs) {
         127,
     ];
 
-    const cache = {};
+    const cache = {} as { [key: string]: string[] };
     for (let i = 0; i < strs.length; i++) {
         if (strs[i] === "") {
             if (cache[""]) {

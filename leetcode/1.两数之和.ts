@@ -17,30 +17,30 @@
  * @return {number[]}
  */
 // 暴力
-var twoSum = function (nums, target) {
+var twoSum = function (nums: number[], target: number) {
     for (let i = 0, len = nums.length; i < len - 1; i++) {
         for (let j = i + 1; j < len; j++) {
             if (nums[i] + nums[j] === target) {
-                return [i, j]
+                return [i, j];
             }
         }
     }
 };
 
-// 哈希表
-var twoSum1 = function (nums, target) {
-    let map = {};
-    nums.forEach((i, index) => {
-        map[i] = index
+var twoSum1 = function (nums: number[], target: number) {
+    let map: { [index: number]: number } = {};
+    nums.forEach((i: number, index) => {
+        map[i] = index;
     });
-    for(let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         let sec = target - nums[i];
-        if(!!map[sec] && map[sec] !== i){
-            return [i, map[sec]]
+        if (!!map[sec] && map[sec] !== i) {
+            return [i, map[sec]];
         }
     }
 };
 
+console.log(124)
 
-const assert = require("assert");
+import assert from "assert";
 assert.deepStrictEqual(twoSum1([2, 7, 11, 15], 9), [0, 1]);

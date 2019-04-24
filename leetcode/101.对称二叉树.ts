@@ -70,8 +70,5 @@ function recursion(left: TreeNode<number> | null, right: TreeNode<number> | null
 }
 
 
-const {createBinTree} = require("./util/BinTree");
-
-console.log(isSymmetric(createBinTree([1, 2, 2, 3, 4, 4, 3])));
 
 export {};

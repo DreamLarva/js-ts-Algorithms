@@ -27,25 +27,7 @@
  *     this.next = null;
  * }
  */
-class ListNode<T> {
-    val: T;
-    next: null | ListNode<T>;
-
-    constructor(val: T) {
-        this.val = val;
-        this.next = null;
-    }
-
-    toArray() {
-        const result = [];
-        let tmp: ListNode<T> | null = this;
-        while (tmp !== null) {
-            result.push(tmp.val);
-            tmp = tmp.next;
-        }
-        return result;
-    }
-}
+import {ListNode} from "../util/LinkedList"
 
 /**
  * @param {ListNode} l1

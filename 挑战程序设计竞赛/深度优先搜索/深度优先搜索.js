@@ -1,22 +1,7 @@
 /*
-给定整数 a1,a2,...,an 判断是否可以从中选出若干书,使他们和恰好为K限制条件
-1<= n<=20
--10**8 <= ai <=10**8
--10**8 <= k <=10**8
-
-input:
-n = 4
-a={1,2,4,7}
-k=3
-output:
-yes
-
-input:
-n=4
-a={1,2,3,7}
-k=14
-output:
-no
+给定一 N * M 的场地
+W代表水洼 W相邻8个方向的W算作一格水洼
+计算有多少个水洼
 * */
 
 
@@ -63,4 +48,4 @@ function solve() {
     return res;
 }
 
-console.log(solve());
+console.log(solve()); // 3

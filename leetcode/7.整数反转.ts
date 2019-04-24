@@ -17,7 +17,8 @@ const reverse = function (x: number) {
     const minLimit = -maxLimit;
 
     if (x > maxLimit || x < minLimit) return 0;
-    const result = Math.sign(x) * Number(String(Math.abs(x)).split("").reverse().join(""));
+    const result = (x > 0 ? 1 : -1) * Number(String(Math.abs(x)).split("").reverse().join(""));
+    // const result = Math.sign(x) * Number(String(Math.abs(x)).split("").reverse().join(""));
     return result > maxLimit || result < minLimit ? 0 : result;
 };
 
