@@ -40,7 +40,6 @@ var twoSum1 = function (nums: number[], target: number) {
     }
 };
 
-console.log(124)
 
 import assert from "assert";
 assert.deepStrictEqual(twoSum1([2, 7, 11, 15], 9), [0, 1]);
