@@ -1,6 +1,6 @@
 // 二叉树
 
-class TreeNode<T> {
+class TreeNode<T = any> {
     val: T;
     left: null | TreeNode<T> = null;
     right: null | TreeNode<T> = null;
@@ -45,8 +45,7 @@ function createBinaryTree<T>(arr: T[]) {
 }
 
 
-module.exports = {
+export {
     createBinaryTree,
     TreeNode,
-}
-;
+};
