@@ -1,53 +1,14 @@
-/*
-给定一个二叉树，判断它是否是高度平衡的二叉树。
-
-本题中，一棵高度平衡二叉树定义为：
-
-一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。
-
-示例 1:
-
-给定二叉树 [3,9,20,null,null,15,7]
-
-    3
-   / \
-  9  20
-    /  \
-   15   7
-返回 true 。
-
-示例 2:
-
-给定二叉树 [1,2,2,3,3,null,null,4,4]
-
-       1
-      / \
-     2   2
-    / \
-   3   3
-  / \
- 4   4
-返回 false 。
-*/
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {boolean}
- */
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var isBalanced = function (root) {
-    if (root === null) return true;
+    if (root === null)
+        return true;
     // 递归 左子树 和 右子树
-    return isBalanced(root.left) && isBalanced(root.right) && Math.abs(depth(root.left) - depth(root.right)) <= 1
+    return isBalanced(root.left) && isBalanced(root.right) && Math.abs(depth(root.left) - depth(root.right)) <= 1;
 };
-
 function depth(root) {
-    if (root == null) return 0;
+    if (root == null)
+        return 0;
     return 1 + Math.max(depth(root.left), depth(root.right));
 }
-
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTEwLuW5s+ihoeS6jOWPieagkS5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMTEwLuW5s+ihoeS6jOWPieagkS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQXNDQSxJQUFJLFVBQVUsR0FBRyxVQUFVLElBQVU7SUFDakMsSUFBSSxJQUFJLEtBQUssSUFBSTtRQUFFLE9BQU8sSUFBSSxDQUFDO0lBQy9CLGVBQWU7SUFDZixPQUFPLFVBQVUsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksVUFBVSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLEdBQUcsS0FBSyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQztBQUNsSCxDQUFDLENBQUM7QUFFRixTQUFTLEtBQUssQ0FBQyxJQUFVO0lBQ3JCLElBQUksSUFBSSxJQUFJLElBQUk7UUFBRSxPQUFPLENBQUMsQ0FBQztJQUMzQixPQUFPLENBQUMsR0FBRyxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLEVBQUUsS0FBSyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDO0FBQzdELENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxu57uZ5a6a5LiA5Liq5LqM5Y+J5qCR77yM5Yik5pat5a6D5piv5ZCm5piv6auY5bqm5bmz6KGh55qE5LqM5Y+J5qCR44CCXG5cbuacrOmimOS4re+8jOS4gOajtemrmOW6puW5s+ihoeS6jOWPieagkeWumuS5ieS4uu+8mlxuXG7kuIDkuKrkuozlj4nmoJHmr4/kuKroioLngrkg55qE5bem5Y+z5Lik5Liq5a2Q5qCR55qE6auY5bqm5beu55qE57ud5a+55YC85LiN6LaF6L+HMeOAglxuXG7npLrkvosgMTpcblxu57uZ5a6a5LqM5Y+J5qCRIFszLDksMjAsbnVsbCxudWxsLDE1LDddXG5cbiAgICAzXG4gICAvIFxcXG4gIDkgIDIwXG4gICAgLyAgXFxcbiAgIDE1ICAgN1xu6L+U5ZueIHRydWUg44CCXG5cbuekuuS+iyAyOlxuXG7nu5nlrprkuozlj4nmoJEgWzEsMiwyLDMsMyxudWxsLG51bGwsNCw0XVxuXG4gICAgICAgMVxuICAgICAgLyBcXFxuICAgICAyICAgMlxuICAgIC8gXFxcbiAgIDMgICAzXG4gIC8gXFxcbiA0ICAgNFxu6L+U5ZueIGZhbHNlIOOAglxuKi9cbmltcG9ydCB7VHJlZU5vZGV9IGZyb20gXCIuLi91dGlsL0JpbmFyeVRyZWVcIjtcblxuLyoqXG4gKiBAcGFyYW0ge1RyZWVOb2RlIHwgbnVsbH0gcm9vdFxuICogQHJldHVybiB7Ym9vbGVhbn1cbiAqL1xudHlwZSByb290ID0gVHJlZU5vZGU8bnVtYmVyPiB8IG51bGw7XG52YXIgaXNCYWxhbmNlZCA9IGZ1bmN0aW9uIChyb290OiByb290KTogYm9vbGVhbiB7XG4gICAgaWYgKHJvb3QgPT09IG51bGwpIHJldHVybiB0cnVlO1xuICAgIC8vIOmAkuW9kiDlt6blrZDmoJEg5ZKMIOWPs+WtkOagkVxuICAgIHJldHVybiBpc0JhbGFuY2VkKHJvb3QubGVmdCkgJiYgaXNCYWxhbmNlZChyb290LnJpZ2h0KSAmJiBNYXRoLmFicyhkZXB0aChyb290LmxlZnQpIC0gZGVwdGgocm9vdC5yaWdodCkpIDw9IDE7XG59O1xuXG5mdW5jdGlvbiBkZXB0aChyb290OiByb290KTogbnVtYmVyIHtcbiAgICBpZiAocm9vdCA9PSBudWxsKSByZXR1cm4gMDtcbiAgICByZXR1cm4gMSArIE1hdGgubWF4KGRlcHRoKHJvb3QubGVmdCksIGRlcHRoKHJvb3QucmlnaHQpKTtcbn1cblxuXG5leHBvcnQge31cbiJdfQ==

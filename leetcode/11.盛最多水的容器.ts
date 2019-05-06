@@ -44,3 +44,5 @@ var maxArea = function (height: number[]) {
     }
     return result;
 };
+
+export {}

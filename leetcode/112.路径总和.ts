@@ -32,3 +32,5 @@ var hasPathSum = function (root: TreeNode | null, sum: number): boolean {
             hasPathSum(root.right, sum - root.val);
     }
 };
+
+export {}

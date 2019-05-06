@@ -1,3 +1,4 @@
+"use strict";
 /*
 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
 
@@ -10,7 +11,10 @@
 因为 nums[0] + nums[1] = 2 + 7 = 9
 所以返回 [0, 1]
 * */
-
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -21,26 +25,23 @@ var twoSum = function (nums, target) {
     for (let i = 0, len = nums.length; i < len - 1; i++) {
         for (let j = i + 1; j < len; j++) {
             if (nums[i] + nums[j] === target) {
-                return [i, j]
+                return [i, j];
             }
         }
     }
 };
-
-// 哈希表
 var twoSum1 = function (nums, target) {
     let map = {};
     nums.forEach((i, index) => {
-        map[i] = index
+        map[i] = index;
     });
-    for(let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         let sec = target - nums[i];
-        if(!!map[sec] && map[sec] !== i){
-            return [i, map[sec]]
+        if (!!map[sec] && map[sec] !== i) {
+            return [i, map[sec]];
         }
     }
 };
-
-
-const assert = require("assert");
-assert.deepStrictEqual(twoSum1([2, 7, 11, 15], 9), [0, 1]);
+const assert_1 = __importDefault(require("assert"));
+assert_1.default.deepStrictEqual(twoSum1([2, 7, 11, 15], 9), [0, 1]);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMS7kuKTmlbDkuYvlkowuanMiLCJzb3VyY2VSb290IjoiLi8iLCJzb3VyY2VzIjpbImxlZXRjb2RlLzEu5Lik5pWw5LmL5ZKMLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7Ozs7SUFXSTs7Ozs7QUFFSjs7OztHQUlHO0FBQ0gsS0FBSztBQUNMLElBQUksTUFBTSxHQUFHLFVBQVUsSUFBYyxFQUFFLE1BQWM7SUFDakQsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsR0FBRyxHQUFHLElBQUksQ0FBQyxNQUFNLEVBQUUsQ0FBQyxHQUFHLEdBQUcsR0FBRyxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUU7UUFDakQsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxHQUFHLEVBQUUsQ0FBQyxFQUFFLEVBQUU7WUFDOUIsSUFBSSxJQUFJLENBQUMsQ0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDLENBQUMsQ0FBQyxLQUFLLE1BQU0sRUFBRTtnQkFDOUIsT0FBTyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQzthQUNqQjtTQUNKO0tBQ0o7QUFDTCxDQUFDLENBQUM7QUFFRixJQUFJLE9BQU8sR0FBRyxVQUFVLElBQWMsRUFBRSxNQUFjO0lBQ2xELElBQUksR0FBRyxHQUFnQyxFQUFFLENBQUM7SUFDMUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQVMsRUFBRSxLQUFLLEVBQUUsRUFBRTtRQUM5QixHQUFHLENBQUMsQ0FBQyxDQUFDLEdBQUcsS0FBSyxDQUFDO0lBQ25CLENBQUMsQ0FBQyxDQUFDO0lBQ0gsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLElBQUksQ0FBQyxNQUFNLEVBQUUsQ0FBQyxFQUFFLEVBQUU7UUFDbEMsSUFBSSxHQUFHLEdBQUcsTUFBTSxHQUFHLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQztRQUMzQixJQUFJLENBQUMsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLElBQUksR0FBRyxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsRUFBRTtZQUM5QixPQUFPLENBQUMsQ0FBQyxFQUFFLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO1NBQ3hCO0tBQ0o7QUFDTCxDQUFDLENBQUM7QUFHRixvREFBNEI7QUFDNUIsZ0JBQU0sQ0FBQyxlQUFlLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxFQUFFLEVBQUUsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG7nu5nlrprkuIDkuKrmlbTmlbDmlbDnu4QgbnVtcyDlkozkuIDkuKrnm67moIflgLwgdGFyZ2V077yM6K+35L2g5Zyo6K+l5pWw57uE5Lit5om+5Ye65ZKM5Li655uu5qCH5YC855qE6YKjIOS4pOS4qiDmlbTmlbDvvIzlubbov5Tlm57ku5bku6znmoTmlbDnu4TkuIvmoIfjgIJcblxu5L2g5Y+v5Lul5YGH6K6+5q+P56eN6L6T5YWl5Y+q5Lya5a+55bqU5LiA5Liq562U5qGI44CC5L2G5piv77yM5L2g5LiN6IO96YeN5aSN5Yip55So6L+Z5Liq5pWw57uE5Lit5ZCM5qC355qE5YWD57Sg44CCXG5cbuekuuS+izpcblxu57uZ5a6aIG51bXMgPSBbMiwgNywgMTEsIDE1XSwgdGFyZ2V0ID0gOVxuXG7lm6DkuLogbnVtc1swXSArIG51bXNbMV0gPSAyICsgNyA9IDlcbuaJgOS7pei/lOWbniBbMCwgMV1cbiogKi9cblxuLyoqXG4gKiBAcGFyYW0ge251bWJlcltdfSBudW1zXG4gKiBAcGFyYW0ge251bWJlcn0gdGFyZ2V0XG4gKiBAcmV0dXJuIHtudW1iZXJbXX1cbiAqL1xuLy8g5pq05YqbXG52YXIgdHdvU3VtID0gZnVuY3Rpb24gKG51bXM6IG51bWJlcltdLCB0YXJnZXQ6IG51bWJlcikge1xuICAgIGZvciAobGV0IGkgPSAwLCBsZW4gPSBudW1zLmxlbmd0aDsgaSA8IGxlbiAtIDE7IGkrKykge1xuICAgICAgICBmb3IgKGxldCBqID0gaSArIDE7IGogPCBsZW47IGorKykge1xuICAgICAgICAgICAgaWYgKG51bXNbaV0gKyBudW1zW2pdID09PSB0YXJnZXQpIHtcbiAgICAgICAgICAgICAgICByZXR1cm4gW2ksIGpdO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxufTtcblxudmFyIHR3b1N1bTEgPSBmdW5jdGlvbiAobnVtczogbnVtYmVyW10sIHRhcmdldDogbnVtYmVyKSB7XG4gICAgbGV0IG1hcDogeyBbaW5kZXg6IG51bWJlcl06IG51bWJlciB9ID0ge307XG4gICAgbnVtcy5mb3JFYWNoKChpOiBudW1iZXIsIGluZGV4KSA9PiB7XG4gICAgICAgIG1hcFtpXSA9IGluZGV4O1xuICAgIH0pO1xuICAgIGZvciAobGV0IGkgPSAwOyBpIDwgbnVtcy5sZW5ndGg7IGkrKykge1xuICAgICAgICBsZXQgc2VjID0gdGFyZ2V0IC0gbnVtc1tpXTtcbiAgICAgICAgaWYgKCEhbWFwW3NlY10gJiYgbWFwW3NlY10gIT09IGkpIHtcbiAgICAgICAgICAgIHJldHVybiBbaSwgbWFwW3NlY11dO1xuICAgICAgICB9XG4gICAgfVxufTtcblxuXG5pbXBvcnQgYXNzZXJ0IGZyb20gXCJhc3NlcnRcIjtcbmFzc2VydC5kZWVwU3RyaWN0RXF1YWwodHdvU3VtMShbMiwgNywgMTEsIDE1XSwgOSksIFswLCAxXSk7XG4iXX0=

@@ -77,7 +77,8 @@ var removeDuplicates = function (nums: number[]) {
 };
 
 
-const assert = require("assert");
+import assert from "assert";
+
 const arr = [1, 2, 2, 2, 3];
 const len = removeDuplicates(arr);
 arr.length = len;

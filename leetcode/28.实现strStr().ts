@@ -54,7 +54,7 @@ var strStr = function (haystack: string, needle: string) {
  *      abcabc      =>      [ -1, 0, 0, -1, 0, 0 ]
  *      abad        =>      [ -1, 0, -1, 1 ]
  * */
-function getNext(ps: string) {
+function getNext(ps: string): number[] {
     const next = Array(ps.length).fill(0);
     next[0] = -1;
     let j = 0;
@@ -96,3 +96,5 @@ function kmp(ts: string, ps: string) {
         return -1;
     }
 }
+
+export {}

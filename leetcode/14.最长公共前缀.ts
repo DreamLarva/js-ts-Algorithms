@@ -103,6 +103,7 @@ var longestCommonPrefix = function (strs: string[]) {
     return result!;
 };
 
-const {strictEqual} = require("assert");
+import {strictEqual} from "assert";
+
 strictEqual(longestCommonPrefix(["flower", "flow", "flight"]), "fl");
 strictEqual(longestCommonPrefix(["dog", "racecar", "car"]), "");

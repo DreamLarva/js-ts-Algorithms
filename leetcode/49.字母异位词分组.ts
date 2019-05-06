@@ -77,7 +77,5 @@ var groupAnagrams = function (strs: string[]) {
 
 // console.log(groupAnagrams(["and", "dan"]))
 // console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
-console.log(groupAnagrams([
-    "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzy",
-    "yzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
-]));
+
+export {}

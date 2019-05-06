@@ -37,3 +37,4 @@ var lengthOfLastWord = function (s: string) {
 
 };
 
+export {}

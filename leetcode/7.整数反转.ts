@@ -22,5 +22,4 @@ const reverse = function (x: number) {
     return result > maxLimit || result < minLimit ? 0 : result;
 };
 
-console.log(reverse(1234));
-
+export {}

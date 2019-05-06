@@ -80,3 +80,5 @@ function byStep(arr: number[], k: number) {
         order,
     };
 }
+
+export {}

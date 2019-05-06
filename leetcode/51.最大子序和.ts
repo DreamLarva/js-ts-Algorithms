@@ -48,3 +48,5 @@ function solution(nums: number[]) {
  * TODO 分治法
  * */
 
+
+export {}

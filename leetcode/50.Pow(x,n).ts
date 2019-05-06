@@ -41,3 +41,5 @@ var myPow = function (x: number, n: number) {
     return n < 0 ? 1 / res : res;
 };
 
+
+export {}

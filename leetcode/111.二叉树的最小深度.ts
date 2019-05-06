@@ -41,3 +41,4 @@ var minDepth = function (root: TreeNode | null): number {
         ) + 1;
     }
 };
+export {}

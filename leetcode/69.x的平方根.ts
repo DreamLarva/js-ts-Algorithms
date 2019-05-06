@@ -45,4 +45,4 @@ var mySqrt = function (x: number) {
 };
 
 
-console.log(mySqrt(4));
+export {}

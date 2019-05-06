@@ -34,3 +34,5 @@ var isPalindrome = function (x: number) {
     }
     return x === num || x === (num - num % 10) / 10;
 };
+
+export {}

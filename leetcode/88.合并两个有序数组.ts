@@ -79,3 +79,5 @@ var merge = function (nums1: number[], m: number, nums2: number[], n: number) {
     console.log(nums1);
 
 }
+
+export {}

@@ -16,10 +16,11 @@ function createBinaryTree<T>(arr: T[]) {
     const root = new TreeNode(arr.shift());
     let current_layer_node_arr = [root];
     const next_layer_node_arr: TreeNode<T>[] = [];
-    while (arr.length) {
+    // 将每个放到 二叉树上 如果还剩余节点那么这些节点 的子节点全部设为null
+    while (arr.length || next_layer_node_arr.length) {
         current_layer_node_arr.forEach(node => {
             if (node != null) {
-                const left_data = arr.shift();
+                const left_data = arr.shift() || null;
                 if (left_data != null) {
                     const left_node = new TreeNode(left_data);
                     node.left = left_node;
@@ -27,7 +28,7 @@ function createBinaryTree<T>(arr: T[]) {
                 } else {
                     node.left = null;
                 }
-                const right_data = arr.shift();
+                const right_data = arr.shift() || null;
                 if (right_data != null) {
                     const right_node = new TreeNode(right_data);
                     node.right = right_node;

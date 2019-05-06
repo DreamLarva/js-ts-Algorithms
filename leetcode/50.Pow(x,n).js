@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /*
 实现 pow(x, n) ，即计算 x 的 n 次幂函数。
 
@@ -40,30 +42,4 @@ var myPow = function (x, n) {
     }
     return n < 0 ? 1 / res : res;
 };
-
-
-const Benchmark = require("benchmark");
-const suite = new Benchmark.Suite;
-
-function formalMultiply(x, n) {
-    while (n) {
-        x *= x;
-        n--
-    }
-    return x
-}
-
-suite
-    .add('formalMultiply', function () {
-        formalMultiply(1.00000000000001, 99999999)
-    })
-    .add('myPow', function () {
-        myPow(1.00000000000001, 99999999)
-    })
-    .on('cycle', function (event) {
-        console.log(String(event.target));
-    })
-    .on('complete', function () {
-        console.log('Fastest is ' + this.filter('fastest').map('name'));
-    })
-    .run();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNTAuUG93KHgsbikuanMiLCJzb3VyY2VSb290IjoiLi8iLCJzb3VyY2VzIjpbImxlZXRjb2RlLzUwLlBvdyh4LG4pLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBb0JJO0FBQ0o7Ozs7R0FJRztBQUNILElBQUksS0FBSyxHQUFHLFVBQVUsQ0FBUyxFQUFFLENBQVM7SUFDdEM7Ozs7O1NBS0s7SUFDTCxJQUFJLEdBQUcsR0FBRyxHQUFHLENBQUM7SUFDZCxLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEtBQUssQ0FBQyxFQUFFLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDLEVBQUU7UUFDcEMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsRUFBRTtZQUNiLEdBQUcsSUFBSSxDQUFDLENBQUM7U0FDWjtRQUNELENBQUMsSUFBSSxDQUFDLENBQUM7S0FDVjtJQUNELE9BQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLEdBQUcsQ0FBQyxDQUFDLENBQUMsR0FBRyxDQUFDO0FBQ2pDLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG7lrp7njrAgcG93KHgsIG4pIO+8jOWNs+iuoeeulyB4IOeahCBuIOasoeW5guWHveaVsOOAglxuXG7npLrkvosgMTpcblxu6L6T5YWlOiAyLjAwMDAwLCAxMFxu6L6T5Ye6OiAxMDI0LjAwMDAwXG7npLrkvosgMjpcblxu6L6T5YWlOiAyLjEwMDAwLCAzXG7ovpPlh7o6IDkuMjYxMDBcbuekuuS+iyAzOlxuXG7ovpPlhaU6IDIuMDAwMDAsIC0yXG7ovpPlh7o6IDAuMjUwMDBcbuino+mHijogMi0yID0gMS8yMiA9IDEvNCA9IDAuMjVcbuivtOaYjjpcblxuLTEwMC4wIDwgeCA8IDEwMC4wXG5uIOaYryAzMiDkvY3mnInnrKblj7fmlbTmlbDvvIzlhbbmlbDlgLzojIPlm7TmmK8gW+KIkjIzMSwgMjMxIOKIkiAxXSDjgIJcbiogKi9cbi8qKlxuICogQHBhcmFtIHtudW1iZXJ9IHhcbiAqIEBwYXJhbSB7bnVtYmVyfSBuXG4gKiBAcmV0dXJuIHtudW1iZXJ9XG4gKi9cbnZhciBteVBvdyA9IGZ1bmN0aW9uICh4OiBudW1iZXIsIG46IG51bWJlcikge1xuICAgIC8qKlxuICAgICAqIOS+iyB4ID0gMiBuID0gOVxuICAgICAqIOato+W4uOeul+azlSAyICoqIDkg5oC75YWx5YGa5LqGOeasoeS5mOazlei/kOeul1xuICAgICAqIDIgKiogOSA9ICgyICogMikgKiogNCAqIDIg5oC75YWx5YGa5LqGNiDmrKHkuZjms5Xov5DnrpdcbiAgICAgKiAyICoqIDkgPSAoMiAqIDIpICoqIDIgKiogMiAqIDIgIOaAu+WFseWBmuS6hjQg5qyh5LmY5rOV6L+Q566XXG4gICAgICogKi9cbiAgICBsZXQgcmVzID0gMS4wO1xuICAgIGZvciAobGV0IGkgPSBuOyBpICE9PSAwOyBpID0gfn4oaSAvIDIpKSB7XG4gICAgICAgIGlmIChpICUgMiAhPT0gMCkge1xuICAgICAgICAgICAgcmVzICo9IHg7XG4gICAgICAgIH1cbiAgICAgICAgeCAqPSB4O1xuICAgIH1cbiAgICByZXR1cm4gbiA8IDAgPyAxIC8gcmVzIDogcmVzO1xufTtcblxuXG5leHBvcnQge31cbiJdfQ==

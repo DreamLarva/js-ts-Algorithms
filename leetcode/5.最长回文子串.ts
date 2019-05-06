@@ -48,3 +48,5 @@ var longestPalindrome = function (s: string) {
     });
     return result.join("") || str[0];
 };
+
+export {}

@@ -75,4 +75,4 @@ function solution2(n: number) {
     );
 }
 
-console.log(solution2(4));
+export {}

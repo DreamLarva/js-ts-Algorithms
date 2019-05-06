@@ -61,3 +61,5 @@ var myAtoi = function (str:string) {
     if (num < MIN) return MIN;
     return num;
 };
+
+export {}
