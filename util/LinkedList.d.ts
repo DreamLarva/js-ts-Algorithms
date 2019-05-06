@@ -1,4 +1,4 @@
-declare class ListNode<T> {
+declare class ListNode<T = any> {
     val: T;
     next: null | ListNode<T>;
     constructor(val: T);
