@@ -1,19 +1,5 @@
-/*
-反转一个单链表。
-
-示例:
-
-输入: 1->2->3->4->5->NULL
-输出: 5->4->3->2->1->NULL
-* */
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -22,7 +8,8 @@
 var reverseList = function (head) {
     // 在遍历列表时，将当前节点的 next 指针改为指向前一个元素。由于节点没有引用其上一个节点，因此必须事先存储其前一个元素。
     // 在更改引用之前，还需要另一个指针来存储下一个节点。不要忘记在最后返回新的头引用！
-    if (head == null || head.next === null) return head;
+    if (head == null || head.next === null)
+        return head;
     let last = head, current = head.next;
     last.next = null;
     while (current !== null) {
@@ -31,35 +18,34 @@ var reverseList = function (head) {
         last = current;
         current = next;
     }
-    return last
+    return last;
 };
-
 // 递归
 var solution2 = function (head) {
-    if (head == null || head.next === null) return head;
+    if (head == null || head.next === null)
+        return head;
     const result = byStep(head, head.next);
     head.next = null;
-    return result
+    return result;
 };
-
 function byStep(lastNode, curNode) {
     if (curNode === null) {
         return lastNode;
-    } else {
+    }
+    else {
         const next = curNode.next;
         curNode.next = lastNode;
-        return byStep(curNode, next)
-
+        return byStep(curNode, next);
     }
-
 }
-
 // 递归2
 var solution3 = function (head) {
-    if (head === null || head.next === null) return head;
-    const result = reverseList(head.next);
+    if (head === null || head.next === null)
+        return head;
+    const result = solution3(head.next); // 拿到的是 原尾节点 现在的head节点
+    // 递归后再执行操作
     head.next.next = head;
     head.next = null; // 保证原来头部 现在尾部的 next 值为null
     return result;
 };
-
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjA2LuWPjei9rOmTvuihqC5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMjA2LuWPjei9rOmTvuihqC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQVVBOzs7R0FHRztBQUNILEtBQUs7QUFDTCxJQUFJLFdBQVcsR0FBRyxVQUFVLElBQWM7SUFDdEMsZ0VBQWdFO0lBQ2hFLDJDQUEyQztJQUMzQyxJQUFJLElBQUksSUFBSSxJQUFJLElBQUksSUFBSSxDQUFDLElBQUksS0FBSyxJQUFJO1FBQUUsT0FBTyxJQUFJLENBQUM7SUFFcEQsSUFDSSxJQUFJLEdBQVMsSUFBSSxFQUNqQixPQUFPLEdBQVMsSUFBSSxDQUFDLElBQUksQ0FBQztJQUM5QixJQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztJQUNqQixPQUFPLE9BQU8sS0FBSyxJQUFJLEVBQUU7UUFDckIsTUFBTSxJQUFJLEdBQVEsT0FBTyxDQUFDLElBQUksQ0FBQztRQUMvQixPQUFPLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztRQUNwQixJQUFJLEdBQUcsT0FBTyxDQUFDO1FBQ2YsT0FBTyxHQUFHLElBQUksQ0FBQztLQUNsQjtJQUNELE9BQU8sSUFBSSxDQUFDO0FBQ2hCLENBQUMsQ0FBQztBQUVGLEtBQUs7QUFDTCxJQUFJLFNBQVMsR0FBRyxVQUFVLElBQWM7SUFDcEMsSUFBSSxJQUFJLElBQUksSUFBSSxJQUFJLElBQUksQ0FBQyxJQUFJLEtBQUssSUFBSTtRQUFFLE9BQU8sSUFBSSxDQUFDO0lBQ3BELE1BQU0sTUFBTSxHQUFHLE1BQU0sQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ3ZDLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO0lBQ2pCLE9BQU8sTUFBTSxDQUFDO0FBQ2xCLENBQUMsQ0FBQztBQUVGLFNBQVMsTUFBTSxDQUFDLFFBQWtCLEVBQUUsT0FBd0I7SUFDeEQsSUFBSSxPQUFPLEtBQUssSUFBSSxFQUFFO1FBQ2xCLE9BQU8sUUFBUSxDQUFDO0tBQ25CO1NBQU07UUFDSCxNQUFNLElBQUksR0FBb0IsT0FBTyxDQUFDLElBQUksQ0FBQztRQUMzQyxPQUFPLENBQUMsSUFBSSxHQUFHLFFBQVEsQ0FBQztRQUN4QixPQUFPLE1BQU0sQ0FBQyxPQUFPLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDaEM7QUFDTCxDQUFDO0FBRUQsTUFBTTtBQUNOLElBQUksU0FBUyxHQUFHLFVBQVUsSUFBYztJQUNwQyxJQUFJLElBQUksS0FBSyxJQUFJLElBQUksSUFBSSxDQUFDLElBQUksS0FBSyxJQUFJO1FBQUUsT0FBTyxJQUFJLENBQUM7SUFDckQsTUFBTSxNQUFNLEdBQUcsU0FBUyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLHNCQUFzQjtJQUMzRCxXQUFXO0lBQ1gsSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO0lBQ3RCLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDLENBQUMsMkJBQTJCO0lBQzdDLE9BQU8sTUFBTSxDQUFDO0FBQ2xCLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbuWPjei9rOS4gOS4quWNlemTvuihqOOAglxyXG5cclxu56S65L6LOlxyXG5cclxu6L6T5YWlOiAxLT4yLT4zLT40LT41LT5OVUxMXHJcbui+k+WHujogNS0+NC0+My0+Mi0+MS0+TlVMTFxyXG4qICovXHJcbmltcG9ydCB7TGlzdE5vZGV9IGZyb20gXCIuLi91dGlsL0xpbmtlZExpc3RcIjtcclxuXHJcbi8qKlxyXG4gKiBAcGFyYW0ge0xpc3ROb2RlfSBoZWFkXHJcbiAqIEByZXR1cm4ge0xpc3ROb2RlfVxyXG4gKi9cclxuLy8g6L+t5LujXHJcbnZhciByZXZlcnNlTGlzdCA9IGZ1bmN0aW9uIChoZWFkOiBMaXN0Tm9kZSkge1xyXG4gICAgLy8g5Zyo6YGN5Y6G5YiX6KGo5pe277yM5bCG5b2T5YmN6IqC54K555qEIG5leHQg5oyH6ZKI5pS55Li65oyH5ZCR5YmN5LiA5Liq5YWD57Sg44CC55Sx5LqO6IqC54K55rKh5pyJ5byV55So5YW25LiK5LiA5Liq6IqC54K577yM5Zug5q2k5b+F6aG75LqL5YWI5a2Y5YKo5YW25YmN5LiA5Liq5YWD57Sg44CCXHJcbiAgICAvLyDlnKjmm7TmlLnlvJXnlKjkuYvliY3vvIzov5jpnIDopoHlj6bkuIDkuKrmjIfpkojmnaXlrZjlgqjkuIvkuIDkuKroioLngrnjgILkuI3opoHlv5jorrDlnKjmnIDlkI7ov5Tlm57mlrDnmoTlpLTlvJXnlKjvvIFcclxuICAgIGlmIChoZWFkID09IG51bGwgfHwgaGVhZC5uZXh0ID09PSBudWxsKSByZXR1cm4gaGVhZDtcclxuICAgIHR5cGUgTm9kZSA9IExpc3ROb2RlIHwgbnVsbDtcclxuICAgIGxldFxyXG4gICAgICAgIGxhc3Q6IE5vZGUgPSBoZWFkLFxyXG4gICAgICAgIGN1cnJlbnQ6IE5vZGUgPSBoZWFkLm5leHQ7XHJcbiAgICBsYXN0Lm5leHQgPSBudWxsO1xyXG4gICAgd2hpbGUgKGN1cnJlbnQgIT09IG51bGwpIHtcclxuICAgICAgICBjb25zdCBuZXh0OiBhbnkgPSBjdXJyZW50Lm5leHQ7XHJcbiAgICAgICAgY3VycmVudC5uZXh0ID0gbGFzdDtcclxuICAgICAgICBsYXN0ID0gY3VycmVudDtcclxuICAgICAgICBjdXJyZW50ID0gbmV4dDtcclxuICAgIH1cclxuICAgIHJldHVybiBsYXN0O1xyXG59O1xyXG5cclxuLy8g6YCS5b2SXHJcbnZhciBzb2x1dGlvbjIgPSBmdW5jdGlvbiAoaGVhZDogTGlzdE5vZGUpIHtcclxuICAgIGlmIChoZWFkID09IG51bGwgfHwgaGVhZC5uZXh0ID09PSBudWxsKSByZXR1cm4gaGVhZDtcclxuICAgIGNvbnN0IHJlc3VsdCA9IGJ5U3RlcChoZWFkLCBoZWFkLm5leHQpO1xyXG4gICAgaGVhZC5uZXh0ID0gbnVsbDtcclxuICAgIHJldHVybiByZXN1bHQ7XHJcbn07XHJcblxyXG5mdW5jdGlvbiBieVN0ZXAobGFzdE5vZGU6IExpc3ROb2RlLCBjdXJOb2RlOiBMaXN0Tm9kZSB8IG51bGwpOiBMaXN0Tm9kZSB7XHJcbiAgICBpZiAoY3VyTm9kZSA9PT0gbnVsbCkge1xyXG4gICAgICAgIHJldHVybiBsYXN0Tm9kZTtcclxuICAgIH0gZWxzZSB7XHJcbiAgICAgICAgY29uc3QgbmV4dDogTGlzdE5vZGUgfCBudWxsID0gY3VyTm9kZS5uZXh0O1xyXG4gICAgICAgIGN1ck5vZGUubmV4dCA9IGxhc3ROb2RlO1xyXG4gICAgICAgIHJldHVybiBieVN0ZXAoY3VyTm9kZSwgbmV4dCk7XHJcbiAgICB9XHJcbn1cclxuXHJcbi8vIOmAkuW9kjJcclxudmFyIHNvbHV0aW9uMyA9IGZ1bmN0aW9uIChoZWFkOiBMaXN0Tm9kZSk6IExpc3ROb2RlIHwgbnVsbCB7XHJcbiAgICBpZiAoaGVhZCA9PT0gbnVsbCB8fCBoZWFkLm5leHQgPT09IG51bGwpIHJldHVybiBoZWFkO1xyXG4gICAgY29uc3QgcmVzdWx0ID0gc29sdXRpb24zKGhlYWQubmV4dCk7IC8vIOaLv+WIsOeahOaYryDljp/lsL7oioLngrkg546w5Zyo55qEaGVhZOiKgueCuVxyXG4gICAgLy8g6YCS5b2S5ZCO5YaN5omn6KGM5pON5L2cXHJcbiAgICBoZWFkLm5leHQubmV4dCA9IGhlYWQ7XHJcbiAgICBoZWFkLm5leHQgPSBudWxsOyAvLyDkv53or4Hljp/mnaXlpLTpg6gg546w5Zyo5bC+6YOo55qEIG5leHQg5YC85Li6bnVsbFxyXG4gICAgcmV0dXJuIHJlc3VsdDtcclxufTtcclxuXHJcblxyXG5leHBvcnQge31cclxuIl19

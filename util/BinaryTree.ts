@@ -12,8 +12,8 @@ class TreeNode<T = any> {
 }
 
 
-function createBinaryTree<T>(arr: T[]) {
-    const root = new TreeNode(arr.shift());
+function createBinaryTree<T>(arr: (T | null)[]) {
+    const root: TreeNode<T> = new TreeNode(arr.shift()!); // 根节点不为null
     let current_layer_node_arr = [root];
     const next_layer_node_arr: TreeNode<T>[] = [];
     // 将每个放到 二叉树上 如果还剩余节点那么这些节点 的子节点全部设为null
