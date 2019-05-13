@@ -71,30 +71,30 @@
 <div id="msg"></div>
 
 <script>
-    var data = JSON.parse($('#data_area').val())
+    var data = JSON.parse($('#data_area').data());
 
-    var res = {}
+    var res = {};
 
-    var spliter = '\u2299'
-    var r = {}
-    var keys = []
-    var selectedCache = []
+    var spliter = '\u2299';
+    var r = {};
+    var keys = [];
+    var selectedCache = [];
 
     /**
      * 计算组合数据
      */
     function combineAttr(data, keys) {
-        var allKeys = []
-        var result = {}
+        var allKeys = [];
+        var result = {};
 
         for (var i = 0; i < data.length; i++) {
-            var item = data[i]
-            var values = []
+            var item = data[i];
+            var values = [];
 
             for (var j = 0; j < keys.length; j++) {
-                var key = keys[j]
-                if (!result[key]) result[key] = []
-                if (result[key].indexOf(item[key]) < 0) result[key].push(item[key])
+                var key = keys[j];
+                if (!result[key]) result[key] = [];
+                if (result[key].indexOf(item[key]) < 0) result[key].push(item[key]);
                 values.push(item[key])
             }
             allKeys.push({
@@ -112,32 +112,32 @@
      * 渲染 DOM 结构
      */
     function render(data) {
-        var output = ''
+        var output = '';
         for (var i = 0; i < keys.length; i++) {
             var key = keys[i];
-            var items = data[key]
+            var items = data[key];
 
-            output += '<dl data-type="' + key + '" data-idx="' + i + '">'
-            output += '<dt>' + key + ':</dt>'
-            output += '<dd>'
+            output += '<dl data-type="' + key + '" data-idx="' + i + '">';
+            output += '<dt>' + key + ':</dt>';
+            output += '<dd>';
             for (var j = 0; j < items.length; j++) {
-                var item = items[j]
-                var cName = j == 0 ? 'active' : ''
+                var item = items[j];
+                var cName = j == 0 ? 'active' : '';
                 if (j == 0) {
                     selectedCache.push(item)
                 }
                 output += '<button data-title="' + item + '" class="' + cName + '" value="' + item + '">' + item + '</button> '
             }
-            output += '</dd>'
+            output += '</dd>';
             output += '</dl>'
         }
-        output += '</dl>'
+        output += '</dl>';
 
         $('#app').html(output)
     }
 
     function getAllKeys(arr) {
-        var result = []
+        var result = [];
         for (var i = 0; i < arr.length; i++) {
             result.push(arr[i].path)
         }
@@ -184,20 +184,20 @@
      * 生成所有子集是否可选、库存状态 map
      */
     function buildResult(items) {
-        var allKeys = getAllKeys(items)
+        var allKeys = getAllKeys(items);
 
         for (var i = 0; i < allKeys.length; i++) {
-            var curr = allKeys[i]
-            var sku = items[i].sku
-            var values = curr.split(spliter)
+            var curr = allKeys[i];
+            var sku = items[i].sku;
+            var values = curr.split(spliter);
 
             // var allSets = getAllSets(values)
-            var allSets = powerset(values)
+            var allSets = powerset(values);
 
             // 每个组合的子集
             for (var j = 0; j < allSets.length; j++) {
-                var set = allSets[j]
-                var key = set.join(spliter)
+                var set = allSets[j];
+                var key = set.join(spliter);
 
                 if (res[key]) {
                     res[key].skus.push(sku)
@@ -225,15 +225,15 @@
      * 获取当前选中的属性
      */
     function getSelectedItem() {
-        var result = []
+        var result = [];
         $('dl[data-type]').each(function () {
-            var $selected = $(this).find('.active')
+            var $selected = $(this).find('.active');
             if ($selected.length) {
-                result.push($selected.val())
+                result.push($selected.data())
             } else {
                 result.push('')
             }
-        })
+        });
 
         return result
     }
@@ -244,22 +244,22 @@
     function updateStatus(selected) {
         for (var i = 0; i < keys.length; i++) {
             var key = keys[i];
-            var data = r.result[key]
-            var hasActive = !!selected[i]
-            var copy = selected.slice()
+            var data = r.result[key];
+            var hasActive = !!selected[i];
+            var copy = selected.slice();
 
             for (var j = 0; j < data.length; j++) {
-                var item = data[j]
-                if (selected[i] == item) continue
-                copy[i] = item
+                var item = data[j];
+                if (selected[i] == item) continue;
+                copy[i] = item;
 
-                var curr = trimSpliter(copy.join(spliter), spliter)
-                var $item = $('dl').filter('[data-type="' + key + '"]').find('[value="' + item + '"]')
+                var curr = trimSpliter(copy.join(spliter), spliter);
+                var $item = $('dl').filter('[data-type="' + key + '"]').find('[value="' + item + '"]');
 
-                var titleStr = '[' + copy.join('-') + ']'
+                var titleStr = '[' + copy.join('-') + ']';
 
                 if (res[curr]) {
-                    $item.removeClass('disabled')
+                    $item.removeClass('disabled');
                     setTitle($item.get(0))
                 } else {
                     $item.addClass('disabled').attr('title', titleStr + ' 无此属性搭配')
@@ -272,7 +272,7 @@
      * 正常属性点击
      */
     function handleNormalClick($this) {
-        $this.siblings().removeClass('active')
+        $this.siblings().removeClass('active');
         $this.addClass('active')
     }
 
@@ -280,18 +280,18 @@
      * 无效属性点击
      */
     function handleDisableClick($this) {
-        var $currAttr = $this.parents('dl').eq(0)
-        var idx = $currAttr.data('idx')
-        var type = $currAttr.data('type')
-        var value = $this.val()
+        var $currAttr = $this.parents('dl').eq(0);
+        var idx = $currAttr.data('idx');
+        var type = $currAttr.data('type');
+        var value = $this.data();
 
-        $this.removeClass('disabled')
-        selectedCache[idx] = value
+        $this.removeClass('disabled');
+        selectedCache[idx] = value;
 
-        console.log(selectedCache)
+        console.log(selectedCache);
         // 清空高亮行的已选属性状态（因为更新的时候默认会跳过已选状态）
-        $('dl').not($currAttr).find('button').removeClass('active')
-        updateStatus(getSelectedItem())
+        $('dl').not($currAttr).find('button').removeClass('active');
+        updateStatus(getSelectedItem());
 
         /**
          * 恢复原来已选属性
@@ -301,15 +301,15 @@
          *   3. 否则什么也不做
          */
         for (var i = 0; i < keys.length; i++) {
-            var item = keys[i]
-            var $curr = $('dl[data-type="' + item + '"]')
-            if (item == type) continue
+            var item = keys[i];
+            var $curr = $('dl[data-type="' + item + '"]');
+            if (item == type) continue;
 
-            var $lastSelected = $curr.find('button[value="' + selectedCache[i] + '"]')
+            var $lastSelected = $curr.find('button[value="' + selectedCache[i] + '"]');
 
             // 缓存的已选属性没有 disabled (可以被选择)
             if (!$lastSelected.hasClass('disabled')) {
-                $lastSelected.addClass('active')
+                $lastSelected.addClass('active');
                 updateStatus(getSelectedItem())
             }
         }
@@ -321,8 +321,8 @@
      */
     function highLighAttr() {
         for (var i = 0; i < keys.length; i++) {
-            var key = keys[i]
-            var $curr = $('dl[data-type="' + key + '"]')
+            var key = keys[i];
+            var $curr = $('dl[data-type="' + key + '"]');
             if ($curr.find('.active').length < 1) {
                 $curr.addClass('hl')
             } else {
@@ -333,27 +333,27 @@
 
     function bindEvent() {
         $('#app').undelegate().delegate('button', 'click', function (e) {
-            var $this = $(this)
+            var $this = $(this);
 
-            var isActive = $this.hasClass('.active')
-            var isDisable = $this.hasClass('disabled')
+            var isActive = $this.hasClass('.active');
+            var isDisable = $this.hasClass('disabled');
 
             if (!isActive) {
-                handleNormalClick($this)
+                handleNormalClick($this);
 
                 if (isDisable) {
                     handleDisableClick($this)
                 } else {
-                    selectedCache[$this.parents('dl').eq(0).data('idx')] = $this.val()
+                    selectedCache[$this.parents('dl').eq(0).data('idx')] = $this.data()
                 }
-                updateStatus(getSelectedItem())
-                highLighAttr()
+                updateStatus(getSelectedItem());
+                highLighAttr();
                 showResult()
             }
-        })
+        });
 
         $('button').each(function () {
-            var value = $(this).val()
+            var value = $(this).data();
 
             if (!res[value] && !$(this).hasClass('active')) {
                 $(this).addClass('disabled')
@@ -362,8 +362,8 @@
     }
 
     function showResult() {
-        var result = getSelectedItem()
-        var s = []
+        var result = getSelectedItem();
+        var s = [];
 
         for (var i = 0; i < result.length; i++) {
             var item = result[i];
@@ -373,7 +373,7 @@
         }
 
         if (s.length == keys.length) {
-            var curr = res[s.join(spliter)]
+            var curr = res[s.join(spliter)];
 
             if (curr) {
                 s = s.concat(curr.skus)
@@ -383,7 +383,7 @@
     }
 
     function updateData() {
-        data = JSON.parse($('#data_area').val())
+        data = JSON.parse($('#data_area').data());
         init(data)
     }
 
@@ -397,10 +397,10 @@
     }
 
     function init(data) {
-        res = {}
-        r = {}
-        keys = []
-        selectedCache = []
+        res = {};
+        r = {};
+        keys = [];
+        selectedCache = [];
 
         for (var attr_key in data[0]) {
             if (!data[0].hasOwnProperty(attr_key)) continue;
@@ -408,14 +408,14 @@
         }
         setAllTitle();
 
-        r = combineAttr(data, keys)
+        r = combineAttr(data, keys);
 
-        render(r.result)
+        render(r.result);
 
-        buildResult(r.items)
+        buildResult(r.items);
 
-        updateStatus(getSelectedItem())
-        showResult()
+        updateStatus(getSelectedItem());
+        showResult();
 
         bindEvent()
     }

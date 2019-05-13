@@ -49,4 +49,6 @@ var longestPalindrome = function (s: string) {
     return result.join("") || str[0];
 };
 
+import assert from "assert"
+assert.strictEqual(longestPalindrome("cbbd"),"bb");
 export {}

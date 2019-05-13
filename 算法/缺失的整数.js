@@ -20,6 +20,7 @@ const assert = require("assert");
  * */
 {
     /**
+     * 分治法
      * 如果同样 使用 ^ 来操作所有的值得话 只有那两个 出现奇数次的值会互相干扰
      * 所以只要将 需要 ^ 的内容分成 互不影响的 块就可以
      * 又因为 出现偶数次的 不会影响 所以只需要区分 出现奇数次的即可
@@ -59,5 +60,5 @@ const assert = require("assert");
 
     const sample2 = [..._.range(1, 101), ..._.range(1, 101), 99, 97];
     assert.deepStrictEqual(findOutMissingDigits2(sample2), [97, 99]);
-
+123
 }

@@ -45,18 +45,18 @@ var binaryTreePaths = function (root) {
  * */
 var binaryTreePaths2 = function (root) {
     var arr = [];
-    var str = root && root.val;
+    var str = root && root.data;
     getPath(root, str);
     return arr;
 
     function getPath(root, str) {
         if (!root) return;
         if (root.left) {
-            var str_left = str + '->' + root.left.val;
+            var str_left = str + '->' + root.left.data;
             getPath(root.left, str_left)
         }
         if (root.right) {
-            var str_right = str + '->' + root.right.val;
+            var str_right = str + '->' + root.right.data;
             getPath(root.right, str_right)
         }
         if (!root.left && !root.right) {

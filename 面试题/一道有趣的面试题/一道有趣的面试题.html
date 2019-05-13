@@ -138,7 +138,7 @@
         (function () {
             var params = getQueryFromURL(location.href);
             window.uin = params['uin'] || '';
-            window.key = params['key'] || '';
+            window.key = params['LabelType'] || '';
             window.wxtoken = params['wxtoken'] || '';
             window.pass_ticket = params['pass_ticket'] || '';
         })();

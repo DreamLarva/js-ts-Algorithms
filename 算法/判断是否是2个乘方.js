@@ -1,9 +1,0 @@
-// 只要转换成2进制 然后判断所有位数中是不是只有一个1就可以
-function isBinary1(num) {
-    return /^10*$/.test(num.toString(2))
-}
-
-// 2的乘方的规律 n&n-1 === 0
-function isBinary2(num) {
-    return (num & num - 1) === 0
-}

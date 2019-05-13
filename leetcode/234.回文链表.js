@@ -40,7 +40,7 @@ var isPalindrome = function (head) {
     let afterHalfPart = reverseLinkedList(slowPointer.next);
     let beforeHalfPart = head;
     while (afterHalfPart) {
-        if (afterHalfPart.val !== beforeHalfPart.val) return false;
+        if (afterHalfPart.data !== beforeHalfPart.val) return false;
         beforeHalfPart = beforeHalfPart.next;
         afterHalfPart = afterHalfPart.next
     }
