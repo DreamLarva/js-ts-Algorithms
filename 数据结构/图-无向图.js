@@ -41,21 +41,21 @@ Graph.prototype.showGraph = function () {
 };
 // 深度优先搜索
 Graph.prototype.dfs = function (v) {
-    for (var marked = [], i = 0; i < this.vertices; i++) {
-        marked.push(false)
-    }
+    const marked = Array(this.vertices).fill(false);
+    const {adj} = this;
+    step(v);
 
-    (function dfs(v) {
+    function step(v) {
         marked[v] = true;
-        if (this.adj[v] !== undefined) {
-            console.log("访问了顶点" + v)
+        if (adj[v] !== undefined) {
+            console.log("访问了顶点" + v);
         }
-        this.adj[v].forEach((v, i, a) => {
-            if (!marked[v] && v !== "") {
-                dfs.call(this, v)
+        adj[v].forEach((v, i, a) => {
+            if (v !== "" && !marked[v]) {
+                step(v);
             }
         });
-    }).call(this, v)
+    }
 };
 // 广度优先搜索
 Graph.prototype.bfs = function (s) {

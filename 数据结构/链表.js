@@ -27,7 +27,7 @@ function LList(arr) {
     } else {
         throw new Error("param must be an Array or none")
     }
-    this.head = this.end = new Node("head");
+    this.head = this.end = new Node(null);
     if (arr != null) {
         for (let i = 0, length = arr.length; i < length; i++) {
             this.insert(arr[i], this.end)
@@ -111,7 +111,7 @@ LList.prototype.findPrevious = function (element) {
 
 
 /*var cities = new LList(["Conway", "Russellville", "Alma"]);
- cities.insert("afterHead", "head");
+ cities.insert("afterHead", null);
  cities.insert("afterHead2", "afterHead");
 
  cities.insertArr([1, 2, 3, 10]);
@@ -121,7 +121,7 @@ LList.prototype.findPrevious = function (element) {
 
 // 测试性能
 console.time("createArr");
-var testArr = ["head"];
+var testArr = [null];
 for (let i = 0; i < 999999; i++) {
     testArr.push(i)
 }
@@ -149,7 +149,7 @@ testArr.splice(2, 0, "second", "third");
 console.timeEnd("arrAdd");
 
 console.time("LListAdd");
-testLList.insert("first", "head");
+testLList.insert("first", null);
 testLList.insertArr(["second", "third"], "first");
 console.timeEnd("LListAdd");
 
