@@ -1,38 +1,5 @@
-/*
-请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点，你将只被给定要求被删除的节点。
-
-现有一个链表 -- head = [4,5,1,9]，它可以表示为:
-
-
-
-
-
-示例 1:
-
-输入: head = [4,5,1,9], node = 5
-输出: [4,1,9]
-解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9.
-示例 2:
-
-输入: head = [4,5,1,9], node = 1
-输出: [4,5,9]
-解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9.
-
-
-说明:
-
-链表至少包含两个节点。
-链表中所有节点的值都是唯一的。
-给定的节点为非末尾节点并且一定是链表中的一个有效节点。
-不要从你的函数中返回任何结果。
-* */
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {ListNode} node
  * @return {void} Do not return anything, modify node in-place instead.
@@ -44,20 +11,16 @@ var deleteNode = function (node) {
     // 每个节点分别由之后的的节点代替
     while (node) {
         node.val = node.next.val;
-        if(node.next.next === null){
+        if (node.next.next === null) {
             node.next = null;
-            break
+            break;
         }
         node = node.next;
-
     }
-
 };
-
 var deleteNode2 = function (node) {
     // 直接删除当前节点
     node.val = node.next.val;
-    node.next = node.next.next
-
+    node.next = node.next.next;
 };
-
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjM3LuWIoOmZpOmTvuihqOS4reeahOiKgueCuS5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMjM3LuWIoOmZpOmTvuihqOS4reeahOiKgueCuS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQTZCQTs7O0dBR0c7QUFDSCxJQUFJLFVBQVUsR0FBRyxVQUFVLElBQW9CO0lBQzNDOztTQUVLO0lBQ0wsa0JBQWtCO0lBQ2xCLE9BQU8sSUFBSSxFQUFFO1FBQ1QsSUFBSSxDQUFDLEdBQUcsR0FBRyxJQUFJLENBQUMsSUFBSyxDQUFDLEdBQUcsQ0FBQztRQUMxQixJQUFHLElBQUksQ0FBQyxJQUFLLENBQUMsSUFBSSxLQUFLLElBQUksRUFBQztZQUN4QixJQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztZQUNqQixNQUFLO1NBQ1I7UUFDRCxJQUFJLEdBQUcsSUFBSSxDQUFDLElBQUksQ0FBQztLQUVwQjtBQUVMLENBQUMsQ0FBQztBQUVGLElBQUksV0FBVyxHQUFHLFVBQVUsSUFBYTtJQUNyQyxXQUFXO0lBQ1gsSUFBSSxDQUFDLEdBQUcsR0FBRyxJQUFJLENBQUMsSUFBSyxDQUFDLEdBQUcsQ0FBQztJQUMxQixJQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQyxJQUFLLENBQUMsSUFBSSxDQUFBO0FBRS9CLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbuivt+e8luWGmeS4gOS4quWHveaVsO+8jOS9v+WFtuWPr+S7peWIoOmZpOafkOS4qumTvuihqOS4ree7meWumueahO+8iOmdnuacq+Wwvu+8ieiKgueCue+8jOS9oOWwhuWPquiiq+e7meWumuimgeaxguiiq+WIoOmZpOeahOiKgueCueOAglxyXG5cclxu546w5pyJ5LiA5Liq6ZO+6KGoIC0tIGhlYWQgPSBbNCw1LDEsOV3vvIzlroPlj6/ku6XooajnpLrkuLo6XHJcblxyXG5cclxuXHJcblxyXG5cclxu56S65L6LIDE6XHJcblxyXG7ovpPlhaU6IGhlYWQgPSBbNCw1LDEsOV0sIG5vZGUgPSA1XHJcbui+k+WHujogWzQsMSw5XVxyXG7op6Pph4o6IOe7meWumuS9oOmTvuihqOS4reWAvOS4uiA1IOeahOesrOS6jOS4quiKgueCue+8jOmCo+S5iOWcqOiwg+eUqOS6huS9oOeahOWHveaVsOS5i+WQju+8jOivpemTvuihqOW6lOWPmOS4uiA0IC0+IDEgLT4gOS5cclxu56S65L6LIDI6XHJcblxyXG7ovpPlhaU6IGhlYWQgPSBbNCw1LDEsOV0sIG5vZGUgPSAxXHJcbui+k+WHujogWzQsNSw5XVxyXG7op6Pph4o6IOe7meWumuS9oOmTvuihqOS4reWAvOS4uiAxIOeahOesrOS4ieS4quiKgueCue+8jOmCo+S5iOWcqOiwg+eUqOS6huS9oOeahOWHveaVsOS5i+WQju+8jOivpemTvuihqOW6lOWPmOS4uiA0IC0+IDUgLT4gOS5cclxuXHJcblxyXG7or7TmmI46XHJcblxyXG7pk77ooajoh7PlsJHljIXlkKvkuKTkuKroioLngrnjgIJcclxu6ZO+6KGo5Lit5omA5pyJ6IqC54K555qE5YC86YO95piv5ZSv5LiA55qE44CCXHJcbue7meWumueahOiKgueCueS4uumdnuacq+WwvuiKgueCueW5tuS4lOS4gOWumuaYr+mTvuihqOS4reeahOS4gOS4quacieaViOiKgueCueOAglxyXG7kuI3opoHku47kvaDnmoTlh73mlbDkuK3ov5Tlm57ku7vkvZXnu5PmnpzjgIJcclxuKiAqL1xyXG5pbXBvcnQge0xpc3ROb2RlfSBmcm9tIFwiLi4vdXRpbC9MaW5rZWRMaXN0XCJcclxuLyoqXHJcbiAqIEBwYXJhbSB7TGlzdE5vZGV9IG5vZGVcclxuICogQHJldHVybiB7dm9pZH0gRG8gbm90IHJldHVybiBhbnl0aGluZywgbW9kaWZ5IG5vZGUgaW4tcGxhY2UgaW5zdGVhZC5cclxuICovXHJcbnZhciBkZWxldGVOb2RlID0gZnVuY3Rpb24gKG5vZGU6TGlzdE5vZGUgfCBudWxsKSB7XHJcbiAgICAvKipcclxuICAgICAqIOino+mHijog5Lyg5YWl5LiA5Liq6IqC54K5IOiuqeS9oOWIoOmZpOi/meS4quiKgueCuVxyXG4gICAgICogKi9cclxuICAgIC8vIOavj+S4quiKgueCueWIhuWIq+eUseS5i+WQjueahOeahOiKgueCueS7o+abv1xyXG4gICAgd2hpbGUgKG5vZGUpIHtcclxuICAgICAgICBub2RlLnZhbCA9IG5vZGUubmV4dCEudmFsO1xyXG4gICAgICAgIGlmKG5vZGUubmV4dCEubmV4dCA9PT0gbnVsbCl7XHJcbiAgICAgICAgICAgIG5vZGUubmV4dCA9IG51bGw7XHJcbiAgICAgICAgICAgIGJyZWFrXHJcbiAgICAgICAgfVxyXG4gICAgICAgIG5vZGUgPSBub2RlLm5leHQ7XHJcblxyXG4gICAgfVxyXG5cclxufTtcclxuXHJcbnZhciBkZWxldGVOb2RlMiA9IGZ1bmN0aW9uIChub2RlOkxpc3ROb2RlKSB7XHJcbiAgICAvLyDnm7TmjqXliKDpmaTlvZPliY3oioLngrlcclxuICAgIG5vZGUudmFsID0gbm9kZS5uZXh0IS52YWw7XHJcbiAgICBub2RlLm5leHQgPSBub2RlLm5leHQhLm5leHRcclxuXHJcbn07XHJcblxyXG5leHBvcnQge31cclxuXHJcbiJdfQ==

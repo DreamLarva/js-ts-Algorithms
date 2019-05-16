@@ -4,5 +4,5 @@ declare class TreeNode<T = any> {
     right: null | TreeNode<T>;
     constructor(val: T);
 }
-declare function createBinaryTree<T>(arr: T[]): TreeNode<T | undefined>;
+declare function createBinaryTree<T>(arr: (T | null)[]): TreeNode<T>;
 export { createBinaryTree, TreeNode, };

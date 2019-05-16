@@ -73,7 +73,6 @@ assert_1.default.strictEqual(countPrimes(6), 3);
 assert_1.default.strictEqual(countPrimes(100), 25);
 assert_1.default.strictEqual(countPrimes(105), 27);
 assert_1.default.strictEqual(countPrimes(121), 30);
-
 var countPrimes2 = function (n) {
     // 使用数组
     let notPrimes = new Uint8Array(n);

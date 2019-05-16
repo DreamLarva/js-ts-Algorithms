@@ -1,38 +1,37 @@
-/**
- * Javascript中对应的是Object 所以这边也没什么卵用
- * Dictionay 类的基础是 Array 类(其实Object也可以)
- * 对字典中的键排序，而 JavaScript 中是不能对对象的属性进行排序的
- * */
-function Dictionary() {
-    this.dataStore = [];
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class Dictionary {
+    constructor() {
+        this.dataStore = {};
+    }
+    add(key, value) {
+        this.dataStore[key] = value;
+        return this;
+    }
+    ;
+    find(key) {
+        return this.dataStore[key];
+    }
+    ;
+    remove(key) {
+        delete this.dataStore[key];
+    }
+    ;
+    showAll() {
+        Object.keys(this.dataStore).sort().forEach(v => console.log(v + " -> " + this.dataStore[v]));
+    }
+    ;
+    count() {
+        return Object.keys(this.dataStore).length;
+    }
+    ;
+    clear() {
+        this.dataStore = {};
+    }
 }
-
-Dictionary.prototype.add = function (key, value) {
-    this.dataStore[key] = value;
-    return this
-};
-Dictionary.prototype.find = function (key) {
-    return this.dataStore[key]
-};
-Dictionary.prototype.remove = function (key) {
-    delete this.dataStore[key]
-};
-Dictionary.prototype.showAll = function () {
-    Object.keys(this.dataStore).sort().forEach(v => console.log(v + " -> " + this.dataStore[v]))
-};
-Dictionary.prototype.count = function () {
-    var n = 0;
-    Object.keys(this.dataStore).forEach(v => n++);
-    return n
-};
-Dictionary.prototype.clear = function () {
-    this.dataStore = []
-};
-
-var D = new Dictionary();
+const D = new Dictionary();
 D.add("1A", "1").add("3B", "2").add("2C", "3").add("1", "abc");
 console.log(D.find("1A"));
 D.showAll();
-console.log(D.count())
-
-
+console.log(D.count());
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoi5a2X5YW4LmpzIiwic291cmNlUm9vdCI6Ii4vIiwic291cmNlcyI6WyLmlbDmja7nu5PmnoQv5a2X5YW4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBV0EsTUFBTSxVQUFVO0lBQWhCO1FBQ0ksY0FBUyxHQUFrQixFQUFFLENBQUM7SUEwQmxDLENBQUM7SUF4QkcsR0FBRyxDQUFDLEdBQW9CLEVBQUUsS0FBUTtRQUM5QixJQUFJLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxHQUFHLEtBQUssQ0FBQztRQUM1QixPQUFPLElBQUksQ0FBQztJQUNoQixDQUFDO0lBQUEsQ0FBQztJQUVGLElBQUksQ0FBQyxHQUFjO1FBQ2YsT0FBTyxJQUFJLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBQy9CLENBQUM7SUFBQSxDQUFDO0lBRUYsTUFBTSxDQUFDLEdBQWM7UUFDakIsT0FBTyxJQUFJLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBQy9CLENBQUM7SUFBQSxDQUFDO0lBRUYsT0FBTztRQUNILE1BQU0sQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDLElBQUksRUFBRSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLE9BQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQyxHQUFHLE1BQU0sR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUNqRyxDQUFDO0lBQUEsQ0FBQztJQUVGLEtBQUs7UUFDRCxPQUFPLE1BQU0sQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDLE1BQU0sQ0FBQztJQUM5QyxDQUFDO0lBQUEsQ0FBQztJQUVGLEtBQUs7UUFDRCxJQUFJLENBQUMsU0FBUyxHQUFHLEVBQUUsQ0FBQztJQUN4QixDQUFDO0NBQ0o7QUFHRCxNQUFNLENBQUMsR0FBRyxJQUFJLFVBQVUsRUFBRSxDQUFDO0FBQzNCLENBQUMsQ0FBQyxHQUFHLENBQUMsSUFBSSxFQUFFLEdBQUcsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxJQUFJLEVBQUUsR0FBRyxDQUFDLENBQUMsR0FBRyxDQUFDLElBQUksRUFBRSxHQUFHLENBQUMsQ0FBQyxHQUFHLENBQUMsR0FBRyxFQUFFLEtBQUssQ0FBQyxDQUFDO0FBQy9ELE9BQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDO0FBQzFCLENBQUMsQ0FBQyxPQUFPLEVBQUUsQ0FBQztBQUNaLE9BQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLEtBQUssRUFBRSxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcclxuICogSmF2YXNjcmlwdOS4reWvueW6lOeahOaYr09iamVjdCDmiYDku6Xov5novrnkuZ/msqHku4DkuYjljbXnlKhcclxuICogRGljdGlvbmFyeSDnsbvnmoTln7rnoYDmmK8gQXJyYXkg57G7KOWFtuWunk9iamVjdOS5n+WPr+S7pSlcclxuICog5a+55a2X5YW45Lit55qE6ZSu5o6S5bqP77yM6ICMIEphdmFTY3JpcHQg5Lit5piv5LiN6IO95a+55a+56LGh55qE5bGe5oCn6L+b6KGM5o6S5bqP55qEXHJcbiAqICovXHJcbnR5cGUgVHlwZU9iamVjdDxUPiA9IHtcclxuICAgIFtrZXk6IHN0cmluZ106IFQ7XHJcbiAgICBba2V5OiBudW1iZXJdOiBUO1xyXG59XHJcbnR5cGUgTGFiZWxUeXBlID0gbnVtYmVyIHwgc3RyaW5nO1xyXG5cclxuY2xhc3MgRGljdGlvbmFyeTxUPiB7XHJcbiAgICBkYXRhU3RvcmU6IFR5cGVPYmplY3Q8VD4gPSB7fTtcclxuXHJcbiAgICBhZGQoa2V5OiBudW1iZXIgfCBzdHJpbmcsIHZhbHVlOiBUKSB7XHJcbiAgICAgICAgdGhpcy5kYXRhU3RvcmVba2V5XSA9IHZhbHVlO1xyXG4gICAgICAgIHJldHVybiB0aGlzO1xyXG4gICAgfTtcclxuXHJcbiAgICBmaW5kKGtleTogTGFiZWxUeXBlKSB7XHJcbiAgICAgICAgcmV0dXJuIHRoaXMuZGF0YVN0b3JlW2tleV07XHJcbiAgICB9O1xyXG5cclxuICAgIHJlbW92ZShrZXk6IExhYmVsVHlwZSkge1xyXG4gICAgICAgIGRlbGV0ZSB0aGlzLmRhdGFTdG9yZVtrZXldO1xyXG4gICAgfTtcclxuXHJcbiAgICBzaG93QWxsKCkge1xyXG4gICAgICAgIE9iamVjdC5rZXlzKHRoaXMuZGF0YVN0b3JlKS5zb3J0KCkuZm9yRWFjaCh2ID0+IGNvbnNvbGUubG9nKHYgKyBcIiAtPiBcIiArIHRoaXMuZGF0YVN0b3JlW3ZdKSk7XHJcbiAgICB9O1xyXG5cclxuICAgIGNvdW50KCkge1xyXG4gICAgICAgIHJldHVybiBPYmplY3Qua2V5cyh0aGlzLmRhdGFTdG9yZSkubGVuZ3RoO1xyXG4gICAgfTtcclxuXHJcbiAgICBjbGVhcigpIHtcclxuICAgICAgICB0aGlzLmRhdGFTdG9yZSA9IHt9O1xyXG4gICAgfVxyXG59XHJcblxyXG5cclxuY29uc3QgRCA9IG5ldyBEaWN0aW9uYXJ5KCk7XHJcbkQuYWRkKFwiMUFcIiwgXCIxXCIpLmFkZChcIjNCXCIsIFwiMlwiKS5hZGQoXCIyQ1wiLCBcIjNcIikuYWRkKFwiMVwiLCBcImFiY1wiKTtcclxuY29uc29sZS5sb2coRC5maW5kKFwiMUFcIikpO1xyXG5ELnNob3dBbGwoKTtcclxuY29uc29sZS5sb2coRC5jb3VudCgpKTtcclxuXHJcblxyXG5leHBvcnQge307XHJcbiJdfQ==

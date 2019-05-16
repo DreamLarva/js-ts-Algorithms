@@ -1,3 +1,4 @@
+"use strict";
 /**
  * 图的实际信息都保存在边上面，因为它们描述了图的结构。
  * 我们很容易像之前提到的那样用二叉树的方式去表示图，这是不对的。
@@ -6,103 +7,97 @@
  * 我们将表示图的边的方法称为邻接表或者邻接表数组。
  * 这种方法将边存储为由顶点的相邻顶点列表构成的数组，并以此顶点作为索引。
  * */
-
 // 图类
-function Graph(v) {
-    this.vertices = v;
-    this.edges = 0;
-    this.adj = [];
-    for (var i = 0; i < this.vertices; ++i) {
-        this.adj[i] = [];
-        this.adj[i].push("");
+class Graph {
+    constructor(vertices) {
+        this.adj = [];
+        this.edges = 0; // 边的数量
+        this.vertices = vertices;
+        for (let i = 0; i < this.vertices; ++i) {
+            this.adj[i] = [];
+            this.adj[i].push("");
+        }
     }
-    this.toString = toString;
-
-
+    addEdge(v, w) {
+        this.adj[v].push(w); // v 点 能到 w
+        this.adj[w].push(v); // w 点 能到 v
+        this.edges++;
+    }
+    ;
+    showGraph() {
+        let output = "";
+        for (let i = 0; i < this.vertices; ++i) {
+            output = i + " -> ";
+            for (let j = 0; j < this.vertices; ++j) {
+                if (this.adj[i][j] != undefined) {
+                    output += this.adj[i][j] + " ";
+                }
+            }
+            console.log(output);
+        }
+    }
+    ;
+    // 深度优先搜索
+    dfs(v) {
+        const marked = Array(this.vertices).fill(false);
+        const { adj } = this;
+        step(v);
+        function step(v) {
+            marked[v] = true;
+            if (adj[v] !== undefined) {
+                console.log("访问了顶点" + v);
+            }
+            adj[v].forEach((v) => {
+                if (v !== "" && !marked[v]) {
+                    step(v);
+                }
+            });
+        }
+    }
+    ;
+    // 广度优先搜索
+    bfs(s) {
+        const edgeTo = [];
+        const queue = [];
+        const marked = Array(this.vertices).fill(false);
+        marked[s] = true;
+        queue.push(s);
+        while (queue.length > 0) {
+            const w = queue.shift();
+            if (w !== undefined) {
+                console.log("访问了节点 " + w);
+            }
+            this.adj[w].forEach((v) => {
+                if (v !== "" && !marked[v]) {
+                    console.log(v, w);
+                    edgeTo[v] = w;
+                    marked[v] = true;
+                    queue.push(v);
+                }
+            });
+        }
+        // console.log(edgeTo);
+        return { edgeTo, marked };
+    }
+    ;
+    // 最短路径
+    pathTo(start, end) {
+        // 如果是start开始的顶点 返回的edgeTo[start]一定等于undefined
+        const { marked, edgeTo } = this.bfs(start);
+        if (!marked[end]) { // 避免要到达的顶点其实并没有连接
+            return undefined;
+        }
+        const path = [];
+        // 一旦路径到达start 说明已经完成即停止循环
+        for (let i = end; i != start; i = edgeTo[i]) {
+            path.push(i);
+        }
+        path.push(start);
+        return path.reverse();
+    }
+    ;
 }
-
-// 添 v 到 w 的边
-Graph.prototype.addEdge = function (v, w) {
-    this.adj[v].push(w); // v 点 能到 w
-    this.adj[w].push(v); // w 点 能到 v
-    this.edges++;
-};
-Graph.prototype.showGraph = function () {
-    var output = "";
-    for (let i = 0; i < this.vertices; ++i) {
-        output = i + " -> ";
-        for (var j = 0; j < this.vertices; ++j) {
-            if (this.adj[i][j] != undefined) {
-                output += this.adj[i][j] + " "
-            }
-        }
-        console.log(output)
-    }
-};
-// 深度优先搜索
-Graph.prototype.dfs = function (v) {
-    const marked = Array(this.vertices).fill(false);
-    const {adj} = this;
-    step(v);
-
-    function step(v) {
-        marked[v] = true;
-        if (adj[v] !== undefined) {
-            console.log("访问了顶点" + v);
-        }
-        adj[v].forEach((v, i, a) => {
-            if (v !== "" && !marked[v]) {
-                step(v);
-            }
-        });
-    }
-};
-// 广度优先搜索
-Graph.prototype.bfs = function (s) {
-
-    var edgeTo = [];
-    var queue = [];
-    for (var marked = [], i = 0; i < this.vertices; i++) {
-        marked.push(false)
-    }
-    marked[s] = true;
-    queue.push(s);
-
-    while (queue.length > 0) {
-        var w = queue.shift();
-        if (w !== undefined) {
-            console.log("访问了节点 " + w)
-        }
-        this.adj[w].forEach((v, i, a) => {
-            if (!marked[v] && v !== "") {
-                console.log(v, w);
-                edgeTo[v] = w;
-                marked[v] = true;
-                queue.push(v)
-            }
-        })
-    }
-//        console.log(edgeTo);
-    return {edgeTo, marked}
-};
-// 最短路径
-Graph.prototype.pathTo = function (start, end) {
-    // 如果是start开始的顶点 返回的edgeTo[start]一定等于undefined
-    var {marked, edgeTo} = this.bfs(start);
-
-    if (!marked[end]) { // 避免要到达的顶点其实并没有连接
-        return undefined;
-    }
-    var path = [];
-    // 一旦路径到达start 说明已经完成即停止循环
-    for (var i = end; i != start; i = edgeTo[i]) {
-        path.push(i);
-    }
-    path.push(start);
-    return path.reverse();
-};
-
-var g = new Graph(6);
+const g = new Graph(6);
 g.addEdge(0, 1);
 g.addEdge(0, 2);
 g.addEdge(1, 3);
@@ -117,3 +112,4 @@ g.bfs(0);
 console.log("最短路径");
 //    console.log(g.bfs(1,5))
 console.log(g.pathTo(4, 5));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoi5Zu+LeaXoOWQkeWbvi5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsi5pWw5o2u57uT5p6EL+Wbvi3ml6DlkJHlm74udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7O0tBT0s7QUFFTCxLQUFLO0FBQ0wsTUFBTSxLQUFLO0lBSVAsWUFBWSxRQUFnQjtRQUY1QixRQUFHLEdBQXNCLEVBQUUsQ0FBQztRQUM1QixVQUFLLEdBQUcsQ0FBQyxDQUFDLENBQUMsT0FBTztRQUVkLElBQUksQ0FBQyxRQUFRLEdBQUcsUUFBUSxDQUFDO1FBQ3pCLEtBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxJQUFJLENBQUMsUUFBUSxFQUFFLEVBQUUsQ0FBQyxFQUFFO1lBQ3BDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLEdBQUcsRUFBRSxDQUFDO1lBQ2pCLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLEVBQUUsQ0FBQyxDQUFDO1NBQ3hCO0lBQ0wsQ0FBQztJQUVELE9BQU8sQ0FBQyxDQUFTLEVBQUUsQ0FBUztRQUN4QixJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLFdBQVc7UUFDaEMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxXQUFXO1FBQ2hDLElBQUksQ0FBQyxLQUFLLEVBQUUsQ0FBQztJQUNqQixDQUFDO0lBQUEsQ0FBQztJQUVGLFNBQVM7UUFDTCxJQUFJLE1BQU0sR0FBRyxFQUFFLENBQUM7UUFDaEIsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLElBQUksQ0FBQyxRQUFRLEVBQUUsRUFBRSxDQUFDLEVBQUU7WUFDcEMsTUFBTSxHQUFHLENBQUMsR0FBRyxNQUFNLENBQUM7WUFDcEIsS0FBSyxJQUFJ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QUNwQixDQUFDLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDO0FBQ1QsT0FBTyxDQUFDLEdBQUcsQ0FBQyxNQUFNLENBQUMsQ0FBQztBQUNwQiw2QkFBNkI7QUFDN0IsT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXHJcbiAqIOWbvueahOWunumZheS/oeaBr+mDveS/neWtmOWcqOi+ueS4iumdou+8jOWboOS4uuWug+S7rOaPj+i/sOS6huWbvueahOe7k+aehOOAglxyXG4gKiDmiJHku6zlvojlrrnmmJPlg4/kuYvliY3mj5DliLDnmoTpgqPmoLfnlKjkuozlj4nmoJHnmoTmlrnlvI/ljrvooajnpLrlm77vvIzov5nmmK/kuI3lr7nnmoTjgIJcclxuICog5LqM5Y+J5qCR55qE6KGo546w5b2i5byP55u45b2T5Zu65a6a77yM5LiA5Liq54i26IqC54K55Y+q6IO95pyJ5Lik5Liq5a2Q6IqC54K577yM6ICM5Zu+55qE57uT5p6E5Y206KaB54G15rS75b6X5aSa77yM5LiA5Liq6aG254K55pei5Y+v5Lul5pyJ5LiA5p2h6L6577yM5Lmf5Y+v5Lul5pyJ5aSa5p2h6L655LiO5a6D55u46L+e44CCXHJcbiAqXHJcbiAqIOaIkeS7rOWwhuihqOekuuWbvueahOi+ueeahOaWueazleensOS4uumCu+aOpeihqOaIluiAhemCu+aOpeihqOaVsOe7hOOAglxyXG4gKiDov5nnp43mlrnms5XlsIbovrnlrZjlgqjkuLrnlLHpobbngrnnmoTnm7jpgrvpobbngrnliJfooajmnoTmiJDnmoTmlbDnu4TvvIzlubbku6XmraTpobbngrnkvZzkuLrntKLlvJXjgIJcclxuICogKi9cclxuXHJcbi8vIOWbvuexu1xyXG5jbGFzcyBHcmFwaCB7XHJcbiAgICB2ZXJ0aWNlczogbnVtYmVyOyAvLyDlh6DkuKrnq6/ngrlcclxuICAgIGFkajogKG51bWJlciB8IFwiXCIpW11bXSA9IFtdO1xyXG4gICAgZWRnZXMgPSAwOyAvLyDovrnnmoTmlbDph49cclxuICAgIGNvbnN0cnVjdG9yKHZlcnRpY2VzOiBudW1iZXIpIHtcclxuICAgICAgICB0aGlzLnZlcnRpY2VzID0gdmVydGljZXM7XHJcbiAgICAgICAgZm9yIChsZXQgaSA9IDA7IGkgPCB0aGlzLnZlcnRpY2VzOyArK2kpIHtcclxuICAgICAgICAgICAgdGhpcy5hZGpbaV0gPSBbXTtcclxuICAgICAgICAgICAgdGhpcy5hZGpbaV0ucHVzaChcIlwiKTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcblxyXG4gICAgYWRkRWRnZSh2OiBudW1iZXIsIHc6IG51bWJlcikge1xyXG4gICAgICAgIHRoaXMuYWRqW3ZdLnB1c2godyk7IC8vIHYg54K5IOiDveWIsCB3XHJcbiAgICAgICAgdGhpcy5hZGpbd10ucHVzaCh2KTsgLy8gdyDngrkg6IO95YiwIHZcclxuICAgICAgICB0aGlzLmVkZ2VzKys7XHJcbiAgICB9O1xyXG5cclxuICAgIHNob3dHcmFwaCgpIHtcclxuICAgICAgICBsZXQgb3V0cHV0ID0gXCJcIjtcclxuICAgICAgICBmb3IgKGxldCBpID0gMDsgaSA8IHRoaXMudmVydGljZXM7ICsraSkge1xyXG4gICAgICAgICAgICBvdXRwdXQgPSBpICsgXCIgLT4gXCI7XHJcbiAgICAgICAgICAgIGZvciAobGV0IGogPSAwOyBqIDwgdGhpcy52ZXJ0aWNlczsgKytqKSB7XHJcbiAgICAgICAgICAgICAgICBpZiAodGhpcy5hZGpbaV1bal0gIT0gdW5kZWZpbmVkKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgb3V0cHV0ICs9IHRoaXMuYWRqW2ldW2pdICsgXCIgXCI7XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgY29uc29sZS5sb2cob3V0cHV0KTtcclxuICAgICAgICB9XHJcbiAgICB9O1xyXG5cclxuICAgIC8vIOa3seW6puS8mOWFiOaQnOe0olxyXG4gICAgZGZzKHY6IG51bWJlcikge1xyXG4gICAgICAgIGNvbnN0IG1hcmtlZCA9IEFycmF5KHRoaXMudmVydGljZXMpLmZpbGwoZmFsc2UpO1xyXG4gICAgICAgIGNvbnN0IHthZGp9ID0gdGhpcztcclxuICAgICAgICBzdGVwKHYpO1xyXG5cclxuICAgICAgICBmdW5jdGlvbiBzdGVwKHY6IG51bWJlcikge1xyXG4gICAgICAgICAgICBtYXJrZWRbdl0gPSB0cnVlO1xyXG4gICAgICAgICAgICBpZiAoYWRqW3ZdICE9PSB1bmRlZmluZWQpIHtcclxuICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKFwi6K6/6Zeu5LqG6aG254K5XCIgKyB2KTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBhZGpbdl0uZm9yRWFjaCgodikgPT4ge1xyXG4gICAgICAgICAgICAgICAgaWYgKHYgIT09IFwiXCIgJiYgIW1hcmtlZFt2XSkge1xyXG4gICAgICAgICAgICAgICAgICAgIHN0ZXAodik7XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0pO1xyXG4gICAgICAgIH1cclxuICAgIH07XHJcblxyXG4gICAgLy8g5bm/5bqm5LyY5YWI5pCc57SiXHJcbiAgICBiZnMoczogbnVtYmVyKSB7XHJcbiAgICAgICAgY29uc3QgZWRnZVRvOiBudW1iZXJbXSA9IFtdO1xyXG4gICAgICAgIGNvbnN0IHF1ZXVlOiBudW1iZXJbXSA9IFtdO1xyXG4gICAgICAgIGNvbnN0IG1hcmtlZCA9IEFycmF5KHRoaXMudmVydGljZXMpLmZpbGwoZmFsc2UpO1xyXG4gICAgICAgIG1hcmtlZFtzXSA9IHRydWU7XHJcbiAgICAgICAgcXVldWUucHVzaChzKTtcclxuXHJcbiAgICAgICAgd2hpbGUgKHF1ZXVlLmxlbmd0aCA+IDApIHtcclxuICAgICAgICAgICAgY29uc3QgdyA9IHF1ZXVlLnNoaWZ0KCkhO1xyXG4gICAgICAgICAgICBpZiAodyAhPT0gdW5kZWZpbmVkKSB7XHJcbiAgICAgICAgICAgICAgICBjb25zb2xlLmxvZyhcIuiuv+mXruS6huiKgueCuSBcIiArIHcpO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIHRoaXMuYWRqW3ddLmZvckVhY2goKHYpID0+IHtcclxuICAgICAgICAgICAgICAgIGlmICh2ICE9PSBcIlwiICYmICFtYXJrZWRbdl0pIHtcclxuICAgICAgICAgICAgICAgICAgICBjb25zb2xlLmxvZyh2LCB3KTtcclxuICAgICAgICAgICAgICAgICAgICBlZGdlVG9bdl0gPSB3O1xyXG4gICAgICAgICAgICAgICAgICAgIG1hcmtlZFt2XSA9IHRydWU7XHJcbiAgICAgICAgICAgICAgICAgICAgcXVldWUucHVzaCh2KTtcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIC8vIGNvbnNvbGUubG9nKGVkZ2VUbyk7XHJcbiAgICAgICAgcmV0dXJuIHtlZGdlVG8sIG1hcmtlZH07XHJcbiAgICB9O1xyXG5cclxuICAgIC8vIOacgOefrei3r+W+hFxyXG4gICAgcGF0aFRvKHN0YXJ0OiBudW1iZXIsIGVuZDogbnVtYmVyKSB7XHJcbiAgICAgICAgLy8g5aaC5p6c5pivc3RhcnTlvIDlp4vnmoTpobbngrkg6L+U5Zue55qEZWRnZVRvW3N0YXJ0XeS4gOWumuetieS6jnVuZGVmaW5lZFxyXG4gICAgICAgIGNvbnN0IHttYXJrZWQsIGVkZ2VUb30gPSB0aGlzLmJmcyhzdGFydCk7XHJcblxyXG4gICAgICAgIGlmICghbWFya2VkW2VuZF0pIHsgLy8g6YG/5YWN6KaB5Yiw6L6+55qE6aG254K55YW25a6e5bm25rKh5pyJ6L+e5o6lXHJcbiAgICAgICAgICAgIHJldHVybiB1bmRlZmluZWQ7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGNvbnN0IHBhdGggPSBbXTtcclxuICAgICAgICAvLyDkuIDml6bot6/lvoTliLDovr5zdGFydCDor7TmmI7lt7Lnu4/lrozmiJDljbPlgZzmraLlvqrnjq9cclxuICAgICAgICBmb3IgKGxldCBpID0gZW5kOyBpICE9IHN0YXJ0OyBpID0gZWRnZVRvW2ldKSB7XHJcbiAgICAgICAgICAgIHBhdGgucHVzaChpKTtcclxuICAgICAgICB9XHJcbiAgICAgICAgcGF0aC5wdXNoKHN0YXJ0KTtcclxuICAgICAgICByZXR1cm4gcGF0aC5yZXZlcnNlKCk7XHJcbiAgICB9O1xyXG59XHJcblxyXG5jb25zdCBnID0gbmV3IEdyYXBoKDYpO1xyXG5nLmFkZEVkZ2UoMCwgMSk7XHJcbmcuYWRkRWRnZSgwLCAyKTtcclxuZy5hZGRFZGdlKDEsIDMpO1xyXG5nLmFkZEVkZ2UoMSwgNCk7XHJcbmcuYWRkRWRnZSgyLCA0KTtcclxuZy5hZGRFZGdlKDMsIDUpO1xyXG5nLnNob3dHcmFwaCgpO1xyXG5jb25zb2xlLmxvZyhcIua3seW6puS8mOWFiFwiKTtcclxuZy5kZnMoMCk7XHJcbmNvbnNvbGUubG9nKFwi5bm/5bqm5LyY5YWIXCIpO1xyXG5nLmJmcygwKTtcclxuY29uc29sZS5sb2coXCLmnIDnn63ot6/lvoRcIik7XHJcbi8vICAgIGNvbnNvbGUubG9nKGcuYmZzKDEsNSkpXHJcbmNvbnNvbGUubG9nKGcucGF0aFRvKDQsIDUpKTtcclxuIl19
