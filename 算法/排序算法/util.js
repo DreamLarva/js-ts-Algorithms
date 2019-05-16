@@ -1,0 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// 交换两个数组的元素
+function swap(arr, index1, index2) {
+    [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+    return arr;
+}
+exports.swap = swap;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbC5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsi566X5rOVL+aOkuW6j+eul+azlS91dGlsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsWUFBWTtBQUNaLFNBQWdCLElBQUksQ0FBQyxHQUFhLEVBQUUsTUFBYyxFQUFFLE1BQWM7SUFDOUQsQ0FBQyxHQUFHLENBQUMsTUFBTSxDQUFDLEVBQUUsR0FBRyxDQUFDLE1BQU0sQ0FBQyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsTUFBTSxDQUFDLEVBQUUsR0FBRyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUM7SUFDeEQsT0FBTyxHQUFHLENBQUM7QUFDZixDQUFDO0FBSEQsb0JBR0MiLCJzb3VyY2VzQ29udGVudCI6WyIvLyDkuqTmjaLkuKTkuKrmlbDnu4TnmoTlhYPntKBcclxuZXhwb3J0IGZ1bmN0aW9uIHN3YXAoYXJyOiBudW1iZXJbXSwgaW5kZXgxOiBudW1iZXIsIGluZGV4MjogbnVtYmVyKSB7XHJcbiAgICBbYXJyW2luZGV4MV0sIGFycltpbmRleDJdXSA9IFthcnJbaW5kZXgyXSwgYXJyW2luZGV4MV1dO1xyXG4gICAgcmV0dXJuIGFycjtcclxufVxyXG4iXX0=
