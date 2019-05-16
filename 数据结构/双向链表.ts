@@ -55,7 +55,7 @@ class LList<T> {
     };
 
     display() {
-        let currNode = this.head.next;
+        let currNode = this.head;
         while (currNode !== null && currNode.next != null) {
             console.log(currNode.next.element);
             currNode = currNode.next;
@@ -63,7 +63,7 @@ class LList<T> {
     };
 
     find(item: T) {
-        let currNode = this.head.next;
+        let currNode: null | Node<T> = this.head;
         while (currNode !== null && currNode.element != item) {
             currNode = currNode.next;
         }
