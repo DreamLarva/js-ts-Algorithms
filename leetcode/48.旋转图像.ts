@@ -51,8 +51,10 @@ var rotate = function (matrix: number[][]) {
     // 5x5 => 2x3 或者 3x2
     // 7x7 => 4x3 或者 3x4
     for (let i = 0; i < n / 2; i++) {
-        for (let j = i; j < n - i - 1; j++) {
-            console.log(i, j);
+        const j_limit = (n & 1) === 1 ? n - n / 2 - 1 : n / 2;
+
+        for (let j = 0; j < j_limit; j++) {
+            // console.log(i, j);
             // 使用解构 可以不用 临时变量
             [
                 matrix[i][j],
@@ -73,20 +75,20 @@ var rotate = function (matrix: number[][]) {
 
 import assert from "assert";
 
-// assert.deepStrictEqual(
-//     rotate([
-//         [5, 1, 9, 11],
-//         [2, 4, 8, 10],
-//         [13, 3, 6, 7],
-//         [15, 14, 12, 16],
-//     ]),
-//     [
-//         [15, 13, 2, 5],
-//         [14, 3, 4, 1],
-//         [12, 6, 8, 9],
-//         [16, 7, 10, 11],
-//     ],
-// );
+assert.deepStrictEqual(
+    rotate([
+        [5, 1, 9, 11],
+        [2, 4, 8, 10],
+        [13, 3, 6, 7],
+        [15, 14, 12, 16],
+    ]),
+    [
+        [15, 13, 2, 5],
+        [14, 3, 4, 1],
+        [12, 6, 8, 9],
+        [16, 7, 10, 11],
+    ],
+);
 
 assert.deepStrictEqual(
     rotate([
@@ -105,15 +107,15 @@ assert.deepStrictEqual(
     ],
 );
 
-// assert.deepStrictEqual(
-//     rotate([
-//         [1, 2, 3],
-//         [4, 5, 6],
-//         [7, 8, 9],
-//     ]),
-//     [
-//         [7, 4, 1],
-//         [8, 5, 2],
-//         [9, 6, 3],
-//     ],
-// );
+assert.deepStrictEqual(
+    rotate([
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+    ]),
+    [
+        [7, 4, 1],
+        [8, 5, 2],
+        [9, 6, 3],
+    ],
+);

@@ -56,7 +56,7 @@ assert.deepStrictEqual(
 );
 assert.deepStrictEqual(
     intersect([1, 2, 3, 4, 2], [2, 3, 2]),
-    [2, 3],
+    [2, 3, 2],
 );
 assert.deepStrictEqual(
     intersect([1, 2, 2, 1], [2, 2]),
