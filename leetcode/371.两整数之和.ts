@@ -18,10 +18,10 @@
  */
 var getSum = function (a: number, b: number): number {
     // 负数的表示
-    // 符号位为1  其他位 反码 -1
+    // 符号位为1  其他位反码  然后 -1
     // 由于 符号位不同 一个正数 一个负数 做 异或运算 一定是负数
     const sum = a ^ b;
-    // 表示是不是还有没有进位的 位
+    // 表示 是不是还有没有进位的 位
     const carry = (a & b) << 1;
     if (carry) return getSum(sum, carry);
     return sum;
