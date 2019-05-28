@@ -33,6 +33,7 @@ var lengthOfLongestSubstring = function (s: string) {
 
         if (i - idx > max) {
             max = i - idx;
+
         }
 
         locs[s[i]] = i;
