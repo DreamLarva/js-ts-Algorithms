@@ -115,7 +115,8 @@ var findMedianSortedArrays = function (nums1: number[], nums2: number[]): number
 };
 */
 
-const assert = require("assert");
+import assert from "assert";
+
 assert.strictEqual(
     findMedianSortedArrays([3, 4], [1, 2]),
     2.5,
