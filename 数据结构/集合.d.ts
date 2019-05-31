@@ -13,11 +13,11 @@ declare class MySet<T> {
     addArr(arr: T[]): void;
     show(): T[];
     contains(data: T): boolean;
-    union(set: MySet<T>): MySet<{}>;
-    intersect(set: MySet<T>): Set<any>;
+    union(set: MySet<T>): MySet<unknown>;
+    intersect(set: MySet<T>): Set<unknown>;
     subset(set: MySet<T>): boolean;
-    difference(set: MySet<T>): MySet<{}>;
+    difference(set: MySet<T>): MySet<unknown>;
 }
-declare const S1: MySet<{}>;
-declare const S2: MySet<{}>;
-declare const S3: MySet<{}>;
+declare const S1: MySet<unknown>;
+declare const S2: MySet<unknown>;
+declare const S3: MySet<unknown>;

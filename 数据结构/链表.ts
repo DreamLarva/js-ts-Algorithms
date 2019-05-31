@@ -27,8 +27,8 @@ class Node<T> {
  * display 输出所有节点
  **/
 class LList<T> {
-    head: Node<T>;
-    end: Node<T>;
+    head: Node<T | null>;
+    end: Node<T | null>;
 
     constructor(arr: T[]) {
         if (!(Array.isArray(arr) || arr == null)) throw new Error("param must be an Array or none");
@@ -46,7 +46,7 @@ class LList<T> {
      * @param prevElement 插入的位置的前一个节点
      * 返回值是 新建的节点
      * */
-    insert(newElement: T, prevElement: Node<T> | T | null = this.end) {
+    insert(newElement: T | null, prevElement: Node<T | null> | T | null = this.end) {
         const newNode = new Node(newElement); // new 新节点
         let current;
         if (prevElement instanceof Node) {
@@ -89,7 +89,7 @@ class LList<T> {
         return null;
     };
 
-    insertArr(arr: T[], prevElement: Node<T> | T | null = this.end) {
+    insertArr(arr: T[], prevElement: Node<T | null> | T | null = this.end) {
         let current;
         if (prevElement instanceof Node) {
             current = prevElement; // 直接使用节点

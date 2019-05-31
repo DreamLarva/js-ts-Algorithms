@@ -54,7 +54,7 @@ var _longestCommonPrefix = function (strs: string[]) {
     }
     if (map.length > 2) {
         const _map: mapData = map[map.length - 2];
-        let result: [string, number];
+        let result!: [string, number];
         for (const [key, value] of Object.entries(_map)) {
             // 这里 key 和 value 不能推断 但是靠 result 来约束
             if (result) {

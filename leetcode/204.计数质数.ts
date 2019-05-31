@@ -27,7 +27,7 @@ var countPrimes = function (n: number) {
         }
         return index;
     }
-    const excludeCache = new Set();
+    const excludeCache:Set<number> = new Set();
     for (const num of primeCache) {
         saveExclude(excludeCache, num, n);
     }

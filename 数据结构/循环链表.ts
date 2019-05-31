@@ -19,8 +19,8 @@ class Node<T = any> {
 }
 
 class LList<T = any> {
-    head: Node<T>;
-    end: Node<T>;
+    head: Node<T | null>;
+    end: Node<T | null>;
 
     constructor(arr: T[]) {
         if (Array.isArray(arr) || arr == null) {
@@ -36,7 +36,7 @@ class LList<T = any> {
         }
     }
 
-    insert(newElement: T, prevElement = this.end) {
+    insert(newElement: T | null, prevElement = this.end) {
         const newNode = new Node(newElement); // new 新节点
         let current;
         if (prevElement instanceof Node) {
@@ -103,8 +103,8 @@ class LList<T = any> {
         do {
             last = currNode;
             currNode = currNode.next;
-            if(currNode.element === element)return last;
-        } while (currNode !== this.head );
+            if (currNode.element === element) return last;
+        } while (currNode !== this.head);
         return null;
     };
 
