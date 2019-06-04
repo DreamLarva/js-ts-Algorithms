@@ -37,15 +37,25 @@
  * @return {boolean}
  */
 var canVisitAllRooms = function (rooms: number[][]) {
-    const set = new Set([0]);
-    for (let i = 0; i < rooms.length; i++) {
-        if (!set.has(i)) return false;
-        for (const key of rooms[i]) {
-            set.add(key);
+    // bfs
+    let list: number[] = [];
+    const set: Set<number> = new Set();
+    let room_visited = 0;
+    list.push(0);
+    while (list.length) {
+        const room_num = list.shift()!;
+        if (set.has(room_num)) continue;
+
+        if (rooms[room_num]) {
+            list = list.concat(rooms[room_num]);
+            set.add(room_num);
+            room_visited++;
         }
+
+
     }
 
-    return true;
+    return room_visited === rooms.length;
 };
 
 
