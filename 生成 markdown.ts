@@ -26,4 +26,5 @@ import packageJson from './package.json';
 
 
     await fsPromise.writeFile("./README.md", text);
+    console.log("README.md 更新完毕")
 })();
