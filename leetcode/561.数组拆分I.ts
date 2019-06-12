@@ -20,6 +20,9 @@ n 是正整数,范围在 [1, 10000].
  * @param {number[]} nums
  * @return {number}
  */
+/**
+ * 双指针 怎么做啊?
+ * */
 var arrayPairSum = function (nums: number[]) {
     nums.sort((a, b) => a - b);
     let result = 0;
