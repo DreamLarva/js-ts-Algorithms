@@ -6,18 +6,4 @@
  * 当你想要创建一个数据结构，用来保存一些独一无二的元素时，比如一段文本中用到的单词，集合就变得非常有用。*/
 /**
  * 建立集合的基础类型是数组*/
-declare class MySet<T> {
-    dataStore: T[];
-    size(): number;
-    add(data: T): boolean;
-    addArr(arr: T[]): void;
-    show(): T[];
-    contains(data: T): boolean;
-    union(set: MySet<T>): MySet<unknown>;
-    intersect(set: MySet<T>): Set<unknown>;
-    subset(set: MySet<T>): boolean;
-    difference(set: MySet<T>): MySet<unknown>;
-}
-declare const S1: MySet<unknown>;
-declare const S2: MySet<unknown>;
-declare const S3: MySet<unknown>;
+export {};

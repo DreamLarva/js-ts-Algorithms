@@ -117,3 +117,6 @@ g.bfs(0);
 console.log("最短路径");
 //    console.log(g.bfs(1,5))
 console.log(g.pathTo(4, 5));
+
+
+export {}

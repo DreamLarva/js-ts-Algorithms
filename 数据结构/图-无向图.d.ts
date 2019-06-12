@@ -6,18 +6,4 @@
  * 我们将表示图的边的方法称为邻接表或者邻接表数组。
  * 这种方法将边存储为由顶点的相邻顶点列表构成的数组，并以此顶点作为索引。
  * */
-declare class Graph {
-    vertices: number;
-    adj: (number | "")[][];
-    edges: number;
-    constructor(vertices: number);
-    addEdge(v: number, w: number): void;
-    showGraph(): void;
-    dfs(v: number): void;
-    bfs(s: number): {
-        edgeTo: number[];
-        marked: any[];
-    };
-    pathTo(start: number, end: number): number[] | undefined;
-}
-declare const g: Graph;
+export {};

@@ -90,3 +90,5 @@ console.log("union", S1.union(S2));
 console.log("intersect", S1.intersect(S2));
 console.log("is subset", S3.subset(S2));
 console.log("difference", S1.difference(S2));
+
+export {};
