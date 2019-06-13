@@ -114,6 +114,7 @@ ts-node: ^8.1.0
 [461.汉明距离](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/461.汉明距离.ts)  
 [476.数字的补数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/476.数字的补数.ts)  
 [482.密钥格式化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/482.密钥格式化.ts)  
+[485.最大连续1的个数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/485.最大连续1的个数.ts)  
 [495.提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts)  
 [498.对角线遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/498.对角线遍历.ts)  
 [509.斐波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/509.斐波那契数.ts)  
