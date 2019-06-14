@@ -127,6 +127,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 [557.反转字符串中的单词III](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/557.反转字符串中的单词III.ts)  
 [561.数组拆分I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/561.数组拆分I.ts)  
 [622.设计循环队列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/622.设计循环队列.ts)  
+[707.设计链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/707.设计链表.ts)  
 [724.寻找数组的中心索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/724.寻找数组的中心索引.ts)  
 [733.图像渲染](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/733.图像渲染.ts)  
 [739.每日温度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/739.每日温度.ts)  

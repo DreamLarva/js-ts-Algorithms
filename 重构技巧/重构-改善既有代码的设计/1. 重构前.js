@@ -1,95 +1,94 @@
 "use strict";
-{
-    let MovieType;
-    (function (MovieType) {
-        MovieType[MovieType["REGULAR"] = 0] = "REGULAR";
-        MovieType[MovieType["NEW_RELEASE"] = 1] = "NEW_RELEASE";
-        MovieType[MovieType["CHILDRENS"] = 2] = "CHILDRENS";
-    })(MovieType || (MovieType = {}));
-    class Movie {
-        constructor(title, priceCode) {
-            this._title = title;
-            this._priceCode = priceCode;
-        }
-        getPriceCode() {
-            return this._priceCode;
-        }
-        setPriceCode(arg) {
-            this._priceCode = arg;
-        }
-        getTitle() {
-            return this._title;
-        }
+Object.defineProperty(exports, "__esModule", { value: true });
+var MovieType;
+(function (MovieType) {
+    MovieType[MovieType["REGULAR"] = 0] = "REGULAR";
+    MovieType[MovieType["NEW_RELEASE"] = 1] = "NEW_RELEASE";
+    MovieType[MovieType["CHILDRENS"] = 2] = "CHILDRENS";
+})(MovieType || (MovieType = {}));
+class Movie {
+    constructor(title, priceCode) {
+        this._title = title;
+        this._priceCode = priceCode;
     }
-    Movie.REGULAR = MovieType.REGULAR;
-    Movie.NEW_RELEASE = MovieType.NEW_RELEASE;
-    Movie.CHILDRENS = MovieType.CHILDRENS;
-    class Rental {
-        constructor(movie, daysRented) {
-            this._movie = movie;
-            this._daysRented = daysRented;
-        }
-        getDaysRented() {
-            return this._daysRented;
-        }
-        getMovie() {
-            return this._movie;
-        }
+    getPriceCode() {
+        return this._priceCode;
     }
-    class Customer {
-        constructor(name) {
-            this._name = name;
-            this._rentals = [];
-        }
-        addRental(arg) {
-            this._rentals.push(arg);
-        }
-        getName() {
-            return this._name;
-        }
-        statement() {
-            let totalAmount = 0;
-            let frequentRenterPoints = 0;
-            let result = `Rental Record for ${this.getName()} \n`;
-            this._rentals.forEach(each => {
-                let thisAmount = 0;
-                // determine amounts for each line
-                switch (each.getMovie().getPriceCode()) {
-                    case Movie.REGULAR:
-                        thisAmount += 2;
-                        if (each.getDaysRented() > 2) {
-                            thisAmount += (each.getDaysRented() - 2) * 1.5;
-                        }
-                        break;
-                    case Movie.NEW_RELEASE:
-                        thisAmount += each.getDaysRented() * 3;
-                        break;
-                    case Movie.CHILDRENS:
-                        thisAmount += 1.5;
-                        if (each.getDaysRented() > 3) {
-                            thisAmount += (each.getDaysRented() - 3) * 1.5;
-                        }
-                        break;
-                }
-                //add frequent renter points
-                frequentRenterPoints++;
-                // add bonus for two day new release rental
-                if (each.getMovie().getPriceCode() === Movie.NEW_RELEASE && each.getDaysRented() > 1) {
-                    frequentRenterPoints++;
-                }
-                result += `\t ${each.getMovie().getTitle()} \t ${thisAmount} \n`;
-                totalAmount += thisAmount;
-            });
-            // add footer lines
-            result += `Amount owed is ${totalAmount} \n`;
-            result += `You earned ${frequentRenterPoints} frequentRenterPoints`;
-            return result;
-        }
+    setPriceCode(arg) {
+        this._priceCode = arg;
     }
-    let movieA = new Movie("Dota2", 1);
-    let rentalA = new Rental(movieA, 100);
-    let customerA = new Customer("Agent47");
-    customerA.addRental(rentalA);
-    console.log(customerA.statement());
+    getTitle() {
+        return this._title;
+    }
 }
-//# sourceMappingURL=1. 重构前.js.map
+Movie.REGULAR = MovieType.REGULAR;
+Movie.NEW_RELEASE = MovieType.NEW_RELEASE;
+Movie.CHILDRENS = MovieType.CHILDRENS;
+class Rental {
+    constructor(movie, daysRented) {
+        this._movie = movie;
+        this._daysRented = daysRented;
+    }
+    getDaysRented() {
+        return this._daysRented;
+    }
+    getMovie() {
+        return this._movie;
+    }
+}
+class Customer {
+    constructor(name) {
+        this._name = name;
+        this._rentals = [];
+    }
+    addRental(arg) {
+        this._rentals.push(arg);
+    }
+    getName() {
+        return this._name;
+    }
+    statement() {
+        let totalAmount = 0;
+        let frequentRenterPoints = 0;
+        let result = `Rental Record for ${this.getName()} \n`;
+        this._rentals.forEach(each => {
+            let thisAmount = 0;
+            // determine amounts for each line
+            switch (each.getMovie().getPriceCode()) {
+                case Movie.REGULAR:
+                    thisAmount += 2;
+                    if (each.getDaysRented() > 2) {
+                        thisAmount += (each.getDaysRented() - 2) * 1.5;
+                    }
+                    break;
+                case Movie.NEW_RELEASE:
+                    thisAmount += each.getDaysRented() * 3;
+                    break;
+                case Movie.CHILDRENS:
+                    thisAmount += 1.5;
+                    if (each.getDaysRented() > 3) {
+                        thisAmount += (each.getDaysRented() - 3) * 1.5;
+                    }
+                    break;
+            }
+            //add frequent renter points
+            frequentRenterPoints++;
+            // add bonus for two day new release rental
+            if (each.getMovie().getPriceCode() === Movie.NEW_RELEASE && each.getDaysRented() > 1) {
+                frequentRenterPoints++;
+            }
+            result += `\t ${each.getMovie().getTitle()} \t ${thisAmount} \n`;
+            totalAmount += thisAmount;
+        });
+        // add footer lines
+        result += `Amount owed is ${totalAmount} \n`;
+        result += `You earned ${frequentRenterPoints} frequentRenterPoints`;
+        return result;
+    }
+}
+let movieA = new Movie("Dota2", 1);
+let rentalA = new Rental(movieA, 100);
+let customerA = new Customer("Agent47");
+customerA.addRental(rentalA);
+console.log(customerA.statement());
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMS4g6YeN5p6E5YmNLmpzIiwic291cmNlUm9vdCI6Ii4vIiwic291cmNlcyI6WyLph43mnoTmioDlt6cv6YeN5p6ELeaUueWWhOaXouacieS7o+eggeeahOiuvuiuoS8xLiDph43mnoTliY0udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxJQUFLLFNBSUo7QUFKRCxXQUFLLFNBQVM7SUFDViwrQ0FBTyxDQUFBO0lBQ1AsdURBQVcsQ0FBQTtJQUNYLG1EQUFTLENBQUE7QUFDYixDQUFDLEVBSkksU0FBUyxLQUFULFNBQVMsUUFJYjtBQUVELE1BQU0sS0FBSztJQVFQLFlBQVksS0FBYSxFQUFFLFNBQWlCO1FBQ3hDLElBQUksQ0FBQyxNQUFNLEdBQUcsS0FBSyxDQUFDO1FBQ3BCLElBQUksQ0FBQyxVQUFVLEdBQUcsU0FBUyxDQUFDO0lBQ2hDLENBQUM7SUFFTSxZQUFZO1FBQ2YsT0FBTyxJQUFJLENBQUMsVUFBVSxDQUFDO0lBQzNCLENBQUM7SUFFTSxZQUFZLENBQUMsR0FBVztRQUMzQixJQUFJLENBQUMsVUFBVSxHQUFHLEdBQUcsQ0FBQztJQUMxQixDQUFDO0lBRU0sUUFBUTtRQUNYLE9BQU8sSUFBSSxDQUFDLE1BQU0sQ0FBQztJQUN2QixDQUFDOztBQXRCTSxhQUFPLEdBQUcsU0FBUyxDQUFDLE9BQU8sQ0FBQztBQUM1QixpQkFBVyxHQUFHLFNBQVMsQ0FBQyxXQUFXLENBQUM7QUFDcEMsZUFBUyxHQUFHLFNBQVMsQ0FBQyxTQUFTLENBQUM7QUF1QjNDLE1BQU0sTUFBTTtJQUlSLFlBQVksS0FBWSxFQUFFLFVBQWtCO1FBQ3hDLElBQUksQ0FBQyxNQUFNLEdBQUcsS0FBSyxDQUFDO1FBQ3BCLElBQUksQ0FBQyxXQUFXLEdBQUcsVUFBVSxDQUFDO0lBQ2xDLENBQUM7SUFFTSxhQUFhO1FBQ2hCLE9BQU8sSUFBSSxDQUFDLFdBQVcsQ0FBQztJQUM1QixDQUFDO0lBRU0sUUFBUTtRQUNYLE9BQU8sSUFBSSxDQUFDLE1BQU0sQ0FBQztJQUN2QixDQUFDO0NBQ0o7QUFFRCxNQUFNLFFBQVE7SUFJVixZQUFZLElBQVk7UUFDcEIsSUFBSSxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUM7UUFDbEIsSUFBSSxDQUFDLFFBQVEsR0FBRyxFQUFFLENBQUM7SUFDdkIsQ0FBQztJQUVNLFNBQVMsQ0FBQyxHQUFXO1FBQ3hCLElBQUksQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBQzVCLENBQUM7SUFFTSxPQUFPO1FBQ1YsT0FBTyxJQUFJLENBQUMsS0FBSyxDQUFDO0lBQ3RCLENBQUM7SUFFTSxTQUFTO1FBQ1osSUFBSSxXQUFXLEdBQUcsQ0FBQyxDQUFDO1FBQ3BCLElBQUksb0JBQW9CLEdBQUcsQ0FBQyxDQUFDO1FBQzdCLElBQUksTUFBTSxHQUFHLHFCQUFxQixJQUFJLENBQUMsT0FBTyxFQUFFLEtBQUssQ0FBQztRQUN0RCxJQUFJLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsRUFBRTtZQUN6QixJQUFJLFVBQVUsR0FBRyxDQUFDLENBQUM7WUFDbkIsa0NBQWtDO1lBQ2xDLFFBQVEsSUFBSSxDQUFDLFFBQVEsRUFBRSxDQUFDLFlBQVksRUFBRSxFQUFFO2dCQUNwQyxLQUFLLEtBQUssQ0FBQyxPQUFPO29CQUNkLFVBQVUsSUFBSSxDQUFDLENBQUM7b0JBQ2hCLElBQUksSUFBSSxDQUFDLGFBQWEsRUFBRSxHQUFHLENBQUMsRUFBRTt3QkFDMUIsVUFBVSxJQUFJLENBQUMsSUFBSSxDQUFDLGFBQWEsRUFBRSxHQUFHLENBQUMsQ0FBQyxHQUFHLEdBQUcsQ0FBQztxQkFDbEQ7b0JBQ0QsTUFBTTtnQkFDVixLQUFLLEtBQUssQ0FBQyxXQUFXO29CQUNsQixVQUFVLElBQUksSUFBSSxDQUFDLGFBQWEsRUFBRSxHQUFHLENBQUMsQ0FBQztvQkFDdkMsTUFBTTtnQkFDVixLQUFLLEtBQUssQ0FBQyxTQUFTO29CQUNoQixVQUFVLElBQUksR0FBRyxDQUFDO29CQUNsQixJQUFJLElBQUksQ0FBQyxhQUFhLEVBQUUsR0FBRyxDQUFDLEVBQUU7d0JBQzFCLFVBQVUsSUFBSSxDQUFDLElBQUksQ0FBQyxhQUFhLEVBQUUsR0FBRyxDQUFDLENBQUMsR0FBRyxHQUFHLENBQUM7cUJBQ2xEO29CQUNELE1BQU07YUFFYjtZQUVELDRCQUE0QjtZQUM1QixvQkFBb0IsRUFBRSxDQUFDO1lBQ3ZCLDJDQUEyQztZQUMzQyxJQUFJLElBQUksQ0FBQyxRQUFRLEVBQUUsQ0FBQyxZQUFZLEVBQUUsS0FBSyxLQUFLLENBQUMsV0FBVyxJQUFJLElBQUksQ0FBQyxhQUFhLEVBQUUsR0FBRyxDQUFDLEVBQUU7Z0JBQ2xGLG9CQUFvQixFQUFFLENBQUM7YUFDMUI7WUFDRCxNQUFNLElBQUksTUFBTSxJQUFJLENBQUMsUUFBUSxFQUFFLENBQUMsUUFBUSxFQUFFLE9BQU8sVUFBVSxLQUFLLENBQUM7WUFDakUsV0FBVyxJQUFJLFVBQVUsQ0FBQztRQUM5QixDQUFDLENBQUMsQ0FBQztRQUVILG1CQUFtQjtRQUNuQixNQUFNLElBQUksa0JBQWtCLFdBQVcsS0FBSyxDQUFDO1FBQzdDLE1BQU0sSUFBSSxjQUFjLG9CQUFvQix1QkFBdUIsQ0FBQztRQUNwRSxPQUFPLE1BQU0sQ0FBQztJQUNsQixDQUFDO0NBR0o7QUFFRCxJQUFJLE1BQU0sR0FBRyxJQUFJLEtBQUssQ0FBQyxPQUFPLEVBQUUsQ0FBQyxDQUFDLENBQUM7QUFDbkMsSUFBSSxPQUFPLEdBQUcsSUFBSSxNQUFNLENBQUMsTUFBTSxFQUFFLEdBQUcsQ0FBQyxDQUFDO0FBQ3RDLElBQUksU0FBUyxHQUFHLElBQUksUUFBUSxDQUFDLFNBQVMsQ0FBQyxDQUFDO0FBQ3hDLFNBQVMsQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLENBQUM7QUFFN0IsT0FBTyxDQUFDLEdBQUcsQ0FBQyxTQUFTLENBQUMsU0FBUyxFQUFFLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImVudW0gTW92aWVUeXBlIHtcclxuICAgIFJFR1VMQVIsXHJcbiAgICBORVdfUkVMRUFTRSxcclxuICAgIENISUxEUkVOU1xyXG59XHJcblxyXG5jbGFzcyBNb3ZpZSB7XHJcbiAgICBzdGF0aWMgUkVHVUxBUiA9IE1vdmllVHlwZS5SRUdVTEFSO1xyXG4gICAgc3RhdGljIE5FV19SRUxFQVNFID0gTW92aWVUeXBlLk5FV19SRUxFQVNFO1xyXG4gICAgc3RhdGljIENISUxEUkVOUyA9IE1vdmllVHlwZS5DSElMRFJFTlM7XHJcblxyXG4gICAgcHJpdmF0ZSByZWFkb25seSBfdGl0bGU6IHN0cmluZztcclxuICAgIHByaXZhdGUgX3ByaWNlQ29kZTogbnVtYmVyO1xyXG5cclxuICAgIGNvbnN0cnVjdG9yKHRpdGxlOiBzdHJpbmcsIHByaWNlQ29kZTogbnVtYmVyKSB7XHJcbiAgICAgICAgdGhpcy5fdGl0bGUgPSB0aXRsZTtcclxuICAgICAgICB0aGlzLl9wcmljZUNvZGUgPSBwcmljZUNvZGU7XHJcbiAgICB9XHJcblxyXG4gICAgcHVibGljIGdldFByaWNlQ29kZSgpIHtcclxuICAgICAgICByZXR1cm4gdGhpcy5fcHJpY2VDb2RlO1xyXG4gICAgfVxyXG5cclxuICAgIHB1YmxpYyBzZXRQcmljZUNvZGUoYXJnOiBudW1iZXIpIHtcclxuICAgICAgICB0aGlzLl9wcmljZUNvZGUgPSBhcmc7XHJcbiAgICB9XHJcblxyXG4gICAgcHVibGljIGdldFRpdGxlKCk6IHN0cmluZyB7XHJcbiAgICAgICAgcmV0dXJuIHRoaXMuX3RpdGxlO1xyXG4gICAgfVxyXG59XHJcblxyXG5jbGFzcyBSZW50YWwge1xyXG4gICAgcHJpdmF0ZSByZWFkb25seSBfbW92aWU6IE1vdmllO1xyXG4gICAgcHJpdmF0ZSByZWFkb25seSBfZGF5c1JlbnRlZDogbnVtYmVyO1xyXG5cclxuICAgIGNvbnN0cnVjdG9yKG1vdmllOiBNb3ZpZSwgZGF5c1JlbnRlZDogbnVtYmVyKSB7XHJcbiAgICAgICAgdGhpcy5fbW92aWUgPSBtb3ZpZTtcclxuICAgICAgICB0aGlzLl9kYXlzUmVudGVkID0gZGF5c1JlbnRlZDtcclxuICAgIH1cclxuXHJcbiAgICBwdWJsaWMgZ2V0RGF5c1JlbnRlZCgpIHtcclxuICAgICAgICByZXR1cm4gdGhpcy5fZGF5c1JlbnRlZDtcclxuICAgIH1cclxuXHJcbiAgICBwdWJsaWMgZ2V0TW92aWUoKSB7XHJcbiAgICAgICAgcmV0dXJuIHRoaXMuX21vdmllO1xyXG4gICAgfVxyXG59XHJcblxyXG5jbGFzcyBDdXN0b21lciB7XHJcbiAgICBwcml2YXRlIHJlYWRvbmx5IF9uYW1lOiBzdHJpbmc7XHJcbiAgICBwcml2YXRlIF9yZW50YWxzOiBBcnJheTxSZW50YWw+O1xyXG5cclxuICAgIGNvbnN0cnVjdG9yKG5hbWU6IHN0cmluZykge1xyXG4gICAgICAgIHRoaXMuX25hbWUgPSBuYW1lO1xyXG4gICAgICAgIHRoaXMuX3JlbnRhbHMgPSBbXTtcclxuICAgIH1cclxuXHJcbiAgICBwdWJsaWMgYWRkUmVudGFsKGFyZzogUmVudGFsKTogdm9pZCB7XHJcbiAgICAgICAgdGhpcy5fcmVudGFscy5wdXNoKGFyZyk7XHJcbiAgICB9XHJcblxyXG4gICAgcHVibGljIGdldE5hbWUoKSB7XHJcbiAgICAgICAgcmV0dXJuIHRoaXMuX25hbWU7XHJcbiAgICB9XHJcblxyXG4gICAgcHVibGljIHN0YXRlbWVudCgpOiBzdHJpbmcge1xyXG4gICAgICAgIGxldCB0b3RhbEFtb3VudCA9IDA7XHJcbiAgICAgICAgbGV0IGZyZXF1ZW50UmVudGVyUG9pbnRzID0gMDtcclxuICAgICAgICBsZXQgcmVzdWx0ID0gYFJlbnRhbCBSZWNvcmQgZm9yICR7dGhpcy5nZXROYW1lKCl9IFxcbmA7XHJcbiAgICAgICAgdGhpcy5fcmVudGFscy5mb3JFYWNoKGVhY2ggPT4ge1xyXG4gICAgICAgICAgICBsZXQgdGhpc0Ftb3VudCA9IDA7XHJcbiAgICAgICAgICAgIC8vIGRldGVybWluZSBhbW91bnRzIGZvciBlYWNoIGxpbmVcclxuICAgICAgICAgICAgc3dpdGNoIChlYWNoLmdldE1vdmllKCkuZ2V0UHJpY2VDb2RlKCkpIHtcclxuICAgICAgICAgICAgICAgIGNhc2UgTW92aWUuUkVHVUxBUjpcclxuICAgICAgICAgICAgICAgICAgICB0aGlzQW1vdW50ICs9IDI7XHJcbiAgICAgICAgICAgICAgICAgICAgaWYgKGVhY2guZ2V0RGF5c1JlbnRlZCgpID4gMikge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0aGlzQW1vdW50ICs9IChlYWNoLmdldERheXNSZW50ZWQoKSAtIDIpICogMS41O1xyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICBicmVhaztcclxuICAgICAgICAgICAgICAgIGNhc2UgTW92aWUuTkVXX1JFTEVBU0U6XHJcbiAgICAgICAgICAgICAgICAgICAgdGhpc0Ftb3VudCArPSBlYWNoLmdldERheXNSZW50ZWQoKSAqIDM7XHJcbiAgICAgICAgICAgICAgICAgICAgYnJlYWs7XHJcbiAgICAgICAgICAgICAgICBjYXNlIE1vdmllLkNISUxEUkVOUzpcclxuICAgICAgICAgICAgICAgICAgICB0aGlzQW1vdW50ICs9IDEuNTtcclxuICAgICAgICAgICAgICAgICAgICBpZiAoZWFjaC5nZXREYXlzUmVudGVkKCkgPiAzKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHRoaXNBbW91bnQgKz0gKGVhY2guZ2V0RGF5c1JlbnRlZCgpIC0gMykgKiAxLjU7XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIGJyZWFrO1xyXG5cclxuICAgICAgICAgICAgfVxyXG5cclxuICAgICAgICAgICAgLy9hZGQgZnJlcXVlbnQgcmVudGVyIHBvaW50c1xyXG4gICAgICAgICAgICBmcmVxdWVudFJlbnRlclBvaW50cysrO1xyXG4gICAgICAgICAgICAvLyBhZGQgYm9udXMgZm9yIHR3byBkYXkgbmV3IHJlbGVhc2UgcmVudGFsXHJcbiAgICAgICAgICAgIGlmIChlYWNoLmdldE1vdmllKCkuZ2V0UHJpY2VDb2RlKCkgPT09IE1vdmllLk5FV19SRUxFQVNFICYmIGVhY2guZ2V0RGF5c1JlbnRlZCgpID4gMSkge1xyXG4gICAgICAgICAgICAgICAgZnJlcXVlbnRSZW50ZXJQb2ludHMrKztcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICByZXN1bHQgKz0gYFxcdCAke2VhY2guZ2V0TW92aWUoKS5nZXRUaXRsZSgpfSBcXHQgJHt0aGlzQW1vdW50fSBcXG5gO1xyXG4gICAgICAgICAgICB0b3RhbEFtb3VudCArPSB0aGlzQW1vdW50O1xyXG4gICAgICAgIH0pO1xyXG5cclxuICAgICAgICAvLyBhZGQgZm9vdGVyIGxpbmVzXHJcbiAgICAgICAgcmVzdWx0ICs9IGBBbW91bnQgb3dlZCBpcyAke3RvdGFsQW1vdW50fSBcXG5gO1xyXG4gICAgICAgIHJlc3VsdCArPSBgWW91IGVhcm5lZCAke2ZyZXF1ZW50UmVudGVyUG9pbnRzfSBmcmVxdWVudFJlbnRlclBvaW50c2A7XHJcbiAgICAgICAgcmV0dXJuIHJlc3VsdDtcclxuICAgIH1cclxuXHJcblxyXG59XHJcblxyXG5sZXQgbW92aWVBID0gbmV3IE1vdmllKFwiRG90YTJcIiwgMSk7XHJcbmxldCByZW50YWxBID0gbmV3IFJlbnRhbChtb3ZpZUEsIDEwMCk7XHJcbmxldCBjdXN0b21lckEgPSBuZXcgQ3VzdG9tZXIoXCJBZ2VudDQ3XCIpO1xyXG5jdXN0b21lckEuYWRkUmVudGFsKHJlbnRhbEEpO1xyXG5cclxuY29uc29sZS5sb2coY3VzdG9tZXJBLnN0YXRlbWVudCgpKTtcclxuXHJcblxyXG5leHBvcnQge307XHJcblxyXG4iXX0=
