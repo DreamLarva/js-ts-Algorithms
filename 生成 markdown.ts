@@ -6,7 +6,9 @@ import packageJson from './package.json';
     let text = `# Typescript 与 Javascript 算法 以及 数据结构 练习\n`;
     text += `环境:  \n`;
     text += `typescript: ${packageJson.devDependencies.typescript}  \n`;
-    text += `ts-node: ${packageJson.devDependencies["ts-node"]}  \n`;
+    text += `ts-node: ${packageJson.devDependencies["ts-node"]}  \n\n`;
+
+    text += `Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) \n\n`;
 
     text += `## leecode\n`;
     const leetcode_dir = (await fsPromise.readdir("./leetcode"))

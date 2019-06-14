@@ -2,6 +2,9 @@
 环境:  
 typescript: ^3.5.1  
 ts-node: ^8.1.0  
+
+Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
+
 ## leecode
 [1.两数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1.两数之和.ts)  
 [2.两数相加](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2.两数相加.ts)  
