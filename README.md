@@ -1,4 +1,4 @@
-# Typescript 与 Javascript 算法 以及 数据结构 练习
+# Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
 typescript: ^3.5.1  
 ts-node: ^8.1.0  

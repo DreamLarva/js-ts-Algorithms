@@ -3,7 +3,7 @@ import path from "path";
 import packageJson from './package.json';
 
 (async function () {
-    let text = `# Typescript 与 Javascript 算法 以及 数据结构 练习\n`;
+    let text = `# Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习\n`;
     text += `环境:  \n`;
     text += `typescript: ${packageJson.devDependencies.typescript}  \n`;
     text += `ts-node: ${packageJson.devDependencies["ts-node"]}  \n\n`;
