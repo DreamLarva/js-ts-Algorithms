@@ -56,6 +56,7 @@ ts-node: ^8.1.0
 [136.只出现一次的数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/136.只出现一次的数字.ts)  
 [141.环形链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/141.环形链表.ts)  
 [150.逆波兰表达式求值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/150.逆波兰表达式求值.ts)  
+[151.翻转字符串里的单词](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/151.翻转字符串里的单词.ts)  
 [155.最小栈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/155.最小栈.ts)  
 [160.相交链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/160.相交链表.ts)  
 [167.两数之和II-输入有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/167.两数之和II-输入有序数组.ts)  

@@ -23,20 +23,21 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s: string) {
-    const locs: { [key: string]: number } = {};
-    let idx = -1, max = 0;//idx为当前子串的开始位置-1
+    const location: { [key: string]: number } = {};
+    let start_index = -1, max = 0; // idx为当前子串的开始位置-1
     for (let i = 0; i < s.length; i++) {
-        //如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置+1
-        if (locs[s[i]] > idx) {
-            idx = locs[s[i]];
+        const character = s[i];
+        // 如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置+1
+        if (location[character] > start_index) {
+            start_index = location[character];
         }
 
-        if (i - idx > max) {
-            max = i - idx;
+        if (i - start_index > max) {
+            max = i - start_index;
 
         }
 
-        locs[s[i]] = i;
+        location[character] = i;
     }
     return max;
 
