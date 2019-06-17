@@ -5,6 +5,8 @@ ts-node: ^8.1.0
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
 
+Leetcode 个人首页 : [地址](https://leetcode-cn.com/u/dreamlarva) 
+
 ## leecode
 [1.两数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1.两数之和.ts)  
 [2.两数相加](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2.两数相加.ts)  
@@ -58,6 +60,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 [133.克隆图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/133.克隆图.ts)  
 [136.只出现一次的数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/136.只出现一次的数字.ts)  
 [141.环形链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/141.环形链表.ts)  
+[142.环形链表II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/142.环形链表II.ts)  
 [150.逆波兰表达式求值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/150.逆波兰表达式求值.ts)  
 [151.翻转字符串里的单词](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/151.翻转字符串里的单词.ts)  
 [155.最小栈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/155.最小栈.ts)  
@@ -101,6 +104,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 [292.Nim游戏](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/292.Nim游戏.ts)  
 [303.区域和检索-数组不可变](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/303.区域和检索-数组不可变.ts)  
 [326.3的幂](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/326.3的幂.ts)  
+[328.奇偶链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/328.奇偶链表.ts)  
 [342.4的幂](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/342.4的幂.ts)  
 [344.反转字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/344.反转字符串.ts)  
 [345.反转字符串中的元音字母](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/345.反转字符串中的元音字母.ts)  

@@ -9,6 +9,8 @@ import packageJson from './package.json';
     text += `ts-node: ${packageJson.devDependencies["ts-node"]}  \n\n`;
 
     text += `Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) \n\n`;
+    text += `Leetcode 中文首页 : [地址](https://leetcode-cn.com/u/dreamlarva) \n\n`;
+
 
     text += `## leecode\n`;
     const leetcode_dir = (await fsPromise.readdir("./leetcode"))

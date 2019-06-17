@@ -5,5 +5,9 @@ declare class ListNode<T = any> {
     toString(): T[];
     toArray(): T[];
 }
-declare function createLinkedList<T>(arr: T[]): ListNode<T>;
+/**
+ * @param arr 链表内容
+ * @param cyclePosition 链表尾部连接的节点(索引从0开始)(成环)
+ * */
+declare function createLinkedList<T>(arr: T[], cyclePosition?: number): ListNode<T>;
 export { createLinkedList, ListNode, };
