@@ -5,7 +5,7 @@ ts-node: ^8.1.0
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
 
-Leetcode 个人首页 : [地址](https://leetcode-cn.com/u/dreamlarva) 
+Leetcode 中文首页 : [地址](https://leetcode-cn.com/u/dreamlarva) 
 
 ## leecode
 [1.两数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1.两数之和.ts)  
@@ -40,8 +40,8 @@ Leetcode 个人首页 : [地址](https://leetcode-cn.com/u/dreamlarva)
 [70.爬楼梯](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/70.爬楼梯.ts)  
 [83.删除排序链表中的重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/83.删除排序链表中的重复元素.ts)  
 [88.合并两个有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/88.合并两个有序数组.ts)  
-[94.目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.目标和.ts)  
 [94.二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts)  
+[94.目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.目标和.ts)  
 [98.验证二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/98.验证二叉搜索树.ts)  
 [100.相同的树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/100.相同的树.ts)  
 [101.对称二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/101.对称二叉树.ts)  
@@ -119,7 +119,9 @@ Leetcode 个人首页 : [地址](https://leetcode-cn.com/u/dreamlarva)
 [394.字符串解码](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/394.字符串解码.ts)  
 [400.第N个数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/400.第N个数字.ts)  
 [401.二进制手表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/401.二进制手表.ts)  
+[404.左叶子之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/404.左叶子之和.ts)  
 [412.Fizz_Buzz](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/412.Fizz_Buzz.ts)  
+[430.扁平化多级双向链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/430.扁平化多级双向链表.ts)  
 [461.汉明距离](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/461.汉明距离.ts)  
 [476.数字的补数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/476.数字的补数.ts)  
 [482.密钥格式化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/482.密钥格式化.ts)  

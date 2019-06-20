@@ -1,3 +1,6 @@
+/**
+ * 链表
+ * */
 declare class ListNode<T = any> {
     val: T;
     next: null | ListNode<T>;

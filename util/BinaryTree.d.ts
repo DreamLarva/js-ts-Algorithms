@@ -1,3 +1,6 @@
+/**
+ * 二叉树
+ * */
 declare class TreeNode<T = any> {
     val: T;
     left: null | TreeNode<T>;
