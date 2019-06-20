@@ -33,7 +33,7 @@ Leetcode 中文首页 : [地址](https://leetcode-cn.com/u/dreamlarva)
 | 48 | [旋转图像](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/48.旋转图像.ts) | 普通 |
 | 49 | [字母异位词分组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/49.字母异位词分组.ts) | 普通 |
 | 50 | [Pow(x,n)](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/50.Pow(x,n).ts) | 普通 |
-| 51 | [最大子序和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/51.最大子序和.ts) | 困难 |
+| 53 | [最大子序和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/53.最大子序和.ts) | 简单 |
 | 54 | [螺旋矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/54.螺旋矩阵.ts) | 普通 |
 | 58 | [最后一个单词的长度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/58.最后一个单词的长度.ts) | 简单 |
 | 66 | [加一](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/66.加一.ts) | 简单 |
