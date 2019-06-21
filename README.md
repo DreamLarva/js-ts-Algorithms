@@ -36,6 +36,7 @@ Leetcode 中文首页 : [地址](https://leetcode-cn.com/u/dreamlarva)
 | 53 | [最大子序和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/53.最大子序和.ts) | 简单 |
 | 54 | [螺旋矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/54.螺旋矩阵.ts) | 普通 |
 | 58 | [最后一个单词的长度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/58.最后一个单词的长度.ts) | 简单 |
+| 61 | [旋转链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/61.旋转链表.ts) | 普通 |
 | 66 | [加一](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/66.加一.ts) | 简单 |
 | 67 | [二进制求和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/67.二进制求和.ts) | 简单 |
 | 69 | [x的平方根](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/69.x的平方根.ts) | 简单 |
@@ -61,6 +62,7 @@ Leetcode 中文首页 : [地址](https://leetcode-cn.com/u/dreamlarva)
 | 125 | [验证回文串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/125.验证回文串.ts) | 简单 |
 | 133 | [克隆图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/133.克隆图.ts) | 普通 |
 | 136 | [只出现一次的数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/136.只出现一次的数字.ts) | 简单 |
+| 138 | [复制带随机指针的链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/138.复制带随机指针的链表.ts) | 普通 |
 | 141 | [环形链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/141.环形链表.ts) | 简单 |
 | 142 | [环形链表II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/142.环形链表II.ts) | 普通 |
 | 150 | [逆波兰表达式求值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/150.逆波兰表达式求值.ts) | 普通 |

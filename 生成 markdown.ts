@@ -46,5 +46,5 @@ import axios from "axios";
 
 
     await fsPromise.writeFile("./README.md", text);
-    console.log("README.md 更新完毕");
+    console.log("generate README.md successfully");
 })();
