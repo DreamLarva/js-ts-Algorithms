@@ -5,9 +5,22 @@ ts-node: ^8.1.0
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
 
-Leetcode 中文首页 : [地址](https://leetcode-cn.com/u/dreamlarva) 
+我的 Leetcode : [地址](https://leetcode-cn.com/u/dreamlarva) 
 
-## leetcode 做题
+## 数据结构:
+1.  [二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/二叉树.ts)   
+1.  [双向链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/双向链表.ts)   
+1.  [图-无向图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/图-无向图.ts)   
+1.  [字典](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/字典.ts)   
+1.  [字典树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/字典树.ts)   
+1.  [循环链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/循环链表.ts)   
+1.  [拓扑排序](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/拓扑排序.ts)   
+1.  [散列-开链法](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-开链法.ts)   
+1.  [散列-线性探查](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-线性探查.ts)   
+1.  [散列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列.ts)   
+1.  [链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/链表.ts)   
+1.  [集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/集合.ts)   
+## Leetcode 解题:
 | # | 题名 | 难度 |  
 | --- | --- | --- |  
 | 1 | [两数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1.两数之和.ts) | 简单 |

@@ -125,7 +125,7 @@ class Graph {
         }
     };
 
-    topSortHelper(v: number, visited: boolean[], stack:any[]) {
+    topSortHelper(v: number, visited: boolean[], stack: any[]) {
         visited[v] = true;
 
         this.adj[v].forEach((v, i, a) => {
@@ -153,4 +153,4 @@ g.showGraph();
 console.log("拓扑排序");
 g.topSort();
 
-export {}
+export {};

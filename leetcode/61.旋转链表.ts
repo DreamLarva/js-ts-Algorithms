@@ -35,12 +35,9 @@ var rotateRight = function (head: ListNode, k: number) {
     // 遍历一遍拿到尾节点
     let currentNode: null | ListNode = head;
     let l = k;
-    let tail: ListNode;
-    let newTail: ListNode;
+    let tail!: ListNode;
+
     while (currentNode != null) {
-        if (l === 0) {
-            newTail = currentNode;
-        }
         tail = currentNode;
         currentNode = currentNode.next;
         l--;
@@ -49,7 +46,7 @@ var rotateRight = function (head: ListNode, k: number) {
     if (l == 0 || k % (k - l) == 0) {
         return head;
     }
-
+    let newTail!: ListNode;
     // l > 0 需要重新遍历 再找到 newTail 的位置
     if (l > 0) {
         let n = (k - l) - (k % (k - l));
@@ -73,9 +70,9 @@ var rotateRight = function (head: ListNode, k: number) {
         }
     }
 
-    tail!.next = head;
-    const newHead = newTail!.next;
-    newTail!.next = null;
+    tail.next = head;
+    const newHead = newTail.next;
+    newTail.next = null;
     return newHead;
 
 };
