@@ -29,6 +29,10 @@ var getRow = function (rowIndex: number) {
 
     return result;
 };
+/**
+ * 算法到 O(k)
+ * 则 使用 杨辉三角的通项公式
+ * */
 
 import assert from "assert";
 
