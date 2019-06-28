@@ -26,6 +26,7 @@ import axios from "axios";
 
     text += `## Leetcode 解题:\n`;
     const {data} = await axios('https://leetcode-cn.com/api/problems/all/');
+    console.log("拉取leetcode 数据成功");
     const difficulty_array: ("1" | "2" | "3")[] = [];
     data.stat_status_pairs.forEach((v: any) => {
         difficulty_array[v.stat.frontend_question_id] = <("1" | "2" | "3")>String(v.difficulty.level);
@@ -35,7 +36,6 @@ import axios from "axios";
         2: "普通",
         3: "困难",
     };
-
 
 
     text += `| # | 题名 | 难度 |  \n`;

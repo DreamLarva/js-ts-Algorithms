@@ -25,9 +25,7 @@ var reverseString = function (s: string[]) {
     let head = 0;
     let tail = s.length - 1;
     while (head < tail) {
-        const temp = s[head];
-        s[head] = s[tail];
-        s[tail] = temp;
+        [s[head],s[tail]] = [s[tail],s[head]];
         head++;
         tail--;
     }
