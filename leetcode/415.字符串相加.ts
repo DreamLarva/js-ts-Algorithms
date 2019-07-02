@@ -18,6 +18,13 @@
  * @return {string}
  */
 var addStrings = function (num1: string, num2: string): string {
+    /**
+     * 本题 实际考察的是 大数 相加的运算
+     * javascript 中 能够正常做四则运算的 范围是 Math.MAX_SAFE_INTEGER = 2 ** 53 -1 = 9007199254740991  (16位)
+     * 所以只要两个数相加不超过 16 位 就能够正确运算
+     * 所以 将 两个字符串 按照 每 15 位 分为1组 相加 再使用 数学的相加 就能保证精度 不出错
+     * */
+
     if (num1.length <= 15 && num2.length <= 15) {
         return String(Number(num1) + Number(num2));
     }
