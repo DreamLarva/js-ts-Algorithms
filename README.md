@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^3.5.1   
+typescript: ^3.5.1  
 ts-node: ^8.1.0  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -36,7 +36,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 14 | [最长公共前缀](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/14.最长公共前缀.ts) | 简单 |
 | 19 | [删除链表的倒数第N个节点](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/19.删除链表的倒数第N个节点.ts) | 普通 |
 | 20 | [有效的括号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/20.有效的括号.ts) | 简单 |
-| 21 | [合并有序链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/21.合并有序链表.ts) | 简单 |
+| 21 | [合并两个有序链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/21.合并两个有序链表.ts) | 简单 |
 | 24 | [两两交换链表中的节点](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/24.两两交换链表中的节点.ts) | 普通 |
 | 26 | [删除排序数组中的重复项](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/26.删除排序数组中的重复项.ts) | 简单 |
 | 27 | [移除元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/27.移除元素.ts) | 简单 |
@@ -159,6 +159,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 739 | [每日温度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/739.每日温度.ts) | 普通 |
 | 747 | [至少是其他数字两倍的最大数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/747.至少是其他数字两倍的最大数.ts) | 简单 |
 | 752 | [打开转盘锁](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/752.打开转盘锁.ts) | 普通 |
+| 799 | [语法中的第K个符号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/799.语法中的第K个符号.ts) | 普通 |
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 普通 |
 | 1005 | [K次取反后最大化的数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1005.K次取反后最大化的数组和.ts) | 简单 |
 | 1018 | [可被5整除的二进制前缀](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1018.可被5整除的二进制前缀.ts) | 简单 |

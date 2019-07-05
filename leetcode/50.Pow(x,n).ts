@@ -25,6 +25,7 @@ n 是 32 位有符号整数，其数值范围是 [−231, 231 − 1] 。
  * @return {number}
  */
 var myPow = function (x: number, n: number) {
+    // 使用迭代法
     /**
      * 例 x = 2 n = 9
      * 正常算法 2 ** 9 总共做了9次乘法运算
@@ -41,5 +42,15 @@ var myPow = function (x: number, n: number) {
     return n < 0 ? 1 / res : res;
 };
 
-
-export {}
+// 使用递归
+var myPow_1 = function (x: number, n: number):number {
+    // 使用递归
+    if (n === 0) return 1;
+    const half = myPow_1(x, Math.trunc(n / 2));
+    if(n % 2 === 0){
+        return half * half
+    }else{
+        return half * half * x
+    }
+};
+export {};
