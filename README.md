@@ -45,6 +45,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 35 | [搜索插入位置](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/35.搜索插入位置.ts) | 简单 |
 | 36 | [有效的数独](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/36.有效的数独.ts) | 普通 |
 | 38 | [报数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/38.报数.ts) | 简单 |
+| 46 | [全排列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/46.全排列.ts) | 普通 |
 | 48 | [旋转图像](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/48.旋转图像.ts) | 普通 |
 | 49 | [字母异位词分组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/49.字母异位词分组.ts) | 普通 |
 | 50 | [Pow(x,n)](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/50.Pow(x,n).ts) | 普通 |
