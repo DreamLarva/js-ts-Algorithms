@@ -59,8 +59,9 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 70 | [爬楼梯](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/70.爬楼梯.ts) | 简单 |
 | 83 | [删除排序链表中的重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/83.删除排序链表中的重复元素.ts) | 简单 |
 | 88 | [合并两个有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/88.合并两个有序数组.ts) | 简单 |
-| 94 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.目标和.ts) | 普通 |
 | 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 普通 |
+| 94 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.目标和.ts) | 普通 |
+| 96 | [不同的二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/96.不同的二叉搜索树.ts) | 普通 |
 | 98 | [验证二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/98.验证二叉搜索树.ts) | 普通 |
 | 100 | [相同的树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/100.相同的树.ts) | 简单 |
 | 101 | [对称二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/101.对称二叉树.ts) | 简单 |
