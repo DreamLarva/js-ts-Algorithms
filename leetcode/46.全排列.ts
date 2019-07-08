@@ -38,28 +38,29 @@ var permute = function (nums: number[]): number[][] {
         }
 
         for (let i = first; i < n; i++) {
-            [nums[first], nums[i]] = [nums[i], nums[first]];
+            if (i !== n) [nums[first], nums[i]] = [nums[i], nums[first]];
 
             // 交换下一个位置的值
             backtrack(n, nums, first + 1);
 
             // 回溯 返回之前的状态
-            [nums[first], nums[i]] = [nums[i], nums[first]];
+            if (i !== n) [nums[first], nums[i]] = [nums[i], nums[first]];
         }
     }
 
 };
 
 import assert from "assert";
+
 assert.deepStrictEqual(
-    permute([1,2,3]),
+    permute([1, 2, 3]),
     [
-        [ 1, 2, 3 ],
-        [ 1, 3, 2 ],
-        [ 2, 1, 3 ],
-        [ 2, 3, 1 ],
-        [ 3, 2, 1 ],
-        [ 3, 1, 2 ]
-    ]
+        [1, 2, 3],
+        [1, 3, 2],
+        [2, 1, 3],
+        [2, 3, 1],
+        [3, 2, 1],
+        [3, 1, 2],
+    ],
 );
 
