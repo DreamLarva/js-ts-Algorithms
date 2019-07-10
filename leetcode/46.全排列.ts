@@ -38,6 +38,7 @@ var permute = function (nums: number[]): number[][] {
         }
 
         for (let i = first; i < n; i++) {
+            // 第一个其实是 不交换的
             if (i !== n) [nums[first], nums[i]] = [nums[i], nums[first]];
 
             // 交换下一个位置的值
