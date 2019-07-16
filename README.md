@@ -1,7 +1,7 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^3.5.1  
-ts-node: ^8.1.0  
+typescript: latest  
+ts-node: latest  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
 
@@ -82,6 +82,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 138 | [复制带随机指针的链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/138.复制带随机指针的链表.ts) | 普通 |
 | 141 | [环形链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/141.环形链表.ts) | 简单 |
 | 142 | [环形链表II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/142.环形链表II.ts) | 普通 |
+| 144 | [二叉树的前序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/144.二叉树的前序遍历.ts) | 普通 |
 | 150 | [逆波兰表达式求值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/150.逆波兰表达式求值.ts) | 普通 |
 | 151 | [翻转字符串里的单词](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/151.翻转字符串里的单词.ts) | 普通 |
 | 155 | [最小栈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/155.最小栈.ts) | 简单 |
