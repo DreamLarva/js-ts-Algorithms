@@ -38,6 +38,7 @@ var generateTrees = function (n: number) {
     function generate_trees(start: number, end: number) {
         const all_trees: (TreeNode | null)[] = [];
         // 当出现 start > end 的 情况表示 这里 没有节点 但是子树上只能挂null
+        // 这种情况下 另一个子树一定 获取了 全部的剩余节点s
         if (start > end) {
             all_trees.push(null);
             return all_trees;
