@@ -29,4 +29,13 @@ var singleNumber = function (nums: number[]) {
     return result;
 };
 
-export {}
+import assert from "assert";
+
+assert.strictEqual(
+    singleNumber([2, 2, 1]),
+    1,
+);
+assert.strictEqual(
+    singleNumber([4, 1, 2, 1, 2]),
+    4,
+);

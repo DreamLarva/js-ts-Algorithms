@@ -81,4 +81,13 @@ function byStep(arr: number[], k: number) {
     };
 }
 
-export {}
+import assert from "assert";
+
+assert.strictEqual(
+    convert('LEETCODEISHIRING', 3),
+    'LCIRETOESIIGEDHN',
+);
+assert.strictEqual(
+    convert('LEETCODEISHIRING', 4),
+    'LDREOEIIECIHNTSG',
+);

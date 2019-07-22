@@ -18,7 +18,8 @@
  *     this.next = null;
  * }
  */
-import {ListNode} from "../util/LinkedList"
+import {ListNode, createLinkedList} from "../util/LinkedList";
+
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
@@ -48,4 +49,14 @@ var addTwoNumbers = function (l1: ListNode<number>, l2: ListNode<number>) {
     return firstNode;
 };
 
-export {};
+import assert from "assert";
+
+
+assert.deepStrictEqual(
+    addTwoNumbers(
+        createLinkedList([2, 4, 3]),
+        createLinkedList([5, 6, 4]),
+    ),
+    createLinkedList([7, 0, 8]),
+);
+

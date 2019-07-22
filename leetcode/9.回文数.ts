@@ -35,4 +35,18 @@ var isPalindrome = function (x: number) {
     return x === num || x === (num - num % 10) / 10;
 };
 
-export {}
+
+import assert from "assert";
+
+assert.strictEqual(
+    isPalindrome(121),
+    true,
+);
+assert.strictEqual(
+    isPalindrome(-121),
+    false,
+);
+assert.strictEqual(
+    isPalindrome(10),
+    false,
+);

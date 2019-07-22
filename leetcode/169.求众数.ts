@@ -63,6 +63,10 @@ function solution2(nums: number[]) {
     return tmp[0];
 }
 
+/**
+ * 摩尔投票法修改版
+ * 竟然更慢........
+ * */
 function solution3(nums: number[]) {
     let result = null, count = 0;
     let index = 0;
@@ -82,4 +86,31 @@ function solution3(nums: number[]) {
 }
 
 
-export {}
+import assert from "assert";
+
+assert.strictEqual(solution1([2, 2, 1, 1, 1, 2, 2]), 2);
+assert.strictEqual(solution2([2, 2, 1, 1, 1, 2, 2]), 2);
+assert.strictEqual(solution3([2, 2, 1, 1, 1, 2, 2]), 2);
+
+import Benchmark from "benchmark";
+
+const suite = new Benchmark.Suite;
+const sample = [2, 2, 1, 1, 4,5,6,7,8,9,0,1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2];
+suite
+    .add('solution1', function () {
+        solution1(sample);
+    })
+    .add('solution2', function () {
+        solution2(sample);
+    })
+    .add('solution3', function () {
+        solution3(sample);
+    })
+    .on('cycle', function (event: Benchmark.Event) {
+        console.log(String(event.target));
+    })
+    .on('complete', function (this: any) {
+        console.log('Fastest is ' + this.filter('fastest').map( 'name'));
+    })
+    // run async
+    .run({'async': false});

@@ -43,4 +43,23 @@ function rotate1(nums: number[], k: number) {
     nums.splice(0, 0, ...nums.splice(nums.length - k));
 }
 
-export {};
+import assert from 'assert';
+
+{
+    const sample = [1, 2, 3, 4, 5, 6, 7];
+    rotate(sample, 3);
+    assert.deepStrictEqual(
+        sample,
+        [5, 6, 7, 1, 2, 3, 4],
+    );
+
+}
+{
+    const sample = [1, 2, 3, 4, 5, 6, 7];
+    rotate1(sample, 3);
+    assert.deepStrictEqual(
+        sample,
+        [5, 6, 7, 1, 2, 3, 4],
+    );
+
+}

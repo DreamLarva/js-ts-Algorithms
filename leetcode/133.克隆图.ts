@@ -59,4 +59,22 @@ var cloneGraph = function (node: Node): Node {
     }
 };
 
-export {};
+import assert from "assert";
+
+{
+    const node1 = new Node(1);
+    const node2 = new Node(2);
+    const node3 = new Node(3);
+    const node4 = new Node(4);
+    const node5 = new Node(5);
+    node1.neighbors = [node2, node3];
+    node2.neighbors = [node1, node5];
+    node3.neighbors = [node1, node4];
+    node4.neighbors = [node3, node5];
+    node5.neighbors = [node1, node4];
+    assert.deepStrictEqual(
+        cloneGraph(node1),
+        node1,
+    );
+
+}

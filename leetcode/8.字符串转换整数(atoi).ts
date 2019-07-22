@@ -47,7 +47,7 @@
  * @param {string} str
  * @return {number}
  */
-var myAtoi = function (str:string) {
+var myAtoi = function (str: string) {
     // 判断是否可合法
     const RegResult = /^\s*([+-]*\d+\.?\d*)/.exec(str);
     if (!RegResult) {
@@ -62,4 +62,25 @@ var myAtoi = function (str:string) {
     return num;
 };
 
-export {}
+import assert from "assert";
+
+assert.strictEqual(
+    myAtoi('42'),
+    42,
+);
+assert.strictEqual(
+    myAtoi("   -42"),
+    -42,
+);
+assert.strictEqual(
+    myAtoi("4193 with words"),
+    4193,
+);
+assert.strictEqual(
+    myAtoi("words and 987"),
+    0,
+);
+assert.strictEqual(
+    myAtoi("-91283472332"),
+    -2147483648,
+);

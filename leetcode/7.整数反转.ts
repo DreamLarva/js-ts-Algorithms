@@ -22,4 +22,9 @@ const reverse = function (x: number) {
     return result > maxLimit || result < minLimit ? 0 : result;
 };
 
-export {}
+import assert from "assert";
+
+assert.strictEqual(
+    reverse(123),
+    321,
+);

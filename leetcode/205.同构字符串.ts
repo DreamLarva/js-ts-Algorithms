@@ -53,5 +53,3 @@ const assert = require("assert");
 assert.strictEqual(isIsomorphic("egg", "add"), true);
 assert.strictEqual(isIsomorphic("ab", "aa"), false);
 assert.strictEqual(isIsomorphic("qwertyuiop[]asdfghjkl;'\\zxcvbnm,./", "',.pyfgcrl/=aoeuidhtns-\\;qjkxbmwvz"), true);
-
-export {}

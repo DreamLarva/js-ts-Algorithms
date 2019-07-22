@@ -45,4 +45,9 @@ var maxArea = function (height: number[]) {
     return result;
 };
 
-export {}
+import assert from 'assert';
+
+assert.strictEqual(
+    maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]),
+    49,
+);

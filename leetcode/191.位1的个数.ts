@@ -43,4 +43,9 @@ var hammingWeight = function (n: number) {
     return result;
 };
 
-export {}
+import assert from 'assert';
+
+assert.strictEqual(
+    hammingWeight(0b00000000000000000000000000001011),
+    3,
+);
