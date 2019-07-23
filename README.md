@@ -57,6 +57,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 67 | [二进制求和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/67.二进制求和.ts) | 简单 |
 | 69 | [x的平方根](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/69.x的平方根.ts) | 简单 |
 | 70 | [爬楼梯](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/70.爬楼梯.ts) | 简单 |
+| 75 | [颜色分类](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/75.颜色分类.ts) | 普通 |
 | 80 | [删除排序数组中的重复项II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/80.删除排序数组中的重复项II.ts) | 普通 |
 | 83 | [删除排序链表中的重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/83.删除排序链表中的重复元素.ts) | 简单 |
 | 88 | [合并两个有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/88.合并两个有序数组.ts) | 简单 |
