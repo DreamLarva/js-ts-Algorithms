@@ -11,6 +11,8 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 1.  [二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/二叉树.ts)   
 1.  [双向链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/双向链表.ts)   
 1.  [图-无向图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/图-无向图.ts)   
+1.  [堆](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/堆.ts)   
+1.  [堆化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/堆化.ts)   
 1.  [字典](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/字典.ts)   
 1.  [字典树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/字典树.ts)   
 1.  [循环链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/循环链表.ts)   
@@ -107,6 +109,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 206 | [反转链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/206.反转链表.ts) | 简单 |
 | 208 | [字典树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/208.字典树.ts) | 普通 |
 | 209 | [长度最小的子数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/209.长度最小的子数组.ts) | 普通 |
+| 215 | [数组中的第K个最大元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/215.数组中的第K个最大元素.ts) | 普通 |
 | 217 | [存在重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/217.存在重复元素.ts) | 简单 |
 | 219 | [存在重复元素II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/219.存在重复元素II.ts) | 简单 |
 | 225 | [用队列实现栈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/225.用队列实现栈.ts) | 简单 |
