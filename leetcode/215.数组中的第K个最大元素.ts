@@ -74,8 +74,46 @@ var findKthLargest = function (nums: number[], k: number) {
 
 var findKthLargest_1 = function (nums: number[], k: number) {
     /**
-     * 方法二 快速选择法
+     * 方法二 快速选择法(Hoare 选择法)
      * */
+    const size = nums.length;
+    return quickSelect(0, size - 1, size - k);
+
+    function partition(left: number, right: number, pivot_index: number) {
+        let pivot = nums[pivot_index];
+        // 现将 枢轴 换到末尾 方便 操作
+        [nums[pivot_index], nums[right]] = [nums[right], nums[pivot_index]];
+        // 存储 枢轴新的位置
+        let store_index = left;
+
+        // 枢轴的值 放到左边
+        for (let i = left; i <= right; i++) {
+            if (nums[i] < pivot) {
+                [nums[store_index], nums[i]] = [nums[i], nums[store_index]];
+                store_index++;
+            }
+        }
+        // 将在最末尾的枢轴的值 放到新的位置
+        [nums[store_index], nums[right]] = [nums[right], nums[store_index]];
+        return store_index;
+    }
+
+    function quickSelect(left: number, right: number, k_smallest: number): number {
+        // 如果 左右为 同一个值 那么说明 只有一个值 不需要再选择了
+        if (left === right) {
+            return nums[left];
+        }
+        // 随机 用一个值作为 index 作为枢轴 并且返回 枢轴的 index
+        let pivot_index = partition(left, right, _.random(left, right - 1)); // lodash 的 random 是含头 含尾的
+
+        if (k_smallest === pivot_index) return nums[k_smallest];
+        // 如果 枢轴的 index 小于 k_smallest 说明 值 还在有枢轴的右侧
+        else if (k_smallest < pivot_index) return quickSelect(left, pivot_index - 1, k_smallest);
+        // 如果 枢轴的 index 大于 k_smallest 说明 值 还在有枢轴的左侧
+        return quickSelect(pivot_index + 1, right, k_smallest);
+
+    }
+
 
 };
 
@@ -87,5 +125,13 @@ assert.strictEqual(
 );
 assert.strictEqual(
     findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4),
+    4,
+);
+assert.strictEqual(
+    findKthLargest_1([3, 2, 1, 5, 6, 4], 2),
+    5,
+);
+assert.strictEqual(
+    findKthLargest_1([3, 2, 3, 1, 2, 4, 5, 5, 6], 4),
     4,
 );
