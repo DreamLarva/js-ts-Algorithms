@@ -75,5 +75,8 @@
     // "declarationDir": "lib"                /* Output directory for generated declaration files. */
     "incremental": true,
     "resolveJsonModule": true
-  }
+  },
+  "exclude": [
+    "./生成 markdown.ts"
+  ]
 }

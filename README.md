@@ -163,7 +163,9 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 542 | [01矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/542.01矩阵.ts) | 普通 |
 | 557 | [反转字符串中的单词III](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/557.反转字符串中的单词III.ts) | 简单 |
 | 561 | [数组拆分I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/561.数组拆分I.ts) | 简单 |
+| 599 | [两个列表的最小索引总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/599.两个列表的最小索引总和.ts) | 简单 |
 | 622 | [设计循环队列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/622.设计循环队列.ts) | 普通 |
+| 652 | [寻找重复的子树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/652.寻找重复的子树.ts) | 普通 |
 | 707 | [设计链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/707.设计链表.ts) | 简单 |
 | 724 | [寻找数组的中心索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/724.寻找数组的中心索引.ts) | 简单 |
 | 733 | [图像渲染](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/733.图像渲染.ts) | 简单 |
