@@ -52,10 +52,6 @@ var findDuplicateSubtrees = function (root) {
         if (node == null)
             return '';
         let { left, right } = node;
-        /**
-         * 为什么不需要 下面 叶节点的 分支呢
-         * 因为 如果即使不使用 表示的字符串 就是 val,,
-         * */
         // if (left == null && right == null) {
         //     if (map[String(node.val)] == null) {
         //         map[String(node.val)] = 0;

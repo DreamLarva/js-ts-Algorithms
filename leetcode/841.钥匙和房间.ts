@@ -51,8 +51,6 @@ var canVisitAllRooms = function (rooms: number[][]) {
             set.add(room_num);
             room_visited++;
         }
-
-
     }
 
     return room_visited === rooms.length;
