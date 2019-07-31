@@ -1,4 +1,4 @@
-import Movie from "./Movie"
+import Movie from "./Movie";
 
 export default class Rental {
     private readonly _movie: Movie;
@@ -6,24 +6,24 @@ export default class Rental {
 
     constructor(movie: Movie, daysRented: number) {
         this._movie = movie;
-        this._daysRented = daysRented
+        this._daysRented = daysRented;
     }
 
     public getDaysRented() {
-        return this._daysRented
+        return this._daysRented;
     }
 
     public getMovie() {
-        return this._movie
+        return this._movie;
     }
 
     public getFrequentRenterPoints() {
-        return this._movie.getFrequentRenterPoints(this._daysRented)
+        return this._movie.getFrequentRenterPoints(this._daysRented);
     }
 
 
     public getCharge() {
-        return this._movie.getCharge(this._daysRented)
+        return this._movie.getCharge(this._daysRented);
     }
 
 }

@@ -32,5 +32,9 @@ suite
     .run({'async': false});
 
 /**
+ * 正则 x 37,509,892 ops/sec ±1.82% (87 runs sampled)
+ * 数组查询 x 16,648,233 ops/sec ±0.97% (91 runs sampled)
+ * 字符串查询 x 696,219,487 ops/sec ±0.77% (95 runs sampled)
+ * set查询 x 110,929,501 ops/sec ±1.25% (89 runs sampled)
  * 直接在字符串上查询速度最快
  * */

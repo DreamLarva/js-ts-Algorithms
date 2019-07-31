@@ -10,7 +10,7 @@ class Movie {
     static CHILDRENS = MovieType.CHILDRENS;
 
     private readonly _title: string;
-    private _priceCode: number;
+    private _priceCode: MovieType;
 
     constructor(title: string, priceCode: number) {
         this._title = title;
@@ -21,7 +21,7 @@ class Movie {
         return this._priceCode;
     }
 
-    public setPriceCode(arg: number) {
+    public setPriceCode(arg: MovieType) {
         this._priceCode = arg;
     }
 

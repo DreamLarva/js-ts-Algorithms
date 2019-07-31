@@ -4,14 +4,11 @@ export declare enum MovieType {
     CHILDRENS = 2
 }
 export default class Movie {
-    static REGULAR: MovieType;
-    static NEW_RELEASE: MovieType;
-    static CHILDRENS: MovieType;
     private readonly _title;
     private _price;
-    constructor(title: string, priceCode: number);
+    constructor(title: string, priceCode: MovieType);
     getPriceCode(): MovieType;
-    setPriceCode(arg: number): void;
+    setPriceCode(arg: MovieType): void;
     getTitle(): string;
     getCharge(getDaysRented: number): number;
     getFrequentRenterPoints(getDaysRented: number): number;

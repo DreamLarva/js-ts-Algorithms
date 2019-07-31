@@ -1,4 +1,4 @@
-import Rental from "./Rental"
+import Rental from "./Rental";
 
 export default class Customer {
     private readonly _name: string;
@@ -29,13 +29,13 @@ export default class Customer {
         // add footer lines
         result += `Amount owed is ${this.getTotalCharge()} \n`;
         result += `You earned ${frequentRenterPoints} frequentRenterPoints`;
-        return result
+        return result;
     }
 
     private getTotalCharge() {
         return this._rentals.reduce((pre, cur) =>
-        pre + cur.getCharge()
-            , 0)
+            pre + cur.getCharge()
+            , 0);
     }
 
 

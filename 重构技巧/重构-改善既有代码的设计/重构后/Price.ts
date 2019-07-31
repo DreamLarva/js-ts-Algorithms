@@ -1,4 +1,4 @@
-import Movie, {MovieType} from "./Movie"
+import {MovieType} from "./Movie";
 
 export default abstract class Price {
     abstract getPriceCode(): MovieType;
@@ -7,13 +7,13 @@ export default abstract class Price {
 
     /** 默认方法 */
     public getFrequentRenterPoints(getDaysRented: number): number {
-        return 1
+        return 1;
     }
 }
 
 export class ChildrenPrices extends Price {
     getPriceCode() {
-        return Movie.CHILDRENS
+        return MovieType.CHILDRENS;
     }
 
     getCharge(getDaysRented: number) {
@@ -27,7 +27,7 @@ export class ChildrenPrices extends Price {
 
 export class NewReleasePrice extends Price {
     getPriceCode() {
-        return Movie.NEW_RELEASE;
+        return MovieType.NEW_RELEASE;
     }
 
     getCharge(getDaysRented: number) {
@@ -41,7 +41,7 @@ export class NewReleasePrice extends Price {
 
 export class RegularPrice extends Price {
     getPriceCode() {
-        return Movie.REGULAR;
+        return MovieType.REGULAR;
     }
 
     getCharge(getDaysRented: number) {
