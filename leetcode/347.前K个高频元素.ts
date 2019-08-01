@@ -31,6 +31,7 @@ var topKFrequent = function (nums: number[], k: number) {
     const countMap = _.toPairs(_.countBy(nums));
     const minHeap: [string, number][] = [];
     for (let i = 0; i < countMap.length; i++) {
+        if (minHeap.length === k && countMap[i][1] < minHeap[0][1]) continue;
         minHeap.push(countMap[i]);
         heapifyWithSiftDown(minHeap, (a, b) => a[1] > b[1]);
         if (minHeap.length > k) {

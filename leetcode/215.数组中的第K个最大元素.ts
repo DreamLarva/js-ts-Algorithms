@@ -31,6 +31,8 @@ var findKthLargest = function (nums: number[], k: number) {
      * */
     const minHeap = [];
     for (let i = 0; i < nums.length; i++) {
+        // 优化 如果小于顶部 就直接 过
+        if (minHeap.length === k && nums[i] < minHeap[0]) continue;
         minHeap.push(nums[i]);
         heapifyWithSiftDown(minHeap);
         if (minHeap.length > k) {
