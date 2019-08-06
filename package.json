@@ -27,6 +27,6 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "lodash": "latest"
+    "lodash": "*"
   }
 }
