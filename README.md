@@ -43,6 +43,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 19 | [删除链表的倒数第N个节点](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/19.删除链表的倒数第N个节点.ts) | 普通 |
 | 20 | [有效的括号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/20.有效的括号.ts) | 简单 |
 | 21 | [合并两个有序链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/21.合并两个有序链表.ts) | 简单 |
+| 22 | [括号生成](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/22.括号生成.ts) | 普通 |
 | 24 | [两两交换链表中的节点](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/24.两两交换链表中的节点.ts) | 普通 |
 | 26 | [删除排序数组中的重复项](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/26.删除排序数组中的重复项.ts) | 简单 |
 | 27 | [移除元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/27.移除元素.ts) | 简单 |
@@ -66,8 +67,8 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 80 | [删除排序数组中的重复项II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/80.删除排序数组中的重复项II.ts) | 普通 |
 | 83 | [删除排序链表中的重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/83.删除排序链表中的重复元素.ts) | 简单 |
 | 88 | [合并两个有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/88.合并两个有序数组.ts) | 简单 |
-| 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 普通 |
 | 94 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.目标和.ts) | 普通 |
+| 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 普通 |
 | 95 | [不同的二叉搜索树II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/95.不同的二叉搜索树II.ts) | 普通 |
 | 96 | [不同的二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/96.不同的二叉搜索树.ts) | 普通 |
 | 98 | [验证二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/98.验证二叉搜索树.ts) | 普通 |

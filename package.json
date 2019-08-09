@@ -27,6 +27,10 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "lodash": "*"
+    "inversify": "^5.0.1",
+    "lodash": "*",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.2",
+    "tsyringe": "^3.3.0"
   }
 }

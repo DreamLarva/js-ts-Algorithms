@@ -50,4 +50,7 @@ function solve() {
     return res;
 }
 
-console.log(solve()); // 3
+
+import assert from 'assert';
+
+assert.strictEqual(solve(), 3);
