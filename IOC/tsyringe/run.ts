@@ -1,10 +1,13 @@
-// import {myContainer} from "./inversify.config";
-import {TYPES} from "./types";
-import {ThrowableWeapon, Warrior, Weapon} from "./interfaces";
+import "reflect-metadata";
+
+import {container} from "tsyringe";
+import {Warrior} from "./interfaces";
+import {Ninja} from "./entities";
+import "./tsyringe.config"
 import assert from 'assert';
 
-// const ninja = myContainer.get<Warrior>(TYPES.Warrior);
-//
-// assert.strictEqual(ninja.fight(), "cut!"); // true
-// assert.strictEqual(ninja.sneak(), "hit!"); // true
-//
+const ninja = container.resolve<Warrior>(Ninja);
+
+assert.strictEqual(ninja.fight(), "cut!"); // true
+assert.strictEqual(ninja.sneak(), "hit!"); // true
+

@@ -1,20 +1,27 @@
+import "reflect-metadata";
+
 import {ThrowableWeapon, Warrior, Weapon} from "./inversify/interfaces";
 import {myContainer} from "./inversify/inversify.config";
 import {TYPES} from "./inversify/types";
+import "./tsyringe/tsyringe.config"
+import {Ninja} from "./tsyringe/entities"
+import {container} from "tsyringe";
 
-class Katana implements Weapon {
+
+
+class KatanaNative implements Weapon {
     public hit() {
         return "cut!";
     }
 }
 
-class Shuriken implements ThrowableWeapon {
+class ShurikenNative implements ThrowableWeapon {
     public throw() {
         return "hit!";
     }
 }
 
-class Ninja implements Warrior {
+class NinjaNative implements Warrior {
     constructor(
         private _katana: Weapon,
         private _shuriken: ThrowableWeapon,
@@ -36,11 +43,14 @@ class Ninja implements Warrior {
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
 suite
-    .add('ioc', function () {
+    .add('inversify', function () {
         myContainer.get<Warrior>(TYPES.Warrior);
     })
+    .add('tsyringe', function () {
+       container.resolve<Warrior>(Ninja);
+    })
     .add('native', function () {
-        new Ninja(new Katana(), new Shuriken());
+        new NinjaNative(new KatanaNative(), new ShurikenNative());
     })
     // add listeners
     .on('cycle', function (event: any) {

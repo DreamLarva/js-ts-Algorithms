@@ -25,8 +25,8 @@ class Ninja implements Warrior {
     private _shuriken: ThrowableWeapon;
 
     public constructor(
-        @inject(TYPES.Weapon) katana: Weapon,
-        @inject(TYPES.ThrowableWeapon) shuriken: ThrowableWeapon,
+        @inject(TYPES.Weapon) private katana: Weapon,
+        @inject(TYPES.ThrowableWeapon) private shuriken: ThrowableWeapon,
     ) {
         this._katana = katana;
         this._shuriken = shuriken;

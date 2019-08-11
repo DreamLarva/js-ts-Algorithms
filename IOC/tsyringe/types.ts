@@ -4,7 +4,14 @@
  * @Company: orientsec.com.cn
  * @Description:
  */
+
 // file types.ts
+
+// enum TYPES {
+//     Warrior = "1",
+//     Weapon = "2",
+//     ThrowableWeapon = "3"
+// }
 
 const TYPES = {
     Warrior: Symbol.for("Warrior"),
@@ -12,4 +19,4 @@ const TYPES = {
     ThrowableWeapon: Symbol.for("ThrowableWeapon")
 };
 
-export { TYPES };
+export {TYPES};
