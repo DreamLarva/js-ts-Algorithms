@@ -1,12 +1,10 @@
 import "reflect-metadata";
 
 import {ThrowableWeapon, Warrior, Weapon} from "./inversify/interfaces";
-import {myContainer} from "./inversify/inversify.config";
+import {myContainer as inversifyContainer} from "./inversify/inversify.config";
 import {TYPES} from "./inversify/types";
-import "./tsyringe/tsyringe.config"
-import {Ninja} from "./tsyringe/entities"
-import {container} from "tsyringe";
-
+import {myContainer as tsyringeContainer} from "./tsyringe/tsyringe.config";
+import {Ninja} from "./tsyringe/entities";
 
 
 class KatanaNative implements Weapon {
@@ -39,15 +37,14 @@ class NinjaNative implements Warrior {
 }
 
 
-
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
 suite
     .add('inversify', function () {
-        myContainer.get<Warrior>(TYPES.Warrior);
+        inversifyContainer.get<Warrior>(TYPES.Warrior);
     })
     .add('tsyringe', function () {
-       container.resolve<Warrior>(Ninja);
+        tsyringeContainer.resolve<Warrior>(Ninja);
     })
     .add('native', function () {
         new NinjaNative(new KatanaNative(), new ShurikenNative());
