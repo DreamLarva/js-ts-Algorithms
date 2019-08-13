@@ -27,6 +27,7 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "awilix": "^4.2.2",
     "inversify": "^5.0.1",
     "lodash": "*",
     "reflect-metadata": "^0.1.13",

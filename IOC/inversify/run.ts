@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import {myContainer} from "./inversify.config";
 import {TYPES} from "./types";
 import {ThrowableWeapon, Warrior, Weapon} from "./interfaces";

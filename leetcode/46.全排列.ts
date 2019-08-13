@@ -22,7 +22,7 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute = function (nums: number[]): number[][] {
+export var permute = function (nums: number[]): number[][] {
     /**
      * 交换 两个位置的值 直到 n次 输出结果
      * 而非 生成 n! 个数组
@@ -34,24 +34,27 @@ var permute = function (nums: number[]): number[][] {
     function backtrack(n: number, nums: number[], first: number) {
         // 交换的位置 已经没有了 返回结果
         if (first === n) {
-            result.push(nums.slice());
+           return  result.push(nums.slice());
         }
 
         for (let i = first; i < n; i++) {
             // 第一个其实是 不交换的
-            if (i !== n) [nums[first], nums[i]] = [nums[i], nums[first]];
+            // console.log(`start${first}`, nums, "swap", nums[first], nums[i]);
 
+
+            [nums[first], nums[i]] = [nums[i], nums[first]];
             // 交换下一个位置的值
             backtrack(n, nums, first + 1);
 
-            // 回溯 返回之前的状态
-            if (i !== n) [nums[first], nums[i]] = [nums[i], nums[first]];
+            // 并不需要 回溯 返回之前的状态 也可以
+            [nums[first], nums[i]] = [nums[i], nums[first]];
         }
     }
 
 };
 
 import assert from "assert";
+import {sortDeep} from "../util/assertHelper";
 
 assert.deepStrictEqual(
     permute([1, 2, 3]),
