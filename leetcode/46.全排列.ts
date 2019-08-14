@@ -37,11 +37,15 @@ export var permute = function (nums: number[]): number[][] {
            return  result.push(nums.slice());
         }
 
+        /**
+         * 注意与全排列II 的不同 之处
+         * 不需要排序
+         * 由于 每个值都不同 所以每次 交换都有意义 所以需要回溯
+         * */
         for (let i = first; i < n; i++) {
-            // 第一个其实是 不交换的
             // console.log(`start${first}`, nums, "swap", nums[first], nums[i]);
 
-
+            // 第一个其实是 不交换的
             [nums[first], nums[i]] = [nums[i], nums[first]];
             // 交换下一个位置的值
             backtrack(n, nums, first + 1);

@@ -48,6 +48,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 26 | [删除排序数组中的重复项](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/26.删除排序数组中的重复项.ts) | 简单 |
 | 27 | [移除元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/27.移除元素.ts) | 简单 |
 | 28 | [实现strStr()](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/28.实现strStr().ts) | 简单 |
+| 31 | [下一个排列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/31.下一个排列.ts) | 普通 |
 | 35 | [搜索插入位置](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/35.搜索插入位置.ts) | 简单 |
 | 36 | [有效的数独](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/36.有效的数独.ts) | 普通 |
 | 38 | [报数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/38.报数.ts) | 简单 |

@@ -24,7 +24,7 @@ var permuteUnique = function (nums: number[]) {
     // 基本同 46.全排列.ts
     // 额外的需要排除重复的项
 
-    // 先排序 ?
+    // 先排序
     nums.sort();
 
     const result: number[][] = [];
@@ -42,6 +42,7 @@ var permuteUnique = function (nums: number[]) {
          * 这里不 会回溯 直接 在上一层的循环上 进行
          * 最终的效果是 每次 将一个不同的 数放到 first 位 上 然后后面的位递归 自己玩
          * 原因是 全排列I 中 由于值都不同 所以每个交换都是有意义的 相当于放到 第一位
+         * 并且由于 开始是排序的 所以 交换后 i 位 之后的也是排序的
          * */
         for (let i = first; i <= n; i++) {
 
