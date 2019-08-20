@@ -35,6 +35,9 @@ var inorderTraversal = function (root: TreeNode<number>) {
     }
 };
 
+/**
+ * 精彩 迭代
+ * */
 var inorderTraversal_1 = function (root: TreeNode<number>) {
     if (root == null) return [];
     // 迭代

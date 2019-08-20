@@ -49,7 +49,7 @@ function byStep(lastNode: ListNode, curNode: ListNode | null): ListNode {
     }
 }
 
-// 递归2
+// 递归2 精彩的递归
 var solution3 = function (head: ListNode): ListNode | null {
     if (head === null || head.next === null) return head;
     const result = solution3(head.next); // 拿到的是 原尾节点 现在的head节点
