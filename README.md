@@ -69,8 +69,8 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 80 | [删除排序数组中的重复项II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/80.删除排序数组中的重复项II.ts) | 普通 |
 | 83 | [删除排序链表中的重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/83.删除排序链表中的重复元素.ts) | 简单 |
 | 88 | [合并两个有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/88.合并两个有序数组.ts) | 简单 |
-| 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 普通 |
 | 94 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.目标和.ts) | 普通 |
+| 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 普通 |
 | 95 | [不同的二叉搜索树II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/95.不同的二叉搜索树II.ts) | 普通 |
 | 96 | [不同的二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/96.不同的二叉搜索树.ts) | 普通 |
 | 98 | [验证二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/98.验证二叉搜索树.ts) | 普通 |
@@ -148,6 +148,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 350 | [两个数组的交集II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/350.两个数组的交集II.ts) | 简单 |
 | 367 | [有效的完全平方数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/367.有效的完全平方数.ts) | 简单 |
 | 371 | [两整数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/371.两整数之和.ts) | 简单 |
+| 380 | [常数时间插入、删除和获取随机元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/380.常数时间插入、删除和获取随机元素.ts) | 普通 |
 | 383 | [赎金信](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/383.赎金信.ts) | 简单 |
 | 384 | [打乱数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/384.打乱数组.ts) | 普通 |
 | 387 | [字符串中的第一个唯一字符](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/387.字符串中的第一个唯一字符.ts) | 简单 |
@@ -175,6 +176,8 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 599 | [两个列表的最小索引总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/599.两个列表的最小索引总和.ts) | 简单 |
 | 622 | [设计循环队列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/622.设计循环队列.ts) | 普通 |
 | 652 | [寻找重复的子树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/652.寻找重复的子树.ts) | 普通 |
+| 705 | [设计哈希集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/705.设计哈希集合.ts) | 简单 |
+| 706 | [设计哈希映射](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/706.设计哈希映射.ts) | 简单 |
 | 707 | [设计链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/707.设计链表.ts) | 简单 |
 | 724 | [寻找数组的中心索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/724.寻找数组的中心索引.ts) | 简单 |
 | 733 | [图像渲染](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/733.图像渲染.ts) | 简单 |

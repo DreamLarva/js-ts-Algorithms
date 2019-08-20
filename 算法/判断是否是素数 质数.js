@@ -1,4 +1,4 @@
-export default function isPrime(n) {
+function isPrime(n) {
     if (n <= 3) return n > 1;
     if (n % 2 === 0 || n % 3 === 0) return false;
     for (let i = 5; i * i <= n; i += 6) {
@@ -8,3 +8,7 @@ export default function isPrime(n) {
     }
     return true;
 }
+
+module.exports = isPrime
+
+console.log(isPrime(101))
