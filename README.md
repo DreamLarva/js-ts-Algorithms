@@ -49,6 +49,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 27 | [移除元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/27.移除元素.ts) | 简单 |
 | 28 | [实现strStr()](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/28.实现strStr().ts) | 简单 |
 | 31 | [下一个排列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/31.下一个排列.ts) | 普通 |
+| 33 | [搜索旋转排序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/33.搜索旋转排序数组.ts) | 普通 |
 | 35 | [搜索插入位置](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/35.搜索插入位置.ts) | 简单 |
 | 36 | [有效的数独](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/36.有效的数独.ts) | 普通 |
 | 38 | [报数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/38.报数.ts) | 简单 |
@@ -177,6 +178,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 599 | [两个列表的最小索引总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/599.两个列表的最小索引总和.ts) | 简单 |
 | 622 | [设计循环队列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/622.设计循环队列.ts) | 普通 |
 | 652 | [寻找重复的子树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/652.寻找重复的子树.ts) | 普通 |
+| 704 | [二分查找](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/704.二分查找.ts) | 简单 |
 | 705 | [设计哈希集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/705.设计哈希集合.ts) | 简单 |
 | 706 | [设计哈希映射](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/706.设计哈希映射.ts) | 简单 |
 | 707 | [设计链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/707.设计链表.ts) | 简单 |

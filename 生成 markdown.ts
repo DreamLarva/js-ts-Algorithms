@@ -43,7 +43,7 @@ import axios from "axios";
     const leetcode_dir = (await fsPromise.readdir("./leetcode"))
         .filter(file => {
             const {name, ext} = path.parse(file);
-            return ext === ".ts" && !/\.d$/.test(name);
+            return ext === ".ts" && !/\.d$/.test(name) && /^\d/.test(name)
         })
         .sort((a, b) => {
             return Number(a.split(".")[0]) - Number(b.split(".")[0]);

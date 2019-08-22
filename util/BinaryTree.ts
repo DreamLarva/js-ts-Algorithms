@@ -91,10 +91,6 @@ assert.deepStrictEqual(
     createBinaryTree([1, 2, 3, 4, 5, 6, 7]).levelTraversal(),
     [1, 2, 3, 4, 5, 6, 7],
 );
-assert.deepStrictEqual(
-    createBinaryTree([1, 2, 3, null, null, null, 6, 7]).levelTraversal(),
-    [1, 2, 3, null, null, null, 6, 7].filter(Boolean),
-);
 
 assert.deepStrictEqual(
     createBinaryTree([1, 2, 3, null, null, null, 6, 7]).levelTraversal(),
