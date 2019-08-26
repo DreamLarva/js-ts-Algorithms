@@ -77,7 +77,7 @@
     "resolveJsonModule": true
   },
   "exclude": [
-    "./生成 markdown.ts",
-    "./IOC"
+    "./生成 markdown.ts"
+//    "./IOC"
   ]
 }

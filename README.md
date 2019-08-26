@@ -100,6 +100,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 151 | [翻转字符串里的单词](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/151.翻转字符串里的单词.ts) | 普通 |
 | 155 | [最小栈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/155.最小栈.ts) | 简单 |
 | 160 | [相交链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/160.相交链表.ts) | 简单 |
+| 162 | [寻找峰值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/162.寻找峰值.ts) | 普通 |
 | 167 | [两数之和II-输入有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/167.两数之和II-输入有序数组.ts) | 简单 |
 | 168 | [Excel表列名称](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/168.Excel表列名称.ts) | 简单 |
 | 169 | [求众数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/169.求众数.ts) | 简单 |
