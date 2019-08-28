@@ -71,7 +71,6 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 83 | [删除排序链表中的重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/83.删除排序链表中的重复元素.ts) | 简单 |
 | 88 | [合并两个有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/88.合并两个有序数组.ts) | 简单 |
 | 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 普通 |
-| 94 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.目标和.ts) | 普通 |
 | 95 | [不同的二叉搜索树II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/95.不同的二叉搜索树II.ts) | 普通 |
 | 96 | [不同的二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/96.不同的二叉搜索树.ts) | 普通 |
 | 98 | [验证二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/98.验证二叉搜索树.ts) | 普通 |
@@ -98,6 +97,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 145 | [二叉树的后序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/145.二叉树的后序遍历.ts) | 困难 |
 | 150 | [逆波兰表达式求值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/150.逆波兰表达式求值.ts) | 普通 |
 | 151 | [翻转字符串里的单词](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/151.翻转字符串里的单词.ts) | 普通 |
+| 153 | [寻找旋转排序数组中的最小值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/153.寻找旋转排序数组中的最小值.ts) | 普通 |
 | 155 | [最小栈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/155.最小栈.ts) | 简单 |
 | 160 | [相交链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/160.相交链表.ts) | 简单 |
 | 162 | [寻找峰值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/162.寻找峰值.ts) | 普通 |
@@ -170,6 +170,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 476 | [数字的补数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/476.数字的补数.ts) | 简单 |
 | 482 | [密钥格式化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/482.密钥格式化.ts) | 简单 |
 | 485 | [最大连续1的个数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/485.最大连续1的个数.ts) | 简单 |
+| 494 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/494.目标和.ts) | 普通 |
 | 495 | [提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts) | 普通 |
 | 498 | [对角线遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/498.对角线遍历.ts) | 普通 |
 | 509 | [斐波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/509.斐波那契数.ts) | 简单 |
