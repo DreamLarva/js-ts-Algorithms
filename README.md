@@ -50,6 +50,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 28 | [实现strStr()](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/28.实现strStr().ts) | 简单 |
 | 31 | [下一个排列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/31.下一个排列.ts) | 普通 |
 | 33 | [搜索旋转排序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/33.搜索旋转排序数组.ts) | 普通 |
+| 34 | [在排序数组中查找元素的第一个和最后一个位置](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/34.在排序数组中查找元素的第一个和最后一个位置.ts) | 普通 |
 | 35 | [搜索插入位置](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/35.搜索插入位置.ts) | 简单 |
 | 36 | [有效的数独](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/36.有效的数独.ts) | 普通 |
 | 38 | [报数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/38.报数.ts) | 简单 |
@@ -192,5 +193,6 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 771 | [宝石与石头](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/771.宝石与石头.ts) | 简单 |
 | 799 | [语法中的第K个符号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/799.语法中的第K个符号.ts) | 普通 |
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 普通 |
+| 1002 | [查找常用字符](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1002.查找常用字符.ts) | 简单 |
 | 1005 | [K次取反后最大化的数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1005.K次取反后最大化的数组和.ts) | 简单 |
 | 1018 | [可被5整除的二进制前缀](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1018.可被5整除的二进制前缀.ts) | 简单 |
