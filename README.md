@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^3.5.3  
+typescript: ^3.6.2  
 ts-node: ^8.3.0  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -59,6 +59,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 48 | [旋转图像](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/48.旋转图像.ts) | 普通 |
 | 49 | [字母异位词分组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/49.字母异位词分组.ts) | 普通 |
 | 50 | [Pow(x,n)](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/50.Pow(x,n).ts) | 普通 |
+| 51 | [根据字符出现频率排序](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/51.根据字符出现频率排序.ts) | 困难 |
 | 53 | [最大子序和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/53.最大子序和.ts) | 简单 |
 | 54 | [螺旋矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/54.螺旋矩阵.ts) | 普通 |
 | 58 | [最后一个单词的长度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/58.最后一个单词的长度.ts) | 简单 |
@@ -181,6 +182,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 599 | [两个列表的最小索引总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/599.两个列表的最小索引总和.ts) | 简单 |
 | 622 | [设计循环队列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/622.设计循环队列.ts) | 普通 |
 | 652 | [寻找重复的子树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/652.寻找重复的子树.ts) | 普通 |
+| 658 | [找到K个最接近的元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/658.找到K个最接近的元素.ts) | 普通 |
 | 704 | [二分查找](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/704.二分查找.ts) | 简单 |
 | 705 | [设计哈希集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/705.设计哈希集合.ts) | 简单 |
 | 706 | [设计哈希映射](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/706.设计哈希映射.ts) | 简单 |
@@ -196,3 +198,4 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1002 | [查找常用字符](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1002.查找常用字符.ts) | 简单 |
 | 1005 | [K次取反后最大化的数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1005.K次取反后最大化的数组和.ts) | 简单 |
 | 1018 | [可被5整除的二进制前缀](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1018.可被5整除的二进制前缀.ts) | 简单 |
+| 1071 | [字符串的最大公因子](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1071.字符串的最大公因子.ts) | 简单 |
