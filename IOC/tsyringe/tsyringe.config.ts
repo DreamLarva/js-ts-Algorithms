@@ -1,4 +1,4 @@
-// file inversify.config.ts
+// file tsyringe.config.ts
 
 import {container} from "tsyringe";
 import {TYPES} from "./types";
