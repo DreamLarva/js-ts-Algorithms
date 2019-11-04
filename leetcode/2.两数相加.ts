@@ -18,24 +18,23 @@
  *     this.next = null;
  * }
  */
-import {ListNode, createLinkedList} from "../util/LinkedList";
+import {createLinkedList, ListNode} from "../util/LinkedList";
+import assert from "assert";
 
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function (l1: ListNode<number>, l2: ListNode<number>) {
-    var firstNode = new ListNode((l1.val + l2.val) % 10);
-    var currentNode = firstNode;
-    var added = l1.val + l2.val >= 10 ? 1 : 0;
+var addTwoNumbers1 = function (l1: ListNode<number>, l2: ListNode<number>) {
+    const firstNode = new ListNode((l1.val + l2.val) % 10);
+    let currentNode = firstNode;
+    let added = l1.val + l2.val >= 10 ? 1 : 0;
 
     while (l1.next !== null || l2.next !== null) {
         l1 = l1.next ? l1.next : new ListNode(0);
         l2 = l2.next ? l2.next : new ListNode(0);
-        var v1 = l1.val;
-        var v2 = l2.val;
-        var sum = v1 + v2 + added;
+        let sum = l1.val + l2.val + added;
         added = sum >= 10 ? 1 : 0;
         sum = sum % 10;
         currentNode.next = new ListNode(sum);
@@ -49,11 +48,45 @@ var addTwoNumbers = function (l1: ListNode<number>, l2: ListNode<number>) {
     return firstNode;
 };
 
-import assert from "assert";
 
+var addTwoNumbers2 = function (l1: ListNode<number> | null, l2: ListNode<number> | null) {
+    const firstNode = new ListNode((l1!.val + l2!.val) % 10);
+    let currentNode = firstNode;
+    let added = 0;
+    l1 = l1 ? l1.next : null;
+    l2 = l2 ? l2.next : null;
+
+    while (l1 != null || l2 != null) {
+
+        const v1 = l1 == null ? 0 : l1.val;
+        const v2 = l2 == null ? 0 : l2.val;
+
+        let sum = v1 + v2 + added;
+        added = sum >= 10 ? 1 : 0;
+        sum = sum % 10;
+        currentNode.next = new ListNode(sum);
+        currentNode = currentNode.next;
+        l1 = l1 ? l1.next : null;
+        l2 = l2 ? l2.next : null;
+    }
+    if (added > 0) {
+        currentNode.next = new ListNode(1);
+    }
+
+
+    return firstNode;
+};
 
 assert.deepStrictEqual(
-    addTwoNumbers(
+    addTwoNumbers1(
+        createLinkedList([2, 4, 3]),
+        createLinkedList([5, 6, 4]),
+    ),
+    createLinkedList([7, 0, 8]),
+);
+
+assert.deepStrictEqual(
+    addTwoNumbers2(
         createLinkedList([2, 4, 3]),
         createLinkedList([5, 6, 4]),
     ),
