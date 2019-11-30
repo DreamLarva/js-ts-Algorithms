@@ -161,7 +161,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 387 | [字符串中的第一个唯一字符](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/387.字符串中的第一个唯一字符.ts) | 简单 |
 | 389 | [找不同](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/389.找不同.ts) | 简单 |
 | 394 | [字符串解码](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/394.字符串解码.ts) | 普通 |
-| 400 | [第N个数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/400.第N个数字.ts) | 简单 |
+| 400 | [第N个数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/400.第N个数字.ts) | 普通 |
 | 401 | [二进制手表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/401.二进制手表.ts) | 简单 |
 | 404 | [左叶子之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/404.左叶子之和.ts) | 简单 |
 | 409 | [最长回文串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/409.最长回文串.ts) | 简单 |
@@ -189,13 +189,14 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 704 | [二分查找](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/704.二分查找.ts) | 简单 |
 | 705 | [设计哈希集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/705.设计哈希集合.ts) | 简单 |
 | 706 | [设计哈希映射](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/706.设计哈希映射.ts) | 简单 |
-| 707 | [设计链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/707.设计链表.ts) | 简单 |
+| 707 | [设计链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/707.设计链表.ts) | 普通 |
 | 724 | [寻找数组的中心索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/724.寻找数组的中心索引.ts) | 简单 |
 | 733 | [图像渲染](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/733.图像渲染.ts) | 简单 |
 | 739 | [每日温度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/739.每日温度.ts) | 普通 |
 | 747 | [至少是其他数字两倍的最大数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/747.至少是其他数字两倍的最大数.ts) | 简单 |
 | 752 | [打开转盘锁](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/752.打开转盘锁.ts) | 普通 |
 | 771 | [宝石与石头](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/771.宝石与石头.ts) | 简单 |
+| 788 | [旋转数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/788.旋转数字.ts) | 简单 |
 | 799 | [语法中的第K个符号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/799.语法中的第K个符号.ts) | 普通 |
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 普通 |
 | 1002 | [查找常用字符](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1002.查找常用字符.ts) | 简单 |

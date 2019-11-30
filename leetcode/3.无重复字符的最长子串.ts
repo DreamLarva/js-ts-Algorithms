@@ -24,18 +24,21 @@
  */
 var lengthOfLongestSubstring = function (s: string) {
     const location: { [key: string]: number } = {};
-    let start_index = -1, max = 0; // idx为当前子串的开始位置-1
+    /**
+     * 为何起始的 index 是 -1 呢?
+     * 因为 index 从 0 开始, max 的值是 i - start_index
+     * 是 i 和 start_index 的相对距离 如果从 start_index 从 0 开始 第一个字符 的相对距离就是 0 而不是 1 了
+     * */
+    let start_index = -1, max = 0;
     for (let i = 0; i < s.length; i++) {
         const character = s[i];
-        // 如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置+1
+        // 如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置 + 1
+        // 更简洁的说 就是上次重复的字符后一位 到这次出现的字符(包括的)长度
         if (location[character] > start_index) {
             start_index = location[character];
         }
 
-        if (i - start_index > max) {
-            max = i - start_index;
-
-        }
+        max = Math.max(max,i - start_index);
 
         location[character] = i;
     }
@@ -45,3 +48,5 @@ var lengthOfLongestSubstring = function (s: string) {
 
 import assert from "assert";
 assert.strictEqual(lengthOfLongestSubstring("abcabcbb"), 3);
+assert.strictEqual(lengthOfLongestSubstring("bbbbb"), 1);
+assert.strictEqual(lengthOfLongestSubstring("pwwkew"), 3);
