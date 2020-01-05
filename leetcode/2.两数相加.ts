@@ -77,6 +77,36 @@ var addTwoNumbers2 = function (l1: ListNode<number> | null, l2: ListNode<number>
     return firstNode;
 };
 
+var addTwoNumbers3 = function (l1: ListNode<number> | null, l2: ListNode<number> | null) {
+    let firstNode!: ListNode<number>;
+    let currentNode: ListNode<number> | null = null;
+    let added = 0;
+    do {
+        const v1 = l1 == null ? 0 : l1.val;
+        const v2 = l2 == null ? 0 : l2.val;
+
+        let sum = v1 + v2 + added;
+        added = sum >= 10 ? 1 : 0;
+        sum = sum % 10;
+
+        if(currentNode == null){
+            currentNode =  firstNode = new ListNode(sum)
+        }else{
+            currentNode.next = new ListNode(sum);
+            currentNode = currentNode.next
+        }
+
+        l1 = l1 ? l1.next : null;
+        l2 = l2 ? l2.next : null;
+
+    } while (l1 != null || l2 != null);
+    if (added > 0) {
+        currentNode.next = new ListNode(1);
+    }
+
+    return firstNode;
+};
+
 assert.deepStrictEqual(
     addTwoNumbers1(
         createLinkedList([2, 4, 3]),
