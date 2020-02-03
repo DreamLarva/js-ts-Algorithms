@@ -20,7 +20,6 @@ suite
     })
     .add('直接新建', function () {
         new Date()
-
     })
 
 
