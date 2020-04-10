@@ -146,6 +146,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 300 | [最长上升子序列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/300.最长上升子序列.ts) | 中等 |
 | 303 | [区域和检索-数组不可变](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/303.区域和检索-数组不可变.ts) | 简单 |
 | 319 | [灯泡开关](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/319.灯泡开关.ts) | 中等 |
+| 322 | [零钱兑换](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/322.零钱兑换.ts) | 中等 |
 | 326 | [3的幂](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/326.3的幂.ts) | 简单 |
 | 328 | [奇偶链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/328.奇偶链表.ts) | 中等 |
 | 342 | [4的幂](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/342.4的幂.ts) | 简单 |
