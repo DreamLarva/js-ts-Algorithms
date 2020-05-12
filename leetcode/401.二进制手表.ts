@@ -27,42 +27,48 @@
  * @return {string[]}
  */
 var readBinaryWatch = function (num: number) {
-    // 暴力
-    // 因为无论什么输入 最多也就算 12 * 60 也就720次 是能够接受的
-    const result: string[] = [];
-    for (let hour = 0, minute = 0; hour <= 11;) {
-        if (howManyOne(hour) + howManyOne(minute) === num) {
-            result.push(`${hour}:${String(minute).padStart(2, "0")}`);
-        }
+  // 暴力
+  // 因为无论什么输入 最多也就算 12 * 60 也就720次 是能够接受的
+  const result: string[] = [];
+  for (let hour = 0, minute = 0; hour <= 11; ) {
+    if (howManyOne(hour) + howManyOne(minute) === num) {
+      result.push(`${hour}:${String(minute).padStart(2, "0")}`);
+    }
 
-        if (minute === 59) {
-            minute = 0;
-            hour++;
-        } else {
-            minute++;
-        }
+    if (minute === 59) {
+      minute = 0;
+      hour++;
+    } else {
+      minute++;
+    }
+  }
+  return result;
+
+  function howManyOne(num: number) {
+    let result = 0;
+    while (num) {
+      num % 2 === 1 && result++;
+      num = Math.floor(num / 2);
     }
     return result;
-
-    function howManyOne(num: number) {
-        let result = 0;
-        while (num) {
-            num % 2 === 1 && result++;
-            num = Math.floor(num / 2);
-        }
-        return result;
-    }
-
+  }
 };
-
 
 import assert from "assert";
 
 assert.deepStrictEqual(
-    new Set(readBinaryWatch(1)),
-    new Set(["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]),
+  new Set(readBinaryWatch(1)),
+  new Set([
+    "1:00",
+    "2:00",
+    "4:00",
+    "8:00",
+    "0:01",
+    "0:02",
+    "0:04",
+    "0:08",
+    "0:16",
+    "0:32",
+  ])
 );
-assert.deepStrictEqual(
-    new Set(readBinaryWatch(0)),
-    new Set(["0:00"]),
-);
+assert.deepStrictEqual(new Set(readBinaryWatch(0)), new Set(["0:00"]));

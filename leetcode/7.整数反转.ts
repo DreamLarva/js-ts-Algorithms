@@ -13,18 +13,16 @@
  * @return {number}
  */
 const reverse = function (x: number) {
-    const maxLimit = Math.pow(2, 32 - 1);
-    const minLimit = -maxLimit;
+  const maxLimit = Math.pow(2, 32 - 1);
+  const minLimit = -maxLimit;
 
-    if (x > maxLimit || x < minLimit) return 0;
-    const result = (x > 0 ? 1 : -1) * Number(String(Math.abs(x)).split("").reverse().join(""));
-    // const result = Math.sign(x) * Number(String(Math.abs(x)).split("").reverse().join(""));
-    return result > maxLimit || result < minLimit ? 0 : result;
+  if (x > maxLimit || x < minLimit) return 0;
+  const result =
+    (x > 0 ? 1 : -1) * Number(String(Math.abs(x)).split("").reverse().join(""));
+  // const result = Math.sign(x) * Number(String(Math.abs(x)).split("").reverse().join(""));
+  return result > maxLimit || result < minLimit ? 0 : result;
 };
 
 import assert from "assert";
 
-assert.strictEqual(
-    reverse(123),
-    321,
-);
+assert.strictEqual(reverse(123), 321);

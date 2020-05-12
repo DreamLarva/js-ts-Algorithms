@@ -28,7 +28,7 @@
  * @return {number[]}
  */
 
-var findDiagonalOrder = function(matrix: any[][]) {
+var findDiagonalOrder = function (matrix: any[][]) {
   const result = [];
   if (matrix.length == 0) {
     return matrix;
@@ -135,22 +135,26 @@ import assert from "assert";
 assert.deepStrictEqual(findDiagonalOrder([[1, 2, 3]]), [1, 2, 3]);
 
 assert.deepStrictEqual(findDiagonalOrder([[1], [2], [3]]), [1, 2, 3]);
-assert.deepStrictEqual(findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), [
-  1,
-  2,
-  4,
-  7,
-  5,
-  3,
-  6,
-  8,
-  9
-]);
 assert.deepStrictEqual(
-  findDiagonalOrder([["00", "01"], ["10", "11"], ["20", "21"]]),
+  findDiagonalOrder([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ]),
+  [1, 2, 4, 7, 5, 3, 6, 8, 9]
+);
+assert.deepStrictEqual(
+  findDiagonalOrder([
+    ["00", "01"],
+    ["10", "11"],
+    ["20", "21"],
+  ]),
   ["00", "01", "10", "20", "11", "21"]
 );
 assert.deepStrictEqual(
-  findDiagonalOrder([["00", "01", "02"], ["10", "11", "12"]]),
+  findDiagonalOrder([
+    ["00", "01", "02"],
+    ["10", "11", "12"],
+  ]),
   ["00", "01", "10", "11", "02", "12"]
 );

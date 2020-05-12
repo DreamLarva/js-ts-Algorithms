@@ -44,35 +44,34 @@
  *
  */
 class Count {
-    data: Array<{ text: string, count: number }> = [];
+  data: Array<{ text: string; count: number }> = [];
 
-    getLast() {
-        return this.data[this.data.length - 1];
+  getLast() {
+    return this.data[this.data.length - 1];
+  }
+
+  addMany(str: string) {
+    str.split("").forEach((character) => this.add(character));
+    return this;
+  }
+
+  add(character: string) {
+    if (this.data.length === 0) {
+      this.data.push({ text: character, count: 1 });
+    } else {
+      const last = this.getLast();
+      if (last.text === character) {
+        last.count++;
+      } else {
+        this.data.push({ text: character, count: 1 });
+      }
     }
+    return this;
+  }
 
-    addMany(str: string) {
-        str.split("").forEach((character) => this.add(character));
-        return this;
-    }
-
-    add(character: string) {
-        if (this.data.length === 0) {
-            this.data.push({text: character, count: 1});
-        } else {
-            const last = this.getLast();
-            if (last.text === character) {
-                last.count++;
-            } else {
-                this.data.push({text: character, count: 1});
-            }
-        }
-        return this;
-    }
-
-    toString() {
-        return this.data.reduce((pre, {text, count}) => pre + count + text, "");
-    }
-
+  toString() {
+    return this.data.reduce((pre, { text, count }) => pre + count + text, "");
+  }
 }
 
 /**
@@ -80,16 +79,15 @@ class Count {
  * @return {string}
  */
 var countAndSay = function (n: number) {
-    if (n-- === 1) {
-        return "1";
-    }
-    let result = new Count().add("1");
-    while (--n) {
-        result = new Count().addMany(result.toString());
-    }
+  if (n-- === 1) {
+    return "1";
+  }
+  let result = new Count().add("1");
+  while (--n) {
+    result = new Count().addMany(result.toString());
+  }
 
-    return result.toString();
+  return result.toString();
 };
-
 
 export {};

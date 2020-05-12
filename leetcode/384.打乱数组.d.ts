@@ -10,22 +10,22 @@
  end
  * */
 declare class Solution {
-    origin: number[];
-    shuffleData: number[];
-    /**
-     * @param {number[]} nums
-     */
-    constructor(nums: number[]);
-    /**
-     * Resets the array to its original configuration and return it.
-     * @return {number[]}
-     */
-    reset(): number[];
-    /**
-     * Returns a random shuffling of the array.
-     * @return {number[]}
-     */
-    shuffle(): number[];
+  origin: number[];
+  shuffleData: number[];
+  /**
+   * @param {number[]} nums
+   */
+  constructor(nums: number[]);
+  /**
+   * Resets the array to its original configuration and return it.
+   * @return {number[]}
+   */
+  reset(): number[];
+  /**
+   * Returns a random shuffling of the array.
+   * @return {number[]}
+   */
+  shuffle(): number[];
 }
 /**
  * Your Solution object will be instantiated and called as such:

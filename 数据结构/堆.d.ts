@@ -4,7 +4,7 @@ declare abstract class Heap {
     /**
      * 堆的大小
      * */
-    readonly size: number;
+    get size(): number;
     abstract siftDown(A: number[], k: number): void;
     abstract siftUp(A: number[], k: number): void;
     heapifyWithSiftDown(): number[];

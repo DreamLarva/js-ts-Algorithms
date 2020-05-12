@@ -80,56 +80,51 @@ var fourSumCount = function (A: number[], B: number[], C: number[], D: number[])
 };
 */
 
-var fourSumCount = function (A: number[], B: number[], C: number[], D: number[]) {
-    // 没说不能一个数组里面不能有相同的值
-    // 应该只用一个 hash 表 使用map 结构 因为 map 的键 可以为 数字类型 而 对象字面量只能是字符串
-    const map: Map<number, number> = new Map();
-    for (let i = 0; i < A.length; i++) {
-        const a = A[i];
-        for (let j = 0; j < B.length; j++) {
-            const b = B[j];
-            const value = map.get(a + b);
-            const newValue = value ? value + 1 : 1;
-            map.set(a + b, newValue);
-        }
+var fourSumCount = function (
+  A: number[],
+  B: number[],
+  C: number[],
+  D: number[]
+) {
+  // 没说不能一个数组里面不能有相同的值
+  // 应该只用一个 hash 表 使用map 结构 因为 map 的键 可以为 数字类型 而 对象字面量只能是字符串
+  const map: Map<number, number> = new Map();
+  for (let i = 0; i < A.length; i++) {
+    const a = A[i];
+    for (let j = 0; j < B.length; j++) {
+      const b = B[j];
+      const value = map.get(a + b);
+      const newValue = value ? value + 1 : 1;
+      map.set(a + b, newValue);
     }
+  }
 
-    let result = 0;
-    for (let i = 0; i < C.length; i++) {
-        const c = C[i];
-        for (let j = 0; j < D.length; j++) {
-            const d = D[j];
+  let result = 0;
+  for (let i = 0; i < C.length; i++) {
+    const c = C[i];
+    for (let j = 0; j < D.length; j++) {
+      const d = D[j];
 
-            const value = map.get(-(c + d));
-            if (value) {
-                result += value;
-            }
-        }
+      const value = map.get(-(c + d));
+      if (value) {
+        result += value;
+      }
     }
-    return result;
+  }
+  return result;
 };
 
-import assert from 'assert';
+import assert from "assert";
+
+assert.strictEqual(fourSumCount([1, 2], [-2, -1], [-1, 2], [0, 2]), 2);
 
 assert.strictEqual(
-    fourSumCount(
-        [1, 2],
-        [-2, -1],
-        [-1, 2],
-        [0, 2],
-    ),
-    2,
+  fourSumCount(
+    [9, -6, 4, 5, -8, 6, 5, 2, -10, 5],
+    [-1, -2, -10, 8, 8, 7, -7, 0, -10, -1],
+    [5, 1, -10, -5, 6, -7, -8, 0, -2, 0],
+    [-3, -9, 2, 10, -7, -2, -4, 10, 10, -4]
+  ),
+
+  327
 );
-
-assert.strictEqual(
-    fourSumCount(
-        [9, -6, 4, 5, -8, 6, 5, 2, -10, 5],
-        [-1, -2, -10, 8, 8, 7, -7, 0, -10, -1],
-        [5, 1, -10, -5, 6, -7, -8, 0, -2, 0],
-        [-3, -9, 2, 10, -7, -2, -4, 10, 10, -4],
-    ),
-
-    327,
-);
-
-

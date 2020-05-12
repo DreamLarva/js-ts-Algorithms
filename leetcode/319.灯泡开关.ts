@@ -25,17 +25,15 @@
  * @return {number}
  */
 var bulbSwitch = function (n: number) {
-    // 第一轮的意思其实就是 每一个灯泡操作一次
-    // 那么只要 操作次数为 偶数次 就会把灯泡关闭
-    // 所以结果就是 只能操作 奇数次的数
-    // 结果是 所有完全平方数 因为 如 4 = 2 * 2  在 2 的时候开了 但是不可能 出现再按照2 开关的情况 所以就会多出这次
+  // 第一轮的意思其实就是 每一个灯泡操作一次
+  // 那么只要 操作次数为 偶数次 就会把灯泡关闭
+  // 所以结果就是 只能操作 奇数次的数
+  // 结果是 所有完全平方数 因为 如 4 = 2 * 2  在 2 的时候开了 但是不可能 出现再按照2 开关的情况 所以就会多出这次
 
-    return Math.floor(n ** 0.5);
-
+  return Math.floor(n ** 0.5);
 };
 
-
-import assert from 'assert';
+import assert from "assert";
 
 assert.strictEqual(bulbSwitch(100), 10);
 assert.strictEqual(bulbSwitch(3), 1);

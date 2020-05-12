@@ -16,36 +16,44 @@ minStack.pop();
 minStack.top();      --> 返回 0.
 minStack.getMin();   --> 返回 -2.
 */
+import _ from "lodash";
 /**
  * initialize your data structure here.
+ * 再建立一个最小值栈用户存储当前 最小值
+ * 每次入栈 就比较最小值栈顶的值 如果 小于最小值则推入当前值
+ * 每次出栈 最小值栈也出栈
  */
 class MinStack {
-    data: number[] = [];
-    /**
-     * @param {number} x
-     * @return {void}
-     */
-    push(x: number) {
-        this.data.push(x);
-    };
-    /**
-     * @return {void}
-     */
-    pop() {
-        this.data.pop();
-    };
-    /**
-     * @return {number}
-     */
-    top() {
-        return this.data[this.data.length - 1];
-    };
-    /**
-     * @return {number}
-     */
-    getMin() {
-        return Math.min(...this.data);
-    }
+  data: number[] = [];
+  minData: number[] = [Infinity];
+  /**
+   * @param {number} x
+   * @return {void}
+   */
+  push(x: number) {
+    this.data.push(x);
+    const min = Math.min(x, _.last(this.minData)!);
+    this.minData.push(min);
+  }
+  /**
+   * @return {void}
+   */
+  pop() {
+    this.data.pop();
+    this.minData.pop();
+  }
+  /**
+   * @return {number}
+   */
+  top() {
+    return this.data[this.data.length - 1];
+  }
+  /**
+   * @return {number}
+   */
+  getMin() {
+    return _.last(this.minData);
+  }
 }
 
 /**
@@ -57,4 +65,4 @@ class MinStack {
  * var param_4 = obj.getMin()
  */
 
-export {}
+export {};

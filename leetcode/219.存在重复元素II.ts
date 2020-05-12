@@ -21,18 +21,18 @@
  * @return {boolean}
  */
 var containsNearbyDuplicate = function (nums: number[], k: number) {
-    type cache = {
-        [key: string]: number
+  type cache = {
+    [key: string]: number;
+  };
+  const cache: cache = {};
+  for (let i = 0; i < nums.length; i++) {
+    const cur = nums[i];
+    if (cache[cur] != null) {
+      if (i - cache[cur] <= k) return true;
     }
-    const cache: cache = {};
-    for (let i = 0; i < nums.length; i++) {
-        const cur = nums[i];
-        if (cache[cur] != null) {
-            if (i - cache[cur] <= k) return true;
-        }
-        cache[cur] = i;
-    }
-    return false;
+    cache[cur] = i;
+  }
+  return false;
 };
 
 import assert from "assert";

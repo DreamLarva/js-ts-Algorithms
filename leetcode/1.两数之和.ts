@@ -18,28 +18,27 @@
  */
 // 暴力
 var twoSum = function (nums: number[], target: number) {
-    for (let i = 0, len = nums.length; i < len - 1; i++) {
-        for (let j = i + 1; j < len; j++) {
-            if (nums[i] + nums[j] === target) {
-                return [i, j];
-            }
-        }
+  for (let i = 0, len = nums.length; i < len - 1; i++) {
+    for (let j = i + 1; j < len; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
     }
+  }
 };
 
 var twoSum1 = function (nums: number[], target: number) {
-    let map: { [index: number]: number } = {};
-    nums.forEach((i: number, index) => {
-        map[i] = index;
-    });
-    for (let i = 0; i < nums.length; i++) {
-        let sec = target - nums[i];
-        if (!!map[sec] && map[sec] !== i) {
-            return [i, map[sec]];
-        }
+  let map: { [index: number]: number } = {};
+  nums.forEach((i: number, index) => {
+    map[i] = index;
+  });
+  for (let i = 0; i < nums.length; i++) {
+    let sec = target - nums[i];
+    if (!!map[sec] && map[sec] !== i) {
+      return [i, map[sec]];
     }
+  }
 };
-
 
 import assert from "assert";
 assert.deepStrictEqual(twoSum1([2, 7, 11, 15], 9), [0, 1]);

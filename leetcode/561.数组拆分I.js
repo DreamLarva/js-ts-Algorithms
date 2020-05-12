@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定长度为 2n 的数组, 你的任务是将这些数分成 n 对, 例如 (a1, b1), (a2, b2), ..., (an, bn) ，使得从1 到 n 的 min(ai, bi) 总和最大。
@@ -29,12 +31,12 @@ n 是正整数,范围在 [1, 10000].
  * 双指针 怎么做啊?
  * */
 var arrayPairSum = function (nums) {
-    nums.sort((a, b) => a - b);
-    let result = 0;
-    for (let i = 0; i < nums.length; i += 2) {
-        result += nums[i];
-    }
-    return result;
+  nums.sort((a, b) => a - b);
+  let result = 0;
+  for (let i = 0; i < nums.length; i += 2) {
+    result += nums[i];
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(arrayPairSum([1, 4, 3, 2]), 4);

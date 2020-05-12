@@ -28,29 +28,26 @@
  * @return {boolean}
  */
 var wordPattern = function (pattern: string, str: string) {
+  const str_arr = str.split(" ");
+  if (str_arr.length !== pattern.length) return false;
+  const pattern_arr = pattern.split("");
+  // 用于映射 patter 和 str
+  const map: { [key: string]: string } = {};
+  // 用于 判断 有了映射了
+  const set = new Set();
 
-    const str_arr = str.split(" ");
-    if (str_arr.length !== pattern.length) return false;
-    const pattern_arr = pattern.split("");
-    // 用于映射 patter 和 str
-    const map: { [key: string]: string } = {};
-    // 用于 判断 有了映射了
-    const set = new Set();
-
-    for (let i = 0; i < pattern_arr.length; i++) {
-        const current_char = pattern[i];
-        if (map[current_char]) {
-            if (map[current_char] !== str_arr[i]) return false;
-        } else {
-            if (set.has(str_arr[i])) return false; // 重复映射
-            map[current_char] = str_arr[i];
-            set.add(str_arr[i]);
-        }
-
-
+  for (let i = 0; i < pattern_arr.length; i++) {
+    const current_char = pattern[i];
+    if (map[current_char]) {
+      if (map[current_char] !== str_arr[i]) return false;
+    } else {
+      if (set.has(str_arr[i])) return false; // 重复映射
+      map[current_char] = str_arr[i];
+      set.add(str_arr[i]);
     }
+  }
 
-    return true;
+  return true;
 };
 
 import assert from "assert";

@@ -15,9 +15,8 @@
  * @return {boolean}
  */
 var canWinNim = function (n: number) {
-    // 巴什博奕
-    return n % (3 + 1) !== 0;
-
+  // 巴什博奕
+  return n % (3 + 1) !== 0;
 };
 
-export {}
+export {};

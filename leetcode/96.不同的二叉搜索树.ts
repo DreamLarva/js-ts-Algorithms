@@ -23,73 +23,59 @@
  * @return {number}
  */
 var numTrees = function (n: number): number {
-    if (n === 0 || n === 1) return n;
-    if (n === 2) return 2;
-    if (n === 3) return 5;
+  if (n === 0 || n === 1) return n;
+  if (n === 2) return 2;
+  if (n === 3) return 5;
 
-    let result = 0;
-    for (let i = 0; i <= n - 1; i++) {
-        // 按照每一个数字 将 它 以及 他的 左侧 右侧 分为三组
-        result += (numTrees(i) || 1) * (numTrees(n - 1 - i) || 1);
-    }
+  let result = 0;
+  for (let i = 0; i <= n - 1; i++) {
+    // 按照每一个数字 将 它 以及 他的 左侧 右侧 分为三组
+    result += (numTrees(i) || 1) * (numTrees(n - 1 - i) || 1);
+  }
 
-    return result;
+  return result;
 };
 
 // 添加记忆化
 var numTrees_1 = function (n: number): number {
-    const cache: { [key: number]: number } = {};
-    return step(n);
+  const cache: { [key: number]: number } = {};
+  return step(n);
 
-    function step(n: number) {
-        if (cache[n]) return cache[n];
-        if (n === 0 || n === 1) return n;
-        let result = 0;
-        for (let i = 0; i <= n - 1; i++) {
-            // 按照每一个数字 将 它 以及 他的 左侧 右侧 分为三组
-            result += (step(i) || 1) * (step(n - 1 - i) || 1);
-        }
-
-        return cache[n] = result;
+  function step(n: number) {
+    if (cache[n]) return cache[n];
+    if (n === 0 || n === 1) return n;
+    let result = 0;
+    for (let i = 0; i <= n - 1; i++) {
+      // 按照每一个数字 将 它 以及 他的 左侧 右侧 分为三组
+      result += (step(i) || 1) * (step(n - 1 - i) || 1);
     }
 
+    return (cache[n] = result);
+  }
 };
-
 
 import assert from "assert";
 
-assert.strictEqual(
-    numTrees_1(2),
-    2,
-);
-assert.strictEqual(
-    numTrees_1(3),
-    5,
-);
-assert.strictEqual(
-    numTrees_1(5),
-    42,
-);
-assert.strictEqual(
-    numTrees_1(10),
-    16796,
-);
+assert.strictEqual(numTrees_1(2), 2);
+assert.strictEqual(numTrees_1(3), 5);
+assert.strictEqual(numTrees_1(5), 42);
+assert.strictEqual(numTrees_1(10), 16796);
 
-const Benchmark = require('benchmark');
-const suite = new Benchmark.Suite;
+const Benchmark = require("benchmark");
+const suite = new Benchmark.Suite();
 suite
-    .add('没记忆', function () {
-        numTrees(10);
-    })
-    .add('有记忆', function () {
-        numTrees_1(10);
-    })
-    // add listeners
-    .on('cycle', function (event: any) {
-        console.log(String(event.target));
-    })
-    .on('complete', function (this: any) {
-        console.log('Fastest is ' + this.filter('fastest').map('name'));
-    })
-    // run async
-    .run({'async': false});
+  .add("没记忆", function () {
+    numTrees(10);
+  })
+  .add("有记忆", function () {
+    numTrees_1(10);
+  })
+  // add listeners
+  .on("cycle", function (event: any) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: any) {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });

@@ -37,16 +37,15 @@
  * 然后n位置 会按照 n-1 位置 再判断 如果n-1 为负
  * */
 function solution(nums: number[]) {
-    const len = nums.length;
-    for (let i = 1; i < len; i++) {
-        nums[i] = nums[i] + Math.max(nums[i - 1], 0);
-    }
-    return Math.max(...nums);
+  const len = nums.length;
+  for (let i = 1; i < len; i++) {
+    nums[i] = nums[i] + Math.max(nums[i - 1], 0);
+  }
+  return Math.max(...nums);
 }
 
 /**
  * TODO 分治法
  * */
 
-
-export {}
+export {};

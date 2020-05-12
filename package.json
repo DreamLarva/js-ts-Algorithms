@@ -27,9 +27,11 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@types/ramda": "^0.27.3",
     "awilix": "^4.2.2",
     "inversify": "^5.0.1",
     "lodash": "*",
+    "ramda": "^0.27.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.2",
     "tsyringe": "^3.3.0"

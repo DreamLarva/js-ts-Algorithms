@@ -20,21 +20,18 @@
  * @return {number[]}
  */
 var intersection = function (nums1: number[], nums2: number[]) {
-    const result = [];
-    const set1 = new Set(nums1);
-    const set2 = new Set(nums2);
+  const result = [];
+  const set1 = new Set(nums1);
+  const set2 = new Set(nums2);
 
-    for (const element of set1) {
-        if (set2.has(element)) {
-            result.push(element);
-        }
+  for (const element of set1) {
+    if (set2.has(element)) {
+      result.push(element);
     }
-    return result;
+  }
+  return result;
 };
 
 import assert from "assert";
 
-assert.deepStrictEqual(
-    intersection([1, 2, 2, 1], [2, 2]),
-    [2],
-);
+assert.deepStrictEqual(intersection([1, 2, 2, 1], [2, 2]), [2]);

@@ -14,9 +14,11 @@
 输出: [1,2]
 解释: 2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number[]} numbers
@@ -24,24 +26,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number[]}
  */
 var twoSum = function (numbers, target) {
-    /**
-     * 由于是 排序后的数据
-     * 使用 首尾指针
-     * 如果 目标值 左右指针的值相加 > 目标值 右指针左移
-     * 如果 目标值 左右指针的值相加 < 目标值 左指针右移
-     * 两指针相会 不能
-     * */
-    let left = 0;
-    let right = numbers.length - 1;
-    while (numbers[left] + numbers[right] !== target) {
-        if (numbers[left] + numbers[right] > target) {
-            right--;
-        }
-        else {
-            left++;
-        }
+  /**
+   * 由于是 排序后的数据
+   * 使用 首尾指针
+   * 如果 目标值 左右指针的值相加 > 目标值 右指针左移
+   * 如果 目标值 左右指针的值相加 < 目标值 左指针右移
+   * 两指针相会 不能
+   * */
+  let left = 0;
+  let right = numbers.length - 1;
+  while (numbers[left] + numbers[right] !== target) {
+    if (numbers[left] + numbers[right] > target) {
+      right--;
+    } else {
+      left++;
     }
-    return [left + 1, right + 1];
+  }
+  return [left + 1, right + 1];
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.deepStrictEqual(twoSum([2, 7, 11, 15], 9), [1, 2]);

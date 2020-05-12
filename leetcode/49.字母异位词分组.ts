@@ -20,62 +20,61 @@
  * @return {string[][]}
  */
 var groupAnagrams = function (strs: string[]) {
-    const primeFloatArr = [
-        2,
-        3,
-        5,
-        7,
-        11,
-        13,
-        17,
-        19,
-        23,
-        29,
-        31,
-        41,
-        43,
-        47,
-        53,
-        59,
-        61,
-        67,
-        71,
-        73,
-        89,
-        97,
-        103,
-        109,
-        113,
-        127,
-    ];
+  const primeFloatArr = [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    89,
+    97,
+    103,
+    109,
+    113,
+    127,
+  ];
 
-    const cache = {} as { [key: string]: string[] };
-    for (let i = 0; i < strs.length; i++) {
-        if (strs[i] === "") {
-            if (cache[""]) {
-                cache[""].push(strs[i]);
-            } else {
-                cache[""] = [strs[i]];
-            }
-            continue;
-        }
-        const hash = strs[i]
-            .split("")
-            .map(v => primeFloatArr[v.charCodeAt(0) - 97])
-            .reduce((pre, cur) => pre * cur);
-
-        if (cache[hash]) {
-            cache[hash].push(strs[i]);
-        } else {
-            cache[hash] = [strs[i]];
-        }
+  const cache = {} as { [key: string]: string[] };
+  for (let i = 0; i < strs.length; i++) {
+    if (strs[i] === "") {
+      if (cache[""]) {
+        cache[""].push(strs[i]);
+      } else {
+        cache[""] = [strs[i]];
+      }
+      continue;
     }
-    console.log(cache);
-    return Object.values(cache);
+    const hash = strs[i]
+      .split("")
+      .map((v) => primeFloatArr[v.charCodeAt(0) - 97])
+      .reduce((pre, cur) => pre * cur);
 
+    if (cache[hash]) {
+      cache[hash].push(strs[i]);
+    } else {
+      cache[hash] = [strs[i]];
+    }
+  }
+  console.log(cache);
+  return Object.values(cache);
 };
 
 // console.log(groupAnagrams(["and", "dan"]))
 // console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
 
-export {}
+export {};

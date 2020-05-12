@@ -15,26 +15,26 @@
 链接：https://leetcode-cn.com/problems/sum-of-left-leaves
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-import {TreeNode, createBinaryTree} from "../util/BinaryTree";
+import { TreeNode, createBinaryTree } from "../util/BinaryTree";
 
 /**
  * @param {TreeNode} root
  * @return {number}
  */
 var sumOfLeftLeaves = function (root: TreeNode | null): number {
-    if (root == null) return 0;
-    if (root.left && root.left.left == null && root.left.right == null) {
-        return root.left.val + sumOfLeftLeaves(root.right);
-    }
-    if (root.right && root.right.left == null && root.right.right == null) {
-        return sumOfLeftLeaves(root.left); // + 0;
-    }
-    return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+  if (root == null) return 0;
+  if (root.left && root.left.left == null && root.left.right == null) {
+    return root.left.val + sumOfLeftLeaves(root.right);
+  }
+  if (root.right && root.right.left == null && root.right.right == null) {
+    return sumOfLeftLeaves(root.left); // + 0;
+  }
+  return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
 };
 
 import assert from "assert";
 
 assert.strictEqual(
-    sumOfLeftLeaves(createBinaryTree([3, 9, 20, null, null, 15, 7])),
-    24,
+  sumOfLeftLeaves(createBinaryTree([3, 9, 20, null, null, 15, 7])),
+  24
 );

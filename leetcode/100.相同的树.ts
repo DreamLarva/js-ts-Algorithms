@@ -63,13 +63,13 @@ Langs: c cpp csharp golang java javascript kotlin php python python3 ruby rust s
  * @property {TreeNode | null} right
  * */
 class TreeNode<T> {
-    val: T;
-    left: null | TreeNode<T> = null;
-    right: null | TreeNode<T> = null;
+  val: T;
+  left: null | TreeNode<T> = null;
+  right: null | TreeNode<T> = null;
 
-    constructor(val: T) {
-        this.val = val;
-    }
+  constructor(val: T) {
+    this.val = val;
+  }
 }
 
 /**
@@ -77,10 +77,15 @@ class TreeNode<T> {
  * @param {TreeNode} q
  * @return {boolean}
  */
-var isSameTree = function (p: TreeNode<number> | null, q: TreeNode<number> | null): boolean {
-    if (p == null && q == null) return true;
-    if (p == null || q == null) return false;
-    return p.val === q.val ? isSameTree(p.left, q.left) && isSameTree(p.right, q.right) : false;
+var isSameTree = function (
+  p: TreeNode<number> | null,
+  q: TreeNode<number> | null
+): boolean {
+  if (p == null && q == null) return true;
+  if (p == null || q == null) return false;
+  return p.val === q.val
+    ? isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+    : false;
 };
 
 const tree1 = new TreeNode(1);

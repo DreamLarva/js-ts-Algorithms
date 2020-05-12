@@ -23,20 +23,20 @@
 谷歌：我们90％的工程师使用您编写的软件(Homebrew)，但是您却无法在面试时在白板上写出翻转二叉树这道题，这太糟糕了。
 * */
 
-import {TreeNode} from "../util/BinaryTree";
+import { TreeNode } from "../util/BinaryTree";
 
 /**
  * @param {TreeNode} root
  * @return {TreeNode}
  */
 var invertTree = function (root: TreeNode | null) {
-    if (root === null) return root;
-    const {left, right} = root;
-    if (left || root) {
-        root.left = invertTree(right);
-        root.right = invertTree(left);
-    }
-    return root;
+  if (root === null) return root;
+  const { left, right } = root;
+  if (left || root) {
+    root.left = invertTree(right);
+    root.right = invertTree(left);
+  }
+  return root;
 };
 
-export {}
+export {};

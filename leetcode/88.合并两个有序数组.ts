@@ -39,45 +39,41 @@ nums2 = [2,5,6], n = 3
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function (nums1: number[], m: number, nums2: number[], n: number) {
-    // 在nums1上 从后往前出入更大的值
-    let nums2_index = n - 1;
-    let nums1_index = m - 1;
-    let global_index = nums1.length;
-    while (--global_index >= 0) {
-        const nums1_data = nums1[nums1_index];
-        const nums2_data = nums2[nums2_index];
+  // 在nums1上 从后往前出入更大的值
+  let nums2_index = n - 1;
+  let nums1_index = m - 1;
+  let global_index = nums1.length;
+  while (--global_index >= 0) {
+    const nums1_data = nums1[nums1_index];
+    const nums2_data = nums2[nums2_index];
 
-        if (nums2_index < 0 || nums1_data > nums2_data) {
-            nums1[global_index] = nums1_data;
-            nums1_index--;
-        } else if (nums1_index < 0 || nums1_data <= nums2_data) {
-            nums1[global_index] = nums2_data;
-            nums2_index--;
-        }
+    if (nums2_index < 0 || nums1_data > nums2_data) {
+      nums1[global_index] = nums1_data;
+      nums1_index--;
+    } else if (nums1_index < 0 || nums1_data <= nums2_data) {
+      nums1[global_index] = nums2_data;
+      nums2_index--;
     }
+  }
 };
 
-
 {
-    const nums1 = [1, 2, 3, 0, 0, 0];
-    const nums2 = [2, 5, 6];
-    merge(nums1, 3, nums2, nums2.length);
-    console.log(nums1);
-
+  const nums1 = [1, 2, 3, 0, 0, 0];
+  const nums2 = [2, 5, 6];
+  merge(nums1, 3, nums2, nums2.length);
+  console.log(nums1);
 }
 {
-    const nums1 = [0];
-    const nums2 = [1];
-    merge(nums1, 0, nums2, 1);
-    console.log(nums1);
-
+  const nums1 = [0];
+  const nums2 = [1];
+  merge(nums1, 0, nums2, 1);
+  console.log(nums1);
 }
 {
-    const nums1 = [1];
-    const nums2: number[] = [];
-    merge(nums1, 0, nums2, 0);
-    console.log(nums1);
-
+  const nums1 = [1];
+  const nums2: number[] = [];
+  merge(nums1, 0, nums2, 0);
+  console.log(nums1);
 }
 
-export {}
+export {};

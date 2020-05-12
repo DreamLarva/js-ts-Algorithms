@@ -29,11 +29,14 @@
  * @return {number}
  */
 var titleToNumber = function (s: string) {
-    return s.split("").reduceRight((pre, cur, index) =>
-        pre + (cur.charCodeAt(0) - 65 + 1) * (26 ** (s.length - 1 - index))
-        , 0);
+  return s
+    .split("")
+    .reduceRight(
+      (pre, cur, index) =>
+        pre + (cur.charCodeAt(0) - 65 + 1) * 26 ** (s.length - 1 - index),
+      0
+    );
 };
-
 
 import assert from "assert";
 

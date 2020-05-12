@@ -17,20 +17,20 @@
  * @return {number}
  */
 var majorityElement = function (nums: number[]) {
-    return solution2(nums);
+  return solution2(nums);
 };
 
 /**
  * 究极暴力算法
  * */
 function solution1(nums: number[]) {
-    const halfLen = Math.ceil(nums.length / 2);
-    while (nums.length >= halfLen) {
-        const filterNode = nums[0];
-        const len = nums.length;
-        nums = nums.filter(v => v !== filterNode);
-        if (len - nums.length >= halfLen) return filterNode;
-    }
+  const halfLen = Math.ceil(nums.length / 2);
+  while (nums.length >= halfLen) {
+    const filterNode = nums[0];
+    const len = nums.length;
+    nums = nums.filter((v) => v !== filterNode);
+    if (len - nums.length >= halfLen) return filterNode;
+  }
 }
 
 /**
@@ -44,23 +44,23 @@ function solution1(nums: number[]) {
  *      2.如果每个众数都与 非众数两两抵消 则只剩众数 因为众数 > 半数
  * */
 function solution2(nums: number[]) {
-    let tmp: number[] = [];
-    let index = 0;
-    while (index < nums.length) {
-        const current = nums[index];
-        if (tmp.length === 0) {
-            tmp.push(current);
-        } else {
-            const first = tmp[0];
-            if (first === current) {
-                tmp.push(current);
-            } else {
-                tmp.pop();
-            }
-        }
-        index++;
+  let tmp: number[] = [];
+  let index = 0;
+  while (index < nums.length) {
+    const current = nums[index];
+    if (tmp.length === 0) {
+      tmp.push(current);
+    } else {
+      const first = tmp[0];
+      if (first === current) {
+        tmp.push(current);
+      } else {
+        tmp.pop();
+      }
     }
-    return tmp[0];
+    index++;
+  }
+  return tmp[0];
 }
 
 /**
@@ -68,23 +68,23 @@ function solution2(nums: number[]) {
  * 竟然更慢........
  * */
 function solution3(nums: number[]) {
-    let result = null, count = 0;
-    let index = 0;
-    while (index < nums.length) {
-        const current = nums[index];
-        if (current === result) {
-            count++;
-        } else if (count === 0) {
-            result = current;
-            count = 1;
-        } else {
-            count--;
-        }
-        index++;
+  let result = null,
+    count = 0;
+  let index = 0;
+  while (index < nums.length) {
+    const current = nums[index];
+    if (current === result) {
+      count++;
+    } else if (count === 0) {
+      result = current;
+      count = 1;
+    } else {
+      count--;
     }
-    return result;
+    index++;
+  }
+  return result;
 }
-
 
 import assert from "assert";
 
@@ -94,23 +94,74 @@ assert.strictEqual(solution3([2, 2, 1, 1, 1, 2, 2]), 2);
 
 import Benchmark from "benchmark";
 
-const suite = new Benchmark.Suite;
-const sample = [2, 2, 1, 1, 4,5,6,7,8,9,0,1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2];
+const suite = new Benchmark.Suite();
+const sample = [
+  2,
+  2,
+  1,
+  1,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  0,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+  1,
+  2,
+  2,
+];
 suite
-    .add('solution1', function () {
-        solution1(sample);
-    })
-    .add('solution2', function () {
-        solution2(sample);
-    })
-    .add('solution3', function () {
-        solution3(sample);
-    })
-    .on('cycle', function (event: Benchmark.Event) {
-        console.log(String(event.target));
-    })
-    .on('complete', function (this: any) {
-        console.log('Fastest is ' + this.filter('fastest').map( 'name'));
-    })
-    // run async
-    .run({'async': false});
+  .add("solution1", function () {
+    solution1(sample);
+  })
+  .add("solution2", function () {
+    solution2(sample);
+  })
+  .add("solution3", function () {
+    solution3(sample);
+  })
+  .on("cycle", function (event: Benchmark.Event) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: any) {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });

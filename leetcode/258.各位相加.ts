@@ -13,21 +13,19 @@
  * @param {number} num
  * @return {number}
  */
-var addDigits = function (num: number) {
-
-};
+var addDigits = function (num: number) {};
 
 // 暴力解决
 function solution1(num: number): number {
-    if (num < 10) return num;
+  if (num < 10) return num;
 
-    let result = 0;
-    while (num) {
-        result += num % 10;
-        num = Math.trunc(num / 10);
-    }
+  let result = 0;
+  while (num) {
+    result += num % 10;
+    num = Math.trunc(num / 10);
+  }
 
-    return solution1(result);
+  return solution1(result);
 }
 
 /**
@@ -39,14 +37,11 @@ function solution1(num: number): number {
  * 如果不能被整除，就返回被9除的余数。
  * */
 function solution2(num: number) {
-    if (num > 9) {
-        num = num % 9;
-        if (num === 0)
-            return 9;
-    }
-    return num;
-
+  if (num > 9) {
+    num = num % 9;
+    if (num === 0) return 9;
+  }
+  return num;
 }
-
 
 export {};

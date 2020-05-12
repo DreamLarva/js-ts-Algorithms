@@ -47,40 +47,40 @@
  * @return {number}
  */
 var openLock = function (deadends: string[], target: string) {
-    const deadends_set = new Set(deadends);
-    if (deadends_set.has("0000")) return -1;
-    const list: [string, number][] = [];
-    list.push(["0000", 0]);
-    while (list.length) {
-        const [node, step] = list.shift()!;
-        for (let i = 0; i < 4; i++) {
-            for (const action of [1, -1]) {
-                const str_arr = Array.from(node);
-                str_arr[i] = String((parseInt(str_arr[i]) + 10 + action) % 10);
-                const cur = str_arr.join("");
-                if (cur === target) return step + 1;
-                if (!deadends_set.has(cur)) {
-                    list.push([cur, step + 1]);
-                    deadends_set.add(cur);
-                }
-            }
+  const deadends_set = new Set(deadends);
+  if (deadends_set.has("0000")) return -1;
+  const list: [string, number][] = [];
+  list.push(["0000", 0]);
+  while (list.length) {
+    const [node, step] = list.shift()!;
+    for (let i = 0; i < 4; i++) {
+      for (const action of [1, -1]) {
+        const str_arr = Array.from(node);
+        str_arr[i] = String((parseInt(str_arr[i]) + 10 + action) % 10);
+        const cur = str_arr.join("");
+        if (cur === target) return step + 1;
+        if (!deadends_set.has(cur)) {
+          list.push([cur, step + 1]);
+          deadends_set.add(cur);
         }
+      }
     }
+  }
 
-    return -1;
+  return -1;
 };
 
 import assert from "assert";
 
+assert.strictEqual(openLock(["8888"], "0009"), 1);
 assert.strictEqual(
-    openLock(["8888"], "0009"),
-    1,
+  openLock(["0201", "0101", "0102", "1212", "2002"], "0202"),
+  6
 );
 assert.strictEqual(
-    openLock(["0201", "0101", "0102", "1212", "2002"], "0202"),
-    6,
-);
-assert.strictEqual(
-    openLock(["8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"], "8888"),
-    -1,
+  openLock(
+    ["8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"],
+    "8888"
+  ),
+  -1
 );

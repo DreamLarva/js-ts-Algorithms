@@ -25,36 +25,26 @@
  * @return {number}
  */
 var findMin = function (nums: number[]) {
-    if (nums.length === 1) return nums[0];
-    /**
-     * 依然是二分法
-     * */
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        if (left + 1 === right) return Math.min(nums[left], nums[right]);
-        const mid = Math.ceil((left + right) / 2);
-        if (nums[mid] > nums[right]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
+  if (nums.length === 1) return nums[0];
+  /**
+   * 依然是二分法
+   * */
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    if (left + 1 === right) return Math.min(nums[left], nums[right]);
+    const mid = Math.ceil((left + right) / 2);
+    if (nums[mid] > nums[right]) {
+      left = mid + 1;
+    } else {
+      right = mid;
     }
-    return nums[right];
-
+  }
+  return nums[right];
 };
 
 import assert from "assert";
 
-assert.strictEqual(
-    findMin([3, 4, 5, 1, 2]),
-    1,
-);
-assert.strictEqual(
-    findMin([4, 5, 6, 7, 0, 1, 2]),
-    0,
-);
-assert.strictEqual(
-    findMin([2, 3, 1]),
-    1,
-);
+assert.strictEqual(findMin([3, 4, 5, 1, 2]), 1);
+assert.strictEqual(findMin([4, 5, 6, 7, 0, 1, 2]), 0);
+assert.strictEqual(findMin([2, 3, 1]), 1);

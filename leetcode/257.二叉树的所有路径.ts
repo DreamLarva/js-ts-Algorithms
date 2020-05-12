@@ -17,7 +17,7 @@
 
 解释: 所有根节点到叶子节点的路径为: 1->2->5, 1->3
 * */
-import {createBinaryTree, TreeNode} from "../util/BinaryTree";
+import { createBinaryTree, TreeNode } from "../util/BinaryTree";
 import assert from "assert";
 
 /**
@@ -25,13 +25,15 @@ import assert from "assert";
  * @return {string[]}
  */
 var binaryTreePaths = function (root: TreeNode | null): string[] {
-    if (root === null) return [];
-    const {left, right, val} = root;
-    if (!(left || right)) return [String(val)];
-    let result: string[] = [];
-    if (left) result = result.concat(binaryTreePaths(left).map(v => val + "->" + v));
-    if (right) result = result.concat(binaryTreePaths(right).map(v => val + "->" + v));
-    return result;
+  if (root === null) return [];
+  const { left, right, val } = root;
+  if (!(left || right)) return [String(val)];
+  let result: string[] = [];
+  if (left)
+    result = result.concat(binaryTreePaths(left).map((v) => val + "->" + v));
+  if (right)
+    result = result.concat(binaryTreePaths(right).map((v) => val + "->" + v));
+  return result;
 };
 
 /**
@@ -40,41 +42,35 @@ var binaryTreePaths = function (root: TreeNode | null): string[] {
  * 节约了 每次递归和并结果的开销
  * */
 var binaryTreePaths2 = function (root: TreeNode<number> | null): string[] {
-    if (root === null) return [];
-    const arr: string[] = [];
-    getPath(root, String(root.val));
-    return arr;
+  if (root === null) return [];
+  const arr: string[] = [];
+  getPath(root, String(root.val));
+  return arr;
 
-    function getPath(root: TreeNode<number> | null, str: string) {
-        if (!root) return;
-        if (root.left) {
-            const str_left = str + '->' + root.left.val;
-            getPath(root.left, str_left);
-        }
-        if (root.right) {
-            const str_right = str + '->' + root.right.val;
-            getPath(root.right, str_right);
-        }
-        if (!root.left && !root.right) {
-            arr.push(String(str));
-            return;
-        }
+  function getPath(root: TreeNode<number> | null, str: string) {
+    if (!root) return;
+    if (root.left) {
+      const str_left = str + "->" + root.left.val;
+      getPath(root.left, str_left);
     }
+    if (root.right) {
+      const str_right = str + "->" + root.right.val;
+      getPath(root.right, str_right);
+    }
+    if (!root.left && !root.right) {
+      arr.push(String(str));
+      return;
+    }
+  }
 };
 
-assert.deepStrictEqual(
-    binaryTreePaths(createBinaryTree([1, 2, 3, null, 5])),
-    ["1->2->5", "1->3"],
-);
-assert.deepStrictEqual(
-    binaryTreePaths(null),
-    [],
-);
-assert.deepStrictEqual(
-    binaryTreePaths2(createBinaryTree([1, 2, 3, null, 5])),
-    ["1->2->5", "1->3"],
-);
-assert.deepStrictEqual(
-    binaryTreePaths2(null),
-    [],
-);
+assert.deepStrictEqual(binaryTreePaths(createBinaryTree([1, 2, 3, null, 5])), [
+  "1->2->5",
+  "1->3",
+]);
+assert.deepStrictEqual(binaryTreePaths(null), []);
+assert.deepStrictEqual(binaryTreePaths2(createBinaryTree([1, 2, 3, null, 5])), [
+  "1->2->5",
+  "1->3",
+]);
+assert.deepStrictEqual(binaryTreePaths2(null), []);

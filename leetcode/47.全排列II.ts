@@ -21,85 +21,72 @@
  * @return {number[][]}
  */
 var permuteUnique = function (nums: number[]) {
-    // 基本同 46.全排列.ts
-    // 额外的需要排除重复的项
+  // 基本同 46.全排列.ts
+  // 额外的需要排除重复的项
 
-    // 先排序
-    nums.sort();
+  // 先排序
+  nums.sort();
 
-    const result: number[][] = [];
-    const map: { [key: string]: string } = {};
-    backtrack(nums.length - 1, nums, 0);
-    return result;
+  const result: number[][] = [];
+  const map: { [key: string]: string } = {};
+  backtrack(nums.length - 1, nums, 0);
+  return result;
 
-    function backtrack(n: number, nums: number[], first: number) {
-        // 交换的位置 已经没有了 返回结果
-        if (n === first) {
-            return result.push(nums);
-        }
-
-        /**
-         * 这里不 会回溯 直接 在上一层的循环上 进行
-         * 最终的效果是 每次 将一个不同的 数放到 first 位 上 然后后面的位递归 自己玩
-         * 原因是 全排列I 中 由于值都不同 所以每个交换都是有意义的 相当于放到 第一位
-         * 并且由于 开始是排序的 所以 交换后 i 位 之后的也是排序的
-         * */
-        for (let i = first; i <= n; i++) {
-
-            // 排除相同 结果 只保留第一个
-            if (i != first && nums[first] == nums[i]) continue;
-
-            // console.log(`start${first}`, nums, "swap", nums[first], nums[i]);
-            [nums[first], nums[i]] = [nums[i], nums[first]];
-
-            /**
-             * 注意之后的代码
-             * 1.每次传递 已经交换过位置的拷贝?
-             * 2.并不需要回溯之前的状态?
-             *
-             * 是因为 之后的值 依然保留了排序的状态 回到之前的状态 一定破坏排序
-             * 而破坏了排序的状态的 是没有意义的
-             * */
-            // 交换下一个位置的值
-            backtrack(n, nums.slice(), first + 1);
-        }
+  function backtrack(n: number, nums: number[], first: number) {
+    // 交换的位置 已经没有了 返回结果
+    if (n === first) {
+      return result.push(nums);
     }
+
+    /**
+     * 这里不 会回溯 直接 在上一层的循环上 进行
+     * 最终的效果是 每次 将一个不同的 数放到 first 位 上 然后后面的位递归 自己玩
+     * 原因是 全排列I 中 由于值都不同 所以每个交换都是有意义的 相当于放到 第一位
+     * 并且由于 开始是排序的 所以 交换后 i 位 之后的也是排序的
+     * */
+    for (let i = first; i <= n; i++) {
+      // 排除相同 结果 只保留第一个
+      if (i != first && nums[first] == nums[i]) continue;
+
+      // console.log(`start${first}`, nums, "swap", nums[first], nums[i]);
+      [nums[first], nums[i]] = [nums[i], nums[first]];
+
+      /**
+       * 注意之后的代码
+       * 1.每次传递 已经交换过位置的拷贝?
+       * 2.并不需要回溯之前的状态?
+       *
+       * 是因为 之后的值 依然保留了排序的状态 回到之前的状态 一定破坏排序
+       * 而破坏了排序的状态的 是没有意义的
+       * */
+      // 交换下一个位置的值
+      backtrack(n, nums.slice(), first + 1);
+    }
+  }
 };
 
-
 import assert from "assert";
-import {sortDeep} from "../util/assertHelper";
+import { sortDeep } from "../util/assertHelper";
 import _ from "lodash";
 
+assert.deepStrictEqual(permuteUnique([1, 2, 3]), [
+  [1, 2, 3],
+  [1, 3, 2],
+  [2, 1, 3],
+  [2, 3, 1],
+  [3, 1, 2],
+  [3, 2, 1],
+]);
 
-assert.deepStrictEqual(
-    permuteUnique([1, 2, 3]),
-    [
-        [1, 2, 3],
-        [1, 3, 2],
-        [2, 1, 3],
-        [2, 3, 1],
-        [3, 1, 2],
-        [3, 2, 1]
-    ],
-);
+assert.deepStrictEqual(permuteUnique([1, 1, 2]), [
+  [1, 1, 2],
+  [1, 2, 1],
+  [2, 1, 1],
+]);
 
-
-assert.deepStrictEqual(
-    permuteUnique([1, 1, 2]),
-    [
-        [1, 1, 2],
-        [1, 2, 1],
-        [2, 1, 1],
-    ],
-);
-
-
-
-
-import {permute} from "./46.全排列";
+import { permute } from "./46.全排列";
 const Benchmark = require("benchmark");
-const suite = new Benchmark.Suite;
+const suite = new Benchmark.Suite();
 
 /*
 suite
@@ -121,22 +108,21 @@ suite
     .run({async: false});
 */
 
-
-const sample = _.range(0,6);
+const sample = _.range(0, 6);
 suite
-    .add("backtrack", function () {
-        permute(sample);
-    })
-    .add("copy", function () {
-        permuteUnique(sample);
-    })
+  .add("backtrack", function () {
+    permute(sample);
+  })
+  .add("copy", function () {
+    permuteUnique(sample);
+  })
 
-    // add listeners
-    .on("cycle", function (event: any) {
-        console.log(String(event.target));
-    })
-    .on("complete", function (this: any) {
-        console.log("Fastest is " + this.filter("fastest").map("name"));
-    })
-    // run async
-    .run({async: false});
+  // add listeners
+  .on("cycle", function (event: any) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: any) {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });

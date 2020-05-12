@@ -37,34 +37,26 @@
  * @return {boolean}
  */
 var canVisitAllRooms = function (rooms: number[][]) {
-    // bfs
-    let list: number[] = [];
-    const set: Set<number> = new Set();
-    let room_visited = 0;
-    list.push(0);
-    while (list.length) {
-        const room_num = list.shift()!;
-        if (set.has(room_num)) continue;
+  // bfs
+  let list: number[] = [];
+  const set: Set<number> = new Set();
+  let room_visited = 0;
+  list.push(0);
+  while (list.length) {
+    const room_num = list.shift()!;
+    if (set.has(room_num)) continue;
 
-        if (rooms[room_num]) {
-            list = list.concat(rooms[room_num]);
-            set.add(room_num);
-            room_visited++;
-        }
+    if (rooms[room_num]) {
+      list = list.concat(rooms[room_num]);
+      set.add(room_num);
+      room_visited++;
     }
+  }
 
-    return room_visited === rooms.length;
+  return room_visited === rooms.length;
 };
-
 
 import assert from "assert";
 
-
-assert.strictEqual(
-    canVisitAllRooms([[1], [2], [3], []]),
-    true,
-);
-assert.strictEqual(
-    canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]),
-    false,
-);
+assert.strictEqual(canVisitAllRooms([[1], [2], [3], []]), true);
+assert.strictEqual(canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]), false);

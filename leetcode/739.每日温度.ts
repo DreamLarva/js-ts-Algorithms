@@ -11,28 +11,25 @@
  * @return {number[]}
  */
 var dailyTemperatures = function (T: number[]) {
-    // 使用栈
-    const stack: number[] = [];
-    const result: number[] = [];
-    for (let i = 0; i < T.length; i++) {
-
-        // 如果栈顶的值 < 准备入栈的值 (注意不能等于 因为 一样的值 依然不算递增啊)
-        while (stack.length && T[stack[stack.length - 1]] < T[i]) {
-            const top_index = stack.pop()!;
-            // 结果就是 入栈额值的索引 减去 栈内值的索引
-            result[top_index] = i - top_index;
-        }
-        stack.push(i);
+  // 使用栈
+  const stack: number[] = [];
+  const result: number[] = [];
+  for (let i = 0; i < T.length; i++) {
+    // 如果栈顶的值 < 准备入栈的值 (注意不能等于 因为 一样的值 依然不算递增啊)
+    while (stack.length && T[stack[stack.length - 1]] < T[i]) {
+      const top_index = stack.pop()!;
+      // 结果就是 入栈额值的索引 减去 栈内值的索引
+      result[top_index] = i - top_index;
     }
+    stack.push(i);
+  }
 
-    // 如果栈内 还有值 说明之后再也没有递增
-    for (const index of stack) {
-        result[index] = 0;
-    }
-    return result;
-
+  // 如果栈内 还有值 说明之后再也没有递增
+  for (const index of stack) {
+    result[index] = 0;
+  }
+  return result;
 };
-
 
 import assert from "assert";
 
@@ -41,6 +38,6 @@ import assert from "assert";
 //     [1, 1, 4, 2, 1, 1, 0, 0],
 // );
 assert.deepStrictEqual(
-    dailyTemperatures([89, 62, 70, 58, 47, 47, 46, 76, 100, 70]),
-    [8, 1, 5, 4, 3, 2, 1, 1, 0, 0],
+  dailyTemperatures([89, 62, 70, 58, 47, 47, 46, 76, 100, 70]),
+  [8, 1, 5, 4, 3, 2, 1, 1, 0, 0]
 );

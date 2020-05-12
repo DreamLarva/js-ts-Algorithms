@@ -38,60 +38,59 @@ linkedList.get(1);            //返回3
  * Initialize your data structure here.
  */
 class MyLinkedList {
-    /**
-     * 没说不能用数组就不能怪我了
-     * */
-    data: number[] = [];
+  /**
+   * 没说不能用数组就不能怪我了
+   * */
+  data: number[] = [];
 
-    /**
-     * Get the value of the index-th node in the linked list. If the index is invalid, return -1.
-     * @param {number} index
-     * @return {number}
-     */
-    get(index: number) {
-        return this.data[index] == null ? -1 : this.data[index];
-    };
+  /**
+   * Get the value of the index-th node in the linked list. If the index is invalid, return -1.
+   * @param {number} index
+   * @return {number}
+   */
+  get(index: number) {
+    return this.data[index] == null ? -1 : this.data[index];
+  }
 
-    /**
-     * Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
-     * @param {number} val
-     * @return {void}
-     */
-    addAtHead(val: number) {
-        this.data.unshift(val);
-    };
+  /**
+   * Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
+   * @param {number} val
+   * @return {void}
+   */
+  addAtHead(val: number) {
+    this.data.unshift(val);
+  }
 
-    /**
-     * Append a node of value val to the last element of the linked list.
-     * @param {number} val
-     * @return {void}
-     */
-    addAtTail(val: number) {
-        this.data.push(val);
-    };
+  /**
+   * Append a node of value val to the last element of the linked list.
+   * @param {number} val
+   * @return {void}
+   */
+  addAtTail(val: number) {
+    this.data.push(val);
+  }
 
-    /**
-     * Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
-     * @param {number} index
-     * @param {number} val
-     * @return {void}
-     */
-    addAtIndex(index: number, val: number) {
-        if (index < 0) return this.addAtHead(val);
-        if (index > this.data.length) return;
-        this.data.splice(index, 0, val);
-    };
+  /**
+   * Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
+   * @param {number} index
+   * @param {number} val
+   * @return {void}
+   */
+  addAtIndex(index: number, val: number) {
+    if (index < 0) return this.addAtHead(val);
+    if (index > this.data.length) return;
+    this.data.splice(index, 0, val);
+  }
 
-    /**
-     * Delete the index-th node in the linked list, if the index is valid.
-     * @param {number} index
-     * @return {void}
-     */
-    deleteAtIndex(index: number) {
-        if (index < 0 || index >= this.data.length) return;
-        this.data.splice(index, 1);
-    };
-
+  /**
+   * Delete the index-th node in the linked list, if the index is valid.
+   * @param {number} index
+   * @return {void}
+   */
+  deleteAtIndex(index: number) {
+    if (index < 0 || index >= this.data.length) return;
+    this.data.splice(index, 1);
+  }
 }
 
 /**

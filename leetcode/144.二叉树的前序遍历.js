@@ -18,9 +18,11 @@
 链接：https://leetcode-cn.com/problems/binary-tree-preorder-traversal
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 const BinaryTree_1 = require("../util/BinaryTree");
 /**
@@ -28,45 +30,47 @@ const BinaryTree_1 = require("../util/BinaryTree");
  * @return {number[]}
  */
 var preorderTraversal = function (root) {
-    /**
-     * 递归
-     * */
-    if (root === null)
-        return [];
-    const result = [];
-    step(root);
-    return result;
-    function step(node) {
-        result.push(node.val);
-        if (node.left)
-            step(node.left);
-        if (node.right)
-            step(node.right);
-    }
+  /**
+   * 递归
+   * */
+  if (root === null) return [];
+  const result = [];
+  step(root);
+  return result;
+  function step(node) {
+    result.push(node.val);
+    if (node.left) step(node.left);
+    if (node.right) step(node.right);
+  }
 };
 var preorderTraversal_1 = function (root) {
-    /**
-     * 迭代
-     * */
-    if (root === null)
-        return [];
-    const result = [];
-    const stack = [];
-    let node = root;
-    while (node || stack.length) {
-        // 优先 查询 当前节点 和 左子树
-        while (node) {
-            stack.push(node);
-            result.push(node.val);
-            node = node.left;
-        }
-        // 没有左子树的时候 就获取上一个分支的右子树
-        node = stack.pop();
-        node = node.right;
+  /**
+   * 迭代
+   * */
+  if (root === null) return [];
+  const result = [];
+  const stack = [];
+  let node = root;
+  while (node || stack.length) {
+    // 优先 查询 当前节点 和 左子树
+    while (node) {
+      stack.push(node);
+      result.push(node.val);
+      node = node.left;
     }
-    return result;
+    // 没有左子树的时候 就获取上一个分支的右子树
+    node = stack.pop();
+    node = node.right;
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.deepStrictEqual(preorderTraversal(BinaryTree_1.createBinaryTree([1, null, 2, 3])), [1, 2, 3]);
-assert_1.default.deepStrictEqual(preorderTraversal_1(BinaryTree_1.createBinaryTree([1, null, 2, 3])), [1, 2, 3]);
+assert_1.default.deepStrictEqual(
+  preorderTraversal(BinaryTree_1.createBinaryTree([1, null, 2, 3])),
+  [1, 2, 3]
+);
+assert_1.default.deepStrictEqual(
+  preorderTraversal_1(BinaryTree_1.createBinaryTree([1, null, 2, 3])),
+  [1, 2, 3]
+);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTQ0LuS6jOWPieagkeeahOWJjeW6j+mBjeWOhi5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMTQ0LuS6jOWPieagkeeahOWJjeW6j+mBjeWOhi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQWtCSTs7Ozs7QUFFSixtREFBOEQ7QUFFOUQ7OztHQUdHO0FBQ0gsSUFBSSxpQkFBaUIsR0FBRyxVQUFVLElBQTZCO0lBQzNEOztTQUVLO0lBQ0wsSUFBSSxJQUFJLEtBQUssSUFBSTtRQUFFLE9BQU8sRUFBRSxDQUFDO0lBQzdCLE1BQU0sTUFBTSxHQUFhLEVBQUUsQ0FBQztJQUM1QixJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDWCxPQUFPLE1BQU0sQ0FBQztJQUVkLFNBQVMsSUFBSSxDQUFDLElBQXNCO1FBQ2hDLE1BQU0sQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO1FBQ3RCLElBQUksSUFBSSxDQUFDLElBQUk7WUFBRSxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQy9CLElBQUksSUFBSSxDQUFDLEtBQUs7WUFBRSxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBQ3JDLENBQUM7QUFDTCxDQUFDLENBQUM7QUFFRixJQUFJLG1CQUFtQixHQUFHLFVBQVUsSUFBNkI7SUFDN0Q7O1NBRUs7SUFDTCxJQUFJLElBQUksS0FBSyxJQUFJO1FBQUUsT0FBTyxFQUFFLENBQUM7SUFDN0IsTUFBTSxNQUFNLEdBQWEsRUFBRSxDQUFDO0lBQzVCLE1BQU0sS0FBSyxHQUF1QixFQUFFLENBQUM7SUFDckMsSUFBSSxJQUFJLEdBQTRCLElBQUksQ0FBQztJQUN6QyxPQUFPLElBQUksSUFBSSxLQUFLLENBQUMsTUFBTSxFQUFFO1FBQ3pCLG1CQUFtQjtRQUNuQixPQUFPLElBQUksRUFBRTtZQUNULEtBQUssQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7WUFDakIsTUFBTSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUM7WUFDdEIsSUFBSSxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUM7U0FDcEI7UUFDRCx3QkFBd0I7UUFDeEIsSUFBSSxHQUFHLEtBQUssQ0FBQyxHQUFHLEVBQUcsQ0FBQztRQUNwQixJQUFJLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQztLQUdyQjtJQUNELE9BQU8sTUFBTSxDQUFDO0FBQ2xCLENBQUMsQ0FBQztBQUdGLG9EQUE0QjtBQUU1QixnQkFBTSxDQUFDLGVBQWUsQ0FDbEIsaUJBQWlCLENBQUMsNkJBQWdCLENBQUMsQ0FBQyxDQUFDLEVBQUUsSUFBSSxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLEVBQ3BELENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FDWixDQUFDO0FBQ0YsZ0JBQU0sQ0FBQyxlQUFlLENBQ2xCLG1CQUFtQixDQUFDLDZCQUFnQixDQUFDLENBQUMsQ0FBQyxFQUFFLElBQUksRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQyxFQUN0RCxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQ1osQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbue7meWumuS4gOS4quS6jOWPieagke+8jOi/lOWbnuWug+eahMKg5YmN5bqPwqDpgY3ljobjgIJcclxuXHJcbsKg56S65L6LOlxyXG5cclxu6L6T5YWlOiBbMSxudWxsLDIsM11cclxuICAgMVxyXG4gICAgXFxcclxuICAgICAyXHJcbiAgICAvXHJcbiAgIDNcclxuXHJcbui+k+WHujogWzEsMiwzXVxyXG7ov5vpmLY6wqDpgJLlvZLnrpfms5XlvojnroDljZXvvIzkvaDlj6/ku6XpgJrov4fov63ku6Pnrpfms5XlrozmiJDlkJfvvJ9cclxuXHJcbuadpea6kO+8muWKm+aJo++8iExlZXRDb2Rl77yJXHJcbumTvuaOpe+8mmh0dHBzOi8vbGVldGNvZGUtY24uY29tL3Byb2JsZW1zL2JpbmFyeS10cmVlLXByZW9yZGVyLXRyYXZlcnNhbFxyXG7okZfkvZzmnYPlvZLpoobmiaPnvZHnu5zmiYDmnInjgILllYbkuJrovazovb3or7fogZTns7vlrpjmlrnmjojmnYPvvIzpnZ7llYbkuJrovazovb3or7fms6jmmI7lh7rlpITjgIJcclxuKiAqL1xyXG5cclxuaW1wb3J0IHtUcmVlTm9kZSwgY3JlYXRlQmluYXJ5VHJlZX0gZnJvbSBcIi4uL3V0aWwvQmluYXJ5VHJlZVwiO1xyXG5cclxuLyoqXHJcbiAqIEBwYXJhbSB7VHJlZU5vZGV8bnVsbH0gcm9vdFxyXG4gKiBAcmV0dXJuIHtudW1iZXJbXX1cclxuICovXHJcbnZhciBwcmVvcmRlclRyYXZlcnNhbCA9IGZ1bmN0aW9uIChyb290OiBUcmVlTm9kZTxudW1iZXI+IHwgbnVsbCkge1xyXG4gICAgLyoqXHJcbiAgICAgKiDpgJLlvZJcclxuICAgICAqICovXHJcbiAgICBpZiAocm9vdCA9PT0gbnVsbCkgcmV0dXJuIFtdO1xyXG4gICAgY29uc3QgcmVzdWx0OiBudW1iZXJbXSA9IFtdO1xyXG4gICAgc3RlcChyb290KTtcclxuICAgIHJldHVybiByZXN1bHQ7XHJcblxyXG4gICAgZnVuY3Rpb24gc3RlcChub2RlOiBUcmVlTm9kZTxudW1iZXI+KSB7XHJcbiAgICAgICAgcmVzdWx0LnB1c2gobm9kZS52YWwpO1xyXG4gICAgICAgIGlmIChub2RlLmxlZnQpIHN0ZXAobm9kZS5sZWZ0KTtcclxuICAgICAgICBpZiAobm9kZS5yaWdodCkgc3RlcChub2RlLnJpZ2h0KTtcclxuICAgIH1cclxufTtcclxuXHJcbnZhciBwcmVvcmRlclRyYXZlcnNhbF8xID0gZnVuY3Rpb24gKHJvb3Q6IFRyZWVOb2RlPG51bWJlcj4gfCBudWxsKSB7XHJcbiAgICAvKipcclxuICAgICAqIOi/reS7o1xyXG4gICAgICogKi9cclxuICAgIGlmIChyb290ID09PSBudWxsKSByZXR1cm4gW107XHJcbiAgICBjb25zdCByZXN1bHQ6IG51bWJlcltdID0gW107XHJcbiAgICBjb25zdCBzdGFjazogVHJlZU5vZGU8bnVtYmVyPltdID0gW107XHJcbiAgICBsZXQgbm9kZTogVHJlZU5vZGU8bnVtYmVyPiB8IG51bGwgPSByb290O1xyXG4gICAgd2hpbGUgKG5vZGUgfHwgc3RhY2subGVuZ3RoKSB7XHJcbiAgICAgICAgLy8g5LyY5YWIIOafpeivoiDlvZPliY3oioLngrkg5ZKMIOW3puWtkOagkVxyXG4gICAgICAgIHdoaWxlIChub2RlKSB7XHJcbiAgICAgICAgICAgIHN0YWNrLnB1c2gobm9kZSk7XHJcbiAgICAgICAgICAgIHJlc3VsdC5wdXNoKG5vZGUudmFsKTtcclxuICAgICAgICAgICAgbm9kZSA9IG5vZGUubGVmdDtcclxuICAgICAgICB9XHJcbiAgICAgICAgLy8g5rKh5pyJ5bem5a2Q5qCR55qE5pe25YCZIOWwseiOt+WPluS4iuS4gOS4quWIhuaUr+eahOWPs+WtkOagkVxyXG4gICAgICAgIG5vZGUgPSBzdGFjay5wb3AoKSE7XHJcbiAgICAgICAgbm9kZSA9IG5vZGUucmlnaHQ7XHJcblxyXG5cclxuICAgIH1cclxuICAgIHJldHVybiByZXN1bHQ7XHJcbn07XHJcblxyXG5cclxuaW1wb3J0IGFzc2VydCBmcm9tIFwiYXNzZXJ0XCI7XHJcblxyXG5hc3NlcnQuZGVlcFN0cmljdEVxdWFsKFxyXG4gICAgcHJlb3JkZXJUcmF2ZXJzYWwoY3JlYXRlQmluYXJ5VHJlZShbMSwgbnVsbCwgMiwgM10pKSxcclxuICAgIFsxLCAyLCAzXSxcclxuKTtcclxuYXNzZXJ0LmRlZXBTdHJpY3RFcXVhbChcclxuICAgIHByZW9yZGVyVHJhdmVyc2FsXzEoY3JlYXRlQmluYXJ5VHJlZShbMSwgbnVsbCwgMiwgM10pKSxcclxuICAgIFsxLCAyLCAzXSxcclxuKTtcclxuIl19

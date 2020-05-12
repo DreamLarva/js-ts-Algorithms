@@ -56,46 +56,39 @@
  * @return {number}
  */
 const largestSumAfterKNegations = function (A: number[], K: number) {
-    A.sort((a, b) => a - b);
-    // 获取负数的个数
-    const negative_count = A.filter(a => a < 0).length;
-    // 如果负数的个数大于等于 K
-    if (negative_count >= K) {
-        return A.reduce((pre, cur) => {
-            if (cur < 0 && K > 0) {
-                cur *= -1;
-                K--;
-            }
-            return pre + cur;
-        }, 0);
-    }
-    // 如果负数的个数小于 K
-    else if ((K - negative_count) % 2 !== 0) {
-        // 找到最小绝对值
-        let min_abs: number;
-        const sum = A.reduce((pre, cur, index) => {
-            if (index === 1) {
-                min_abs = Math.abs(pre) < Math.abs(cur) ?
-                    Math.abs(pre) :
-                    Math.abs(cur);
-            } else {
-                min_abs = min_abs < Math.abs(cur) ?
-                    min_abs :
-                    Math.abs(cur);
-            }
+  A.sort((a, b) => a - b);
+  // 获取负数的个数
+  const negative_count = A.filter((a) => a < 0).length;
+  // 如果负数的个数大于等于 K
+  if (negative_count >= K) {
+    return A.reduce((pre, cur) => {
+      if (cur < 0 && K > 0) {
+        cur *= -1;
+        K--;
+      }
+      return pre + cur;
+    }, 0);
+  }
+  // 如果负数的个数小于 K
+  else if ((K - negative_count) % 2 !== 0) {
+    // 找到最小绝对值
+    let min_abs: number;
+    const sum = A.reduce((pre, cur, index) => {
+      if (index === 1) {
+        min_abs = Math.abs(pre) < Math.abs(cur) ? Math.abs(pre) : Math.abs(cur);
+      } else {
+        min_abs = min_abs < Math.abs(cur) ? min_abs : Math.abs(cur);
+      }
 
-            return Math.abs(pre) + Math.abs(cur);
-        });
+      return Math.abs(pre) + Math.abs(cur);
+    });
 
-        return sum - min_abs! * 2;
-    } else {
-        return A.reduce((a, b) => Math.abs(a) + Math.abs(b));
-    }
-
+    return sum - min_abs! * 2;
+  } else {
+    return A.reduce((a, b) => Math.abs(a) + Math.abs(b));
+  }
 };
 
 import assert from "assert";
 
 assert.strictEqual(largestSumAfterKNegations([5, 6, 9, -3, 3], 2), 20);
-
-

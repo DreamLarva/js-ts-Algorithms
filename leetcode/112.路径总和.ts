@@ -16,7 +16,7 @@
 返回 true, 因为存在目标和为 22 的根节点到叶子节点的路径 5->4->11->2。
 * */
 
-import {TreeNode} from "../util/BinaryTree";
+import { TreeNode } from "../util/BinaryTree";
 
 /**
  * @param {TreeNode} root
@@ -24,13 +24,15 @@ import {TreeNode} from "../util/BinaryTree";
  * @return {boolean}
  */
 var hasPathSum = function (root: TreeNode | null, sum: number): boolean {
-    if (root === null) return false;
-    if (root.left === null && root.right === null) {
-        return sum === root.val;
-    } else {
-        return hasPathSum(root.left, sum - root.val) ||
-            hasPathSum(root.right, sum - root.val);
-    }
+  if (root === null) return false;
+  if (root.left === null && root.right === null) {
+    return sum === root.val;
+  } else {
+    return (
+      hasPathSum(root.left, sum - root.val) ||
+      hasPathSum(root.right, sum - root.val)
+    );
+  }
 };
 
-export {}
+export {};

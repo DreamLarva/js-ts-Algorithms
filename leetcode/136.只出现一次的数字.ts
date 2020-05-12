@@ -19,23 +19,17 @@
  * @return {number}
  */
 var singleNumber = function (nums: number[]) {
-    /**
-     * 按位 或 (^) 同样的数字操作两次 就不会有任何影响 以此过滤出现偶数次数的 数字
-     * */
-    let result = 0;
-    for (const num of nums) {
-        result ^= num;
-    }
-    return result;
+  /**
+   * 按位 或 (^) 同样的数字操作两次 就不会有任何影响 以此过滤出现偶数次数的 数字
+   * */
+  let result = 0;
+  for (const num of nums) {
+    result ^= num;
+  }
+  return result;
 };
 
 import assert from "assert";
 
-assert.strictEqual(
-    singleNumber([2, 2, 1]),
-    1,
-);
-assert.strictEqual(
-    singleNumber([4, 1, 2, 1, 2]),
-    4,
-);
+assert.strictEqual(singleNumber([2, 2, 1]), 1);
+assert.strictEqual(singleNumber([4, 1, 2, 1, 2]), 4);

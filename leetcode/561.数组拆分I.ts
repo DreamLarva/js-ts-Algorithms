@@ -24,21 +24,15 @@ n 是正整数,范围在 [1, 10000].
  * 双指针 怎么做啊?
  * */
 var arrayPairSum = function (nums: number[]) {
-    nums.sort((a, b) => a - b);
-    let result = 0;
-    for (let i = 0; i < nums.length; i += 2) {
-        result += nums[i];
-    }
+  nums.sort((a, b) => a - b);
+  let result = 0;
+  for (let i = 0; i < nums.length; i += 2) {
+    result += nums[i];
+  }
 
-    return result;
+  return result;
 };
 import assert from "assert";
 
-assert.strictEqual(
-    arrayPairSum([1, 4, 3, 2]),
-    4,
-);
-assert.strictEqual(
-    arrayPairSum([6214, -2290, 2833, -7908]),
-    -5075,
-);
+assert.strictEqual(arrayPairSum([1, 4, 3, 2]), 4);
+assert.strictEqual(arrayPairSum([6214, -2290, 2833, -7908]), -5075);

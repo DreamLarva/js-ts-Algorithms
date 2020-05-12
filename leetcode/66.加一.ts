@@ -37,33 +37,33 @@
  * @return {number[]}
  */
 var plusOne = function (digits: number[]) {
-    let isCarryOver = false;
-    if (digits[digits.length - 1] === 9) {
-        isCarryOver = true;
-        digits[digits.length - 1] = 0;
-    } else {
-        digits[digits.length - 1]++;
-        return digits;
-    }
-
-    for (let i = digits.length - 2; i >= 0; i--) {
-        if (digits[i] === 9 && isCarryOver) {
-            isCarryOver = true;
-            digits[i] = 0;
-        } else if (isCarryOver) {
-            digits[i]++;
-            isCarryOver = false;
-            break;
-        } else {
-            break;
-        }
-    }
-
-    if (isCarryOver) {
-        digits.unshift(1);
-    }
-
+  let isCarryOver = false;
+  if (digits[digits.length - 1] === 9) {
+    isCarryOver = true;
+    digits[digits.length - 1] = 0;
+  } else {
+    digits[digits.length - 1]++;
     return digits;
+  }
+
+  for (let i = digits.length - 2; i >= 0; i--) {
+    if (digits[i] === 9 && isCarryOver) {
+      isCarryOver = true;
+      digits[i] = 0;
+    } else if (isCarryOver) {
+      digits[i]++;
+      isCarryOver = false;
+      break;
+    } else {
+      break;
+    }
+  }
+
+  if (isCarryOver) {
+    digits.unshift(1);
+  }
+
+  return digits;
 };
 
-export {}
+export {};

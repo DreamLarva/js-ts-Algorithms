@@ -24,36 +24,52 @@
  * @return {number}
  */
 var numberOfBoomerangs = function (points: number[][]) {
-    let result = 0;
-    for (let i = 0; i < points.length; i++) {
-        const map: { [key: string]: number } = {};
-        for (let j = 0; j < points.length; j++) {
-            if (i === j) continue;
-            const distance = Math.abs((points[i][0] - points[j][0]) ** 2 + (points[i][1] - points[j][1]) ** 2);
-            map[distance] = map[distance] == null ? 1 : map[distance] + 1;
-        }
-
-        result += Object.values(map).reduce((sum, cur) => {
-            return sum + cur * (cur - 1);
-        }, 0);
+  let result = 0;
+  for (let i = 0; i < points.length; i++) {
+    const map: { [key: string]: number } = {};
+    for (let j = 0; j < points.length; j++) {
+      if (i === j) continue;
+      const distance = Math.abs(
+        (points[i][0] - points[j][0]) ** 2 + (points[i][1] - points[j][1]) ** 2
+      );
+      map[distance] = map[distance] == null ? 1 : map[distance] + 1;
     }
 
+    result += Object.values(map).reduce((sum, cur) => {
+      return sum + cur * (cur - 1);
+    }, 0);
+  }
 
-    return result;
+  return result;
 };
-
 
 import assert from "assert";
 
 assert.strictEqual(
-    numberOfBoomerangs([[0, 0], [1, 0], [2, 0]]),
-    2,
+  numberOfBoomerangs([
+    [0, 0],
+    [1, 0],
+    [2, 0],
+  ]),
+  2
 );
 assert.strictEqual(
-    numberOfBoomerangs([[0, 0], [1, 0], [2, 0], [-1, 0]]),
-    4,
+  numberOfBoomerangs([
+    [0, 0],
+    [1, 0],
+    [2, 0],
+    [-1, 0],
+  ]),
+  4
 );
 assert.strictEqual(
-    numberOfBoomerangs([[0, 0], [1, 0], [2, 0], [3, 1], [4, 1], [0, 1]]),
-    6,
+  numberOfBoomerangs([
+    [0, 0],
+    [1, 0],
+    [2, 0],
+    [3, 1],
+    [4, 1],
+    [0, 1],
+  ]),
+  6
 );

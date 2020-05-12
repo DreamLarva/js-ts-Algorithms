@@ -62,17 +62,15 @@
  * @return {number}
  */
 var removeElement = function (nums: number[], val: number) {
-    const len = nums.length;
-    let index = 0;
-    for (let pointer = 0; pointer < len; pointer++) {
-
-        if (nums[pointer] !== val) {
-            nums[index] = nums[pointer];
-            index++;
-        }
-
+  const len = nums.length;
+  let index = 0;
+  for (let pointer = 0; pointer < len; pointer++) {
+    if (nums[pointer] !== val) {
+      nums[index] = nums[pointer];
+      index++;
     }
-    return index;
+  }
+  return index;
 };
 
 /*

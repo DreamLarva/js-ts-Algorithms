@@ -64,11 +64,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @property {TreeNode | null} right
  * */
 class TreeNode {
-    constructor(val) {
-        this.left = null;
-        this.right = null;
-        this.val = val;
-    }
+  constructor(val) {
+    this.left = null;
+    this.right = null;
+    this.val = val;
+  }
 }
 /**
  * @param {TreeNode} p
@@ -76,11 +76,11 @@ class TreeNode {
  * @return {boolean}
  */
 var isSameTree = function (p, q) {
-    if (p == null && q == null)
-        return true;
-    if (p == null || q == null)
-        return false;
-    return p.val === q.val ? isSameTree(p.left, q.left) && isSameTree(p.right, q.right) : false;
+  if (p == null && q == null) return true;
+  if (p == null || q == null) return false;
+  return p.val === q.val
+    ? isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+    : false;
 };
 const tree1 = new TreeNode(1);
 tree1.left = new TreeNode(2);

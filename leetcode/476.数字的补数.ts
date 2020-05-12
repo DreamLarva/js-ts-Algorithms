@@ -21,20 +21,14 @@
  * @return {number}
  */
 var findComplement = function (num: number) {
-    let minuend = 2;
-    while (minuend <= num) {
-        minuend <<= 1;
-    }
+  let minuend = 2;
+  while (minuend <= num) {
+    minuend <<= 1;
+  }
 
-    return minuend - num - 1;
+  return minuend - num - 1;
 };
 
 import assert from "assert";
-assert.strictEqual(
-    findComplement(5),
-    2
-);
-assert.strictEqual(
-    findComplement(2147483647),
-    2
-);
+assert.strictEqual(findComplement(5), 2);
+assert.strictEqual(findComplement(2147483647), 2);

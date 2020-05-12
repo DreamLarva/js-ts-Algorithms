@@ -56,63 +56,69 @@
  */
 type SudokuElement = "." | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 var isValidSudoku = function (board: SudokuElement[][]) {
+  // 存储每列的结果
+  const columns: number[][] = Array(9)
+    .fill(0)
+    .map(() => []);
+  // 存储每行的结果
+  const rows: number[][] = Array(9)
+    .fill(0)
+    .map(() => []);
+  // 存储每块的结果
+  const blocks: number[][] = Array(9)
+    .fill(0)
+    .map(() => []);
 
-    // 存储每列的结果
-    const columns: number[][] = Array(9).fill(0).map(() => []);
-    // 存储每行的结果
-    const rows: number[][] = Array(9).fill(0).map(() => []);
-    // 存储每块的结果
-    const blocks: number[][] = Array(9).fill(0).map(() => []);
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      let num = board[i][j];
+      if (num === ".") continue;
+      const num_element = parseInt(num);
+      const box_index = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+      // 老样子 哈希表 判断重复
+      rows[i][num_element] = (rows[i][num_element] || 0) + 1;
+      columns[j][num_element] = (columns[j][num_element] || 0) + 1;
+      blocks[box_index][num_element] =
+        (blocks[box_index][num_element] || 0) + 1;
 
-    for (let i = 0; i < board.length; i++) {
-        for (let j = 0; j < board[i].length; j++) {
-            let num = board[i][j];
-            if (num === '.') continue;
-            const num_element = parseInt(num);
-            const box_index = Math.floor(i / 3) * 3 + Math.floor(j / 3);
-            // 老样子 哈希表 判断重复
-            rows[i][num_element] = (rows[i][num_element] || 0) + 1;
-            columns[j][num_element] = (columns[j][num_element] || 0) + 1;
-            blocks[box_index][num_element] = (blocks[box_index][num_element] || 0) + 1;
-
-            if (rows[i][num_element] > 1 || columns[j][num_element] > 1 || blocks[box_index][num_element] > 1)
-                return false;
-        }
+      if (
+        rows[i][num_element] > 1 ||
+        columns[j][num_element] > 1 ||
+        blocks[box_index][num_element] > 1
+      )
+        return false;
     }
-    return true;
+  }
+  return true;
 };
 
 import assert from "assert";
 
 assert.strictEqual(
-    isValidSudoku(
-        [
-            ["5", "3", ".", ".", "7", ".", ".", ".", "."],
-            ["6", ".", ".", "1", "9", "5", ".", ".", "."],
-            [".", "9", "8", ".", ".", ".", ".", "6", "."],
-            ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
-            ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
-            ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-            [".", "6", ".", ".", ".", ".", "2", "8", "."],
-            [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-            [".", ".", ".", ".", "8", ".", ".", "7", "9"],
-        ],
-    ),
-    true,
+  isValidSudoku([
+    ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+    ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+    [".", "9", "8", ".", ".", ".", ".", "6", "."],
+    ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+    ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+    [".", "6", ".", ".", ".", ".", "2", "8", "."],
+    [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+    [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+  ]),
+  true
 );
 assert.strictEqual(
-    isValidSudoku(
-        [
-            ["8", "3", ".", ".", "7", ".", ".", ".", "."],
-            ["6", ".", ".", "1", "9", "5", ".", ".", "."],
-            [".", "9", "8", ".", ".", ".", ".", "6", "."],
-            ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
-            ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
-            ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-            [".", "6", ".", ".", ".", ".", "2", "8", "."],
-            [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-            [".", ".", ".", ".", "8", ".", ".", "7", "9"],
-        ],
-    ),
-    false,
+  isValidSudoku([
+    ["8", "3", ".", ".", "7", ".", ".", ".", "."],
+    ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+    [".", "9", "8", ".", ".", ".", ".", "6", "."],
+    ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+    ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+    [".", "6", ".", ".", ".", ".", "2", "8", "."],
+    [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+    [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+  ]),
+  false
 );

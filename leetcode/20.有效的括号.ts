@@ -57,47 +57,42 @@
  * @return {boolean}
  */
 
-
 const leftPart = ["(", "[", "{"];
 const rightPart = [")", "]", "}"];
 type leftType = "(" | "[" | "{";
 type rightType = ")" | "]" | "}";
 
 var isValid = function (s: string) {
-    // 使用栈
-    const stack: Array<leftType | rightType> = [];
+  // 使用栈
+  const stack: Array<leftType | rightType> = [];
 
-    for (const char of s) {
-        // 如果是有右侧
-        if (rightPart.includes(char)) {
-            // 检查stack 顶 是不是 和现在这个是一组的
-            if (isPair(<leftType>last(stack), <rightType>char)) {
-                // 是一组就弹出一个左侧的
-                stack.pop();
-            }
-            // 否则是嵌套错误
-            else
-                return false;
-
-        }
-        // 如果是左侧就 push 进stack
-        else {
-            stack.push(<leftType>char);
-        }
+  for (const char of s) {
+    // 如果是有右侧
+    if (rightPart.includes(char)) {
+      // 检查stack 顶 是不是 和现在这个是一组的
+      if (isPair(<leftType>last(stack), <rightType>char)) {
+        // 是一组就弹出一个左侧的
+        stack.pop();
+      }
+      // 否则是嵌套错误
+      else return false;
     }
+    // 如果是左侧就 push 进stack
+    else {
+      stack.push(<leftType>char);
+    }
+  }
 
-    // 循环完毕 没有任何内容的就算正确
-    return stack.length === 0;
-
+  // 循环完毕 没有任何内容的就算正确
+  return stack.length === 0;
 };
 
 function last<T>(arr: T[]): T {
-    return arr[arr.length - 1];
+  return arr[arr.length - 1];
 }
 
-
 function isPair(left: leftType, right: rightType) {
-    return leftPart.indexOf(left) === rightPart.indexOf(right);
+  return leftPart.indexOf(left) === rightPart.indexOf(right);
 }
 
 import assert from "assert";

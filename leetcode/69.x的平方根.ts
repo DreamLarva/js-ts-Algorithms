@@ -37,12 +37,11 @@ Langs: c cpp csharp golang java javascript kotlin php python python3 ruby rust s
  * 牛顿迭代法
  * */
 var mySqrt = function (x: number) {
-    let y = 1.0;
-    while (Math.abs((0.5 * (y + x / y)) - y) >= 0.00001) {
-        y = 0.5 * (y + x / y);
-    }
-    return ~~y;
+  let y = 1.0;
+  while (Math.abs(0.5 * (y + x / y) - y) >= 0.00001) {
+    y = 0.5 * (y + x / y);
+  }
+  return ~~y;
 };
 
-
-export {}
+export {};

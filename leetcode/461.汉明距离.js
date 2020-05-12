@@ -20,9 +20,11 @@
 
 上面的箭头指出了对应二进制位不同的位置。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} x
@@ -30,17 +32,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var hammingDistance = function (x, y) {
-    /**
-     * 直接 ^ 运算 再得到所有的1 就好了
-     * */
-    let after_exclusive_or = x ^ y;
-    let result = 0;
-    while (after_exclusive_or) {
-        if (after_exclusive_or & 1)
-            result++;
-        after_exclusive_or >>= 1;
-    }
-    return result;
+  /**
+   * 直接 ^ 运算 再得到所有的1 就好了
+   * */
+  let after_exclusive_or = x ^ y;
+  let result = 0;
+  while (after_exclusive_or) {
+    if (after_exclusive_or & 1) result++;
+    after_exclusive_or >>= 1;
+  }
+  return result;
 };
 /*
 var hammingDistance = function (x: number, y: number): number {

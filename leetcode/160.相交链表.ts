@@ -45,7 +45,7 @@
 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
 * */
 
-import {ListNode} from "../util/LinkedList";
+import { ListNode } from "../util/LinkedList";
 
 /**
  * @param {ListNode} headA
@@ -53,20 +53,19 @@ import {ListNode} from "../util/LinkedList";
  * @return {ListNode | null}
  */
 var getIntersectionNode = function (headA: ListNode, headB: ListNode) {
-    if (headA === null || headB === null) return null;
-    type Node = ListNode | null;
-    let listNodeA: Node = headA, listNodeB: Node = headB;
-    // 第一个圈 先到达trail 的 连接到 另个链表上
-    // 当两个都到达 第二圈的时候 正好抹平 链表 1 和 2 的差值
-    // 第二圈如果没有交点 会同时到达 trail 拿到null
-    while (listNodeA !== listNodeB) {
-        listNodeA = listNodeA === null ? headB : listNodeA.next;
-        listNodeB = listNodeB === null ? headA : listNodeB.next;
-    }
+  if (headA === null || headB === null) return null;
+  type Node = ListNode | null;
+  let listNodeA: Node = headA,
+    listNodeB: Node = headB;
+  // 第一个圈 先到达trail 的 连接到 另个链表上
+  // 当两个都到达 第二圈的时候 正好抹平 链表 1 和 2 的差值
+  // 第二圈如果没有交点 会同时到达 trail 拿到null
+  while (listNodeA !== listNodeB) {
+    listNodeA = listNodeA === null ? headB : listNodeA.next;
+    listNodeB = listNodeB === null ? headA : listNodeB.next;
+  }
 
-    return listNodeA;
-
-
+  return listNodeA;
 };
 
-export {}
+export {};

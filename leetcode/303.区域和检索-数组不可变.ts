@@ -21,44 +21,42 @@ sumRange(0, 5) -> -3
  * */
 
 class NumArray {
-    sum_cache: number[] = [];
-    originData: number[];
+  sum_cache: number[] = [];
+  originData: number[];
 
-    /**
-     * @param {number[]} nums
-     */
-    constructor(nums: number[]) {
-        this.originData = nums;
+  /**
+   * @param {number[]} nums
+   */
+  constructor(nums: number[]) {
+    this.originData = nums;
+  }
 
+  /**
+   * @param {number} i
+   * @param {number} j
+   * @return {number}
+   */
+  sumRange(i: number, j: number): number {
+    // 判断缓存j 位置的值 如果有直接用缓存计算
+    if (this.sum_cache[j]) {
+      if (i === 0) return this.sum_cache[j];
+      return this.sum_cache[j] - this.sum_cache[i - 1];
     }
 
-    /**
-     * @param {number} i
-     * @param {number} j
-     * @return {number}
-     */
-    sumRange(i: number, j: number): number {
-        // 判断缓存j 位置的值 如果有直接用缓存计算
-        if (this.sum_cache[j]) {
-            if (i === 0) return this.sum_cache[j];
-            return this.sum_cache[j] - this.sum_cache[i - 1];
-        }
+    // 计算缓存
+    while (this.sum_cache.length - 1 !== j) {
+      if (this.sum_cache.length === 0) {
+        this.sum_cache.push(this.originData[0]);
+      } else {
+        const sum_cache_len = this.sum_cache.length;
+        this.sum_cache.push(
+          this.sum_cache[sum_cache_len - 1] + this.originData[sum_cache_len]
+        );
+      }
+    }
 
-        // 计算缓存
-        while (this.sum_cache.length - 1 !== j) {
-            if (this.sum_cache.length === 0) {
-                this.sum_cache.push(this.originData[0]);
-            } else {
-                const sum_cache_len = this.sum_cache.length;
-                this.sum_cache.push(
-                    this.sum_cache[sum_cache_len - 1] + this.originData[sum_cache_len],
-                );
-            }
-        }
-
-        return this.sumRange(i, j);
-    };
-
+    return this.sumRange(i, j);
+  }
 }
 
 /**
@@ -70,11 +68,5 @@ class NumArray {
 import assert from "assert";
 
 const instance = new NumArray([-2, 0, 3, -5, 2, -1]);
-assert.strictEqual(
-    instance.sumRange(0, 2),
-    1,
-);
-assert.strictEqual(
-    instance.sumRange(2, 5),
-    -1,
-);
+assert.strictEqual(instance.sumRange(0, 2), 1);
+assert.strictEqual(instance.sumRange(2, 5), -1);

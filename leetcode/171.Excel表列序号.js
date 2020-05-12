@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个Excel表格中的列名称，返回其相应的列序号。
@@ -34,7 +36,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var titleToNumber = function (s) {
-    return s.split("").reduceRight((pre, cur, index) => pre + (cur.charCodeAt(0) - 65 + 1) * (26 ** (s.length - 1 - index)), 0);
+  return s
+    .split("")
+    .reduceRight(
+      (pre, cur, index) =>
+        pre + (cur.charCodeAt(0) - 65 + 1) * 26 ** (s.length - 1 - index),
+      0
+    );
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(titleToNumber("AB"), 28);

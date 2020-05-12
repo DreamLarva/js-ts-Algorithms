@@ -20,40 +20,35 @@
  * @return {number}
  */
 var findMaxConsecutiveOnes = function (nums: number[]) {
-    if (nums.length === 0) return 0;
-    return Math.max(...nums.join("").split("0").map(v => v.length));
+  if (nums.length === 0) return 0;
+  return Math.max(
+    ...nums
+      .join("")
+      .split("0")
+      .map((v) => v.length)
+  );
 };
 
 /**
  * 快约20倍
  * */
 var findMaxConsecutiveOnes_1 = function (nums: number[]) {
-    if (nums.length === 0) return 0;
-    let max = 0;
-    let current_length = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] === 0) {
-            max = Math.max(max, current_length);
-            current_length = 0;
-        } else {
-            current_length++;
-        }
+  if (nums.length === 0) return 0;
+  let max = 0;
+  let current_length = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      max = Math.max(max, current_length);
+      current_length = 0;
+    } else {
+      current_length++;
     }
+  }
 
-    return Math.max(max, current_length);
+  return Math.max(max, current_length);
 };
-
 
 import assert from "assert";
 
-assert.strictEqual(
-    findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]),
-    3,
-);
-assert.strictEqual(
-    findMaxConsecutiveOnes_1([1, 1, 0, 1, 1, 1]),
-    3,
-);
-
-
-
+assert.strictEqual(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]), 3);
+assert.strictEqual(findMaxConsecutiveOnes_1([1, 1, 0, 1, 1, 1]), 3);

@@ -22,21 +22,17 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function (prices:number[]) {
-    // 动态规划
-    // 保证从头开始保证 每次都是最优解
-    let max = 0;
-    let min = prices[0];
-    for (let i = 1; i < prices.length; i++) {
-        max = Math.max(
-            max,
-            prices[i] - min
-        );
+var maxProfit = function (prices: number[]) {
+  // 动态规划
+  // 保证从头开始保证 每次都是最优解
+  let max = 0;
+  let min = prices[0];
+  for (let i = 1; i < prices.length; i++) {
+    max = Math.max(max, prices[i] - min);
 
-        min = Math.min(min, prices[i]);
-
-    }
-    return max;
+    min = Math.min(min, prices[i]);
+  }
+  return max;
 };
 
-export {}
+export {};

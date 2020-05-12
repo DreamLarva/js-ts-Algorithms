@@ -30,19 +30,17 @@
  * @return {number}
  */
 var findTargetSumWays = function (nums: number[], S: number): number {
-    if (nums.length === 0) return S === 0 ? 1 : 0;
+  if (nums.length === 0) return S === 0 ? 1 : 0;
 
-    const num = nums[0];
-    const nums_next = nums.slice(1);
+  const num = nums[0];
+  const nums_next = nums.slice(1);
 
-    return findTargetSumWays(nums_next, S - num)
-        + findTargetSumWays(nums_next, S + num);
+  return (
+    findTargetSumWays(nums_next, S - num) +
+    findTargetSumWays(nums_next, S + num)
+  );
 };
-
 
 import assert from "assert";
 
-assert.strictEqual(
-    findTargetSumWays([1, 1, 1, 1, 1], 3), 5,
-);
-
+assert.strictEqual(findTargetSumWays([1, 1, 1, 1, 1], 3), 5);

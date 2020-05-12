@@ -26,7 +26,7 @@
 所有节点的值都是唯一的。
 p、q 为不同节点且均存在于给定的二叉搜索树中。
 * */
-import {TreeNode} from "../util/BinaryTree";
+import { TreeNode } from "../util/BinaryTree";
 
 /**
  * @param {TreeNode} root
@@ -34,23 +34,27 @@ import {TreeNode} from "../util/BinaryTree";
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function (root: TreeNode, p: TreeNode, q: TreeNode): TreeNode {
-    /**
-     * 二叉搜索树
-     * 右子节点一定大于 当前节点
-     * 左子节点一定小于 当前节点
-     * */
-    // 由于题目没有明确p 和 q 哪个更大
-    // 确定 是否在两个值之间 或者在某个值上
-    if ((root.val - p.val) * (root.val - q.val) <= 0) {
-        return root;
-    }
-    // 都小于 或者 都大于
-    if (root.val - p.val < 0) {
-        return lowestCommonAncestor(root.right!, p, q);
-    } else {
-        return lowestCommonAncestor(root.left!, p, q);
-    }
+var lowestCommonAncestor = function (
+  root: TreeNode,
+  p: TreeNode,
+  q: TreeNode
+): TreeNode {
+  /**
+   * 二叉搜索树
+   * 右子节点一定大于 当前节点
+   * 左子节点一定小于 当前节点
+   * */
+  // 由于题目没有明确p 和 q 哪个更大
+  // 确定 是否在两个值之间 或者在某个值上
+  if ((root.val - p.val) * (root.val - q.val) <= 0) {
+    return root;
+  }
+  // 都小于 或者 都大于
+  if (root.val - p.val < 0) {
+    return lowestCommonAncestor(root.right!, p, q);
+  } else {
+    return lowestCommonAncestor(root.left!, p, q);
+  }
 };
 
-export {}
+export {};

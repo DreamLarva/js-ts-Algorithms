@@ -30,16 +30,16 @@
  * @return {string}
  */
 var convertToTitle = function (n: number) {
-    let result = "";
+  let result = "";
 
-    // 相当于 27进制
-    do {
-        // 这里 取模 如果为 0 则是 Z; 1 是 a
-        n--;
-        result = String.fromCharCode(65 + n % 26) + result;
-        n = ~~(n / 26);
-    } while (n > 0);
-    return result;
+  // 相当于 27进制
+  do {
+    // 这里 取模 如果为 0 则是 Z; 1 是 a
+    n--;
+    result = String.fromCharCode(65 + (n % 26)) + result;
+    n = ~~(n / 26);
+  } while (n > 0);
+  return result;
 };
 
 import assert from "assert";

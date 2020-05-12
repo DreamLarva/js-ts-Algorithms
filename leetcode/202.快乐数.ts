@@ -18,27 +18,23 @@
  * @return {boolean}
  */
 var isHappy = function (n: number) {
-    const memo = new Set();
-    while (true) {
-        n = step(n);
-        if (n === 1) return true;
-        if (memo.has(n)) return false;
-        memo.add(n);
-    }
+  const memo = new Set();
+  while (true) {
+    n = step(n);
+    if (n === 1) return true;
+    if (memo.has(n)) return false;
+    memo.add(n);
+  }
 };
 
-
 function step(num: number) {
-    let result = 0;
-    while (num) {
-        result += (num % 10) ** 2;
-        num = Math.trunc(num / 10);
-    }
-    return result;
+  let result = 0;
+  while (num) {
+    result += (num % 10) ** 2;
+    num = Math.trunc(num / 10);
+  }
+  return result;
 }
 
-import assert from "assert"
-assert.strictEqual(
-    isHappy(12345),
-    false,
-);
+import assert from "assert";
+assert.strictEqual(isHappy(12345), false);

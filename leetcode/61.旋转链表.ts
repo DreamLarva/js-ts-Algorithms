@@ -23,7 +23,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
 
-import {ListNode, createLinkedList} from "../util/LinkedList";
+import { ListNode, createLinkedList } from "../util/LinkedList";
 
 /**
  * @param {ListNode} head
@@ -31,63 +31,62 @@ import {ListNode, createLinkedList} from "../util/LinkedList";
  * @return {ListNode}
  */
 var rotateRight = function (head: ListNode, k: number) {
-    if (head == null || head.next == null || k === 0) return head;
-    // 遍历一遍拿到尾节点
-    let currentNode: null | ListNode = head;
-    let l = k;
-    let tail!: ListNode;
+  if (head == null || head.next == null || k === 0) return head;
+  // 遍历一遍拿到尾节点
+  let currentNode: null | ListNode = head;
+  let l = k;
+  let tail!: ListNode;
 
-    while (currentNode != null) {
-        tail = currentNode;
-        currentNode = currentNode.next;
-        l--;
+  while (currentNode != null) {
+    tail = currentNode;
+    currentNode = currentNode.next;
+    l--;
+  }
+
+  if (l == 0 || k % (k - l) == 0) {
+    return head;
+  }
+  let newTail!: ListNode;
+  // l > 0 需要重新遍历 再找到 newTail 的位置
+  if (l > 0) {
+    let n = k - l - (k % (k - l));
+
+    // 还得再遍历一次
+    currentNode = head;
+    while (n !== 0) {
+      newTail = currentNode!;
+      currentNode = currentNode!.next;
+      n--;
     }
+  } else {
+    let n = -l;
 
-    if (l == 0 || k % (k - l) == 0) {
-        return head;
+    // 还得再遍历一次
+    currentNode = head;
+    while (n !== 0) {
+      newTail = currentNode!;
+      currentNode = currentNode!.next;
+      n--;
     }
-    let newTail!: ListNode;
-    // l > 0 需要重新遍历 再找到 newTail 的位置
-    if (l > 0) {
-        let n = (k - l) - (k % (k - l));
+  }
 
-        // 还得再遍历一次
-        currentNode = head;
-        while (n !== 0) {
-            newTail = currentNode!;
-            currentNode = currentNode!.next;
-            n--;
-        }
-    } else {
-        let n = -l;
-
-        // 还得再遍历一次
-        currentNode = head;
-        while (n !== 0) {
-            newTail = currentNode!;
-            currentNode = currentNode!.next;
-            n--;
-        }
-    }
-
-    tail.next = head;
-    const newHead = newTail.next;
-    newTail.next = null;
-    return newHead;
-
+  tail.next = head;
+  const newHead = newTail.next;
+  newTail.next = null;
+  return newHead;
 };
 
 import assert from "assert";
 
 assert.deepStrictEqual(
-    rotateRight(createLinkedList([1, 2, 3, 4, 5]), 2)!.toString(),
-    [4, 5, 1, 2, 3],
+  rotateRight(createLinkedList([1, 2, 3, 4, 5]), 2)!.toString(),
+  [4, 5, 1, 2, 3]
 );
 assert.deepStrictEqual(
-    rotateRight(createLinkedList([0, 1, 2]), 4)!.toString(),
-    [2, 0, 1],
+  rotateRight(createLinkedList([0, 1, 2]), 4)!.toString(),
+  [2, 0, 1]
 );
-assert.deepStrictEqual(
-    rotateRight(createLinkedList([1, 2]), 1)!.toString(),
-    [2, 1],
-);
+assert.deepStrictEqual(rotateRight(createLinkedList([1, 2]), 1)!.toString(), [
+  2,
+  1,
+]);

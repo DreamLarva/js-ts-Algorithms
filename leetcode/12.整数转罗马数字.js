@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。
@@ -55,31 +57,31 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
  * @return {string}
  */
 var intToRoman = function (num) {
-    const map = {
-        1: "I",
-        4: "IV",
-        5: "V",
-        9: "IX",
-        10: "X",
-        40: "XL",
-        50: "L",
-        90: "XC",
-        100: "C",
-        400: "CD",
-        500: "D",
-        900: "CM",
-        1000: "M",
-    };
-    let result = "";
-    const values = Object.keys(map).reverse();
-    for (let value of values) {
-        const quotient = Math.floor(num / Number(value));
-        if (quotient !== 0) {
-            result += map[Number(value)].repeat(quotient);
-            num -= Number(value) * quotient;
-        }
+  const map = {
+    1: "I",
+    4: "IV",
+    5: "V",
+    9: "IX",
+    10: "X",
+    40: "XL",
+    50: "L",
+    90: "XC",
+    100: "C",
+    400: "CD",
+    500: "D",
+    900: "CM",
+    1000: "M",
+  };
+  let result = "";
+  const values = Object.keys(map).reverse();
+  for (let value of values) {
+    const quotient = Math.floor(num / Number(value));
+    if (quotient !== 0) {
+      result += map[Number(value)].repeat(quotient);
+      num -= Number(value) * quotient;
     }
-    return result;
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(intToRoman(3999), "MMMCMXCIX");

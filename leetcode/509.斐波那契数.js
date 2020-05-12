@@ -29,16 +29,22 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 
 0 ≤ N ≤ 30
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} N
  * @return {number}
  */
 var fib = function (N) {
-    return ~~((5 ** 0.5) * 0.2 * (((1 + 5 ** 0.5) / 2) ** N - ((1 - 5 ** 0.5) / 2) ** N));
+  return ~~(
+    5 ** 0.5 *
+    0.2 *
+    (((1 + 5 ** 0.5) / 2) ** N - ((1 - 5 ** 0.5) / 2) ** N)
+  );
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(fib(4), 3);

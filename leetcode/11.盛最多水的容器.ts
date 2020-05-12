@@ -16,38 +16,35 @@
 * */
 
 /*容积一定是短的一端乘以两个线段之间的距离
-* 默认从连个线段最远的情况开始考虑
-* 计算容积之后 短的那一端向长的那一端移动一格
-* !!若果端相等 该如何判断哪段移动?
-* 不需要判断 任意一端移动即可 因为如果在x轴上的距离缩短却要容积变大 就必须两端都比现有的线段长 这并不会有因为移动哪一端而改变
-* 直到两个线段重合 计算结束*/
+ * 默认从连个线段最远的情况开始考虑
+ * 计算容积之后 短的那一端向长的那一端移动一格
+ * !!若果端相等 该如何判断哪段移动?
+ * 不需要判断 任意一端移动即可 因为如果在x轴上的距离缩短却要容积变大 就必须两端都比现有的线段长 这并不会有因为移动哪一端而改变
+ * 直到两个线段重合 计算结束*/
 /**
  * @param {number[]} height
  * @return {number}
  */
 var maxArea = function (height: number[]) {
-    let left = 0;
-    let right = height.length - 1;
-    let result = 0;
-    let tVolume = 0;
-    while (left !== right) {
-        tVolume = Math.min(height[left], height[right]) * (right - left);
-        if (tVolume > result) {
-            result = tVolume;
-        }
-        Math.min(height[left], height[right]);
-        if (height[left] > height[right]) {
-            right--;
-        } else {
-            left++;
-        }
+  let left = 0;
+  let right = height.length - 1;
+  let result = 0;
+  let tVolume = 0;
+  while (left !== right) {
+    tVolume = Math.min(height[left], height[right]) * (right - left);
+    if (tVolume > result) {
+      result = tVolume;
     }
-    return result;
+    Math.min(height[left], height[right]);
+    if (height[left] > height[right]) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+  return result;
 };
 
-import assert from 'assert';
+import assert from "assert";
 
-assert.strictEqual(
-    maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]),
-    49,
-);
+assert.strictEqual(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]), 49);

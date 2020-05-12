@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
@@ -31,30 +33,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var longestPalindrome = function (s) {
-    /**
-     * 根据题意
-     * 出现偶数次的 直接加入长度
-     * 出现奇数次 则 - 1 加到 长度
-     * 如果有 奇数次的 则 再 + 1
-     * */
-    const map = {};
-    let result = 0;
-    for (let i = 0; i < s.length; i++) {
-        map[s[i]] = (map[s[i]] || 0) + 1;
+  /**
+   * 根据题意
+   * 出现偶数次的 直接加入长度
+   * 出现奇数次 则 - 1 加到 长度
+   * 如果有 奇数次的 则 再 + 1
+   * */
+  const map = {};
+  let result = 0;
+  for (let i = 0; i < s.length; i++) {
+    map[s[i]] = (map[s[i]] || 0) + 1;
+  }
+  let hasOddCount = false;
+  Object.values(map).forEach((num) => {
+    // 偶数
+    if ((num & 1) === 0) {
+      result += num;
     }
-    let hasOddCount = false;
-    Object.values(map).forEach(num => {
-        // 偶数
-        if ((num & 1) === 0) {
-            result += num;
-        }
-        // 奇数
-        else {
-            result += num - 1;
-            hasOddCount = true;
-        }
-    });
-    return hasOddCount ? result + 1 : result;
+    // 奇数
+    else {
+      result += num - 1;
+      hasOddCount = true;
+    }
+  });
+  return hasOddCount ? result + 1 : result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(longestPalindrome("abccccdd"), 7);

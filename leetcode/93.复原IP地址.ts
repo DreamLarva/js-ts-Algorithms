@@ -15,45 +15,37 @@
  * @return {string[]}
  */
 var restoreIpAddresses = function (s: string) {
-    /**
-     * Ipv4 的格式 0.0.0.0 ~ 255.255.255.255
-     * 所以 段数字 不能 > 255 除了 单个0 不能以 0 开头
-     * */
-    const maxBlockCount = 4;
-    const maxLengthCount = 3;
-    const result: string[] = [];
-    step("", 0, s);
-    return result;
+  /**
+   * Ipv4 的格式 0.0.0.0 ~ 255.255.255.255
+   * 所以 段数字 不能 > 255 除了 单个0 不能以 0 开头
+   * */
+  const maxBlockCount = 4;
+  const maxLengthCount = 3;
+  const result: string[] = [];
+  step("", 0, s);
+  return result;
 
-    function step(r: string, c: number, s: string) {
-
-        if (c === maxBlockCount) {
-            if (s === "") result.push(r);
-            return;
-        }
-
-        for (let i = 1; i <= maxLengthCount; i++) {
-            const currentBlock = s.substr(0, i);
-            if (currentBlock.length !== i) return;
-            if (currentBlock.length !== 1 && currentBlock[0] === "0") return;
-            if (parseInt(currentBlock) > 255) return;
-            const rest = s.substr(i);
-            step(
-                c === 0 ? currentBlock : r + "." + currentBlock,
-                c + 1,
-                rest,
-            );
-        }
+  function step(r: string, c: number, s: string) {
+    if (c === maxBlockCount) {
+      if (s === "") result.push(r);
+      return;
     }
+
+    for (let i = 1; i <= maxLengthCount; i++) {
+      const currentBlock = s.substr(0, i);
+      if (currentBlock.length !== i) return;
+      if (currentBlock.length !== 1 && currentBlock[0] === "0") return;
+      if (parseInt(currentBlock) > 255) return;
+      const rest = s.substr(i);
+      step(c === 0 ? currentBlock : r + "." + currentBlock, c + 1, rest);
+    }
+  }
 };
 
 import assert from "assert";
 
 assert.deepStrictEqual(
-    restoreIpAddresses("25525511135").sort(),
-    ["255.255.11.135", "255.255.111.35"].sort(),
+  restoreIpAddresses("25525511135").sort(),
+  ["255.255.11.135", "255.255.111.35"].sort()
 );
-assert.deepStrictEqual(
-    restoreIpAddresses("0000").sort(),
-    ["0.0.0.0"].sort(),
-);
+assert.deepStrictEqual(restoreIpAddresses("0000").sort(), ["0.0.0.0"].sort());

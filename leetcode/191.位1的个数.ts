@@ -34,18 +34,15 @@
  * @return {number}
  */
 var hammingWeight = function (n: number) {
-    let result = 0;
-    while (n) {
-        result += n & 1;
-        n >>>= 1; // 使用无符号 右移
-    }
+  let result = 0;
+  while (n) {
+    result += n & 1;
+    n >>>= 1; // 使用无符号 右移
+  }
 
-    return result;
+  return result;
 };
 
-import assert from 'assert';
+import assert from "assert";
 
-assert.strictEqual(
-    hammingWeight(0b00000000000000000000000000001011),
-    3,
-);
+assert.strictEqual(hammingWeight(0b00000000000000000000000000001011), 3);

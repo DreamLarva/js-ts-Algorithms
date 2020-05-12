@@ -29,12 +29,9 @@
  * @return {number}
  */
 var lengthOfLastWord = function (s: string) {
-    s = s.trim();
-    const lastSpaceIndex = s.lastIndexOf(" ");
-    return lastSpaceIndex === -1 ?
-        s.length :
-        s.length - lastSpaceIndex - 1;
-
+  s = s.trim();
+  const lastSpaceIndex = s.lastIndexOf(" ");
+  return lastSpaceIndex === -1 ? s.length : s.length - lastSpaceIndex - 1;
 };
 
-export {}
+export {};

@@ -48,39 +48,24 @@
  * @return {number}
  */
 var myAtoi = function (str: string) {
-    // 判断是否可合法
-    const RegResult = /^\s*([+-]*\d+\.?\d*)/.exec(str);
-    if (!RegResult) {
-        return 0;
-    }
-    const num = parseFloat(RegResult[1]) || 0;
+  // 判断是否可合法
+  const RegResult = /^\s*([+-]*\d+\.?\d*)/.exec(str);
+  if (!RegResult) {
+    return 0;
+  }
+  const num = parseFloat(RegResult[1]) || 0;
 
-    const MAX = Math.pow(2, 31) - 1;
-    const MIN = -Math.pow(2, 31);
-    if (num > MAX) return MAX;
-    if (num < MIN) return MIN;
-    return num;
+  const MAX = Math.pow(2, 31) - 1;
+  const MIN = -Math.pow(2, 31);
+  if (num > MAX) return MAX;
+  if (num < MIN) return MIN;
+  return num;
 };
 
 import assert from "assert";
 
-assert.strictEqual(
-    myAtoi('42'),
-    42,
-);
-assert.strictEqual(
-    myAtoi("   -42"),
-    -42,
-);
-assert.strictEqual(
-    myAtoi("4193 with words"),
-    4193,
-);
-assert.strictEqual(
-    myAtoi("words and 987"),
-    0,
-);
-assert.strictEqual(
-    myAtoi("-91283472332"),
-    -2147483648,
-);
+assert.strictEqual(myAtoi("42"), 42);
+assert.strictEqual(myAtoi("   -42"), -42);
+assert.strictEqual(myAtoi("4193 with words"), 4193);
+assert.strictEqual(myAtoi("words and 987"), 0);
+assert.strictEqual(myAtoi("-91283472332"), -2147483648);

@@ -34,13 +34,10 @@
  * };
  */
 class Node<T = any> {
-    next: null | Node = null;
-    random: null | Node = null;
+  next: null | Node = null;
+  random: null | Node = null;
 
-    constructor(public val: T) {
-
-    }
-
+  constructor(public val: T) {}
 }
 
 /**
@@ -74,58 +71,56 @@ class Node<T = any> {
 //     }
 // };
 
-
 var copyRandomList = function (head: Node) {
-    /**
-     * 按照 原节点 -> 新节点 -> 原节点 -> ... 的次序新建节点
-     * 再次遍历的时候 每个random 直接找到相邻的节点就好了
-     * 最后 分开两个链表即可
-     *
-     * 时间复杂度：O(N)
-     * 空间复杂度：O(1)
-     * 妙  啊
-     * */
+  /**
+   * 按照 原节点 -> 新节点 -> 原节点 -> ... 的次序新建节点
+   * 再次遍历的时候 每个random 直接找到相邻的节点就好了
+   * 最后 分开两个链表即可
+   *
+   * 时间复杂度：O(N)
+   * 空间复杂度：O(1)
+   * 妙  啊
+   * */
 
-    if (head == null) {
-        return null;
+  if (head == null) {
+    return null;
+  }
+
+  // 第一次迭代 添加 在原节点 旁边添加新节点
+  let currentNode: null | Node = head;
+  while (currentNode != null) {
+    const newNode = new Node(currentNode.val);
+    const next: null | Node = currentNode.next;
+
+    currentNode.next = newNode;
+    newNode.next = next;
+
+    currentNode = next;
+  }
+
+  // 第二次迭代 处理 random 的指向
+  // 一次跳 2 格
+  currentNode = head;
+  while (currentNode != null) {
+    const old_random = currentNode.random;
+    const newNode: null | Node = currentNode.next!;
+    if (old_random && old_random.next) newNode.random = old_random.next;
+    currentNode = newNode.next;
+  }
+
+  // 第三次遍历
+  // 分开两个链表
+  currentNode = head;
+  const new_list_head = currentNode.next;
+  while (currentNode != null) {
+    const next: null | Node = currentNode.next;
+    if (currentNode.next) {
+      currentNode.next = currentNode.next.next;
     }
+    currentNode = next;
+  }
 
-    // 第一次迭代 添加 在原节点 旁边添加新节点
-    let currentNode: null | Node = head;
-    while (currentNode != null) {
-        const newNode = new Node(currentNode.val);
-        const next: null | Node = currentNode.next;
-
-        currentNode.next = newNode;
-        newNode.next = next;
-
-        currentNode = next;
-    }
-
-    // 第二次迭代 处理 random 的指向
-    // 一次跳 2 格
-    currentNode = head;
-    while (currentNode != null) {
-        const old_random = currentNode.random;
-        const newNode: null | Node = currentNode.next!;
-        if (old_random && old_random.next) newNode.random = old_random.next;
-        currentNode = newNode.next;
-    }
-
-    // 第三次遍历
-    // 分开两个链表
-    currentNode = head;
-    const new_list_head = currentNode.next;
-    while (currentNode != null) {
-        const next: null | Node = currentNode.next;
-        if (currentNode.next) {
-            currentNode.next = currentNode.next.next;
-        }
-        currentNode = next;
-    }
-
-    return new_list_head;
+  return new_list_head;
 };
-
 
 export {};

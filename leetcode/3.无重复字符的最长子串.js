@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
@@ -28,20 +30,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-    const location = {};
-    let start_index = -1, max = 0; // idx为当前子串的开始位置-1
-    for (let i = 0; i < s.length; i++) {
-        const character = s[i];
-        // 如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置+1
-        if (location[character] > start_index) {
-            start_index = location[character];
-        }
-        if (i - start_index > max) {
-            max = i - start_index;
-        }
-        location[character] = i;
+  const location = {};
+  let start_index = -1,
+    max = 0; // idx为当前子串的开始位置-1
+  for (let i = 0; i < s.length; i++) {
+    const character = s[i];
+    // 如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置+1
+    if (location[character] > start_index) {
+      start_index = location[character];
     }
-    return max;
+    if (i - start_index > max) {
+      max = i - start_index;
+    }
+    location[character] = i;
+  }
+  return max;
 };
 /**
  * 滑动窗口
@@ -54,20 +57,21 @@ var lengthOfLongestSubstring = function (s) {
  * 此时，我们找到的没有重复字符的最长子字符串将会以索引 i 开头。如果我们对所有的 i 这样做，就可以得到答案。
  * */
 var lengthOfLongestSubstring1 = function (s) {
-    const n = s.length;
-    const set = new Set();
-    let ans = 0, i = 0, j = 0;
-    while (i < n && j < n) {
-        // try to extend the range [i, j]
-        if (!set.has(s[j])) {
-            set.add(s[j++]);
-            ans = Math.max(ans, j - i);
-        }
-        else {
-            set.delete(s[i++]);
-        }
+  const n = s.length;
+  const set = new Set();
+  let ans = 0,
+    i = 0,
+    j = 0;
+  while (i < n && j < n) {
+    // try to extend the range [i, j]
+    if (!set.has(s[j])) {
+      set.add(s[j++]);
+      ans = Math.max(ans, j - i);
+    } else {
+      set.delete(s[i++]);
     }
-    return ans;
+  }
+  return ans;
 };
 /**
  1. 官方最优解 优化的 滑动窗口
@@ -80,16 +84,16 @@ var lengthOfLongestSubstring1 = function (s) {
  。 我们可以直接跳过 [i，j'] 范围内的所有元素，并将 i 变为 j' + 1。
  * */
 var lengthOfLongestSubstring2 = function (s) {
-    const n = s.length;
-    let ans = 0;
-    const map = {}; // current index of character
-    // try to extend the range [i, j]
-    for (let j = 0, i = 0; j < n; j++) {
-        i = Math.max(map[s[j]] || 0, i);
-        ans = Math.max(ans, j - i + 1);
-        map[s[j]] = j + 1;
-    }
-    return ans;
+  const n = s.length;
+  let ans = 0;
+  const map = {}; // current index of character
+  // try to extend the range [i, j]
+  for (let j = 0, i = 0; j < n; j++) {
+    i = Math.max(map[s[j]] || 0, i);
+    ans = Math.max(ans, j - i + 1);
+    map[s[j]] = j + 1;
+  }
+  return ans;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(lengthOfLongestSubstring("abcabcbb"), 3);

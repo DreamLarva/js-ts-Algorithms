@@ -34,49 +34,49 @@ hashSet.contains(2);    // 返回  false (已经被删除)
  * Initialize your data structure here.
  */
 class MyHashSet {
-    cache: number[][];
+  cache: number[][];
 
+  constructor(private length: number = 101) {
+    this.cache = Array(length)
+      .fill(0)
+      .map(() => []);
+  }
 
-    constructor(private length: number = 101) {
-        this.cache = Array(length).fill(0).map(() => []);
-    }
+  getHash(key: number) {
+    return key % this.length;
+  }
 
-    getHash(key: number) {
-        return key % this.length;
-    }
+  /**
+   * @param {number} key
+   * @return {void}
+   */
+  add(key: number) {
+    if (this.contains(key)) return;
 
+    this.cache[this.getHash(key)].push(key);
+  }
 
-    /**
-     * @param {number} key
-     * @return {void}
-     */
-    add(key: number) {
-        if (this.contains(key)) return;
+  /**
+   * @param {number} key
+   * @return {void}
+   */
+  remove(key: number) {
+    if (!this.contains(key)) return;
 
-        this.cache[this.getHash(key)].push(key);
-    };
+    this.cache[this.getHash(key)] = this.cache[this.getHash(key)].filter(
+      (v) => v !== key
+    );
+  }
 
-    /**
-     * @param {number} key
-     * @return {void}
-     */
-    remove(key: number) {
-        if (!this.contains(key)) return;
-
-        this.cache[this.getHash(key)] = this.cache[this.getHash(key)].filter(v => v !== key);
-    };
-
-    /**
-     * Returns true if this set contains the specified element
-     * @param {number} key
-     * @return {boolean}
-     */
-    contains(key: number) {
-        return this.cache[this.getHash(key)].indexOf(key) !== -1;
-    };
-
+  /**
+   * Returns true if this set contains the specified element
+   * @param {number} key
+   * @return {boolean}
+   */
+  contains(key: number) {
+    return this.cache[this.getHash(key)].indexOf(key) !== -1;
+  }
 }
-
 
 /**
  * Your MyHashSet object will be instantiated and called as such:
@@ -85,7 +85,6 @@ class MyHashSet {
  * obj.remove(key)
  * var param_3 = obj.contains(key)
  */
-
 
 /*
 MyHashSet hashSet = new MyHashSet();
@@ -103,9 +102,9 @@ import assert from "assert";
 const hashSet = new MyHashSet();
 hashSet.add(1);
 hashSet.add(2);
-assert.strictEqual(hashSet.contains(1),true);    // 返回 true
-assert.strictEqual(hashSet.contains(3),false);    // 返回 false (未找到)
+assert.strictEqual(hashSet.contains(1), true); // 返回 true
+assert.strictEqual(hashSet.contains(3), false); // 返回 false (未找到)
 hashSet.add(2);
-assert.strictEqual(hashSet.contains(2),true);    // 返回 true
+assert.strictEqual(hashSet.contains(2), true); // 返回 true
 hashSet.remove(2);
-assert.strictEqual(hashSet.contains(2),false);    // 返回  false (已经被删除)
+assert.strictEqual(hashSet.contains(2), false); // 返回  false (已经被删除)

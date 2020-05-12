@@ -20,28 +20,25 @@
  * @return {number[]}
  */
 var twoSum = function (numbers: number[], target: number) {
-    /**
-     * 由于是 排序后的数据
-     * 使用 首尾指针
-     * 如果 目标值 左右指针的值相加 > 目标值 右指针左移
-     * 如果 目标值 左右指针的值相加 < 目标值 左指针右移
-     * 两指针相会 不能
-     * */
-    let left = 0;
-    let right = numbers.length - 1;
-    while (numbers[left] + numbers[right] !== target) {
-        if (numbers[left] + numbers[right] > target) {
-            right--;
-        } else {
-            left++;
-        }
+  /**
+   * 由于是 排序后的数据
+   * 使用 首尾指针
+   * 如果 目标值 左右指针的值相加 > 目标值 右指针左移
+   * 如果 目标值 左右指针的值相加 < 目标值 左指针右移
+   * 两指针相会 不能
+   * */
+  let left = 0;
+  let right = numbers.length - 1;
+  while (numbers[left] + numbers[right] !== target) {
+    if (numbers[left] + numbers[right] > target) {
+      right--;
+    } else {
+      left++;
     }
-    return [left + 1, right + 1];
+  }
+  return [left + 1, right + 1];
 };
 
-import assert from 'assert';
+import assert from "assert";
 
-assert.deepStrictEqual(
-    twoSum([2, 7, 11, 15], 9),
-    [1, 2],
-);
+assert.deepStrictEqual(twoSum([2, 7, 11, 15], 9), [1, 2]);

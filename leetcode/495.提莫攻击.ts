@@ -28,15 +28,15 @@
  * @return {number}
  */
 var findPoisonedDuration = function (timeSeries: number[], duration: number) {
-    if (timeSeries.length === 0) return 0;
-    let totalTime = 0;
-    for (let i = 0; i < timeSeries.length; i++) {
-        if (i === 0) continue;
-        totalTime += Math.min(timeSeries[i] - timeSeries[i - 1], duration);
-    }
-    // 最后一次攻击的 持续时间
-    totalTime += duration;
-    return totalTime;
+  if (timeSeries.length === 0) return 0;
+  let totalTime = 0;
+  for (let i = 0; i < timeSeries.length; i++) {
+    if (i === 0) continue;
+    totalTime += Math.min(timeSeries[i] - timeSeries[i - 1], duration);
+  }
+  // 最后一次攻击的 持续时间
+  totalTime += duration;
+  return totalTime;
 };
 
 import assert from "assert";

@@ -25,40 +25,32 @@
  * @return {number[]}
  */
 var intersect = function (nums1: number[], nums2: number[]): number[] {
-    if (nums1.length > nums2.length) {
-        return intersect(nums2, nums1);
-    }
+  if (nums1.length > nums2.length) {
+    return intersect(nums2, nums1);
+  }
 
-    const short = nums1, long = nums2;
-    // 处理较短的数组 成为
-    // [字符] : 出现几次
-    const map: { [key: number]: number } = {};
-    for (const char of short) {
-        map[char] = map[char] ? map[char] + 1 : 1;
-    }
+  const short = nums1,
+    long = nums2;
+  // 处理较短的数组 成为
+  // [字符] : 出现几次
+  const map: { [key: number]: number } = {};
+  for (const char of short) {
+    map[char] = map[char] ? map[char] + 1 : 1;
+  }
 
-    const result = [];
-    for (const char of long) {
-        if (map[char]) {
-            result.push(char);
-            map[char]--;
-        }
+  const result = [];
+  for (const char of long) {
+    if (map[char]) {
+      result.push(char);
+      map[char]--;
     }
+  }
 
-    return result;
+  return result;
 };
 
 import assert from "assert";
 
-assert.deepStrictEqual(
-    intersect([1, 2, 3, 4], [2, 3]),
-    [2, 3],
-);
-assert.deepStrictEqual(
-    intersect([1, 2, 3, 4, 2], [2, 3, 2]),
-    [2, 3, 2],
-);
-assert.deepStrictEqual(
-    intersect([1, 2, 2, 1], [2, 2]),
-    [2, 2],
-);
+assert.deepStrictEqual(intersect([1, 2, 3, 4], [2, 3]), [2, 3]);
+assert.deepStrictEqual(intersect([1, 2, 3, 4, 2], [2, 3, 2]), [2, 3, 2]);
+assert.deepStrictEqual(intersect([1, 2, 2, 1], [2, 2]), [2, 2]);

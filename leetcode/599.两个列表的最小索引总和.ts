@@ -34,59 +34,59 @@
  * @return {string[]}
  */
 var findRestaurant = function (list1: string[], list2: string[]): string[] {
-    // 哈希表 解决
-    // 其实 判断数组大小好像没毛线 区别 只是 让用的哈希表的内存小一点 时间复杂度还是 O(n + m)的样子
-    // 现将 较小的一个数组 放入哈希表
-    if (list1.length > list2.length) return findRestaurant(list2, list1);
-    const map: { [key: string]: number } = {};
-    for (let i = 0; i < list1.length; i++) {
-        map[list1[i]] = i;
-    }
+  // 哈希表 解决
+  // 其实 判断数组大小好像没毛线 区别 只是 让用的哈希表的内存小一点 时间复杂度还是 O(n + m)的样子
+  // 现将 较小的一个数组 放入哈希表
+  if (list1.length > list2.length) return findRestaurant(list2, list1);
+  const map: { [key: string]: number } = {};
+  for (let i = 0; i < list1.length; i++) {
+    map[list1[i]] = i;
+  }
 
-    let max = Infinity;
-    let result: string[] = [];
-    // 扫描较大的数组
-    // 老夫写的更屌 添加这个 判断之后 i <= max 可以排除一部分不可能的情况
-    for (let i = 0; i < list2.length && i <= max; i++) {
-        const str = list2[i];
-        if (map[str] != null) {
-            if (map[str] + i < max) {
-                max = map[str] + i;
-                result = [str];
-            } else if (map[str] + i === max) {
-                result.push(str);
-            }
-        }
+  let max = Infinity;
+  let result: string[] = [];
+  // 扫描较大的数组
+  // 老夫写的更屌 添加这个 判断之后 i <= max 可以排除一部分不可能的情况
+  for (let i = 0; i < list2.length && i <= max; i++) {
+    const str = list2[i];
+    if (map[str] != null) {
+      if (map[str] + i < max) {
+        max = map[str] + i;
+        result = [str];
+      } else if (map[str] + i === max) {
+        result.push(str);
+      }
     }
+  }
 
-    return result;
+  return result;
 };
 
 import assert from "assert";
 
 assert.deepStrictEqual(
-    findRestaurant(
-        ["Shogun", "Tapioca Express", "Burger King", "KFC"],
-        [
-            "Piatti",
-            "The Grill at Torrey Pines",
-            "Hungry Hunter Steakhouse",
-            "Shogun",
-        ],
-    ),
-    ["Shogun"],
+  findRestaurant(
+    ["Shogun", "Tapioca Express", "Burger King", "KFC"],
+    [
+      "Piatti",
+      "The Grill at Torrey Pines",
+      "Hungry Hunter Steakhouse",
+      "Shogun",
+    ]
+  ),
+  ["Shogun"]
 );
 assert.deepStrictEqual(
-    findRestaurant(
-        ["Shogun", "Tapioca Express", "Burger King", "KFC"],
-        ["KFC", "Shogun", "Burger King"],
-    ),
-    ["Shogun"],
+  findRestaurant(
+    ["Shogun", "Tapioca Express", "Burger King", "KFC"],
+    ["KFC", "Shogun", "Burger King"]
+  ),
+  ["Shogun"]
 );
 assert.deepStrictEqual(
-    findRestaurant(
-        ["Shogun", "Tapioca Express", "Burger King", "KFC"],
-        ["KFC", "Burger King", "Tapioca Express", "Shogun"],
-    ),
-    ["KFC", "Burger King", "Tapioca Express", "Shogun"],
+  findRestaurant(
+    ["Shogun", "Tapioca Express", "Burger King", "KFC"],
+    ["KFC", "Burger King", "Tapioca Express", "Shogun"]
+  ),
+  ["KFC", "Burger King", "Tapioca Express", "Shogun"]
 );

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 请你来实现一个 atoi 函数，使其能将字符串转换成整数。
@@ -53,22 +55,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var myAtoi = function (str) {
-    // 判断是否可合法
-    const RegResult = /^\s*([+-]*\d+\.?\d*)/.exec(str);
-    if (!RegResult) {
-        return 0;
-    }
-    const num = parseFloat(RegResult[1]) || 0;
-    const MAX = Math.pow(2, 31) - 1;
-    const MIN = -Math.pow(2, 31);
-    if (num > MAX)
-        return MAX;
-    if (num < MIN)
-        return MIN;
-    return num;
+  // 判断是否可合法
+  const RegResult = /^\s*([+-]*\d+\.?\d*)/.exec(str);
+  if (!RegResult) {
+    return 0;
+  }
+  const num = parseFloat(RegResult[1]) || 0;
+  const MAX = Math.pow(2, 31) - 1;
+  const MIN = -Math.pow(2, 31);
+  if (num > MAX) return MAX;
+  if (num < MIN) return MIN;
+  return num;
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.strictEqual(myAtoi('42'), 42);
+assert_1.default.strictEqual(myAtoi("42"), 42);
 assert_1.default.strictEqual(myAtoi("   -42"), -42);
 assert_1.default.strictEqual(myAtoi("4193 with words"), 4193);
 assert_1.default.strictEqual(myAtoi("words and 987"), 0);

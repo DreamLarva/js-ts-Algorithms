@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 编写一个算法来判断一个数是不是“快乐数”。
@@ -23,23 +25,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {boolean}
  */
 var isHappy = function (n) {
-    const memo = new Set();
-    while (true) {
-        n = step(n);
-        if (n === 1)
-            return true;
-        if (memo.has(n))
-            return false;
-        memo.add(n);
-    }
+  const memo = new Set();
+  while (true) {
+    n = step(n);
+    if (n === 1) return true;
+    if (memo.has(n)) return false;
+    memo.add(n);
+  }
 };
 function step(num) {
-    let result = 0;
-    while (num) {
-        result += (num % 10) ** 2;
-        num = Math.trunc(num / 10);
-    }
-    return result;
+  let result = 0;
+  while (num) {
+    result += (num % 10) ** 2;
+    num = Math.trunc(num / 10);
+  }
+  return result;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(isHappy(12345), false);

@@ -17,25 +17,19 @@ s = "loveleetcode",
  * @return {number}
  */
 var firstUniqChar = function (s: string) {
-    // 记录次数
-    const map: { [key: string]: number } = {};
+  // 记录次数
+  const map: { [key: string]: number } = {};
 
-    for (const char of s) {
-        map[char] ? map[char]++ : map[char] = 1;
-    }
+  for (const char of s) {
+    map[char] ? map[char]++ : (map[char] = 1);
+  }
 
-    for (let i = 0; i < s.length; i++) {
-        if (map[s[i]] === 1) return i;
-    }
-    return -1;
+  for (let i = 0; i < s.length; i++) {
+    if (map[s[i]] === 1) return i;
+  }
+  return -1;
 };
 import assert from "assert";
 
-assert.strictEqual(
-    firstUniqChar("leetcode"),
-    0,
-);
-assert.strictEqual(
-    firstUniqChar("loveleetcode"),
-    2,
-);
+assert.strictEqual(firstUniqChar("leetcode"), 0);
+assert.strictEqual(firstUniqChar("loveleetcode"), 2);

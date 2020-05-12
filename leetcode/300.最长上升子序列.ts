@@ -79,9 +79,9 @@ function lengthOfLIS2(nums: number[]) {
  * */
 function SetDataByDichotomy1(arr: number[], data: number) {
   // 直接排除比所有值都小的情况
-  if( data < arr[0]) {
+  if (data < arr[0]) {
     arr[0] = data;
-    return
+    return;
   }
 
   let left = 0;
@@ -98,13 +98,12 @@ function SetDataByDichotomy1(arr: number[], data: number) {
     if (arr[mid] < data) {
       // 如果 mid 在 data 的左边
       // [4, 6] 5; 最终 pos 也存在 4的位置
-      pos = mid
+      pos = mid;
       left = mid + 1;
-    }
-    else right = mid - 1;
+    } else right = mid - 1;
   }
 
-  arr[pos + 1] = data
+  arr[pos + 1] = data;
 }
 
 /**
@@ -112,9 +111,9 @@ function SetDataByDichotomy1(arr: number[], data: number) {
  * */
 function SetDataByDichotomy2(arr: number[], data: number) {
   // 直接排除比所有值都小的情况
-  if( data < arr[0]) {
+  if (data < arr[0]) {
     arr[0] = data;
-    return
+    return;
   }
 
   let left = 0;
@@ -125,12 +124,12 @@ function SetDataByDichotomy2(arr: number[], data: number) {
     if (arr[mid] === data) return; // 如果已经有了那么就是什么都不做
     if (arr[mid] < data) left = mid + 1;
     else {
-      pos = mid
+      pos = mid;
       right = mid - 1;
     }
   }
 
-  arr[pos] = data
+  arr[pos] = data;
 }
 
 import assert from "assert";
@@ -144,5 +143,5 @@ assert.strictEqual(lengthOfLIS2([10, 9, 2, 5, 3, 7, 101, 18]), 4);
 assert.strictEqual(lengthOfLIS2([10, 9, 2, 5, 3, 7, 101, 18, 105]), 5);
 assert.strictEqual(lengthOfLIS2([1, 3, 6, 7, 9, 4, 10, 5, 6]), 6);
 assert.strictEqual(lengthOfLIS2([4, 10, 4, 3, 8, 9]), 3);
-assert.strictEqual(lengthOfLIS2([3,5,6,2,5,4,19,5,6,7,12]), 6);
+assert.strictEqual(lengthOfLIS2([3, 5, 6, 2, 5, 4, 19, 5, 6, 7, 12]), 6);
 assert.strictEqual(lengthOfLIS2([]), 0);

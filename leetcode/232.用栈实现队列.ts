@@ -25,43 +25,42 @@ queue.empty(); // 返回 false
  * 只能用 arr的 push 和 pop 方法 length 属性
  */
 class MyQueue {
-    stackForPush: number[] = [];
-    stackForPop: number[] = [];
+  stackForPush: number[] = [];
+  stackForPop: number[] = [];
 
-    /**
-     * Push element x to the back of queue.
-     * @param {number} x
-     * @return {void}
-     */
-    push(x: number) {
-        this.stackForPush.push(x);
+  /**
+   * Push element x to the back of queue.
+   * @param {number} x
+   * @return {void}
+   */
+  push(x: number) {
+    this.stackForPush.push(x);
+  }
 
-    };
+  /**
+   * Get the front element.
+   * @return {number}
+   */
+  peek() {
+    if (!this.stackForPop.length) {
+      while (this.stackForPush.length) {
+        this.stackForPop.push(this.stackForPush.pop()!);
+      }
+    }
 
-    /**
-     * Get the front element.
-     * @return {number}
-     */
-    peek() {
-        if (!this.stackForPop.length) {
-            while (this.stackForPush.length) {
-                this.stackForPop.push(this.stackForPush.pop()!);
-            }
-        }
+    const result = this.stackForPop.pop()!;
+    this.stackForPop.push(result);
 
-        const result = this.stackForPop.pop()!;
-        this.stackForPop.push(result);
+    return result;
+  }
 
-        return result;
-    };
-
-    /**
-     * Returns whether the queue is empty.
-     * @return {boolean}
-     */
-    empty() {
-        return !(this.stackForPop.length || this.stackForPush.length);
-    };
+  /**
+   * Returns whether the queue is empty.
+   * @return {boolean}
+   */
+  empty() {
+    return !(this.stackForPop.length || this.stackForPush.length);
+  }
 }
 
 /**

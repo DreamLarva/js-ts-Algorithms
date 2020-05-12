@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 编写一个程序，找出第 n 个丑数。
@@ -23,7 +25,7 @@ n 不超过1690。
  * @return {number}
  */
 var nthUglyNumber = function (n) {
-    /**
+  /**
      三指针法。一部分是丑数数组，另一部分是权重2，3，5。下一个丑数，定义为丑数数组中的数乘以权重，所得的最小值。
 
      那么，2该乘以谁？3该乘以谁？5该乘以谁？
@@ -38,27 +40,24 @@ var nthUglyNumber = function (n) {
 
      丑数10，... 等等。
      * */
-    let pointer_two = 0;
-    let pointer_three = 0;
-    let pointer_five = 0;
-    const t = [1]; // 第一个数为1
-    // 由于存入缓存的 数一定是丑数 所以乘 上 2  3  5 也一定是
-    // 那么就不用管之前 有几个 2 3 5 只要觉得现在是要乘 2 3 5 中哪哪个
-    // 2 3 5 的指针 是最小的那个值 说明 应该 选择缓存中的 下一个值 来乘
-    while (t.length < n) {
-        const two = t[pointer_two] * 2;
-        const three = t[pointer_three] * 3;
-        const five = t[pointer_five] * 5;
-        const min = Math.min(two, three, five);
-        t.push(min);
-        if (min === two)
-            pointer_two++;
-        if (min === three)
-            pointer_three++;
-        if (min === five)
-            pointer_five++;
-    }
-    return t[t.length - 1];
+  let pointer_two = 0;
+  let pointer_three = 0;
+  let pointer_five = 0;
+  const t = [1]; // 第一个数为1
+  // 由于存入缓存的 数一定是丑数 所以乘 上 2  3  5 也一定是
+  // 那么就不用管之前 有几个 2 3 5 只要觉得现在是要乘 2 3 5 中哪哪个
+  // 2 3 5 的指针 是最小的那个值 说明 应该 选择缓存中的 下一个值 来乘
+  while (t.length < n) {
+    const two = t[pointer_two] * 2;
+    const three = t[pointer_three] * 3;
+    const five = t[pointer_five] * 5;
+    const min = Math.min(two, three, five);
+    t.push(min);
+    if (min === two) pointer_two++;
+    if (min === three) pointer_three++;
+    if (min === five) pointer_five++;
+  }
+  return t[t.length - 1];
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(nthUglyNumber(10), 12);

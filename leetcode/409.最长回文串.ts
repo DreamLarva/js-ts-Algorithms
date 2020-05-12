@@ -26,36 +26,33 @@
  * @return {number}
  */
 var longestPalindrome = function (s: string) {
-    /**
-     * 根据题意
-     * 出现偶数次的 直接加入长度
-     * 出现奇数次 则 - 1 加到 长度
-     * 如果有 奇数次的 则 再 + 1
-     * */
-    const map: { [key: string]: number } = {};
-    let result = 0;
-    for (let i = 0; i < s.length; i++) {
-        map[s[i]] = (map[s[i]] || 0) + 1;
+  /**
+   * 根据题意
+   * 出现偶数次的 直接加入长度
+   * 出现奇数次 则 - 1 加到 长度
+   * 如果有 奇数次的 则 再 + 1
+   * */
+  const map: { [key: string]: number } = {};
+  let result = 0;
+  for (let i = 0; i < s.length; i++) {
+    map[s[i]] = (map[s[i]] || 0) + 1;
+  }
+  let hasOddCount = false;
+  Object.values(map).forEach((num) => {
+    // 偶数
+    if ((num & 1) === 0) {
+      result += num;
     }
-    let hasOddCount = false;
-    Object.values(map).forEach(num => {
-        // 偶数
-        if ((num & 1) === 0) {
-            result += num;
-        }
-        // 奇数
-        else {
-            result += num - 1;
-            hasOddCount = true;
-        }
-    });
+    // 奇数
+    else {
+      result += num - 1;
+      hasOddCount = true;
+    }
+  });
 
-    return hasOddCount ? result + 1 : result;
+  return hasOddCount ? result + 1 : result;
 };
 
 import assert from "assert";
 
-assert.strictEqual(
-    longestPalindrome("abccccdd"),
-    7,
-);
+assert.strictEqual(longestPalindrome("abccccdd"), 7);

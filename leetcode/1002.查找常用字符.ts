@@ -32,45 +32,50 @@ A[i][j] 是小写字母
 import _ from "lodash";
 
 var commonChars = function (A: string[]) {
-    const map: { [key: string]: number } = {};
+  const map: { [key: string]: number } = {};
 
-    for (const character of A[0]) {
-        map[character] = map[character] == null ? 1 : map[character] + 1;
+  for (const character of A[0]) {
+    map[character] = map[character] == null ? 1 : map[character] + 1;
+  }
+  if (A.length !== 1) {
+    for (let i = 1; i < A.length; i++) {
+      const _map: { [key: string]: number } = {};
+      for (const character of A[i]) {
+        _map[character] = _map[character] == null ? 1 : _map[character] + 1;
+      }
+
+      for (const [key, value] of Object.entries(map)) {
+        map[key] = Math.min(value, _map[key] || 0);
+      }
     }
-    if (A.length !== 1) {
-        for (let i = 1; i < A.length; i++) {
-            const _map: { [key: string]: number } = {};
-            for (const character of A[i]) {
-                _map[character] = _map[character] == null ? 1 : _map[character] + 1;
-            }
+  }
 
-            for (const [key, value] of Object.entries(map)) {
-                map[key] = Math.min(value, _map[key] || 0);
-            }
+  const result: string[] = [];
+  for (const [key, value] of Object.entries(map)) {
+    _.times(value, () => result.push(key));
+  }
 
-        }
-    }
-
-    const result: string[] = [];
-    for (const [key, value] of Object.entries(map)) {
-        _.times(value, () => result.push(key));
-
-    }
-
-    return result;
+  return result;
 };
 
 import assert from "assert";
 
+assert.deepStrictEqual(commonChars(["bella", "label", "roller"]), [
+  "e",
+  "l",
+  "l",
+]);
+assert.deepStrictEqual(commonChars(["cool", "lock", "cook"]), ["c", "o"]);
 assert.deepStrictEqual(
-    commonChars(["bella","label","roller"]),
-    ["e","l","l"]
-);
-assert.deepStrictEqual(
-    commonChars(["cool","lock","cook"]),
-    ["c","o"]
-);
-assert.deepStrictEqual(
-    commonChars(["bcaddcdd","cbcdccdd","ddccbdda","dacbbdad","dababdcb","bccbdaad","dbccbabd","accdddda"]),
-    ["c","d","d"]
+  commonChars([
+    "bcaddcdd",
+    "cbcdccdd",
+    "ddccbdda",
+    "dacbbdad",
+    "dababdcb",
+    "bccbdaad",
+    "dbccbabd",
+    "accdddda",
+  ]),
+  ["c", "d", "d"]
 );

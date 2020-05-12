@@ -26,17 +26,16 @@
  * @return {number}
  */
 var hammingDistance = function (x: number, y: number): number {
-    /**
-     * 直接 ^ 运算 再得到所有的1 就好了
-     * */
-    let after_exclusive_or = x ^ y;
-    let result = 0;
-    while (after_exclusive_or) {
-        if (after_exclusive_or & 1) result++;
-        after_exclusive_or >>= 1;
-
-    }
-    return result;
+  /**
+   * 直接 ^ 运算 再得到所有的1 就好了
+   * */
+  let after_exclusive_or = x ^ y;
+  let result = 0;
+  while (after_exclusive_or) {
+    if (after_exclusive_or & 1) result++;
+    after_exclusive_or >>= 1;
+  }
+  return result;
 };
 /*
 var hammingDistance = function (x: number, y: number): number {
@@ -54,7 +53,4 @@ var hammingDistance = function (x: number, y: number): number {
 
 import assert from "assert";
 
-assert.strictEqual(
-    hammingDistance(1,4),
-    2
-);
+assert.strictEqual(hammingDistance(1, 4), 2);

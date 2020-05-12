@@ -41,7 +41,7 @@
  * @return {number}
  */
 var strStr = function (haystack: string, needle: string) {
-    return kmp(haystack, needle);
+  return kmp(haystack, needle);
 };
 
 /**
@@ -55,46 +55,46 @@ var strStr = function (haystack: string, needle: string) {
  *      abad        =>      [ -1, 0, -1, 1 ]
  * */
 function getNext(ps: string): number[] {
-    const next = Array(ps.length).fill(0);
-    next[0] = -1;
-    let j = 0;
-    let k = -1;
-    while (j < ps.length - 1) {
-        if (k === -1 || ps[j] === ps[k]) {
-            if (ps[++j] === ps[++k]) {
-                // 当两个字符相等时要跳过
-                next[j] = next[k];
-            } else {
-                next[j] = k;
-            }
-        } else {
-            k = next[k];
-        }
+  const next = Array(ps.length).fill(0);
+  next[0] = -1;
+  let j = 0;
+  let k = -1;
+  while (j < ps.length - 1) {
+    if (k === -1 || ps[j] === ps[k]) {
+      if (ps[++j] === ps[++k]) {
+        // 当两个字符相等时要跳过
+        next[j] = next[k];
+      } else {
+        next[j] = k;
+      }
+    } else {
+      k = next[k];
     }
+  }
 
-    return next;
+  return next;
 }
 
 function kmp(ts: string, ps: string) {
-    let i = 0;
-    let j = 0;
-    const next = getNext(ps);
-    while (i < ts.length && j < ps.length) {
-        if (j === -1 || ts[i] === ps[j]) {
-            // 当j = -1 这个当前 i的字符 不可能再匹配 下一个i准备和 ps[0] 匹配
-            i++;
-            j++;
-        } else {
-            j = next[j]; // j回到指定位置
-            // 如果是 0 就是 当前的i 再与 ps[j]
-        }
-    }
-
-    if (j === ps.length) {
-        return i - j;
+  let i = 0;
+  let j = 0;
+  const next = getNext(ps);
+  while (i < ts.length && j < ps.length) {
+    if (j === -1 || ts[i] === ps[j]) {
+      // 当j = -1 这个当前 i的字符 不可能再匹配 下一个i准备和 ps[0] 匹配
+      i++;
+      j++;
     } else {
-        return -1;
+      j = next[j]; // j回到指定位置
+      // 如果是 0 就是 当前的i 再与 ps[j]
     }
+  }
+
+  if (j === ps.length) {
+    return i - j;
+  } else {
+    return -1;
+  }
 }
 
-export {}
+export {};

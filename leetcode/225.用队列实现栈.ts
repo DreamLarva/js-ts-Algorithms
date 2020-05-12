@@ -21,54 +21,53 @@ empty() -- 返回栈是否为空
  * Initialize your data structure here.
  */
 class MyStack {
-    list: number[] = [];
+  list: number[] = [];
 
-    /**
-     * Push element x onto stack.
-     * @param {number} x
-     * @return {void}
-     */
-    push(x: number) {
-        this.list.push(x);
-    };
+  /**
+   * Push element x onto stack.
+   * @param {number} x
+   * @return {void}
+   */
+  push(x: number) {
+    this.list.push(x);
+  }
 
-    /**
-     * Removes the element on top of the stack and returns that element.
-     * @return {number}
-     */
-    pop() {
-        const tempList: number[] = [];
-        while (this.list.length !== 1) {
-            tempList.push(this.list.shift()!);
-        }
-        const popResult = this.list.shift();
-        this.list = tempList;
-        return popResult;
+  /**
+   * Removes the element on top of the stack and returns that element.
+   * @return {number}
+   */
+  pop() {
+    const tempList: number[] = [];
+    while (this.list.length !== 1) {
+      tempList.push(this.list.shift()!);
     }
+    const popResult = this.list.shift();
+    this.list = tempList;
+    return popResult;
+  }
 
-    /**
-     * Get the top element.
-     * @return {number}
-     */
-    top() {
-        const tempList: number[] = [];
-        while (this.list.length !== 1) {
-            tempList.push(this.list.shift()!);
-        }
-        const popResult = this.list.shift()!;
-        this.list = tempList;
-        this.list.push(popResult);
-        return popResult;
-    };
-
-    /**
-     * Returns whether the stack is empty.
-     * @return {boolean}
-     */
-    empty() {
-        return this.list.length === 0;
+  /**
+   * Get the top element.
+   * @return {number}
+   */
+  top() {
+    const tempList: number[] = [];
+    while (this.list.length !== 1) {
+      tempList.push(this.list.shift()!);
     }
+    const popResult = this.list.shift()!;
+    this.list = tempList;
+    this.list.push(popResult);
+    return popResult;
+  }
 
+  /**
+   * Returns whether the stack is empty.
+   * @return {boolean}
+   */
+  empty() {
+    return this.list.length === 0;
+  }
 }
 
 /**
@@ -80,4 +79,4 @@ class MyStack {
  * var param_4 = obj.empty()
  */
 
-export {}
+export {};

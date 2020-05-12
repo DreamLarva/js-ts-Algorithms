@@ -15,9 +15,11 @@
 输入: nums = [1,2,3,1,2,3], k = 2
 输出: false
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number[]} nums
@@ -25,16 +27,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {boolean}
  */
 var containsNearbyDuplicate = function (nums, k) {
-    const cache = {};
-    for (let i = 0; i < nums.length; i++) {
-        const cur = nums[i];
-        if (cache[cur] != null) {
-            if (i - cache[cur] <= k)
-                return true;
-        }
-        cache[cur] = i;
+  const cache = {};
+  for (let i = 0; i < nums.length; i++) {
+    const cur = nums[i];
+    if (cache[cur] != null) {
+      if (i - cache[cur] <= k) return true;
     }
-    return false;
+    cache[cur] = i;
+  }
+  return false;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(containsNearbyDuplicate([1, 2, 3, 1], 3), true);

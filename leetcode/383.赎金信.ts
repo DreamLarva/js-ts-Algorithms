@@ -20,28 +20,28 @@ canConstruct("aa", "aab") -> true
  * @return {boolean}
  */
 var canConstruct = function (ransomNote: string, magazine: string) {
-    if (ransomNote.length === 0) return true;
-    if (ransomNote.length > magazine.length) return false;
-    type hashTable = { [key: string]: number }
-    const hashTable: hashTable = {};
+  if (ransomNote.length === 0) return true;
+  if (ransomNote.length > magazine.length) return false;
+  type hashTable = { [key: string]: number };
+  const hashTable: hashTable = {};
 
-    for (const character of ransomNote) {
-        const count = hashTable[character];
-        if (count) {
-            hashTable[character]++;
-        } else {
-            hashTable[character] = 1;
-        }
+  for (const character of ransomNote) {
+    const count = hashTable[character];
+    if (count) {
+      hashTable[character]++;
+    } else {
+      hashTable[character] = 1;
     }
+  }
 
-    for (const character of magazine) {
-        const count = hashTable[character];
-        if (count) {
-            hashTable[character]--;
-        }
+  for (const character of magazine) {
+    const count = hashTable[character];
+    if (count) {
+      hashTable[character]--;
     }
+  }
 
-    return !Object.values(hashTable).some(v => v > 0);
+  return !Object.values(hashTable).some((v) => v > 0);
 };
 
 // 双哈希表你个鬼额
@@ -79,22 +79,9 @@ var canConstruct = function (ransomNote: string, magazine: string) {
 };
 */
 
+assert.strictEqual(canConstruct("a", "b"), false);
 
-assert.strictEqual(
-    canConstruct("a", "b"),
-    false,
-);
+assert.strictEqual(canConstruct("aa", "ab"), false);
 
-assert.strictEqual(
-    canConstruct("aa", "ab"),
-    false,
-);
-
-assert.strictEqual(
-    canConstruct("aa", "aab"),
-    true,
-);
-assert.strictEqual(
-    canConstruct("", ""),
-    true,
-);
+assert.strictEqual(canConstruct("aa", "aab"), true);
+assert.strictEqual(canConstruct("", ""), true);

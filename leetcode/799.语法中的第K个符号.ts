@@ -35,38 +35,23 @@ K 的范围 [1, 2^(N-1)].
  * @return {number}
  */
 var kthGrammar = function (N: number, K: number): number {
-    // N 行 K 个 取决于 第 N - 1 行 Math.floor((K + 1)/ 2) 的值
-    if (N === 1) return 0;
-    const last = kthGrammar(N - 1, Math.floor((K + 1) / 2));
-    if (last === 0) {
-        return K % 2 === 1 ? 0 : 1;
-    } else {
-        return K % 2 === 1 ? 1 : 0;
-    }
+  // N 行 K 个 取决于 第 N - 1 行 Math.floor((K + 1)/ 2) 的值
+  if (N === 1) return 0;
+  const last = kthGrammar(N - 1, Math.floor((K + 1) / 2));
+  if (last === 0) {
+    return K % 2 === 1 ? 0 : 1;
+  } else {
+    return K % 2 === 1 ? 1 : 0;
+  }
 };
 
 import assert from "assert";
 
+assert.strictEqual(kthGrammar(1, 1), 0);
 
-assert.strictEqual(
-    kthGrammar(1, 1),
-    0,
-);
+assert.strictEqual(kthGrammar(2, 1), 0);
+assert.strictEqual(kthGrammar(2, 2), 1);
 
-assert.strictEqual(
-    kthGrammar(2, 1),
-    0,
-);
-assert.strictEqual(
-    kthGrammar(2, 2),
-    1,
-);
-
-
-assert.strictEqual(
-    kthGrammar(4, 5),
-    1,
-);
-
+assert.strictEqual(kthGrammar(4, 5), 1);
 
 export {};

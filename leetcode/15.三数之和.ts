@@ -20,59 +20,60 @@
  * @return {number[][]}
  */
 var threeSum = function (nums: number[]) {
-    // 使用三个指针
-    // 当前指正  当前指针后的一个位置 和 数组最后的位置
-    nums.sort((a, b) => a - b);
+  // 使用三个指针
+  // 当前指正  当前指针后的一个位置 和 数组最后的位置
+  nums.sort((a, b) => a - b);
 
-    // 排除极端情况
-    // 都小于0
-    if (nums[nums.length - 1] < 0) {
-        return [];
+  // 排除极端情况
+  // 都小于0
+  if (nums[nums.length - 1] < 0) {
+    return [];
+  }
+  // 都 大于 0
+  if (nums[0] > 0) {
+    return [];
+  }
+  const result = [];
+
+  for (let i = 0; i < nums.length - 2; ) {
+    let left = i + 1;
+    let right = nums.length - 1;
+    if (nums[i] > 0) break; // 同样 最左侧的值不能 大于0
+    while (nums[right] >= 0 && left < right) {
+      // 最右侧的值 不能 小于0
+      const sum = nums[left] + nums[i] + nums[right];
+      if (sum === 0) {
+        result.push([nums[left], nums[i], nums[right]]);
+      }
+      if (sum < 0) {
+        while (left < right && nums[++left] === nums[left - 1]) {}
+      } else {
+        while (left < right && nums[--right] === nums[right + 1]) {}
+      }
     }
-    // 都 大于 0
-    if (nums[0] > 0) {
-        return [];
-    }
-    const result = [];
+    while (nums[i] === nums[++i]) {}
+  }
 
-    for (let i = 0; i < nums.length - 2;) {
-        let left = i + 1;
-        let right = nums.length - 1;
-        if (nums[i] > 0) break; // 同样 最左侧的值不能 大于0
-        while (nums[right] >= 0 && left < right) { // 最右侧的值 不能 小于0
-            const sum = nums[left] + nums[i] + nums[right];
-            if (sum === 0) {
-                result.push([nums[left], nums[i], nums[right]]);
-            }
-            if (sum < 0) {
-                while (left < right && nums[++left] === nums[left - 1]) {
-                }
-            } else {
-                while (left < right && nums[--right] === nums[right + 1]) {
-                }
-            }
-        }
-        while (nums[i] === nums[++i]) {
-        }
-
-    }
-
-    return result;
+  return result;
 };
 
+import assert from "assert";
+import { sortDeep } from "../util/assertHelper";
 
-import assert from 'assert';
-import {sortDeep} from "../util/assertHelper";
-
 assert.deepStrictEqual(
-    sortDeep(threeSum([-1, 0, 1, 2, -1, -4])),
-    sortDeep([[-1, -1, 2], [-1, 0, 1]]),
+  sortDeep(threeSum([-1, 0, 1, 2, -1, -4])),
+  sortDeep([
+    [-1, -1, 2],
+    [-1, 0, 1],
+  ])
 );
 assert.deepStrictEqual(
-    sortDeep(threeSum([-1, 0, 1, 2, -1, -4, -1, 0, 1, 2, -1, -4, 0])),
-    sortDeep([[-4, 2, 2], [-1, -1, 2], [-1, 0, 1], [0, 0, 0]]),
+  sortDeep(threeSum([-1, 0, 1, 2, -1, -4, -1, 0, 1, 2, -1, -4, 0])),
+  sortDeep([
+    [-4, 2, 2],
+    [-1, -1, 2],
+    [-1, 0, 1],
+    [0, 0, 0],
+  ])
 );
-assert.deepStrictEqual(
-    threeSum([0, 0, 0]),
-    [[0, 0, 0]],
-);
+assert.deepStrictEqual(threeSum([0, 0, 0]), [[0, 0, 0]]);

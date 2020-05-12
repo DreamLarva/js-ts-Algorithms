@@ -16,14 +16,15 @@
  * @return {string}
  */
 var reverseWords = function (s: string) {
-    const words = s.match(/\S+/g);
-    return words ? words.map(s => s.split("").reverse().join("")).join(" ") : "";
+  const words = s.match(/\S+/g);
+  return words
+    ? words.map((s) => s.split("").reverse().join("")).join(" ")
+    : "";
 };
 
 import assert from "assert";
 
 assert.strictEqual(
-    reverseWords("Let's take LeetCode contest"),
-    "s'teL ekat edoCteeL tsetnoc",
+  reverseWords("Let's take LeetCode contest"),
+  "s'teL ekat edoCteeL tsetnoc"
 );
-

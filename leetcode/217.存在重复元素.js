@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。
@@ -24,7 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {boolean}
  */
 var containsDuplicate = function (nums) {
-    return nums.length !== new Set(nums).size;
+  return nums.length !== new Set(nums).size;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.ok(containsDuplicate([1, 2, 3, 3]));

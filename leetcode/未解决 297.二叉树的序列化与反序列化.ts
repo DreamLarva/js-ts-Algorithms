@@ -22,9 +22,8 @@
 链接：https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-import {TreeNode} from "../util/BinaryTree";
+import { TreeNode } from "../util/BinaryTree";
 import _ from "lodash";
-
 
 /**
  * Encodes a tree to a single string.
@@ -32,31 +31,31 @@ import _ from "lodash";
  * @return {string}
  */
 var serialize = function (root: TreeNode<number> | null) {
-    return JSON.stringify(levelTraversal(root));
+  return JSON.stringify(levelTraversal(root));
 };
 
-function levelTraversal<T>(root: TreeNode<T>|null) {
-    if (root === null) return null;
-    const result: (T | null)[] = [];
-    const stack: (TreeNode<T>|null)[] = [root];
-    while (stack.length !== 0) {
-        const node = stack.shift()!;
-        if (node === null){
-            result.push(node);
-            continue
-        }
-        result.push(node.val);
-        if (node.left) stack.push(node.left);
-        else stack.push(null);
-        if (node.right) stack.push(node.right);
-        else stack.push(null);
+function levelTraversal<T>(root: TreeNode<T> | null) {
+  if (root === null) return null;
+  const result: (T | null)[] = [];
+  const stack: (TreeNode<T> | null)[] = [root];
+  while (stack.length !== 0) {
+    const node = stack.shift()!;
+    if (node === null) {
+      result.push(node);
+      continue;
     }
+    result.push(node.val);
+    if (node.left) stack.push(node.left);
+    else stack.push(null);
+    if (node.right) stack.push(node.right);
+    else stack.push(null);
+  }
 
-    // 处理结果 把尾部多余的
-    while (_.last(result) === null){
-        result.pop()
-    }
-    return result;
+  // 处理结果 把尾部多余的
+  while (_.last(result) === null) {
+    result.pop();
+  }
+  return result;
 }
 
 /**
@@ -65,61 +64,55 @@ function levelTraversal<T>(root: TreeNode<T>|null) {
  * @param {string} data
  * @return {TreeNode}
  */
-var deserialize = function (data: string|null) {
-    if(data === null)return null;
-    return createBinaryTree(JSON.parse(data));
+var deserialize = function (data: string | null) {
+  if (data === null) return null;
+  return createBinaryTree(JSON.parse(data));
 };
 
 function createBinaryTree<T>(arr: (T | null)[]) {
-    const root: TreeNode<T> = new TreeNode(arr.shift()!); // 根节点不为null
-    let current_layer_node_arr = [root];
-    const next_layer_node_arr: TreeNode<T>[] = [];
-    // 将每个放到 二叉树上 如果还剩余节点那么这些节点 的子节点全部设为null
-    while (arr.length || next_layer_node_arr.length) {
-        current_layer_node_arr.forEach(node => {
-            if (node != null) {
-                let shiftData = arr.shift();
-                const left_data = shiftData == null ? null : shiftData; // 避免数据出现 0 的情况
-                if (left_data != null) {
-                    const left_node = new TreeNode(left_data);
-                    node.left = left_node;
-                    next_layer_node_arr.push(left_node);
-                } else {
-                    node.left = null;
-                }
-                shiftData = arr.shift();
-                const right_data = shiftData == null ? null : shiftData;
-                if (right_data != null) {
-                    const right_node = new TreeNode(right_data);
-                    node.right = right_node;
-                    next_layer_node_arr.push(right_node);
-                } else {
-                    node.right = null;
-                }
-            }
-        });
-        current_layer_node_arr = [...next_layer_node_arr];
-        next_layer_node_arr.length = 0;
-    }
-    return root;
-
+  const root: TreeNode<T> = new TreeNode(arr.shift()!); // 根节点不为null
+  let current_layer_node_arr = [root];
+  const next_layer_node_arr: TreeNode<T>[] = [];
+  // 将每个放到 二叉树上 如果还剩余节点那么这些节点 的子节点全部设为null
+  while (arr.length || next_layer_node_arr.length) {
+    current_layer_node_arr.forEach((node) => {
+      if (node != null) {
+        let shiftData = arr.shift();
+        const left_data = shiftData == null ? null : shiftData; // 避免数据出现 0 的情况
+        if (left_data != null) {
+          const left_node = new TreeNode(left_data);
+          node.left = left_node;
+          next_layer_node_arr.push(left_node);
+        } else {
+          node.left = null;
+        }
+        shiftData = arr.shift();
+        const right_data = shiftData == null ? null : shiftData;
+        if (right_data != null) {
+          const right_node = new TreeNode(right_data);
+          node.right = right_node;
+          next_layer_node_arr.push(right_node);
+        } else {
+          node.right = null;
+        }
+      }
+    });
+    current_layer_node_arr = [...next_layer_node_arr];
+    next_layer_node_arr.length = 0;
+  }
+  return root;
 }
-
 
 import assert from "assert";
 
 assert.deepStrictEqual(
-    serialize(createBinaryTree([1, 2, 3, null, null, 4, 5])),
-    "[1,2,3,null,null,4,5]",
-);
-
-
-assert.deepStrictEqual(
-    serialize(createBinaryTree([1, 2, 3, 4, 5, 6, 7])),
-    "[1,2,3,4,5,6,7]",
+  serialize(createBinaryTree([1, 2, 3, null, null, 4, 5])),
+  "[1,2,3,null,null,4,5]"
 );
 
 assert.deepStrictEqual(
-    deserialize(null),
-    null,
+  serialize(createBinaryTree([1, 2, 3, 4, 5, 6, 7])),
+  "[1,2,3,4,5,6,7]"
 );
+
+assert.deepStrictEqual(deserialize(null), null);

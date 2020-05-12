@@ -29,7 +29,7 @@
  4   4
 返回 false 。
 */
-import {TreeNode} from "../util/BinaryTree";
+import { TreeNode } from "../util/BinaryTree";
 
 /**
  * @param {TreeNode | null} root
@@ -37,15 +37,18 @@ import {TreeNode} from "../util/BinaryTree";
  */
 type root = TreeNode<number> | null;
 var isBalanced = function (root: root): boolean {
-    if (root === null) return true;
-    // 递归 左子树 和 右子树
-    return isBalanced(root.left) && isBalanced(root.right) && Math.abs(depth(root.left) - depth(root.right)) <= 1;
+  if (root === null) return true;
+  // 递归 左子树 和 右子树
+  return (
+    isBalanced(root.left) &&
+    isBalanced(root.right) &&
+    Math.abs(depth(root.left) - depth(root.right)) <= 1
+  );
 };
 
 function depth(root: root): number {
-    if (root == null) return 0;
-    return 1 + Math.max(depth(root.left), depth(root.right));
+  if (root == null) return 0;
+  return 1 + Math.max(depth(root.left), depth(root.right));
 }
 
-
-export {}
+export {};

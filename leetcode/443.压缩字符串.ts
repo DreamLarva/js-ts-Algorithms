@@ -60,69 +60,75 @@
  * @return {number}
  */
 var compress = function (chars: string[]) {
-    if (chars.length <= 1) return chars.length;
-    /**
-     * 三个指针
-     * 当前的同类字符的开始位置
-     * 当前同类字符的结束位置
-     * 下一个数据可写入的位置
-     * */
-    let head = 0;
-    let tail = 0;
-    let write = 1;
-    let result = 1;
-    for (let i = 1; i < chars.length; i++) {
-        const cur = chars[i];
-        const prev = chars[i - 1];
-        if (cur === prev) {
-            tail++;
-        } else {
-            if (tail - head !== 0) {
-                const count_str = String(tail - head + 1);
-                result += count_str.length;
-                for (let j = 0; j < count_str.length; j++) {
-                    chars[write++] = count_str[j];
-                }
-            }
-            result += 1;
-            chars[write++] = cur;
-            head = i;
-            tail = i;
-        }
-    }
-
-    if (tail - head !== 0) {
+  if (chars.length <= 1) return chars.length;
+  /**
+   * 三个指针
+   * 当前的同类字符的开始位置
+   * 当前同类字符的结束位置
+   * 下一个数据可写入的位置
+   * */
+  let head = 0;
+  let tail = 0;
+  let write = 1;
+  let result = 1;
+  for (let i = 1; i < chars.length; i++) {
+    const cur = chars[i];
+    const prev = chars[i - 1];
+    if (cur === prev) {
+      tail++;
+    } else {
+      if (tail - head !== 0) {
         const count_str = String(tail - head + 1);
         result += count_str.length;
         for (let j = 0; j < count_str.length; j++) {
-            chars[write++] = count_str[j];
+          chars[write++] = count_str[j];
         }
+      }
+      result += 1;
+      chars[write++] = cur;
+      head = i;
+      tail = i;
     }
-    chars.length = result;
-    // console.log(chars)
-    return result;
-};
+  }
 
+  if (tail - head !== 0) {
+    const count_str = String(tail - head + 1);
+    result += count_str.length;
+    for (let j = 0; j < count_str.length; j++) {
+      chars[write++] = count_str[j];
+    }
+  }
+  chars.length = result;
+  // console.log(chars)
+  return result;
+};
 
 import assert from "assert";
 
+assert.deepStrictEqual(compress(["a", "a", "b", "b", "c", "c", "c"]), 6);
 assert.deepStrictEqual(
-    compress(["a", "a", "b", "b", "c", "c", "c"]),
-    6,
+  compress(["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]),
+  4
 );
 assert.deepStrictEqual(
-    compress(["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]),
-    4,
+  compress([
+    "a",
+    "b",
+    "b",
+    "b",
+    "b",
+    "b",
+    "b",
+    "b",
+    "b",
+    "b",
+    "b",
+    "b",
+    "b",
+    "c",
+    "c",
+  ]),
+  6
 );
-assert.deepStrictEqual(
-    compress(["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b","c","c"]),
-    6,
-);
-assert.deepStrictEqual(
-    compress(["a", "a", "a", "b", "b", "a", "a"]),
-    6,
-);
-assert.deepStrictEqual(
-    compress(["a", "a", "a", "b", "b", "a", "a"]),
-    6,
-);
+assert.deepStrictEqual(compress(["a", "a", "a", "b", "b", "a", "a"]), 6);
+assert.deepStrictEqual(compress(["a", "a", "a", "b", "b", "a", "a"]), 6);

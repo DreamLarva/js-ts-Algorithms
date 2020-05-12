@@ -28,29 +28,13 @@
  * @return {string}
  */
 var reverseWords = function (s: string) {
-    const words = s.match(/\S+/g);
-    return words? words.reverse().join(" ") : "";
+  const words = s.match(/\S+/g);
+  return words ? words.reverse().join(" ") : "";
 };
 
-
 import assert from "assert";
-assert.strictEqual(
-    reverseWords("     "),
-    "",
-);
-assert.strictEqual(
-    reverseWords("the sky is blue"),
-    "blue is sky the",
-);
-assert.strictEqual(
-    reverseWords("  hello world!  "),
-    "world! hello",
-);
+assert.strictEqual(reverseWords("     "), "");
+assert.strictEqual(reverseWords("the sky is blue"), "blue is sky the");
+assert.strictEqual(reverseWords("  hello world!  "), "world! hello");
 
-assert.strictEqual(
-    reverseWords("a good   example"),
-    "example good a",
-);
-
-
-
+assert.strictEqual(reverseWords("a good   example"), "example good a");

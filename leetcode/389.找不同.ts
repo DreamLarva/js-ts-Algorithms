@@ -25,68 +25,55 @@ e
  * @return {character}
  */
 var findTheDifference1 = function (s: string, t: string) {
-    let temp = 0;
-    // 将 字符中串的为 转化成 数字的问题
-    for (const char of t) {
-        temp += char.charCodeAt(0);
-    }
+  let temp = 0;
+  // 将 字符中串的为 转化成 数字的问题
+  for (const char of t) {
+    temp += char.charCodeAt(0);
+  }
 
-    for (const char of s) {
-        temp -= char.charCodeAt(0);
-    }
+  for (const char of s) {
+    temp -= char.charCodeAt(0);
+  }
 
-    return String.fromCharCode(temp);
+  return String.fromCharCode(temp);
 };
 
 var findTheDifference2 = function (s: string, t: string) {
-    let temp = 0;
-    // 将 字符中串的为 转化成 数字的问题
-    for (const char of t) {
-        temp ^= char.charCodeAt(0);
-    }
+  let temp = 0;
+  // 将 字符中串的为 转化成 数字的问题
+  for (const char of t) {
+    temp ^= char.charCodeAt(0);
+  }
 
-    for (const char of s) {
-        temp ^= char.charCodeAt(0);
-    }
+  for (const char of s) {
+    temp ^= char.charCodeAt(0);
+  }
 
-    return String.fromCharCode(temp);
+  return String.fromCharCode(temp);
 };
-
 
 import assert from "assert";
 
-assert.strictEqual(
-    findTheDifference1("abcd", "abcde"),
-    "e",
-);
-assert.strictEqual(
-    findTheDifference1("", "a"),
-    "a",
-);
-assert.strictEqual(
-    findTheDifference2("abcd", "abcde"),
-    "e",
-);
-assert.strictEqual(
-    findTheDifference2("", "a"),
-    "a",
-);
+assert.strictEqual(findTheDifference1("abcd", "abcde"), "e");
+assert.strictEqual(findTheDifference1("", "a"), "a");
+assert.strictEqual(findTheDifference2("abcd", "abcde"), "e");
+assert.strictEqual(findTheDifference2("", "a"), "a");
 
 import Benchmark from "benchmark";
 
-const suite = new Benchmark.Suite;
+const suite = new Benchmark.Suite();
 suite
-    .add('+', function () {
-        findTheDifference1("abcd", "abcde");
-    })
-    .add('^', function () {
-        findTheDifference2("abcd", "abcde");
-    })
-    .on('cycle', function (event: Benchmark.Event) {
-        console.log(String(event.target));
-    })
-    .on('complete', function (this: Benchmark.Suite) {
-        // console.log('Fastest is ' + this.filter('fastest').map( 'name'));
-    })
-    // run async
-    .run({'async': false});
+  .add("+", function () {
+    findTheDifference1("abcd", "abcde");
+  })
+  .add("^", function () {
+    findTheDifference2("abcd", "abcde");
+  })
+  .on("cycle", function (event: Benchmark.Event) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: Benchmark.Suite) {
+    // console.log('Fastest is ' + this.filter('fastest').map( 'name'));
+  })
+  // run async
+  .run({ async: false });

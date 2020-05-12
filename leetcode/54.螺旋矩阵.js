@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。
@@ -30,78 +32,85 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number[]}
  */
 var spiralOrder = function (matrix) {
-    if (matrix.length === 0)
-        return [];
-    const result = [];
-    let layer = [[0, 0], [matrix.length - 1, matrix[0].length - 1]];
-    while (isExistNextLayer(layer)) {
-        const [[top, left], [bottom, right]] = layer;
-        const m = right - left;
-        const n = bottom - top;
-        // 只剩 1个点了
-        if (m === 0 && n === 0) {
-            result.push(matrix[top][left]);
-            break;
-        }
-        // 只有 1 行
-        if (n === 0) {
-            for (let i = 0; i <= m; i++) {
-                result.push(matrix[top][left + i]);
-            }
-            break;
-        }
-        // 只有 1列
-        if (m === 0) {
-            for (let i = 0; i <= n; i++) {
-                result.push(matrix[top + i][left]);
-            }
-            break;
-        }
-        // 上边
-        for (let i = 0; i < m; i++) {
-            result.push(matrix[top][left + i]);
-        }
-        // 右边
-        for (let i = 0; i < n; i++) {
-            result.push(matrix[top + i][right]);
-        }
-        // 下边
-        for (let i = 0; i < m; i++) {
-            result.push(matrix[bottom][right - i]);
-        }
-        // 左边
-        for (let i = 0; i < n; i++) {
-            result.push(matrix[bottom - i][left]);
-        }
-        layer = [[top + 1, left + 1], [bottom - 1, right - 1]];
+  if (matrix.length === 0) return [];
+  const result = [];
+  let layer = [
+    [0, 0],
+    [matrix.length - 1, matrix[0].length - 1],
+  ];
+  while (isExistNextLayer(layer)) {
+    const [[top, left], [bottom, right]] = layer;
+    const m = right - left;
+    const n = bottom - top;
+    // 只剩 1个点了
+    if (m === 0 && n === 0) {
+      result.push(matrix[top][left]);
+      break;
     }
-    return result;
-    function isExistNextLayer([[top, left], [bottom, right]]) {
-        return !(top > bottom || left > right);
+    // 只有 1 行
+    if (n === 0) {
+      for (let i = 0; i <= m; i++) {
+        result.push(matrix[top][left + i]);
+      }
+      break;
     }
+    // 只有 1列
+    if (m === 0) {
+      for (let i = 0; i <= n; i++) {
+        result.push(matrix[top + i][left]);
+      }
+      break;
+    }
+    // 上边
+    for (let i = 0; i < m; i++) {
+      result.push(matrix[top][left + i]);
+    }
+    // 右边
+    for (let i = 0; i < n; i++) {
+      result.push(matrix[top + i][right]);
+    }
+    // 下边
+    for (let i = 0; i < m; i++) {
+      result.push(matrix[bottom][right - i]);
+    }
+    // 左边
+    for (let i = 0; i < n; i++) {
+      result.push(matrix[bottom - i][left]);
+    }
+    layer = [
+      [top + 1, left + 1],
+      [bottom - 1, right - 1],
+    ];
+  }
+  return result;
+  function isExistNextLayer([[top, left], [bottom, right]]) {
+    return !(top > bottom || left > right);
+  }
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.deepStrictEqual(spiralOrder([
-    [1],
-]), [1]);
-assert_1.default.deepStrictEqual(spiralOrder([
-    [1, 2, 3, 4],
-]), [1, 2, 3, 4]);
-assert_1.default.deepStrictEqual(spiralOrder([
-    [1],
-    [2],
-    [3],
-    [4],
-]), [1, 2, 3, 4]);
-assert_1.default.deepStrictEqual(spiralOrder([
+assert_1.default.deepStrictEqual(spiralOrder([[1]]), [1]);
+assert_1.default.deepStrictEqual(spiralOrder([[1, 2, 3, 4]]), [1, 2, 3, 4]);
+assert_1.default.deepStrictEqual(spiralOrder([[1], [2], [3], [4]]), [
+  1,
+  2,
+  3,
+  4,
+]);
+assert_1.default.deepStrictEqual(
+  spiralOrder([
     [1, 2, 3, 4],
     [12, 13, 14, 5],
     [11, 16, 15, 6],
     [10, 9, 8, 7],
-]), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
-assert_1.default.deepStrictEqual(spiralOrder([
+  ]),
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+);
+assert_1.default.deepStrictEqual(
+  spiralOrder([
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12],
-]), [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]);
+  ]),
+  [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
+);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNTQu6J665peL55+p6Zi1LmpzIiwic291cmNlUm9vdCI6Ii4vIiwic291cmNlcyI6WyJsZWV0Y29kZS81NC7onrrml4vnn6npmLUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBcUJJO0FBQ0o7OztHQUdHO0FBQ0gsSUFBSSxXQUFXLEdBQUcsVUFBVSxNQUFrQjtJQUsxQyxJQUFJLE1BQU0sQ0FBQyxNQUFNLEtBQUssQ0FBQztRQUFFLE9BQU8sRUFBRSxDQUFDO0lBQ25DLE1BQU0sTUFBTSxHQUFHLEVBQUUsQ0FBQztJQUNsQixJQUFJLEtBQUssR0FBaUIsQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsRUFBRSxDQUFDLE1BQU0sQ0FBQyxNQUFNLEdBQUcsQ0FBQyxFQUFFLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQyxNQUFNLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUM5RSxPQUFPLGdCQUFnQixDQUFDLEtBQUssQ0FBQyxFQUFFO1FBQzVCLE1BQU0sQ0FBQyxDQUFDLEdBQUcsRUFBRSxJQUFJLENBQUMsRUFBRSxDQUFDLE1BQU0sRUFBRSxLQUFLLENBQUMsQ0FBQyxHQUFHLEtBQUssQ0FBQztRQUM3QyxNQUFNLENBQUMsR0FBRyxLQUFLLEdBQUcsSUFBSSxDQUFDO1FBQ3ZCLE1BQU0sQ0FBQyxHQUFHLE1BQU0sR0FBRyxHQUFHLENBQUM7UUFDdkIsVUFBVTtRQUNWLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxFQUFFO1lBQ3BCLE1BQU0sQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUM7WUFDL0IsTUFBTTtTQUNUO1FBQ0QsU0FBUztRQUNULElBQUksQ0FBQyxLQUFLLENBQUMsRUFBRTtZQUNULEtBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsSUFBSSxDQUFDLEVBQUUsQ0FBQyxFQUFF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LFdBQVcsQ0FBQztJQUNSLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBQ1osQ0FBQyxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsRUFBRSxDQUFDLENBQUM7SUFDZixDQUFDLEVBQUUsRUFBRSxFQUFFLEVBQUUsRUFBRSxFQUFFLENBQUMsQ0FBQztJQUNmLENBQUMsRUFBRSxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO0NBQ2hCLENBQUMsRUFDRixDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsQ0FBQyxDQUMxRCxDQUFDO0FBQ0YsZ0JBQU0sQ0FBQyxlQUFlLENBQ2xCLFdBQVcsQ0FBQztJQUVSLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBQ1osQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUM7SUFDWixDQUFDLENBQUMsRUFBRSxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsQ0FBQztDQUVsQixDQUFDLEVBQ0YsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsRUFBRSxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUMxQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxu57uZ5a6a5LiA5Liq5YyF5ZCrwqBtIHggbsKg5Liq5YWD57Sg55qE55+p6Zi177yIbSDooYwsIG4g5YiX77yJ77yM6K+35oyJ54Wn6aG65pe26ZKI6J665peL6aG65bqP77yM6L+U5Zue55+p6Zi15Lit55qE5omA5pyJ5YWD57Sg44CCXHJcblxyXG7npLrkvovCoDE6XHJcblxyXG7ovpPlhaU6XHJcbltcclxuIFsgMSwgMiwgMyBdLFxyXG4gWyA0LCA1LCA2IF0sXHJcbiBbIDcsIDgsIDkgXVxyXG5dXHJcbui+k+WHujogWzEsMiwzLDYsOSw4LDcsNCw1XVxyXG7npLrkvovCoDI6XHJcblxyXG7ovpPlhaU6XHJcbltcclxuICBbMSwgMiwgMywgNF0sXHJcbiAgWzUsIDYsIDcsIDhdLFxyXG4gIFs5LDEwLDExLDEyXVxyXG5dXHJcbui+k+WHujogWzEsMiwzLDQsOCwxMiwxMSwxMCw5LDUsNiw3XVxyXG4qICovXHJcbi8qKlxyXG4gKiBAcGFyYW0ge251bWJlcltdW119IG1hdHJpeFxyXG4gKiBAcmV0dXJuIHtudW1iZXJbXX1cclxuICovXHJcbnZhciBzcGlyYWxPcmRlciA9IGZ1bmN0aW9uIChtYXRyaXg6IG51bWJlcltdW10pIHtcclxuXHJcbiAgICB0eXBlIHZlY3RvciA9IFtudW1iZXIsIG51bWJlcl07XHJcbiAgICB0eXBlIG1hdHJpeF9sYXllciA9IFt2ZWN0b3IsIHZlY3Rvcl07IC8vIOesrOS4gOS4quWdkOagh+S4uiDlt6bkuIog56ys5LqM5Liq5Z2Q5qCH5Li65Y+z5LiLXHJcblxyXG4gICAgaWYgKG1hdHJpeC5sZW5ndGggPT09IDApIHJldHVybiBbXTtcclxuICAgIGNvbnN0IHJlc3VsdCA9IFtdO1xyXG4gICAgbGV0IGxheWVyOiBtYXRyaXhfbGF5ZXIgPSBbWzAsIDBdLCBbbWF0cml4Lmxlbmd0aCAtIDEsIG1hdHJpeFswXS5sZW5ndGggLSAxXV07XHJcbiAgICB3aGlsZSAoaXNFeGlzdE5leHRMYXllcihsYXllcikpIHtcclxuICAgICAgICBjb25zdCBbW3RvcCwgbGVmdF0sIFtib3R0b20sIHJpZ2h0XV0gPSBsYXllcjtcclxuICAgICAgICBjb25zdCBtID0gcmlnaHQgLSBsZWZ0O1xyXG4gICAgICAgIGNvbnN0IG4gPSBib3R0b20gLSB0b3A7XHJcbiAgICAgICAgLy8g5Y+q5YmpIDHkuKrngrnkuoZcclxuICAgICAgICBpZiAobSA9PT0gMCAmJiBuID09PSAwKSB7XHJcbiAgICAgICAgICAgIHJlc3VsdC5wdXNoKG1hdHJpeFt0b3BdW2xlZnRdKTtcclxuICAgICAgICAgICAgYnJlYWs7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIC8vIOWPquaciSAxIOihjFxyXG4gICAgICAgIGlmIChuID09PSAwKSB7XHJcbiAgICAgICAgICAgIGZvciAobGV0IGkgPSAwOyBpIDw9IG07IGkrKykge1xyXG4gICAgICAgICAgICAgICAgcmVzdWx0LnB1c2gobWF0cml4W3RvcF1bbGVmdCArIGldKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBicmVhaztcclxuICAgICAgICB9XHJcbiAgICAgICAgLy8g5Y+q5pyJIDHliJdcclxuICAgICAgICBpZiAobSA9PT0gMCkge1xyXG4gICAgICAgICAgICBmb3IgKGxldCBpID0gMDsgaSA8PSBuOyBpKyspIHtcclxuICAgICAgICAgICAgICAgIHJlc3VsdC5wdXNoKG1hdHJpeFt0b3AgKyBpXVtsZWZ0XSk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgYnJlYWs7XHJcbiAgICAgICAgfVxyXG5cclxuXHJcbiAgICAgICAgLy8g5LiK6L65XHJcbiAgICAgICAgZm9yIChsZXQgaSA9IDA7IGkgPCBtOyBpKyspIHtcclxuICAgICAgICAgICAgcmVzdWx0LnB1c2gobWF0cml4W3RvcF1bbGVmdCArIGldKTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIC8vIOWPs+i+uVxyXG4gICAgICAgIGZvciAobGV0IGkgPSAwOyBpIDwgbjsgaSsrKSB7XHJcbiAgICAgICAgICAgIHJlc3VsdC5wdXNoKG1hdHJpeFt0b3AgKyBpXVtyaWdodF0pO1xyXG4gICAgICAgIH1cclxuXHJcblxyXG4gICAgICAgIC8vIOS4i+i+uVxyXG4gICAgICAgIGZvciAobGV0IGkgPSAwOyBpIDwgbTsgaSsrKSB7XHJcbiAgICAgICAgICAgIHJlc3VsdC5wdXNoKG1hdHJpeFtib3R0b21dW3JpZ2h0IC0gaV0pO1xyXG4gICAgICAgIH1cclxuICAgICAgICAvLyDlt6bovrlcclxuICAgICAgICBmb3IgKGxldCBpID0gMDsgaSA8IG47IGkrKykge1xyXG4gICAgICAgICAgICByZXN1bHQucHVzaChtYXRyaXhbYm90dG9tIC0gaV1bbGVmdF0pO1xyXG4gICAgICAgIH1cclxuXHJcblxyXG4gICAgICAgIGxheWVyID0gW1t0b3AgKyAxLCBsZWZ0ICsgMV0sIFtib3R0b20gLSAxLCByaWdodCAtIDFdXTtcclxuICAgIH1cclxuXHJcbiAgICByZXR1cm4gcmVzdWx0O1xyXG5cclxuICAgIGZ1bmN0aW9uIGlzRXhpc3ROZXh0TGF5ZXIoW1t0b3AsIGxlZnRdLCBbYm90dG9tLCByaWdodF1dOiBtYXRyaXhfbGF5ZXIpIHtcclxuICAgICAgICByZXR1cm4gISh0b3AgPiBib3R0b20gfHwgbGVmdCA+IHJpZ2h0KTtcclxuICAgIH1cclxufTtcclxuXHJcbmltcG9ydCBhc3NlcnQgZnJvbSBcImFzc2VydFwiO1xyXG5cclxuYXNzZXJ0LmRlZXBTdHJpY3RFcXVhbChcclxuICAgIHNwaXJhbE9yZGVyKFtcclxuICAgICAgICBbMV0sXHJcbiAgICBdKSxcclxuICAgIFsxXSxcclxuKTtcclxuXHJcbmFzc2VydC5kZWVwU3RyaWN0RXF1YWwoXHJcbiAgICBzcGlyYWxPcmRlcihbXHJcbiAgICAgICAgWzEsIDIsIDMsIDRdLFxyXG4gICAgXSksXHJcbiAgICBbMSwgMiwgMywgNF0sXHJcbik7XHJcblxyXG5hc3NlcnQuZGVlcFN0cmljdEVxdWFsKFxyXG4gICAgc3BpcmFsT3JkZXIoW1xyXG4gICAgICAgIFsxXSxcclxuICAgICAgICBbMl0sXHJcbiAgICAgICAgWzNdLFxyXG4gICAgICAgIFs0XSxcclxuICAgIF0pLFxyXG4gICAgWzEsIDIsIDMsIDRdLFxyXG4pO1xyXG5cclxuYXNzZXJ0LmRlZXBTdHJpY3RFcXVhbChcclxuICAgIHNwaXJhbE9yZGVyKFtcclxuICAgICAgICBbMSwgMiwgMywgNF0sXHJcbiAgICAgICAgWzEyLCAxMywgMTQsIDVdLFxyXG4gICAgICAgIFsxMSwgMTYsIDE1LCA2XSxcclxuICAgICAgICBbMTAsIDksIDgsIDddLFxyXG4gICAgXSksXHJcbiAgICBbMSwgMiwgMywgNCwgNSwgNiwgNywgOCwgOSwgMTAsIDExLCAxMiwgMTMsIDE0LCAxNSwgMTZdLFxyXG4pO1xyXG5hc3NlcnQuZGVlcFN0cmljdEVxdWFsKFxyXG4gICAgc3BpcmFsT3JkZXIoW1xyXG5cclxuICAgICAgICBbMSwgMiwgMywgNF0sXHJcbiAgICAgICAgWzUsIDYsIDcsIDhdLFxyXG4gICAgICAgIFs5LCAxMCwgMTEsIDEyXSxcclxuXHJcbiAgICBdKSxcclxuICAgIFsxLCAyLCAzLCA0LCA4LCAxMiwgMTEsIDEwLCA5LCA1LCA2LCA3XSxcclxuKTtcclxuIl19

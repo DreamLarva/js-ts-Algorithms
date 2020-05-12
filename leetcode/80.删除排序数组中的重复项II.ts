@@ -44,61 +44,47 @@ for (int i = 0; i < len; i++) {
  * @return {number}
  */
 var removeDuplicates = function (nums: number[]) {
-    if (nums.length <= 1) return nums.length;
-    let index = 1;
-    let count = 1;
-    for (let i = 1; i < nums.length; i++) {
-        const current = nums[i];
-        const last = nums[i - 1];
-        if (current === last) {
-            count++;
-            if (count <= 2) {
-                nums[index++] = current;
-            }
-        } else {
-            count = 1;
-            nums[index++] = current;
-        }
+  if (nums.length <= 1) return nums.length;
+  let index = 1;
+  let count = 1;
+  for (let i = 1; i < nums.length; i++) {
+    const current = nums[i];
+    const last = nums[i - 1];
+    if (current === last) {
+      count++;
+      if (count <= 2) {
+        nums[index++] = current;
+      }
+    } else {
+      count = 1;
+      nums[index++] = current;
     }
-    return index;
+  }
+  return index;
 };
-
 
 import assert from "assert";
 
 {
-    const sample = [1, 1, 1, 2, 2, 3];
-    sample.length = removeDuplicates(sample);
-    assert.deepStrictEqual(
-        sample,
-        [1, 1, 2, 2, 3],
-    );
+  const sample = [1, 1, 1, 2, 2, 3];
+  sample.length = removeDuplicates(sample);
+  assert.deepStrictEqual(sample, [1, 1, 2, 2, 3]);
 }
 
 {
-    const sample = [0, 0, 1, 1, 1, 1, 2, 3, 3];
-    sample.length = removeDuplicates(sample);
-    assert.deepStrictEqual(
-        sample,
-        [0, 0, 1, 1, 2, 3, 3],
-    );
+  const sample = [0, 0, 1, 1, 1, 1, 2, 3, 3];
+  sample.length = removeDuplicates(sample);
+  assert.deepStrictEqual(sample, [0, 0, 1, 1, 2, 3, 3]);
 }
 
 {
-    const sample:number[] = [];
-    sample.length = removeDuplicates(sample);
-    assert.deepStrictEqual(
-        sample,
-        [],
-    );
+  const sample: number[] = [];
+  sample.length = removeDuplicates(sample);
+  assert.deepStrictEqual(sample, []);
 }
 
 {
-    const sample:number[] = [1];
-    sample.length = removeDuplicates(sample);
-    assert.deepStrictEqual(
-        sample,
-        [1],
-    );
+  const sample: number[] = [1];
+  sample.length = removeDuplicates(sample);
+  assert.deepStrictEqual(sample, [1]);
 }
-

@@ -24,29 +24,19 @@
  * @return {boolean}
  */
 var isPalindrome = function (x: number) {
-    if (x < 0 || (x % 10 === 0 && x !== 0)) {
-        return false;
-    }
-    var num = 0;
-    while (x > num) {
-        num = num * 10 + x % 10;
-        x = (x - x % 10) / 10;
-    }
-    return x === num || x === (num - num % 10) / 10;
+  if (x < 0 || (x % 10 === 0 && x !== 0)) {
+    return false;
+  }
+  var num = 0;
+  while (x > num) {
+    num = num * 10 + (x % 10);
+    x = (x - (x % 10)) / 10;
+  }
+  return x === num || x === (num - (num % 10)) / 10;
 };
-
 
 import assert from "assert";
 
-assert.strictEqual(
-    isPalindrome(121),
-    true,
-);
-assert.strictEqual(
-    isPalindrome(-121),
-    false,
-);
-assert.strictEqual(
-    isPalindrome(10),
-    false,
-);
+assert.strictEqual(isPalindrome(121), true);
+assert.strictEqual(isPalindrome(-121), false);
+assert.strictEqual(isPalindrome(10), false);

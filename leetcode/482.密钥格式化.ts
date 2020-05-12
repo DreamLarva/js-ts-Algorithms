@@ -34,35 +34,22 @@
  * @return {string}
  */
 var licenseKeyFormatting = function (S: string, K: number) {
-    let result = "";
-    for (let i = S.length - 1, j = 0; i >= 0; i--) {
-        if (S[i] === "-") continue;
-        result = S[i].toUpperCase() + result;
-        j++;
-        if (j === K && i !== 0) {
-            result = "-" + result;
-            j = 0;
-        }
+  let result = "";
+  for (let i = S.length - 1, j = 0; i >= 0; i--) {
+    if (S[i] === "-") continue;
+    result = S[i].toUpperCase() + result;
+    j++;
+    if (j === K && i !== 0) {
+      result = "-" + result;
+      j = 0;
     }
-    return result.replace(/^-/,"");
+  }
+  return result.replace(/^-/, "");
 };
 
 import assert from "assert";
 
-assert.strictEqual(
-    licenseKeyFormatting("5F3Z-2e-9-w", 4),
-    "5F3Z-2E9W",
-);
-assert.strictEqual(
-    licenseKeyFormatting("2-5g-3-J", 2),
-    "2-5G-3J",
-);
-assert.strictEqual(
-    licenseKeyFormatting("r", 1),
-    "R",
-);
-assert.strictEqual(
-
-    licenseKeyFormatting("--a-a-a-a--", 2),
-    "AA-AA"
-);
+assert.strictEqual(licenseKeyFormatting("5F3Z-2e-9-w", 4), "5F3Z-2E9W");
+assert.strictEqual(licenseKeyFormatting("2-5g-3-J", 2), "2-5G-3J");
+assert.strictEqual(licenseKeyFormatting("r", 1), "R");
+assert.strictEqual(licenseKeyFormatting("--a-a-a-a--", 2), "AA-AA");

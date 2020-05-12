@@ -29,50 +29,36 @@
  * @return {number}
  */
 var dominantIndex = function (nums: number[]) {
-    if (nums.length === 1) return 0;
-    let max_index;
-    let second_max_index;
-    if (nums[0] > nums[1]) {
-        max_index = 0;
-        second_max_index = 1;
-    } else {
-        max_index = 1;
-        second_max_index = 0;
+  if (nums.length === 1) return 0;
+  let max_index;
+  let second_max_index;
+  if (nums[0] > nums[1]) {
+    max_index = 0;
+    second_max_index = 1;
+  } else {
+    max_index = 1;
+    second_max_index = 0;
+  }
+
+  for (let i = 2; i < nums.length; i++) {
+    if (nums[i] > nums[max_index]) {
+      second_max_index = max_index;
+      max_index = i;
+      continue;
     }
 
-    for (let i = 2; i < nums.length; i++) {
-        if (nums[i] > nums[max_index]) {
-            second_max_index = max_index;
-            max_index = i;
-            continue
-        }
-
-        if (nums[i] > nums[second_max_index]){
-            second_max_index = i;
-        }
+    if (nums[i] > nums[second_max_index]) {
+      second_max_index = i;
     }
+  }
 
-    return nums[second_max_index] * 2 <= nums[max_index] ? max_index : -1;
-
+  return nums[second_max_index] * 2 <= nums[max_index] ? max_index : -1;
 };
 
 import assert from "assert";
 
-assert.strictEqual(
-    dominantIndex([1, 2, 3, 4]),
-    -1,
-);
+assert.strictEqual(dominantIndex([1, 2, 3, 4]), -1);
 
-assert.strictEqual(
-    dominantIndex([3, 6, 1, 0]),
-    1,
-);
-assert.strictEqual(
-    dominantIndex([6, 3, 1, 0]),
-    0,
-);
-assert.strictEqual(
-    dominantIndex(
-        [0,0,3,2]),
-    -1,
-);
+assert.strictEqual(dominantIndex([3, 6, 1, 0]), 1);
+assert.strictEqual(dominantIndex([6, 3, 1, 0]), 0);
+assert.strictEqual(dominantIndex([0, 0, 3, 2]), -1);

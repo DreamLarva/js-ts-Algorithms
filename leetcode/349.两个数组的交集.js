@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定两个数组，编写一个函数来计算它们的交集。
@@ -25,15 +27,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number[]}
  */
 var intersection = function (nums1, nums2) {
-    const result = [];
-    const set1 = new Set(nums1);
-    const set2 = new Set(nums2);
-    for (const element of set1) {
-        if (set2.has(element)) {
-            result.push(element);
-        }
+  const result = [];
+  const set1 = new Set(nums1);
+  const set2 = new Set(nums2);
+  for (const element of set1) {
+    if (set2.has(element)) {
+      result.push(element);
     }
-    return result;
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.deepStrictEqual(intersection([1, 2, 2, 1], [2, 2]), [2]);

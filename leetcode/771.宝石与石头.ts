@@ -26,29 +26,23 @@ J 中的字符不重复。
  * @return {number}
  */
 var numJewelsInStones = function (J: string, S: string) {
-    let result = 0;
-    const map: { [key: string]: true } = {};
-    for (const gem of J) {
-        map[gem] = true;
-    }
+  let result = 0;
+  const map: { [key: string]: true } = {};
+  for (const gem of J) {
+    map[gem] = true;
+  }
 
-    for (const stone of S) {
-        if (map[stone]) {
-            result++;
-        }
+  for (const stone of S) {
+    if (map[stone]) {
+      result++;
     }
+  }
 
-    return result;
+  return result;
 };
 
 import assert from "assert";
 
-assert.strictEqual(
-    numJewelsInStones('aA', 'aAAbbbb'),
-    3,
-);
+assert.strictEqual(numJewelsInStones("aA", "aAAbbbb"), 3);
 
-assert.strictEqual(
-    numJewelsInStones('z', 'ZZ'),
-    0,
-);
+assert.strictEqual(numJewelsInStones("z", "ZZ"), 0);

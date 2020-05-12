@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 编写一个函数，以字符串作为输入，反转该字符串中的元音字母。
@@ -22,25 +24,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {string}
  */
 var reverseVowels = function (s) {
-    // 首尾指针
-    const string_arr = s.split("");
-    let left = 0;
-    let right = string_arr.length - 1;
-    const dictionary = ['a', "A", "e", "E", "i", "I", "o", "O", "u", "U"];
-    while (left < right) {
-        if (!dictionary.includes(string_arr[left])) {
-            left++;
-            continue;
-        }
-        if (!dictionary.includes(string_arr[right])) {
-            right--;
-            continue;
-        }
-        [string_arr[right], string_arr[left]] = [string_arr[left], string_arr[right]];
-        left++;
-        right--;
+  // 首尾指针
+  const string_arr = s.split("");
+  let left = 0;
+  let right = string_arr.length - 1;
+  const dictionary = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"];
+  while (left < right) {
+    if (!dictionary.includes(string_arr[left])) {
+      left++;
+      continue;
     }
-    return string_arr.join("");
+    if (!dictionary.includes(string_arr[right])) {
+      right--;
+      continue;
+    }
+    [string_arr[right], string_arr[left]] = [
+      string_arr[left],
+      string_arr[right],
+    ];
+    left++;
+    right--;
+  }
+  return string_arr.join("");
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(reverseVowels("hello"), "holle");

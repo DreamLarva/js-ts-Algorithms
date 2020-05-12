@@ -18,59 +18,78 @@
  * @return {number}
  */
 var countPrimes = function (n: number) {
-    const primeCache = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+  const primeCache = [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    97,
+  ];
 
-    if (n <= 100) {
-        let index = 0;
-        while (n > primeCache[index]) {
-            index++;
-        }
-        return index;
+  if (n <= 100) {
+    let index = 0;
+    while (n > primeCache[index]) {
+      index++;
     }
-    const excludeCache:Set<number> = new Set();
-    for (const num of primeCache) {
-        saveExclude(excludeCache, num, n);
+    return index;
+  }
+  const excludeCache: Set<number> = new Set();
+  for (const num of primeCache) {
+    saveExclude(excludeCache, num, n);
+  }
+
+  let result = primeCache.length;
+  for (let num = 101; num < n; num++) {
+    if (excludeCache.has(num)) continue;
+
+    if (isPrime(num)) {
+      saveExclude(excludeCache, num, n);
+      result++;
     }
+  }
 
-
-    let result = primeCache.length;
-    for (let num = 101; num < n; num++) {
-        if (excludeCache.has(num)) continue;
-
-        if (isPrime(num)) {
-            saveExclude(excludeCache, num, n);
-            result++;
-        }
-
-
-    }
-
-    return result;
-
-
+  return result;
 };
 
 function saveExclude(set: Set<number>, num: number, n: number) {
-    if (num < 100) {
-        num = Math.ceil(100 / num) * num;
-    }
-    while (n >= num) {
-        set.add(num);
-        num += num;
-    }
-
+  if (num < 100) {
+    num = Math.ceil(100 / num) * num;
+  }
+  while (n >= num) {
+    set.add(num);
+    num += num;
+  }
 }
 
-
 function isPrime(n: number) {
-    if (n <= 3) return n > 1;
-    if (n % 2 === 0 || n % 3 === 0) return false;
-    for (let i = 5; i * i <= n; i += 6) {
-        if (n % i === 0 || n % (i + 2) === 0) {
-            return false;
-        }
+  if (n <= 3) return n > 1;
+  if (n % 2 === 0 || n % 3 === 0) return false;
+  for (let i = 5; i * i <= n; i += 6) {
+    if (n % i === 0 || n % (i + 2) === 0) {
+      return false;
     }
-    return true;
+  }
+  return true;
 }
 
 import assert from "assert";
@@ -83,19 +102,19 @@ assert.strictEqual(countPrimes(105), 27);
 assert.strictEqual(countPrimes(121), 30);
 
 var countPrimes2 = function (n: number) {
-    // 使用数组
-    let notPrimes = new Uint8Array(n);
-    let count = 0;
-    for (let i = 2; i < n; i++) {
-        if (notPrimes[i] !== 1) {
-            count++;
-            let a = n / i;
-            for (let j = i; j < a; j++) {
-                notPrimes[i * j] = 1;
-            }
-        }
+  // 使用数组
+  let notPrimes = new Uint8Array(n);
+  let count = 0;
+  for (let i = 2; i < n; i++) {
+    if (notPrimes[i] !== 1) {
+      count++;
+      let a = n / i;
+      for (let j = i; j < a; j++) {
+        notPrimes[i * j] = 1;
+      }
     }
-    return count;
+  }
+  return count;
 };
 
 assert.strictEqual(countPrimes2(2), 0);
@@ -104,8 +123,3 @@ assert.strictEqual(countPrimes2(6), 3);
 assert.strictEqual(countPrimes2(100), 25);
 assert.strictEqual(countPrimes2(105), 27);
 assert.strictEqual(countPrimes2(121), 30);
-
-
-
-
-

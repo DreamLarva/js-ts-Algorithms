@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个正整数，输出它的补数。补数是对该数的二进制表示取反。
@@ -26,11 +28,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var findComplement = function (num) {
-    let minuend = 2;
-    while (minuend <= num) {
-        minuend <<= 1;
-    }
-    return minuend - num - 1;
+  let minuend = 2;
+  while (minuend <= num) {
+    minuend <<= 1;
+  }
+  return minuend - num - 1;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(findComplement(5), 2);

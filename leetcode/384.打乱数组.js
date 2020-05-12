@@ -29,38 +29,37 @@ solution.shuffle();
  end
  * */
 class Solution {
-    /**
-     * @param {number[]} nums
-     */
-    constructor(nums) {
-        this.origin = nums;
-        this.shuffleData = [...nums];
+  /**
+   * @param {number[]} nums
+   */
+  constructor(nums) {
+    this.origin = nums;
+    this.shuffleData = [...nums];
+  }
+  /**
+   * Resets the array to its original configuration and return it.
+   * @return {number[]}
+   */
+  reset() {
+    return this.origin;
+  }
+  /**
+   * Returns a random shuffling of the array.
+   * @return {number[]}
+   */
+  shuffle() {
+    const array = [...this.origin];
+    let index = -1;
+    const length = array.length;
+    while (++index < length) {
+      const rand = Math.floor(Math.random() * (length - index) + index),
+        value = array[rand];
+      array[rand] = array[index];
+      array[index] = value;
     }
-    /**
-     * Resets the array to its original configuration and return it.
-     * @return {number[]}
-     */
-    reset() {
-        return this.origin;
-    }
-    ;
-    /**
-     * Returns a random shuffling of the array.
-     * @return {number[]}
-     */
-    shuffle() {
-        const array = [...this.origin];
-        let index = -1;
-        const length = array.length;
-        while (++index < length) {
-            const rand = Math.floor(Math.random() * (length - index) + index), value = array[rand];
-            array[rand] = array[index];
-            array[index] = value;
-        }
-        array.length = length;
-        return array;
-    }
-    ;
+    array.length = length;
+    return array;
+  }
 }
 /**
  * Your Solution object will be instantiated and called as such:

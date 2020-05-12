@@ -27,24 +27,23 @@
 你能用 O(1)（即，常量）内存解决此问题吗？
 * */
 
-import {ListNode} from "../util/LinkedList";
+import { ListNode } from "../util/LinkedList";
 
 /**
  * @param {ListNode} head
  * @return {boolean}
  */
 var hasCycle = function (head: ListNode) {
-    if (head === null) return false;
-    let fast_pointer:ListNode | null = head;
-    let slow_pointer:ListNode  = head;
-    do {
-        // 如果不是环 快指正一定 先到 tail
-        if ((fast_pointer = fast_pointer.next) === null) return false;
-        if ((fast_pointer = fast_pointer.next) === null) return false;
-        slow_pointer = slow_pointer.next!; // 慢指针 必定有值
-
-    } while (slow_pointer !== fast_pointer);
-    return true;
+  if (head === null) return false;
+  let fast_pointer: ListNode | null = head;
+  let slow_pointer: ListNode = head;
+  do {
+    // 如果不是环 快指正一定 先到 tail
+    if ((fast_pointer = fast_pointer.next) === null) return false;
+    if ((fast_pointer = fast_pointer.next) === null) return false;
+    slow_pointer = slow_pointer.next!; // 慢指针 必定有值
+  } while (slow_pointer !== fast_pointer);
+  return true;
 };
 
 /**

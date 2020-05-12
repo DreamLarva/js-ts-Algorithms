@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
  你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
@@ -26,18 +28,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var rob = function (nums) {
-    if (nums.length === 0)
-        return 0;
-    // 动态规划
-    const memo = [];
-    memo[0] = nums[0];
-    if (nums.length >= 2) {
-        memo[1] = Math.max(nums[0], nums[1]);
-        for (let i = 2; i < nums.length; i++) {
-            memo[i] = Math.max(nums[i] + memo[i - 2], memo[i - 1]);
-        }
+  if (nums.length === 0) return 0;
+  // 动态规划
+  const memo = [];
+  memo[0] = nums[0];
+  if (nums.length >= 2) {
+    memo[1] = Math.max(nums[0], nums[1]);
+    for (let i = 2; i < nums.length; i++) {
+      memo[i] = Math.max(nums[i] + memo[i - 2], memo[i - 1]);
     }
-    return memo[memo.length - 1];
+  }
+  return memo[memo.length - 1];
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(rob([2, 7, 9, 3, 1]), 12);

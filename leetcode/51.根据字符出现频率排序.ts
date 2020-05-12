@@ -46,34 +46,24 @@ import _ from "lodash";
  * @return {string}
  */
 var frequencySort = function (s: string) {
-    // 其实这就是 桶排序啦
-    const map: { [key: string]: number } = {};
+  // 其实这就是 桶排序啦
+  const map: { [key: string]: number } = {};
 
-    for (const character of s) {
-        if (map[character] == null) {
-            map[character] = 1;
-        } else {
-            map[character]++;
-        }
+  for (const character of s) {
+    if (map[character] == null) {
+      map[character] = 1;
+    } else {
+      map[character]++;
     }
-    const sortedPairs = _.sortBy(_.toPairs(map), "[1]","");
-    return sortedPairs.reduceRight((pre, [character, count]) => {
-        return pre + character.repeat(count);
-    }, "");
+  }
+  const sortedPairs = _.sortBy(_.toPairs(map), "[1]", "");
+  return sortedPairs.reduceRight((pre, [character, count]) => {
+    return pre + character.repeat(count);
+  }, "");
 };
 
+import assert, { strictEqual } from "assert";
 
-import assert, {strictEqual} from "assert";
-
-assert.strictEqual(
-    frequencySort("tree"),
-    "eert"
-);
-assert.strictEqual(
-    frequencySort("aaaccc"),
-    "cccaaa"
-);
-assert.strictEqual(
-    frequencySort("Aabb"),
-    "bbaA"
-);
+assert.strictEqual(frequencySort("tree"), "eert");
+assert.strictEqual(frequencySort("aaaccc"), "cccaaa");
+assert.strictEqual(frequencySort("Aabb"), "bbaA");

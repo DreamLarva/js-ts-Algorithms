@@ -36,55 +36,174 @@ A[i] 为 0 或 1
 /**
  * 正确的解法
  * */
-function prefixesDivBy52(A:number[]) {
-    // 暂存上一次的结果
-    let num = 0;
-    return A.map(val => {
-        // 被除数 * 2 除数不变 的话 那么原来商 * 2 原来余数 * 2
-        // 但是 商 和 除数 是不影响 余数的 所以 只需要保留 余数 * 2 即可
-        num = ((num << 1) + val) % 5;
-        return num % 5 === 0;
-    })
+function prefixesDivBy52(A: number[]) {
+  // 暂存上一次的结果
+  let num = 0;
+  return A.map((val) => {
+    // 被除数 * 2 除数不变 的话 那么原来商 * 2 原来余数 * 2
+    // 但是 商 和 除数 是不影响 余数的 所以 只需要保留 余数 * 2 即可
+    num = ((num << 1) + val) % 5;
+    return num % 5 === 0;
+  });
 }
 
-
-var prefixesDivBy5 = function (A:number[]) {
-    let index = 0;
-    const result = [];
-    while (index < A.length) {
-        result.push(isPrefixesDivBy5(A.slice(0, index + 1)));
-        index++;
-    }
-    return result
+var prefixesDivBy5 = function (A: number[]) {
+  let index = 0;
+  const result = [];
+  while (index < A.length) {
+    result.push(isPrefixesDivBy5(A.slice(0, index + 1)));
+    index++;
+  }
+  return result;
 };
 
 const remainder_map = [6, 2, 4, 8];
 
 // 二进制数字 按照规律反复出现
-function isPrefixesDivBy5(arr:number[]) {
-    const last = arr[arr.length - 1];
+function isPrefixesDivBy5(arr: number[]) {
+  const last = arr[arr.length - 1];
 
-    arr.reverse();
-    const all_single = arr.reduce((pre, cur, index) => {
-        if (cur === 0 || index === 0) return pre;
-        return pre + remainder_map[index % 4];
-    }, 0);
-    return (all_single + last) % 5 === 0;
+  arr.reverse();
+  const all_single = arr.reduce((pre, cur, index) => {
+    if (cur === 0 || index === 0) return pre;
+    return pre + remainder_map[index % 4];
+  }, 0);
+  return (all_single + last) % 5 === 0;
 }
 
 import assert from "assert";
-assert.deepStrictEqual(
-    prefixesDivBy5([0, 1, 1]),
-    [true, false, false]
-);
+assert.deepStrictEqual(prefixesDivBy5([0, 1, 1]), [true, false, false]);
+
+assert.deepStrictEqual(prefixesDivBy5([0, 1, 1, 1, 1, 1]), [
+  true,
+  false,
+  false,
+  false,
+  true,
+  false,
+]);
 
 assert.deepStrictEqual(
-    prefixesDivBy5([0, 1, 1, 1, 1, 1]),
-    [true, false, false, false, true, false]
+  prefixesDivBy5([
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+  ]),
+  [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+  ]
 );
-
-assert.deepStrictEqual(
-    prefixesDivBy5([1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1]),
-    [false, false, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, false, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, false, false, false]
-);
-

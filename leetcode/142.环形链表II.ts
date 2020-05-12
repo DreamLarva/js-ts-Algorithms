@@ -44,7 +44,7 @@
 链接：https://leetcode-cn.com/problems/linked-list-cycle-ii
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-import {ListNode, createLinkedList} from "../util/LinkedList";
+import { ListNode, createLinkedList } from "../util/LinkedList";
 
 /**
  * @param {ListNode} head
@@ -52,32 +52,29 @@ import {ListNode, createLinkedList} from "../util/LinkedList";
  */
 
 var detectCycle = function (head: ListNode | null) {
-
-    // 弗洛伊德算法
-    // 先快慢指针 判断是否有环的同时获取第一次相遇的节点
-    let slow = head;
-    let fast = head;
+  // 弗洛伊德算法
+  // 先快慢指针 判断是否有环的同时获取第一次相遇的节点
+  let slow = head;
+  let fast = head;
+  if (fast == null || fast.next == null) return null;
+  while (fast && fast.next) {
+    fast = fast.next!.next!;
+    // 保证fast指针你能先判断
     if (fast == null || fast.next == null) return null;
-    while (fast && fast.next) {
-        fast = fast.next!.next!;
-        // 保证fast指针你能先判断
-        if (fast == null || fast.next == null) return null;
 
-        slow = slow!.next!;
+    slow = slow!.next!;
 
-        if (slow === fast) break;
-    }
+    if (slow === fast) break;
+  }
 
-    // 第二次跑圈 将其中一个 指针指向head节点 并且 都每次只进一步
-    // 相遇的节点 就是相较的节点
-    fast = head;
-    while (fast !== slow) {
-        fast = fast!.next!;
-        slow = slow!.next!;
-    }
-    return slow;
-
-
+  // 第二次跑圈 将其中一个 指针指向head节点 并且 都每次只进一步
+  // 相遇的节点 就是相较的节点
+  fast = head;
+  while (fast !== slow) {
+    fast = fast!.next!;
+    slow = slow!.next!;
+  }
+  return slow;
 };
 
 /*
@@ -102,23 +99,8 @@ var detectCycle = function (head: ListNode | null) {
 
 import assert from "assert";
 
-assert.strictEqual(
-    detectCycle(null),
-    null,
-);
-assert.strictEqual(
-    detectCycle(createLinkedList([1], -1)),
-    null,
-);
-assert.strictEqual(
-    detectCycle(createLinkedList([3, 2, 0, -4], 1))!.val,
-    2,
-);
-assert.strictEqual(
-    detectCycle(createLinkedList([1, 2], 0))!.val,
-    1,
-);
-assert.strictEqual(
-    detectCycle(createLinkedList([1], 0))!.val,
-    1,
-);
+assert.strictEqual(detectCycle(null), null);
+assert.strictEqual(detectCycle(createLinkedList([1], -1)), null);
+assert.strictEqual(detectCycle(createLinkedList([3, 2, 0, -4], 1))!.val, 2);
+assert.strictEqual(detectCycle(createLinkedList([1, 2], 0))!.val, 1);
+assert.strictEqual(detectCycle(createLinkedList([1], 0))!.val, 1);

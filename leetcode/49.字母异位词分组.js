@@ -22,57 +22,55 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {string[][]}
  */
 var groupAnagrams = function (strs) {
-    const primeFloatArr = [
-        2,
-        3,
-        5,
-        7,
-        11,
-        13,
-        17,
-        19,
-        23,
-        29,
-        31,
-        41,
-        43,
-        47,
-        53,
-        59,
-        61,
-        67,
-        71,
-        73,
-        89,
-        97,
-        103,
-        109,
-        113,
-        127,
-    ];
-    const cache = {};
-    for (let i = 0; i < strs.length; i++) {
-        if (strs[i] === "") {
-            if (cache[""]) {
-                cache[""].push(strs[i]);
-            }
-            else {
-                cache[""] = [strs[i]];
-            }
-            continue;
-        }
-        const hash = strs[i]
-            .split("")
-            .map(v => primeFloatArr[v.charCodeAt(0) - 97])
-            .reduce((pre, cur) => pre * cur);
-        if (cache[hash]) {
-            cache[hash].push(strs[i]);
-        }
-        else {
-            cache[hash] = [strs[i]];
-        }
+  const primeFloatArr = [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    89,
+    97,
+    103,
+    109,
+    113,
+    127,
+  ];
+  const cache = {};
+  for (let i = 0; i < strs.length; i++) {
+    if (strs[i] === "") {
+      if (cache[""]) {
+        cache[""].push(strs[i]);
+      } else {
+        cache[""] = [strs[i]];
+      }
+      continue;
     }
-    console.log(cache);
-    return Object.values(cache);
+    const hash = strs[i]
+      .split("")
+      .map((v) => primeFloatArr[v.charCodeAt(0) - 97])
+      .reduce((pre, cur) => pre * cur);
+    if (cache[hash]) {
+      cache[hash].push(strs[i]);
+    } else {
+      cache[hash] = [strs[i]];
+    }
+  }
+  console.log(cache);
+  return Object.values(cache);
 };
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNDku5a2X5q+N5byC5L2N6K+N5YiG57uELmpzIiwic291cmNlUm9vdCI6Ii4vIiwic291cmNlcyI6WyJsZWV0Y29kZS80OS7lrZfmr43lvILkvY3or43liIbnu4QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7Ozs7Ozs7Ozs7Ozs7OztJQWdCSTtBQUNKOzs7R0FHRztBQUNILElBQUksYUFBYSxHQUFHLFVBQVUsSUFBYztJQUN4QyxNQUFNLGFBQWEsR0FBRztRQUNsQixDQUFDO1FBQ0QsQ0FBQztRQUNELENBQUM7UUFDRCxDQUFDO1FBQ0QsRUFBRTtRQUNGLEVBQUU7UUFDRixFQUFFO1FBQ0YsRUFBRTtRQUNGLEVBQUU7UUFDRixFQUFFO1FBQ0YsRUFBRTtRQUNGLEVBQUU7UUFDRixFQUFFO1FBQ0YsRUFBRTtRQUNGLEVBQUU7UUFDRixFQUFFO1FBQ0YsRUFBRTtRQUNGLEVBQUU7UUFDRixFQUFFO1FBQ0YsRUFBRTtRQUNGLEVBQUU7UUFDRixFQUFFO1FBQ0YsR0FBRztRQUNILEdBQUc7UUFDSCxHQUFHO1FBQ0gsR0FBRztLQUNOLENBQUM7SUFFRixNQUFNLEtBQUssR0FBRyxFQUFpQyxDQUFDO0lBQ2hELEtBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxJQUFJLENBQUMsTUFBTSxFQUFFLENBQUMsRUFBRSxFQUFFO1FBQ2xDLElBQUksSUFBSSxDQUFDLENBQUMsQ0FBQyxLQUFLLEVBQUUsRUFBRTtZQUNoQixJQUFJLEtBQUssQ0FBQyxFQUFFLENBQUMsRUFBRTtnQkFDWCxLQUFLLENBQUMsRUFBRSxDQUFDLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO2FBQzNCO2lCQUFNO2dCQUNILEtBQUssQ0FBQyxFQUFFLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO2FBQ3pCO1lBQ0QsU0FBUztTQUNaO1FBQ0QsTUFBTSxJQUFJLEdBQUcsSUFBSSxDQUFDLENBQUMsQ0FBQzthQUNmLEtBQUssQ0FBQyxFQUFFLENBQUM7YUFDVCxHQUFHLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxhQUFhLENBQUMsQ0FBQyxDQUFDLFVBQVUsQ0FBQyxDQUFDLENBQUMsR0FBRyxFQUFFLENBQUMsQ0FBQzthQUM3QyxNQUFNLENBQUMsQ0FBQyxHQUFHLEVBQUUsR0FBRyxFQUFFLEVBQUUsQ0FBQyxHQUFHLEdBQUcsR0FBRyxDQUFDLENBQUM7UUFFckMsSUFBSSxLQUFLLENBQUMsSUFBSSxDQUFDLEVBQUU7WUFDYixLQUFLLENBQUMsSUFBSSxDQUFDLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1NBQzdCO2FBQU07WUFDSCxLQUFLLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztTQUMzQjtLQUNKO0lBQ0QsT0FBTyxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUNuQixPQUFPLE1BQU0sQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUM7QUFFaEMsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbue7meWumuS4gOS4quWtl+espuS4suaVsOe7hO+8jOWwhuWtl+avjeW8guS9jeivjee7hOWQiOWcqOS4gOi1t+OAguWtl+avjeW8guS9jeivjeaMh+Wtl+avjeebuOWQjO+8jOS9huaOkuWIl+S4jeWQjOeahOWtl+espuS4suOAglxuXG7npLrkvos6XG5cbui+k+WFpTogW1wiZWF0XCIsIFwidGVhXCIsIFwidGFuXCIsIFwiYXRlXCIsIFwibmF0XCIsIFwiYmF0XCJdLFxu6L6T5Ye6OlxuW1xuICBbXCJhdGVcIixcImVhdFwiLFwidGVhXCJdLFxuICBbXCJuYXRcIixcInRhblwiXSxcbiAgW1wiYmF0XCJdXG5dXG7or7TmmI7vvJpcblxu5omA5pyJ6L6T5YWl5Z2H5Li65bCP5YaZ5a2X5q+N44CCXG7kuI3ogIPomZHnrZTmoYjovpPlh7rnmoTpobrluo/jgIJcbiogKi9cbi8qKlxuICogQHBhcmFtIHtzdHJpbmdbXX0gc3Ryc1xuICogQHJldHVybiB7c3RyaW5nW11bXX1cbiAqL1xudmFyIGdyb3VwQW5hZ3JhbXMgPSBmdW5jdGlvbiAoc3Ryczogc3RyaW5nW10pIHtcbiAgICBjb25zdCBwcmltZUZsb2F0QXJyID0gW1xuICAgICAgICAyLFxuICAgICAgICAzLFxuICAgICAgICA1LFxuICAgICAgICA3LFxuICAgICAgICAxMSxcbiAgICAgICAgMTMsXG4gICAgICAgIDE3LFxuICAgICAgICAxOSxcbiAgICAgICAgMjMsXG4gICAgICAgIDI5LFxuICAgICAgICAzMSxcbiAgICAgICAgNDEsXG4gICAgICAgIDQzLFxuICAgICAgICA0NyxcbiAgICAgICAgNTMsXG4gICAgICAgIDU5LFxuICAgICAgICA2MSxcbiAgICAgICAgNjcsXG4gICAgICAgIDcxLFxuICAgICAgICA3MyxcbiAgICAgICAgODksXG4gICAgICAgIDk3LFxuICAgICAgICAxMDMsXG4gICAgICAgIDEwOSxcbiAgICAgICAgMTEzLFxuICAgICAgICAxMjcsXG4gICAgXTtcblxuICAgIGNvbnN0IGNhY2hlID0ge30gYXMgeyBba2V5OiBzdHJpbmddOiBzdHJpbmdbXSB9O1xuICAgIGZvciAobGV0IGkgPSAwOyBpIDwgc3Rycy5sZW5ndGg7IGkrKykge1xuICAgICAgICBpZiAoc3Ryc1tpXSA9PT0gXCJcIikge1xuICAgICAgICAgICAgaWYgKGNhY2hlW1wiXCJdKSB7XG4gICAgICAgICAgICAgICAgY2FjaGVbXCJcIl0ucHVzaChzdHJzW2ldKTtcbiAgICAgICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgICAgICAgY2FjaGVbXCJcIl0gPSBbc3Ryc1tpXV07XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBjb250aW51ZTtcbiAgICAgICAgfVxuICAgICAgICBjb25zdCBoYXNoID0gc3Ryc1tpXVxuICAgICAgICAgICAgLnNwbGl0KFwiXCIpXG4gICAgICAgICAgICAubWFwKHYgPT4gcHJpbWVGbG9hdEFyclt2LmNoYXJDb2RlQXQoMCkgLSA5N10pXG4gICAgICAgICAgICAucmVkdWNlKChwcmUsIGN1cikgPT4gcHJlICogY3VyKTtcblxuICAgICAgICBpZiAoY2FjaGVbaGFzaF0pIHtcbiAgICAgICAgICAgIGNhY2hlW2hhc2hdLnB1c2goc3Ryc1tpXSk7XG4gICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgICBjYWNoZVtoYXNoXSA9IFtzdHJzW2ldXTtcbiAgICAgICAgfVxuICAgIH1cbiAgICBjb25zb2xlLmxvZyhjYWNoZSk7XG4gICAgcmV0dXJuIE9iamVjdC52YWx1ZXMoY2FjaGUpO1xuXG59O1xuXG4vLyBjb25zb2xlLmxvZyhncm91cEFuYWdyYW1zKFtcImFuZFwiLCBcImRhblwiXSkpXG4vLyBjb25zb2xlLmxvZyhncm91cEFuYWdyYW1zKFtcImVhdFwiLCBcInRlYVwiLCBcInRhblwiLCBcImF0ZVwiLCBcIm5hdFwiLCBcImJhdFwiXSkpXG5cbmV4cG9ydCB7fVxuIl19

@@ -11,9 +11,11 @@
 因为 nums[0] + nums[1] = 2 + 7 = 9
 所以返回 [0, 1]
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number[]} nums
@@ -22,25 +24,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 // 暴力
 var twoSum = function (nums, target) {
-    for (let i = 0, len = nums.length; i < len - 1; i++) {
-        for (let j = i + 1; j < len; j++) {
-            if (nums[i] + nums[j] === target) {
-                return [i, j];
-            }
-        }
+  for (let i = 0, len = nums.length; i < len - 1; i++) {
+    for (let j = i + 1; j < len; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
     }
+  }
 };
 var twoSum1 = function (nums, target) {
-    let map = {};
-    nums.forEach((i, index) => {
-        map[i] = index;
-    });
-    for (let i = 0; i < nums.length; i++) {
-        let sec = target - nums[i];
-        if (!!map[sec] && map[sec] !== i) {
-            return [i, map[sec]];
-        }
+  let map = {};
+  nums.forEach((i, index) => {
+    map[i] = index;
+  });
+  for (let i = 0; i < nums.length; i++) {
+    let sec = target - nums[i];
+    if (!!map[sec] && map[sec] !== i) {
+      return [i, map[sec]];
     }
+  }
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.deepStrictEqual(twoSum1([2, 7, 11, 15], 9), [0, 1]);

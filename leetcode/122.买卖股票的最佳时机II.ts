@@ -28,14 +28,14 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function (prices:number[]) {
-    let profit = 0;
-    // 只要是上升趋势 就赚取 今天 - 昨天的差价
-    for (let i = 1; i < prices.length; i++) {
-        const differences = prices[i] - prices[i - 1];
-        if (differences > 0) profit += differences;
-    }
-    return profit;
+var maxProfit = function (prices: number[]) {
+  let profit = 0;
+  // 只要是上升趋势 就赚取 今天 - 昨天的差价
+  for (let i = 1; i < prices.length; i++) {
+    const differences = prices[i] - prices[i - 1];
+    if (differences > 0) profit += differences;
+  }
+  return profit;
 };
 
-export {}
+export {};

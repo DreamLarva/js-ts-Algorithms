@@ -18,107 +18,78 @@ s = "2[abc]3[cd]ef", 返回 "abcabccdcdcdef".
  * @return {string}
  */
 var decodeString = function (s: string) {
-    // 老实的使用栈
-    const num_str = "1234567890";
-    const alphabet_reg = /^[a-zA-Z]+$/; // 有[]嵌套就有可能有多个 符
-    const stack = [];
-    for (const char of s) {
-        if (char === "]") {
-            // 找到 对应的 [ 和 他之前的数字
-            let num = "";
-            let str = "";
-            while (stack[stack.length - 1]) {
-                const pop_data = stack[stack.length - 1];
+  // 老实的使用栈
+  const num_str = "1234567890";
+  const alphabet_reg = /^[a-zA-Z]+$/; // 有[]嵌套就有可能有多个 符
+  const stack = [];
+  for (const char of s) {
+    if (char === "]") {
+      // 找到 对应的 [ 和 他之前的数字
+      let num = "";
+      let str = "";
+      while (stack[stack.length - 1]) {
+        const pop_data = stack[stack.length - 1];
 
-                if (num_str.indexOf(pop_data) !== -1) {
-                    num = pop_data + num;
-                }
-                // 数字之前的 数据
-                else if (num !== "") break;
-                else {
-                    if (alphabet_reg.test(pop_data)) {
-                        str = pop_data + str;
-                    }
-                }
-                stack.pop();
-            }
-
-            stack.push(str.repeat(parseInt(num)));
-
-
-        } else {
-            stack.push(char);
+        if (num_str.indexOf(pop_data) !== -1) {
+          num = pop_data + num;
         }
-    }
+        // 数字之前的 数据
+        else if (num !== "") break;
+        else {
+          if (alphabet_reg.test(pop_data)) {
+            str = pop_data + str;
+          }
+        }
+        stack.pop();
+      }
 
-    return stack.join("");
+      stack.push(str.repeat(parseInt(num)));
+    } else {
+      stack.push(char);
+    }
+  }
+
+  return stack.join("");
 };
 
 /**
  * 使用正则 真是逆天了
  * */
 var decodeString1 = function (s: string) {
-    while (/\[/.test(s)) {
-        s = s.replace(/(\d+)\[([^\[\]]+)]/, function (match, num, str) {
-
-            return str.repeat(num);
-        });
-    }
-    return s;
+  while (/\[/.test(s)) {
+    s = s.replace(/(\d+)\[([^\[\]]+)]/, function (match, num, str) {
+      return str.repeat(num);
+    });
+  }
+  return s;
 };
-
 
 import assert from "assert";
 
-assert.strictEqual(
-    decodeString("3[a]2[bc]"),
-    "aaabcbc",
-);
-assert.strictEqual(
-    decodeString("3[a2[c]]"),
-    "accaccacc",
-);
-assert.strictEqual(
-    decodeString("2[abc]3[cd]ef"),
-    "abcabccdcdcdef",
-);
-assert.strictEqual(
-    decodeString1("3[a]2[b4[F]c]"),
-    "aaabFFFFcbFFFFc",
-);
-assert.strictEqual(
-    decodeString1("3[a]2[bc]"),
-    "aaabcbc",
-);
-assert.strictEqual(
-    decodeString1("3[a2[c]]"),
-    "accaccacc",
-);
-assert.strictEqual(
-    decodeString1("2[abc]3[cd]ef"),
-    "abcabccdcdcdef",
-);
-assert.strictEqual(
-    decodeString1("3[a]2[b4[F]c]"),
-    "aaabFFFFcbFFFFc",
-);
-
+assert.strictEqual(decodeString("3[a]2[bc]"), "aaabcbc");
+assert.strictEqual(decodeString("3[a2[c]]"), "accaccacc");
+assert.strictEqual(decodeString("2[abc]3[cd]ef"), "abcabccdcdcdef");
+assert.strictEqual(decodeString1("3[a]2[b4[F]c]"), "aaabFFFFcbFFFFc");
+assert.strictEqual(decodeString1("3[a]2[bc]"), "aaabcbc");
+assert.strictEqual(decodeString1("3[a2[c]]"), "accaccacc");
+assert.strictEqual(decodeString1("2[abc]3[cd]ef"), "abcabccdcdcdef");
+assert.strictEqual(decodeString1("3[a]2[b4[F]c]"), "aaabFFFFcbFFFFc");
 
 import Benchmark from "benchmark";
 
-const suite = new Benchmark.Suite;
+const suite = new Benchmark.Suite();
 suite
-    .add('stack', function () {
-        decodeString("3[a]2[b4[F]c]");
-    })
-    .add('regexp', function () {
-        decodeString1("3[a]2[b4[F]c]");
-    })
-    .on('cycle', function (event: Benchmark.Event) {
-        console.log(String(event.target));
-    })
-    .on('complete', function (this: Benchmark.Suite) {
-        // console.log('Fastest is ' + this.filter('fastest').map( 'name'));
-    })
-    // run async
-    .run({'async': false});
+  .add("stack", function () {
+    decodeString("3[a]2[b4[F]c]");
+  })
+  .add("regexp", function () {
+    decodeString1("3[a]2[b4[F]c]");
+  })
+  .on("cycle", function (event: Benchmark.Event) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: Benchmark.Suite) {
+    // console.log('Fastest is ' + this.filter('fastest').map( 'name'));
+  })
+  // run async
+  .run({ async: false });

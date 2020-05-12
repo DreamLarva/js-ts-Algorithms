@@ -40,13 +40,13 @@ Langs: c cpp csharp golang java javascript kotlin php python python3 ruby rust s
 */
 
 class TreeNode<T> {
-    val: T;
-    left: null | TreeNode<T> = null;
-    right: null | TreeNode<T> = null;
+  val: T;
+  left: null | TreeNode<T> = null;
+  right: null | TreeNode<T> = null;
 
-    constructor(val: T) {
-        this.val = val;
-    }
+  constructor(val: T) {
+    this.val = val;
+  }
 }
 
 /**
@@ -54,21 +54,24 @@ class TreeNode<T> {
  * @return {boolean}
  */
 var isSymmetric = function (root: TreeNode<number> | null) {
-    if (root == null) {
-        return true;
-    }
-    return recursion(root.left, root.right);
+  if (root == null) {
+    return true;
+  }
+  return recursion(root.left, root.right);
 };
 
-function recursion(left: TreeNode<number> | null, right: TreeNode<number> | null): boolean {
-    if (left == null || right == null) {
-        return left == null && right == null;
-    }
-    return left.val === right.val &&
-        recursion(left.left, right.right) &&
-        recursion(left.right, right.left);
+function recursion(
+  left: TreeNode<number> | null,
+  right: TreeNode<number> | null
+): boolean {
+  if (left == null || right == null) {
+    return left == null && right == null;
+  }
+  return (
+    left.val === right.val &&
+    recursion(left.left, right.right) &&
+    recursion(left.right, right.left)
+  );
 }
-
-
 
 export {};

@@ -18,18 +18,18 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function (nums: number[]) {
-    let i = 0, j = 0;
-    for (; i < nums.length; i++) {
-        if (nums[i] !== 0) {
-            // j 为 除去 0 后目标能 i 下标不为 0 数据 放数据的位置(数据不为 0 会 + 1)
-            nums[j++] = nums[i];
-        }
+  let i = 0,
+    j = 0;
+  for (; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      // j 为 除去 0 后目标能 i 下标不为 0 数据 放数据的位置(数据不为 0 会 + 1)
+      nums[j++] = nums[i];
     }
-    while (j < nums.length) {
-        nums[j++] = 0;
-    }
+  }
+  while (j < nums.length) {
+    nums[j++] = 0;
+  }
 };
-
 
 import assert from "assert";
 

@@ -16,21 +16,20 @@
  * @param {number} num
  * @return {boolean}
  */
-var isPowerOfFour = function (num:number) {
-    /**
-     * 如果不使用 循环或者 递归就要餐要 题231.2的幂
-     * */
-    // 判断是不是 2 的幂
-    if (num < 0 || num & (num - 1)) return false;
-    // 如果是 4 的幂 二进制时 1 是不是在 偶数位上
-    // 与所有 偶数位 都是 1 奇数 都是0 做位与  得到不是0 就是 4的幂
-    // 0x55555555 16 进制
-    // 相当于
-    // 0b(10)*16
-    return (num & 0x55555555) !== 0;
-
+var isPowerOfFour = function (num: number) {
+  /**
+   * 如果不使用 循环或者 递归就要餐要 题231.2的幂
+   * */
+  // 判断是不是 2 的幂
+  if (num < 0 || num & (num - 1)) return false;
+  // 如果是 4 的幂 二进制时 1 是不是在 偶数位上
+  // 与所有 偶数位 都是 1 奇数 都是0 做位与  得到不是0 就是 4的幂
+  // 0x55555555 16 进制
+  // 相当于
+  // 0b(10)*16
+  return (num & 0x55555555) !== 0;
 };
 
-import assert from "assert"
-assert.strictEqual(isPowerOfFour(16),true);
-assert.strictEqual(isPowerOfFour(15),false);
+import assert from "assert";
+assert.strictEqual(isPowerOfFour(16), true);
+assert.strictEqual(isPowerOfFour(15), false);

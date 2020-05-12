@@ -25,49 +25,45 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var sortColors = function (nums: number[]) {
-    /*
-     * 荷兰旗问题
-     * 需要排列的内容 只有三种 那么 只需要 O(n)的算法 就可以
-     * 需要三个指针
-     * 1. 分别是写入位置
-     * 2. 当前 最后一个 1 位置之后
-     * 3. 当前 最后一个 2 位置之前
-     * 循环的结束 条件是 1 指针 在 3 指针 右侧
-     * */
+  /*
+   * 荷兰旗问题
+   * 需要排列的内容 只有三种 那么 只需要 O(n)的算法 就可以
+   * 需要三个指针
+   * 1. 分别是写入位置
+   * 2. 当前 最后一个 1 位置之后
+   * 3. 当前 最后一个 2 位置之前
+   * 循环的结束 条件是 1 指针 在 3 指针 右侧
+   * */
 
-    // 初始化0的最右边界：p0 = 0。在整个算法执行过程中 nums[idx < p0] = 0.
-    let p0 = 0;
-    // 初始化2的最左边界 ：p2 = n - 1。在整个算法执行过程中 nums[idx > p2] = 2.
-    let p2 = nums.length - 1;
-    // 初始化当前考虑的元素序号 ：curr = 0.
-    let curr = 0;
-    while (curr <= p2) {
-        // 若 nums[curr] = 0 ：交换第 curr个 和 第p0个 元素，并将指针都向右移。
-        if (nums[curr] === 0) {
-            [nums[curr], nums[p0]] = [nums[p0], nums[curr]];
-            curr++;
-            p0++;
-        }
-        // 若 nums[curr] = 2 ：交换第 curr个和第 p2个元素，并将 p2指针左移 。
-        else if (nums[curr] === 2) {
-            [nums[curr], nums[p2]] = [nums[p2], nums[curr]];
-            p2--;
-        }
-        // 若 nums[curr] = 1 ：将指针curr右移。
-        else {
-            curr++;
-        }
+  // 初始化0的最右边界：p0 = 0。在整个算法执行过程中 nums[idx < p0] = 0.
+  let p0 = 0;
+  // 初始化2的最左边界 ：p2 = n - 1。在整个算法执行过程中 nums[idx > p2] = 2.
+  let p2 = nums.length - 1;
+  // 初始化当前考虑的元素序号 ：curr = 0.
+  let curr = 0;
+  while (curr <= p2) {
+    // 若 nums[curr] = 0 ：交换第 curr个 和 第p0个 元素，并将指针都向右移。
+    if (nums[curr] === 0) {
+      [nums[curr], nums[p0]] = [nums[p0], nums[curr]];
+      curr++;
+      p0++;
     }
-
+    // 若 nums[curr] = 2 ：交换第 curr个和第 p2个元素，并将 p2指针左移 。
+    else if (nums[curr] === 2) {
+      [nums[curr], nums[p2]] = [nums[p2], nums[curr]];
+      p2--;
+    }
+    // 若 nums[curr] = 1 ：将指针curr右移。
+    else {
+      curr++;
+    }
+  }
 };
 
-import assert from 'assert';
+import assert from "assert";
 
 {
-    const sample = [2, 0, 2, 1, 1, 0];
-    sortColors(sample);
-    assert.deepStrictEqual(
-        sample,
-        [0, 0, 1, 1, 2, 2],
-    );
+  const sample = [2, 0, 2, 1, 1, 0];
+  sortColors(sample);
+  assert.deepStrictEqual(sample, [0, 0, 1, 1, 2, 2]);
 }

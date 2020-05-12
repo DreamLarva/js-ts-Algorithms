@@ -29,47 +29,80 @@
  * @return {string[]}
  */
 var letterCombinations = function (digits: string) {
-    if (digits.length === 0) return [];
-    // 广度优先 深度优先 皆可
-    // 但是 还是回溯法更佳
-    type digitKeys = "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
-    const map: { [key in digitKeys]: string } = {
-        "2": "abc",
-        "3": "def",
-        "4": "ghi",
-        "5": "jkl",
-        "6": "mno",
-        "7": "pqrs",
-        "8": "tuv",
-        "9": "wxyz",
-    };
-    const result: string[] = [];
-    backTrack("", digits);
-    return result;
+  if (digits.length === 0) return [];
+  // 广度优先 深度优先 皆可
+  // 但是 还是回溯法更佳
+  type digitKeys = "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+  const map: { [key in digitKeys]: string } = {
+    "2": "abc",
+    "3": "def",
+    "4": "ghi",
+    "5": "jkl",
+    "6": "mno",
+    "7": "pqrs",
+    "8": "tuv",
+    "9": "wxyz",
+  };
+  const result: string[] = [];
+  backTrack("", digits);
+  return result;
 
-    function backTrack(curStr: string, restStr: string) {
-        if (restStr.length === 0) {
-            result.push(curStr);
-            return;
-        }
-        const mappingData = map[restStr[0] as digitKeys];
-        for (let i = 0; i < mappingData.length; i++) {
-            backTrack(curStr + mappingData[i], restStr.slice(1));
-        }
+  function backTrack(curStr: string, restStr: string) {
+    if (restStr.length === 0) {
+      result.push(curStr);
+      return;
     }
-
+    const mappingData = map[restStr[0] as digitKeys];
+    for (let i = 0; i < mappingData.length; i++) {
+      backTrack(curStr + mappingData[i], restStr.slice(1));
+    }
+  }
 };
 
 import assert from "assert";
+assert.deepStrictEqual(letterCombinations("").sort(), [].sort());
 assert.deepStrictEqual(
-    letterCombinations("").sort(),
-    [].sort(),
+  letterCombinations("23").sort(),
+  ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].sort()
 );
 assert.deepStrictEqual(
-    letterCombinations("23").sort(),
-    ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].sort(),
-);
-assert.deepStrictEqual(
-    letterCombinations("295").sort(),
-    ["awj", "awk", "awl", "axj", "axk", "axl", "ayj", "ayk", "ayl", "azj", "azk", "azl", "bwj", "bwk", "bwl", "bxj", "bxk", "bxl", "byj", "byk", "byl", "bzj", "bzk", "bzl", "cwj", "cwk", "cwl", "cxj", "cxk", "cxl", "cyj", "cyk", "cyl", "czj", "czk", "czl"].sort(),
+  letterCombinations("295").sort(),
+  [
+    "awj",
+    "awk",
+    "awl",
+    "axj",
+    "axk",
+    "axl",
+    "ayj",
+    "ayk",
+    "ayl",
+    "azj",
+    "azk",
+    "azl",
+    "bwj",
+    "bwk",
+    "bwl",
+    "bxj",
+    "bxk",
+    "bxl",
+    "byj",
+    "byk",
+    "byl",
+    "bzj",
+    "bzk",
+    "bzl",
+    "cwj",
+    "cwk",
+    "cwl",
+    "cxj",
+    "cxk",
+    "cxl",
+    "cyj",
+    "cyk",
+    "cyl",
+    "czj",
+    "czk",
+    "czl",
+  ].sort()
 );

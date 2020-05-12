@@ -16,9 +16,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var missingNumber = function (nums: number[]) {
-
-};
+var missingNumber = function (nums: number[]) {};
 
 /**
  * 由于给出的 数组的数字是乱序的 所以一般的查找并不好
@@ -27,25 +25,23 @@ var missingNumber = function (nums: number[]) {
  * 求和
  * */
 function solution1(nums: number[]) {
-    let totalSum = 0;
-    for (let i = 0; i < nums.length + 1; i++) {
-        totalSum += i;
-    }
-    return totalSum - nums.reduce((a, b) => a + b);
+  let totalSum = 0;
+  for (let i = 0; i < nums.length + 1; i++) {
+    totalSum += i;
+  }
+  return totalSum - nums.reduce((a, b) => a + b);
 }
 
 /**
  * 去^ 操作
  * */
 function solution2(nums: number[]) {
-    let result = 0;
-    for (let i = 0; i < nums.length + 1; i++) {
-        nums[i] && (result ^= nums[i]);
-        result ^= i;
-
-    }
-    return result;
+  let result = 0;
+  for (let i = 0; i < nums.length + 1; i++) {
+    nums[i] && (result ^= nums[i]);
+    result ^= i;
+  }
+  return result;
 }
-
 
 export {};

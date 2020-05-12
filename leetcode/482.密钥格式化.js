@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个密钥字符串S，只包含字母，数字以及 '-'（破折号）。N 个 '-' 将字符串分成了 N+1 组。给定一个数字 K，重新格式化字符串，
@@ -39,21 +41,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {string}
  */
 var licenseKeyFormatting = function (S, K) {
-    let result = "";
-    for (let i = S.length - 1, j = 0; i >= 0; i--) {
-        if (S[i] === "-")
-            continue;
-        result = S[i].toUpperCase() + result;
-        j++;
-        if (j === K && i !== 0) {
-            result = "-" + result;
-            j = 0;
-        }
+  let result = "";
+  for (let i = S.length - 1, j = 0; i >= 0; i--) {
+    if (S[i] === "-") continue;
+    result = S[i].toUpperCase() + result;
+    j++;
+    if (j === K && i !== 0) {
+      result = "-" + result;
+      j = 0;
     }
-    return result.replace(/^-/, "");
+  }
+  return result.replace(/^-/, "");
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.strictEqual(licenseKeyFormatting("5F3Z-2e-9-w", 4), "5F3Z-2E9W");
+assert_1.default.strictEqual(
+  licenseKeyFormatting("5F3Z-2e-9-w", 4),
+  "5F3Z-2E9W"
+);
 assert_1.default.strictEqual(licenseKeyFormatting("2-5g-3-J", 2), "2-5G-3J");
 assert_1.default.strictEqual(licenseKeyFormatting("r", 1), "R");
 assert_1.default.strictEqual(licenseKeyFormatting("--a-a-a-a--", 2), "AA-AA");

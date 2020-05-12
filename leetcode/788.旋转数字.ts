@@ -20,17 +20,16 @@ N 的取值范围是 [1, 10000]。
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
 
-
 /**
  * @param {number} N
  * @return {number}
  */
 var rotatedDigits1 = function (N: number) {
-    let num = 0;
-    for (let i = 1; i <= N; i++) {
-        isGoodNumber(i) && num++;
-    }
-    return num;
+  let num = 0;
+  for (let i = 1; i <= N; i++) {
+    isGoodNumber(i) && num++;
+  }
+  return num;
 };
 
 /**
@@ -38,45 +37,44 @@ var rotatedDigits1 = function (N: number) {
  * 且不能只有 1 0 组成
  * */
 function isGoodNumber(num: number) {
-    let isValid = false;
-    while (num !== 0) {
-        const remainder = num % 10;
-        if ([2, 5, 6, 9].includes(remainder)) {
-            isValid = true;
-            num = Math.floor(num / 10);
-            continue;
-        }
-        if ([1, 0, 8].includes(remainder)) {
-            num = Math.floor(num / 10);
-            continue;
-        }
-        return false;
+  let isValid = false;
+  while (num !== 0) {
+    const remainder = num % 10;
+    if ([2, 5, 6, 9].includes(remainder)) {
+      isValid = true;
+      num = Math.floor(num / 10);
+      continue;
     }
-    return isValid;
+    if ([1, 0, 8].includes(remainder)) {
+      num = Math.floor(num / 10);
+      continue;
+    }
+    return false;
+  }
+  return isValid;
 }
 
-
 var rotatedDigits2 = function (N: number) {
-    let num = 0;
-    for (let i = 1; i <= N; i++) {
-        isGoodNumber2(i) && num++;
-    }
-    return num;
+  let num = 0;
+  for (let i = 1; i <= N; i++) {
+    isGoodNumber2(i) && num++;
+  }
+  return num;
 };
 const map = [0, 0, 1, -1, -1, 1, 1, -1, 0, 1, 0];
 
 function isGoodNumber2(num: number) {
-    let isValid = 0;
-    while (num !== 0) {
-        const remainder = num % 10;
-        if (map[remainder] === -1) {
-            return false;
-        }
-        isValid += map[remainder];
-        num = Math.floor(num / 10);
+  let isValid = 0;
+  while (num !== 0) {
+    const remainder = num % 10;
+    if (map[remainder] === -1) {
+      return false;
     }
+    isValid += map[remainder];
+    num = Math.floor(num / 10);
+  }
 
-    return isValid > 0;
+  return isValid > 0;
 }
 
 import assert from "assert";
@@ -84,25 +82,24 @@ import assert from "assert";
 assert.strictEqual(rotatedDigits1(10), 4);
 assert.strictEqual(rotatedDigits2(10), 4);
 
-
-const Benchmark = require('benchmark');
-const suite = new Benchmark.Suite;
+const Benchmark = require("benchmark");
+const suite = new Benchmark.Suite();
 suite
-    .add('===', function () {
-        rotatedDigits1(10)
-    })
-    .add('map', function () {
-        rotatedDigits2(10)
-    })
-    // add listeners
-    .on('cycle', function (event: any) {
-        console.log(String(event.target));
-    })
-    .on('complete', function (this: any) {
-        console.log('Fastest is ' + this.filter('fastest').map('name'));
-    })
-    // run async
-    .run({'async': false});
+  .add("===", function () {
+    rotatedDigits1(10);
+  })
+  .add("map", function () {
+    rotatedDigits2(10);
+  })
+  // add listeners
+  .on("cycle", function (event: any) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: any) {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });
 
 /**
  * === x 4,365,630 ops/sec 卤6.26% (85 runs sampled)

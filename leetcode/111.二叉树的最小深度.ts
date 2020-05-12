@@ -17,8 +17,7 @@
 返回它的最小深度  2.
 * */
 
-
-import {TreeNode} from "../util/BinaryTree";
+import { TreeNode } from "../util/BinaryTree";
 
 /**
  * @param {TreeNode} root
@@ -26,19 +25,16 @@ import {TreeNode} from "../util/BinaryTree";
  */
 
 var minDepth = function (root: TreeNode | null): number {
-    if (root === null) return 0;
-    const {left, right} = root;
-    if (!left && !right) {
-        return 1;
-    } else if (left && !right) {
-        return minDepth(root.left) + 1;
-    } else if (!left && right) {
-        return minDepth(root.right) + 1;
-    } else {
-        return Math.min(
-            minDepth(root.left),
-            minDepth(root.right),
-        ) + 1;
-    }
+  if (root === null) return 0;
+  const { left, right } = root;
+  if (!left && !right) {
+    return 1;
+  } else if (left && !right) {
+    return minDepth(root.left) + 1;
+  } else if (!left && right) {
+    return minDepth(root.right) + 1;
+  } else {
+    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+  }
 };
-export {}
+export {};

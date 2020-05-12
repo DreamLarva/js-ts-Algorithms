@@ -14,7 +14,7 @@
 
 你能尝试使用一趟扫描实现吗？
 * */
-import {ListNode, createLinkedList} from "../util/LinkedList";
+import { ListNode, createLinkedList } from "../util/LinkedList";
 
 /**
  * @param {ListNode} head
@@ -22,55 +22,49 @@ import {ListNode, createLinkedList} from "../util/LinkedList";
  * @return {ListNode}
  */
 var removeNthFromEnd = function (head: ListNode, n: number): ListNode | null {
-    /**
-     * 老样子 快慢指针
-     * */
-    let slow = head;
-    let fast = next_n(head, n);
+  /**
+   * 老样子 快慢指针
+   * */
+  let slow = head;
+  let fast = next_n(head, n);
 
-    // 删除的是 head 结点{
-    if (fast === null) {
-        return head.next;
+  // 删除的是 head 结点{
+  if (fast === null) {
+    return head.next;
+  }
+
+  while (fast && fast.next) {
+    slow = slow.next!;
+    fast = fast.next;
+  }
+  // 这里的 slow 是要删除的节点的 前一个节点
+  slow.next = slow.next!.next;
+
+  return head;
+
+  function next_n(listNode: ListNode, n: number) {
+    while (n) {
+      listNode = listNode.next!;
+      n--;
     }
-
-    while (fast && fast.next) {
-        slow = slow.next!;
-        fast = fast.next;
-    }
-    // 这里的 slow 是要删除的节点的 前一个节点
-    slow.next = slow.next!.next;
-
-    return head;
-
-    function next_n(listNode: ListNode, n: number) {
-        while (n) {
-            listNode = listNode.next!;
-            n--;
-        }
-        return listNode;
-    }
+    return listNode;
+  }
 };
 
 import assert from "assert";
 
 assert.deepStrictEqual(
-    removeNthFromEnd(createLinkedList([1,2,3,4,5]),2)!.toString(),
-    [1,2,3,5]
+  removeNthFromEnd(createLinkedList([1, 2, 3, 4, 5]), 2)!.toString(),
+  [1, 2, 3, 5]
 );
+
+assert.deepStrictEqual(removeNthFromEnd(createLinkedList([1]), 1), null);
 
 assert.deepStrictEqual(
-    removeNthFromEnd(createLinkedList([1]), 1),
-    null,
-);
-
-assert.deepStrictEqual(
-    removeNthFromEnd(createLinkedList([1, 2]), 1)!.toString(),
-    [1],
+  removeNthFromEnd(createLinkedList([1, 2]), 1)!.toString(),
+  [1]
 );
 assert.deepStrictEqual(
-    removeNthFromEnd(createLinkedList([1, 2]), 2)!.toString(),
-    [2],
+  removeNthFromEnd(createLinkedList([1, 2]), 2)!.toString(),
+  [2]
 );
-
-
-

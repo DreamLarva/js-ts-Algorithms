@@ -17,13 +17,13 @@
 */
 
 class TreeNode<T> {
-    val: T | void;
-    left: null | TreeNode<T> = null;
-    right: null | TreeNode<T> = null;
+  val: T | void;
+  left: null | TreeNode<T> = null;
+  right: null | TreeNode<T> = null;
 
-    constructor(val?: T) {
-        this.val = val;
-    }
+  constructor(val?: T) {
+    this.val = val;
+  }
 }
 
 /**
@@ -31,31 +31,31 @@ class TreeNode<T> {
  * @return {TreeNode}
  */
 var sortedArrayToBST = function (nums: number[]) {
-    return recursionSortedArrayToBS(nums);
+  return recursionSortedArrayToBS(nums);
 };
 
 function recursionSortedArrayToBS(nums: number[], node = new TreeNode()) {
-    if (nums.length === 0) {
-        return null;
-    }
-    // [] [1] []
-    if (nums.length === 1) {
-        node.val = nums[0];
-    }
-    // [] [1] [1]
-    else if (nums.length === 2) {
-        node.val = nums[0];
-        node.right = new TreeNode(nums[1]);
-    } else {
-        const medianIndex = Math.floor(nums.length / 2);
-        node.val = nums[medianIndex];
-        node.left = new TreeNode();
-        recursionSortedArrayToBS(nums.slice(0, medianIndex), node.left);
-        node.right = new TreeNode();
-        recursionSortedArrayToBS(nums.slice(medianIndex + 1), node.right);
-    }
+  if (nums.length === 0) {
+    return null;
+  }
+  // [] [1] []
+  if (nums.length === 1) {
+    node.val = nums[0];
+  }
+  // [] [1] [1]
+  else if (nums.length === 2) {
+    node.val = nums[0];
+    node.right = new TreeNode(nums[1]);
+  } else {
+    const medianIndex = Math.floor(nums.length / 2);
+    node.val = nums[medianIndex];
+    node.left = new TreeNode();
+    recursionSortedArrayToBS(nums.slice(0, medianIndex), node.left);
+    node.right = new TreeNode();
+    recursionSortedArrayToBS(nums.slice(medianIndex + 1), node.right);
+  }
 
-    return node;
+  return node;
 }
 
 export {};

@@ -27,9 +27,11 @@
 进阶:
 如果多次调用这个函数，你将如何优化你的算法？
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} n - a positive integer
@@ -39,34 +41,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * 由于所有 js 的 数字都是有符号位 但是又没有 无符号左移的操作 所以 这里是不能正确 执行 二进制 末尾 是 1 的数字
  * */
 var reverseBits = function (n) {
-    let result = 0;
-    let i = 32; // 共 32位
-    while (i--) {
-        result <<= 1; // 左移一位
-        // n & 1 : 就取 最后一位二进制的数
-        // 然后 把最后一位 加到 result 的最左边
-        result += n & 1;
-        // 右移一位 去掉原来的最后一位
-        n >>>= 1;
-    }
-    return result;
+  let result = 0;
+  let i = 32; // 共 32位
+  while (i--) {
+    result <<= 1; // 左移一位
+    // n & 1 : 就取 最后一位二进制的数
+    // 然后 把最后一位 加到 result 的最左边
+    result += n & 1;
+    // 右移一位 去掉原来的最后一位
+    n >>>= 1;
+  }
+  return result;
 };
 var reverseBits2 = function (n) {
-    return parseInt((n).toString(2).padStart(32, '0').split('').reverse().join(''), 2);
+  return parseInt(
+    n.toString(2).padStart(32, "0").split("").reverse().join(""),
+    2
+  );
 };
 /**
  * 数学方法 10进制 转 2进制 然后手动操作位数
  * */
 var reverseBits3 = function (n) {
-    let nums = new Array(32).fill(0);
-    let count = 0;
-    while (n) {
-        nums[count] = n % 2;
-        count += 1;
-        n = Math.trunc(n / 2);
-    }
-    let num = nums.join('');
-    return Number.parseInt(num, 2);
+  let nums = new Array(32).fill(0);
+  let count = 0;
+  while (n) {
+    nums[count] = n % 2;
+    count += 1;
+    n = Math.trunc(n / 2);
+  }
+  let num = nums.join("");
+  return Number.parseInt(num, 2);
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(reverseBits(1), -2147483648);

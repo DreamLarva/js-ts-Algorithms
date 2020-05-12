@@ -31,37 +31,31 @@
  * @return {number}
  */
 var findPeakElement = function (nums: number[]) {
+  /**
+   * 根据 时间复杂度 只能二分查找法
+   * */
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    const mid = (right + left) >> 1;
     /**
-     * 根据 时间复杂度 只能二分查找法
+     * 注意这里的技巧
+     * 避免循环无限进行
+     * 如果是ceil 那么 循环就会无限进行 因为 如果 只剩2个值
+     * 那么 使用ceil 使用的 是右边的值 而如果进入第一个分支就会 left 和 right 不变
+     * 所以 有 right = mid 这句的存在 那么 如果只有两个值的时候 就不能是右值 反之同理
      * */
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (right + left) >> 1;
-        /**
-         * 注意这里的技巧
-         * 避免循环无限进行
-         * 如果是ceil 那么 循环就会无限进行 因为 如果 只剩2个值
-         * 那么 使用ceil 使用的 是右边的值 而如果进入第一个分支就会 left 和 right 不变
-         * 所以 有 right = mid 这句的存在 那么 如果只有两个值的时候 就不能是右值 反之同理
-         * */
-        if (nums[mid] > nums[mid + 1]) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
+    if (nums[mid] > nums[mid + 1]) {
+      right = mid;
+    } else {
+      left = mid + 1;
     }
-    return left;
+  }
+  return left;
 };
-
 
 import assert from "assert";
 
-assert.strictEqual(
-    findPeakElement([1, 2, 3, 1]),
-    2,
-);
+assert.strictEqual(findPeakElement([1, 2, 3, 1]), 2);
 
-assert.ok(
-    [1, 5].includes(findPeakElement([1, 2, 1, 3, 5, 6, 4])),
-);
+assert.ok([1, 5].includes(findPeakElement([1, 2, 1, 3, 5, 6, 4])));

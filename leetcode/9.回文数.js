@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
@@ -29,15 +31,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {boolean}
  */
 var isPalindrome = function (x) {
-    if (x < 0 || (x % 10 === 0 && x !== 0)) {
-        return false;
-    }
-    var num = 0;
-    while (x > num) {
-        num = num * 10 + x % 10;
-        x = (x - x % 10) / 10;
-    }
-    return x === num || x === (num - num % 10) / 10;
+  if (x < 0 || (x % 10 === 0 && x !== 0)) {
+    return false;
+  }
+  var num = 0;
+  while (x > num) {
+    num = num * 10 + (x % 10);
+    x = (x - (x % 10)) / 10;
+  }
+  return x === num || x === (num - (num % 10)) / 10;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(isPalindrome(121), true);

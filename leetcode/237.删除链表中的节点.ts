@@ -26,34 +26,30 @@
 给定的节点为非末尾节点并且一定是链表中的一个有效节点。
 不要从你的函数中返回任何结果。
 * */
-import {ListNode} from "../util/LinkedList"
+import { ListNode } from "../util/LinkedList";
 /**
  * @param {ListNode} node
  * @return {void} Do not return anything, modify node in-place instead.
  */
-var deleteNode = function (node:ListNode | null) {
-    /**
-     * 解释: 传入一个节点 让你删除这个节点
-     * */
-    // 每个节点分别由之后的的节点代替
-    while (node) {
-        node.val = node.next!.val;
-        if(node.next!.next === null){
-            node.next = null;
-            break
-        }
-        node = node.next;
-
-    }
-
-};
-
-var deleteNode2 = function (node:ListNode) {
-    // 直接删除当前节点
+var deleteNode = function (node: ListNode | null) {
+  /**
+   * 解释: 传入一个节点 让你删除这个节点
+   * */
+  // 每个节点分别由之后的的节点代替
+  while (node) {
     node.val = node.next!.val;
-    node.next = node.next!.next
-
+    if (node.next!.next === null) {
+      node.next = null;
+      break;
+    }
+    node = node.next;
+  }
 };
 
-export {}
+var deleteNode2 = function (node: ListNode) {
+  // 直接删除当前节点
+  node.val = node.next!.val;
+  node.next = node.next!.next;
+};
 
+export {};

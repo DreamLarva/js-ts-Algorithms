@@ -30,11 +30,10 @@
  * };
  */
 class Node {
-    constructor(public val: number, public neighbors: Node[] = []) {
-        this.val = val;
-        this.neighbors = neighbors;
-    }
-
+  constructor(public val: number, public neighbors: Node[] = []) {
+    this.val = val;
+    this.neighbors = neighbors;
+  }
 }
 
 /**
@@ -42,39 +41,35 @@ class Node {
  * @return {Node}
  */
 var cloneGraph = function (node: Node): Node {
-    const map = new Map();
-    return step(node);
+  const map = new Map();
+  return step(node);
 
-    function step(node: Node): Node {
-        if (map.has(node)) return map.get(node);
-        // 注意 必须先
-        // 1. 建立 node
-        // 2. 存入 map
-        // 3. 设置 neighbors
-        // 否则会导致 循环引用 爆栈
-        const new_node = new Node(node.val);
-        map.set(node, new_node);
-        new_node.neighbors = node.neighbors.map(node => step(node));
-        return new_node;
-    }
+  function step(node: Node): Node {
+    if (map.has(node)) return map.get(node);
+    // 注意 必须先
+    // 1. 建立 node
+    // 2. 存入 map
+    // 3. 设置 neighbors
+    // 否则会导致 循环引用 爆栈
+    const new_node = new Node(node.val);
+    map.set(node, new_node);
+    new_node.neighbors = node.neighbors.map((node) => step(node));
+    return new_node;
+  }
 };
 
 import assert from "assert";
 
 {
-    const node1 = new Node(1);
-    const node2 = new Node(2);
-    const node3 = new Node(3);
-    const node4 = new Node(4);
-    const node5 = new Node(5);
-    node1.neighbors = [node2, node3];
-    node2.neighbors = [node1, node5];
-    node3.neighbors = [node1, node4];
-    node4.neighbors = [node3, node5];
-    node5.neighbors = [node1, node4];
-    assert.deepStrictEqual(
-        cloneGraph(node1),
-        node1,
-    );
-
+  const node1 = new Node(1);
+  const node2 = new Node(2);
+  const node3 = new Node(3);
+  const node4 = new Node(4);
+  const node5 = new Node(5);
+  node1.neighbors = [node2, node3];
+  node2.neighbors = [node1, node5];
+  node3.neighbors = [node1, node4];
+  node4.neighbors = [node3, node5];
+  node5.neighbors = [node1, node4];
+  assert.deepStrictEqual(cloneGraph(node1), node1);
 }

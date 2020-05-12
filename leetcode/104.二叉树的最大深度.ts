@@ -17,13 +17,13 @@
 */
 
 class TreeNode<T> {
-    val: T;
-    left: null | TreeNode<T> = null;
-    right: null | TreeNode<T> = null;
+  val: T;
+  left: null | TreeNode<T> = null;
+  right: null | TreeNode<T> = null;
 
-    constructor(val: T) {
-        this.val = val;
-    }
+  constructor(val: T) {
+    this.val = val;
+  }
 }
 
 /**
@@ -31,11 +31,9 @@ class TreeNode<T> {
  * @return {number}
  */
 var maxDepth = function (root: TreeNode<any> | null): number {
-    return root === null ? 0 :
-        Math.max(
-            maxDepth(root.left) + 1,
-            maxDepth(root.right) + 1,
-        );
+  return root === null
+    ? 0
+    : Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
 };
 
 export {};

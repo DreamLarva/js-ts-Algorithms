@@ -89,7 +89,6 @@ var coinChange2 = function (coins: number[], amount: number) {
 // todo 动态规划
 
 import assert from "assert";
-import { min } from "rxjs/operators";
 // assert.strictEqual(coinChange([1, 2, 5], 11), 3);
 // assert.strictEqual(coinChange([2, 5, 10, 1], 27), 4);
 // assert.strictEqual(coinChange([2, 5, 10], 100), 10);

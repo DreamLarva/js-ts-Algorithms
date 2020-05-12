@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一种 pattern(模式) 和一个字符串 str ，判断 str 是否遵循相同的模式。
@@ -33,28 +35,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {boolean}
  */
 var wordPattern = function (pattern, str) {
-    const str_arr = str.split(" ");
-    if (str_arr.length !== pattern.length)
-        return false;
-    const pattern_arr = pattern.split("");
-    // 用于映射 patter 和 str
-    const map = {};
-    // 用于 判断 有了映射了
-    const set = new Set();
-    for (let i = 0; i < pattern_arr.length; i++) {
-        const current_char = pattern[i];
-        if (map[current_char]) {
-            if (map[current_char] !== str_arr[i])
-                return false;
-        }
-        else {
-            if (set.has(str_arr[i]))
-                return false; // 重复映射
-            map[current_char] = str_arr[i];
-            set.add(str_arr[i]);
-        }
+  const str_arr = str.split(" ");
+  if (str_arr.length !== pattern.length) return false;
+  const pattern_arr = pattern.split("");
+  // 用于映射 patter 和 str
+  const map = {};
+  // 用于 判断 有了映射了
+  const set = new Set();
+  for (let i = 0; i < pattern_arr.length; i++) {
+    const current_char = pattern[i];
+    if (map[current_char]) {
+      if (map[current_char] !== str_arr[i]) return false;
+    } else {
+      if (set.has(str_arr[i])) return false; // 重复映射
+      map[current_char] = str_arr[i];
+      set.add(str_arr[i]);
     }
-    return true;
+  }
+  return true;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(wordPattern("abba", "dog cat cat dog"), true);

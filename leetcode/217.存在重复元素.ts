@@ -19,7 +19,7 @@
  * @return {boolean}
  */
 var containsDuplicate = function (nums: number[]) {
-    return nums.length !== new Set(nums).size;
+  return nums.length !== new Set(nums).size;
 };
 
 import assert from "assert";

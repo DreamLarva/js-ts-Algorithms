@@ -18,15 +18,14 @@
 ]
 */
 
-
 class TreeNode<T> {
-    val: T;
-    left: null | TreeNode<T> = null;
-    right: null | TreeNode<T> = null;
+  val: T;
+  left: null | TreeNode<T> = null;
+  right: null | TreeNode<T> = null;
 
-    constructor(val: T) {
-        this.val = val;
-    }
+  constructor(val: T) {
+    this.val = val;
+  }
 }
 
 /**
@@ -34,28 +33,28 @@ class TreeNode<T> {
  * @return {number[][]}
  */
 var levelOrderBottom = function <T>(root: TreeNode<T>) {
-    if (root === null) return [];
-    let current_layer_nodes = [root];
-    let next_layer_nodes: TreeNode<T>[] = [];
-    const result = [];
+  if (root === null) return [];
+  let current_layer_nodes = [root];
+  let next_layer_nodes: TreeNode<T>[] = [];
+  const result = [];
 
-    while (current_layer_nodes.length) {
-        const cache: T[] = [];
-        current_layer_nodes.forEach(node => {
-            if (node !== null) {
-                const {left, right, val} = node;
-                cache.push(val);
-                if (left) next_layer_nodes.push(left);
-                if (right) next_layer_nodes.push(right);
-            }
-        });
+  while (current_layer_nodes.length) {
+    const cache: T[] = [];
+    current_layer_nodes.forEach((node) => {
+      if (node !== null) {
+        const { left, right, val } = node;
+        cache.push(val);
+        if (left) next_layer_nodes.push(left);
+        if (right) next_layer_nodes.push(right);
+      }
+    });
 
-        result.unshift(cache);
-        current_layer_nodes = [...next_layer_nodes];
-        next_layer_nodes.length = 0;
-    }
+    result.unshift(cache);
+    current_layer_nodes = [...next_layer_nodes];
+    next_layer_nodes.length = 0;
+  }
 
-    return result;
+  return result;
 };
 
 export {};

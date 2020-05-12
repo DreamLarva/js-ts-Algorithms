@@ -24,24 +24,23 @@
  * @return {boolean}
  */
 var isAnagram = function (s: string, t: string) {
-    // 如果存数组 就初始化 26个0 之后对比
-    // 存哈希表 可以存任何字符 不过对比的时候需要对比 key 的数量是否一致
-    const map_s = getCharCount(s);
-    const map_t = getCharCount(t);
-    if (Object.keys(map_s).length !== Object.keys(map_t).length) return false;
-    for (const [key, value] of Object.entries(map_s)) {
-        if (map_t[key] !== value) return false;
-    }
-    return true;
+  // 如果存数组 就初始化 26个0 之后对比
+  // 存哈希表 可以存任何字符 不过对比的时候需要对比 key 的数量是否一致
+  const map_s = getCharCount(s);
+  const map_t = getCharCount(t);
+  if (Object.keys(map_s).length !== Object.keys(map_t).length) return false;
+  for (const [key, value] of Object.entries(map_s)) {
+    if (map_t[key] !== value) return false;
+  }
+  return true;
 };
 
 function getCharCount(str: string) {
-    return Array.from(str).reduce((res, char: string) => {
-        res[char] = res[char] ? res[char] + 1 : 1;
-        return res;
-    }, {} as { [key: string]: number });
+  return Array.from(str).reduce((res, char: string) => {
+    res[char] = res[char] ? res[char] + 1 : 1;
+    return res;
+  }, {} as { [key: string]: number });
 }
-
 
 import assert from "assert";
 

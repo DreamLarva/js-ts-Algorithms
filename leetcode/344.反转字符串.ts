@@ -21,21 +21,18 @@
  * @return {void} Do not return anything, modify s in-place instead.
  */
 var reverseString = function (s: string[]) {
-    // 首尾指针
-    let head = 0;
-    let tail = s.length - 1;
-    while (head < tail) {
-        [s[head],s[tail]] = [s[tail],s[head]];
-        head++;
-        tail--;
-    }
+  // 首尾指针
+  let head = 0;
+  let tail = s.length - 1;
+  while (head < tail) {
+    [s[head], s[tail]] = [s[tail], s[head]];
+    head++;
+    tail--;
+  }
 };
 
 import assert from "assert";
 
 const sample = ["1", "2", "3"];
 reverseString(["1", "2", "3"]);
-assert.deepStrictEqual(
-    sample,
-    sample.reverse(),
-);
+assert.deepStrictEqual(sample, sample.reverse());

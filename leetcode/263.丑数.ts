@@ -28,13 +28,13 @@
  * @param {number} num
  * @return {boolean}
  */
-var isUgly = function(num:number) {
-    if(num === 0)return false;
-    // 除完所有的 2 , 3 , 5
-    while(num % 2 === 0)num /= 2;
-    while(num % 3 === 0)num /= 3;
-    while(num % 5 === 0)num /= 5;
-    return num === 1
+var isUgly = function (num: number) {
+  if (num === 0) return false;
+  // 除完所有的 2 , 3 , 5
+  while (num % 2 === 0) num /= 2;
+  while (num % 3 === 0) num /= 3;
+  while (num % 5 === 0) num /= 5;
+  return num === 1;
 };
 
-export {}
+export {};
