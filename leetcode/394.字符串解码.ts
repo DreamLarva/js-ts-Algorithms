@@ -57,9 +57,7 @@ var decodeString = function (s: string) {
  * */
 var decodeString1 = function (s: string) {
   while (/\[/.test(s)) {
-    s = s.replace(/(\d+)\[([^\[\]]+)]/, function (match, num, str) {
-      return str.repeat(num);
-    });
+    s = s.replace(/(\d+)\[([^\[\]]+)]/, (match, num, str) => str.repeat(num));
   }
   return s;
 };
