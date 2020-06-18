@@ -40,3 +40,9 @@ function maxScoreSightseeingPair(A: number[]): number {
 
 import assert from "assert";
 assert.strictEqual(maxScoreSightseeingPair([8, 1, 5, 2, 6]), 11);
+
+
+enum Enum {
+    a = 0,
+    b = 2
+}
