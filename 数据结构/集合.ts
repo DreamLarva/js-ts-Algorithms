@@ -7,76 +7,74 @@
 /**
  * 建立集合的基础类型是数组*/
 
-
 class MySet<T> {
-    dataStore: T[] = [];
+  dataStore: T[] = [];
 
-    size() {
-        return this.dataStore.length;
-    };
+  size() {
+    return this.dataStore.length;
+  }
 
-    add(data: T) {
-        if (this.dataStore.indexOf(data) === -1) {
-            this.dataStore.push(data);
-            return true;
-        } else {
-            return false;
-        }
-    };
+  add(data: T) {
+    if (this.dataStore.indexOf(data) === -1) {
+      this.dataStore.push(data);
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-    addArr(arr: T[]) {
-        arr.forEach(v => this.add(v));
-    };
+  addArr(arr: T[]) {
+    arr.forEach((v) => this.add(v));
+  }
 
-    show() {
-        return this.dataStore;
-    };
+  show() {
+    return this.dataStore;
+  }
 
-    contains(data: T) {
-        return this.dataStore.indexOf(data) !== -1;
-    };
+  contains(data: T) {
+    return this.dataStore.indexOf(data) !== -1;
+  }
 
-    // 求两者的并集
-    union(set: MySet<T>) {
-        const tempSet = new MySet();
-        this.dataStore.forEach(v => tempSet.add(v));
-        for (let i = 0; i < set.dataStore.length; ++i) {
-            if (!tempSet.contains(set.dataStore[i])) {
-                tempSet.dataStore.push(set.dataStore[i]);
-            }
-        }
-        return tempSet;
-    };
+  // 求两者的并集
+  union(set: MySet<T>) {
+    const tempSet = new MySet();
+    this.dataStore.forEach((v) => tempSet.add(v));
+    for (let i = 0; i < set.dataStore.length; ++i) {
+      if (!tempSet.contains(set.dataStore[i])) {
+        tempSet.dataStore.push(set.dataStore[i]);
+      }
+    }
+    return tempSet;
+  }
 
-    // 求两者的交集
-    intersect(set: MySet<T>) {
-        const tempSet = new Set();
-        this.dataStore.forEach(v => {
-            !set.contains(v) && tempSet.add(v);
-        });
+  // 求两者的交集
+  intersect(set: MySet<T>) {
+    const tempSet = new Set();
+    this.dataStore.forEach((v) => {
+      !set.contains(v) && tempSet.add(v);
+    });
 
-        return tempSet;
-    };
+    return tempSet;
+  }
 
-    // 判断当前集合是不是传入集合的子集
-    subset(set: MySet<T>) {
-        if (this.size() > set.size()) {
-            return false;
-        } else {
-            return this.dataStore.every(v => set.contains(v));
-        }
-    };
+  // 判断当前集合是不是传入集合的子集
+  subset(set: MySet<T>) {
+    if (this.size() > set.size()) {
+      return false;
+    } else {
+      return this.dataStore.every((v) => set.contains(v));
+    }
+  }
 
-    // 求两个集合的差集(当前集合有,但是传入的集合没有)
-    difference(set: MySet<T>) {
-        const tempSet = new MySet();
-        this.dataStore.forEach(v => {
-            !set.contains(v) && tempSet.add(v);
-        });
-        return tempSet;
-    };
+  // 求两个集合的差集(当前集合有,但是传入的集合没有)
+  difference(set: MySet<T>) {
+    const tempSet = new MySet();
+    this.dataStore.forEach((v) => {
+      !set.contains(v) && tempSet.add(v);
+    });
+    return tempSet;
+  }
 }
-
 
 const S1 = new MySet();
 S1.addArr([1, 2, 3, 4, 5, 6, 6]);
@@ -84,7 +82,6 @@ const S2 = new MySet();
 S2.addArr([1, 4, 5, 6, 7, 8, 9, 10]);
 const S3 = new MySet();
 S3.addArr([4, 5, 6]);
-
 
 console.log("union", S1.union(S2));
 console.log("intersect", S1.intersect(S2));

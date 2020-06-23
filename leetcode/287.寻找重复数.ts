@@ -27,7 +27,7 @@ var findDuplicate = function (nums: number[]): number {
   let len = nums.length;
   do {
     fast = nums[fast === 0 ? 0 : fast - 1];
-    fast = nums[ fast - 1];
+    fast = nums[fast - 1];
 
     slow = nums[slow === 0 ? 0 : slow - 1];
   } while (nums[slow] !== nums[fast]);

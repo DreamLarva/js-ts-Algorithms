@@ -9,97 +9,95 @@
 
 // 图类
 function Graph(v) {
-    this.vertices = v;
-    this.edges = 0;
-    this.adj = [];
-    for (var i = 0; i < this.vertices; ++i) {
-        this.adj[i] = [];
-        this.adj[i].push("");
-    }
-    this.toString = toString;
-
-
+  this.vertices = v;
+  this.edges = 0;
+  this.adj = [];
+  for (var i = 0; i < this.vertices; ++i) {
+    this.adj[i] = [];
+    this.adj[i].push("");
+  }
+  this.toString = toString;
 }
 
 // 添 v 到 w 的边
 Graph.prototype.addEdge = function (v, w) {
-    this.adj[v].push(w); // v 点 能到 w
-    this.adj[w].push(v); // w 点 能到 v
-    this.edges++;
+  this.adj[v].push(w); // v 点 能到 w
+  this.adj[w].push(v); // w 点 能到 v
+  this.edges++;
 };
 Graph.prototype.showGraph = function () {
-    var output = "";
-    for (let i = 0; i < this.vertices; ++i) {
-        output = i + " -> ";
-        for (var j = 0; j < this.vertices; ++j) {
-            if (this.adj[i][j] != undefined) {
-                output += this.adj[i][j] + " "
-            }
-        }
-        console.log(output)
+  var output = "";
+  for (let i = 0; i < this.vertices; ++i) {
+    output = i + " -> ";
+    for (var j = 0; j < this.vertices; ++j) {
+      if (this.adj[i][j] != undefined) {
+        output += this.adj[i][j] + " ";
+      }
     }
+    console.log(output);
+  }
 };
 // 深度优先搜索
 Graph.prototype.dfs = function (v) {
-    for (var marked = [], i = 0; i < this.vertices; i++) {
-        marked.push(false)
-    }
+  for (var marked = [], i = 0; i < this.vertices; i++) {
+    marked.push(false);
+  }
 
-    (function dfs(v) {
-        marked[v] = true;
-        if (this.adj[v] !== undefined) {
-            console.log("访问了顶点" + v)
-        }
-        this.adj[v].forEach((v, i, a) => {
-            if (!marked[v] && v !== "") {
-                dfs.call(this, v)
-            }
-        });
-    }).call(this, v)
+  (function dfs(v) {
+    marked[v] = true;
+    if (this.adj[v] !== undefined) {
+      console.log("访问了顶点" + v);
+    }
+    this.adj[v].forEach((v, i, a) => {
+      if (!marked[v] && v !== "") {
+        dfs.call(this, v);
+      }
+    });
+  }.call(this, v));
 };
 // 广度优先搜索
 Graph.prototype.bfs = function (s) {
+  var edgeTo = [];
+  var queue = [];
+  for (var marked = [], i = 0; i < this.vertices; i++) {
+    marked.push(false);
+  }
+  marked[s] = true;
+  queue.push(s);
 
-    var edgeTo = [];
-    var queue = [];
-    for (var marked = [], i = 0; i < this.vertices; i++) {
-        marked.push(false)
+  while (queue.length > 0) {
+    var w = queue.shift();
+    if (w !== undefined) {
+      console.log("访问了节点 " + w);
     }
-    marked[s] = true;
-    queue.push(s);
-
-    while (queue.length > 0) {
-        var w = queue.shift();
-        if (w !== undefined) {
-            console.log("访问了节点 " + w)
-        }
-        this.adj[w].forEach((v, i, a) => {
-            if (!marked[v] && v !== "") {
-                console.log(v, w);
-                edgeTo[v] = w;
-                marked[v] = true;
-                queue.push(v)
-            }
-        })
-    }
-//        console.log(edgeTo);
-    return {edgeTo, marked}
+    this.adj[w].forEach((v, i, a) => {
+      if (!marked[v] && v !== "") {
+        console.log(v, w);
+        edgeTo[v] = w;
+        marked[v] = true;
+        queue.push(v);
+      }
+    });
+  }
+  //        console.log(edgeTo);
+  return { edgeTo, marked };
 };
 // 最短路径
 Graph.prototype.pathTo = function (start, end) {
-    // 如果是start开始的顶点 返回的edgeTo[start]一定等于undefined
-    var {marked, edgeTo} = this.bfs(start);
+  // 如果是start开始的顶点 返回的edgeTo[start]一定等于undefined
+  var { marked, edgeTo } = this.bfs(start);
 
-    if (!marked[end]) { // 避免要到达的顶点其实并没有连接
-        return undefined;
-    }
-    var path = [];
-    // 一旦路径到达start 说明已经完成即停止循环
-    for (var i = end; i != start; i = edgeTo[i]) {
-        path.push(i);
-    }
-    path.push(start);
-    return path.reverse();
+  if (!marked[end]) {
+    // 避免要到达的顶点其实并没有连接
+    return undefined;
+  }
+  var path = [];
+  // 一旦路径到达start 说明已经完成即停止循环
+  for (var i = end; i != start; i = edgeTo[i]) {
+    path.push(i);
+  }
+  path.push(start);
+  return path.reverse();
 };
 
 var g = new Graph(6);

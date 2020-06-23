@@ -44,8 +44,6 @@ var isOneBitCharacter2 = function (bits: (1 | 0)[]) {
   return reg.test(bits.join(""));
 };
 
+import assert from "assert";
 
-import assert from "assert"
-
-
-type a = [1,number?]
+type a = [1, number?];

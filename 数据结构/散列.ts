@@ -19,114 +19,123 @@
  * */
 
 class HashTable {
-    table: string[] = new Array(137);
+  table: string[] = new Array(137);
 
-    simpleHash(data: string) {
-        let total = 0;
-        for (let i = 0; i < data.length; i++) {
-            total += data.charCodeAt(i);
-        }
-        return total % this.table.length;
-    };
+  simpleHash(data: string) {
+    let total = 0;
+    for (let i = 0; i < data.length; i++) {
+      total += data.charCodeAt(i);
+    }
+    return total % this.table.length;
+  }
 
+  put(data: string) {
+    // 储存一个数据
+    const pos = this.betterHash(data);
+    this.table[pos] = data;
+  }
 
-    put(data: string) { // 储存一个数据
-        const pos = this.betterHash(data);
-        this.table[pos] = data;
-    };
+  // 霍纳算法 更好的解决碰撞
+  betterHash(string: string) {
+    const H = 31;
+    let total = 0;
+    for (let i = 0; i < string.length; ++i) {
+      total += H * total + string.charCodeAt(i);
+    }
+    total = total % this.table.length;
+    if (total < 0) {
+      total += this.table.length - 1;
+    }
+    return Math.floor(total);
+  }
 
-    // 霍纳算法 更好的解决碰撞
-    betterHash(string: string) {
-        const H = 31;
-        let total = 0;
-        for (let i = 0; i < string.length; ++i) {
-            total += H * total + string.charCodeAt(i);
-        }
-        total = total % this.table.length;
-        if (total < 0) {
-            total += this.table.length - 1;
-        }
-        return Math.floor(total);
-    };
+  putArr(arr: string[]) {
+    // 储存多个数据
+    arr.forEach((v) => {
+      // 箭头函数绑定了作用域
+      const pos = this.betterHash(v);
+      this.table[pos] = v;
+      // console.log(pos, v);
+    });
+  }
 
-    putArr(arr: string[]) { // 储存多个数据
-        arr.forEach(v => { // 箭头函数绑定了作用域
-            const pos = this.betterHash(v);
-            this.table[pos] = v;
-            // console.log(pos, v);
-        });
-
-    };
-
-    showDistro() { // 打印所有数据
-        for (let i = 0; i < this.table.length; ++i) {
-            if (this.table[i] != undefined) {
-                console.log(i + " : " + this.table[i]);
-            }
-        }
-    };
+  showDistro() {
+    // 打印所有数据
+    for (let i = 0; i < this.table.length; ++i) {
+      if (this.table[i] != undefined) {
+        console.log(i + " : " + this.table[i]);
+      }
+    }
+  }
 }
 
-
 const T = new HashTable();
-T.putArr(["David", "Jennifer", "Donnie", "Raymond", "Cynthia", "Mike", "Clayton", "Danny", "Jonathan"]);
+T.putArr([
+  "David",
+  "Jennifer",
+  "Donnie",
+  "Raymond",
+  "Cynthia",
+  "Mike",
+  "Clayton",
+  "Danny",
+  "Jonathan",
+]);
 T.showDistro();
-console.log('-----------');
-
+console.log("-----------");
 
 /**
  * 如果用散列来存储数据
  * 那么每个数据就必须要要一个主键 来作为key
  * */
 class HashTableData<T = any> {
-    table: T[] = new Array(137);
+  table: T[] = new Array(137);
 
-    simpleHash(data: string) {
-        let total = 0;
-        for (let i = 0; i < data.length; i++) {
-            total += data.charCodeAt(i);
-        }
-        return total % this.table.length;
-    };
+  simpleHash(data: string) {
+    let total = 0;
+    for (let i = 0; i < data.length; i++) {
+      total += data.charCodeAt(i);
+    }
+    return total % this.table.length;
+  }
 
-    // 霍纳算法 更好的解决碰撞
-    betterHash(string: string) {
-        const H = 31;
-        let total = 0;
-        for (let i = 0; i < string.length; ++i) {
-            total += H * total + string.charCodeAt(i);
-        }
-        total = total % this.table.length;
-        if (total < 0) {
-            total += this.table.length - 1;
-        }
-        return Math.floor(total);
-    };
+  // 霍纳算法 更好的解决碰撞
+  betterHash(string: string) {
+    const H = 31;
+    let total = 0;
+    for (let i = 0; i < string.length; ++i) {
+      total += H * total + string.charCodeAt(i);
+    }
+    total = total % this.table.length;
+    if (total < 0) {
+      total += this.table.length - 1;
+    }
+    return Math.floor(total);
+  }
 
-    // 储存一个数据
-    put(key: string, data: T) {
-        const pos = this.betterHash(key);
-        this.table[pos] = data;
-    };
+  // 储存一个数据
+  put(key: string, data: T) {
+    const pos = this.betterHash(key);
+    this.table[pos] = data;
+  }
 
-    get(key: string) {
-        return this.table[this.betterHash(key)];
-    };
+  get(key: string) {
+    return this.table[this.betterHash(key)];
+  }
 
-    // 打印所有数据
-    showDistro() {
-        for (let i = 0; i < this.table.length; ++i) {
-            if (this.table[i] != undefined) {
-                console.log(i + " : " + JSON.stringify(this.table[i]));
-            }
-        }
-    };
+  // 打印所有数据
+  showDistro() {
+    for (let i = 0; i < this.table.length; ++i) {
+      if (this.table[i] != undefined) {
+        console.log(i + " : " + JSON.stringify(this.table[i]));
+      }
+    }
+  }
 }
 
-
 const TD = new HashTableData();
-const data = {key: "123", value: "abc"};
+const data = { key: "123", value: "abc" };
 TD.put(data.key, data);
 TD.showDistro();
 
-export {}
+export {};

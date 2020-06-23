@@ -48,10 +48,10 @@ f(5,3)=f(4,2)+f(4,3)=3+3=6
 * */
 
 function solve(i, j) {
-    if (i === 1) return 1;
-    if (j === 1 || j === i) return 1;
+  if (i === 1) return 1;
+  if (j === 1 || j === i) return 1;
 
-    return solve(i - 1, j - 1) + solve(i - 1, j);
+  return solve(i - 1, j - 1) + solve(i - 1, j);
 }
 
 const assert = require("assert");

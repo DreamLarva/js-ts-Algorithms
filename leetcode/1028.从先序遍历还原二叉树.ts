@@ -109,9 +109,9 @@ assert.deepStrictEqual(
 
 assert.deepStrictEqual(
   recoverFromPreorder("1-2--3---4-5--6---7")?.levelTraversal(),
-  [1, 2, 5, 3, null, 6, null, 4, null, 7].filter(v => v != null)
+  [1, 2, 5, 3, null, 6, null, 4, null, 7].filter((v) => v != null)
 );
 assert.deepStrictEqual(
   recoverFromPreorder("1-401--349---90--88")?.levelTraversal(),
-  [1, 401, null, 349, 88, 90].filter(v => v != null)
+  [1, 401, null, 349, 88, 90].filter((v) => v != null)
 );

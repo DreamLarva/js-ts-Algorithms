@@ -9,97 +9,98 @@
 
 // 图类
 class Graph {
-    vertices: number; // 几个端点
-    adj: (number | "")[][] = [];
-    edges = 0; // 边的数量
-    constructor(vertices: number) {
-        this.vertices = vertices;
-        for (let i = 0; i < this.vertices; ++i) {
-            this.adj[i] = [];
-            this.adj[i].push("");
-        }
+  vertices: number; // 几个端点
+  adj: (number | "")[][] = [];
+  edges = 0; // 边的数量
+  constructor(vertices: number) {
+    this.vertices = vertices;
+    for (let i = 0; i < this.vertices; ++i) {
+      this.adj[i] = [];
+      this.adj[i].push("");
     }
+  }
 
-    addEdge(v: number, w: number) {
-        this.adj[v].push(w); // v 点 能到 w
-        this.adj[w].push(v); // w 点 能到 v
-        this.edges++;
-    };
+  addEdge(v: number, w: number) {
+    this.adj[v].push(w); // v 点 能到 w
+    this.adj[w].push(v); // w 点 能到 v
+    this.edges++;
+  }
 
-    showGraph() {
-        let output = "";
-        for (let i = 0; i < this.vertices; ++i) {
-            output = i + " -> ";
-            for (let j = 0; j < this.vertices; ++j) {
-                if (this.adj[i][j] != undefined) {
-                    output += this.adj[i][j] + " ";
-                }
-            }
-            console.log(output);
+  showGraph() {
+    let output = "";
+    for (let i = 0; i < this.vertices; ++i) {
+      output = i + " -> ";
+      for (let j = 0; j < this.vertices; ++j) {
+        if (this.adj[i][j] != undefined) {
+          output += this.adj[i][j] + " ";
         }
-    };
+      }
+      console.log(output);
+    }
+  }
 
-    // 深度优先搜索
-    dfs(v: number) {
-        const marked = Array(this.vertices).fill(false);
-        const {adj} = this;
-        step(v);
+  // 深度优先搜索
+  dfs(v: number) {
+    const marked = Array(this.vertices).fill(false);
+    const { adj } = this;
+    step(v);
 
-        function step(v: number) {
-            marked[v] = true;
-            if (adj[v] !== undefined) {
-                console.log("访问了顶点" + v);
-            }
-            adj[v].forEach((v) => {
-                if (v !== "" && !marked[v]) {
-                    step(v);
-                }
-            });
+    function step(v: number) {
+      marked[v] = true;
+      if (adj[v] !== undefined) {
+        console.log("访问了顶点" + v);
+      }
+      adj[v].forEach((v) => {
+        if (v !== "" && !marked[v]) {
+          step(v);
         }
-    };
+      });
+    }
+  }
 
-    // 广度优先搜索
-    bfs(s: number) {
-        const edgeTo: number[] = [];
-        const queue: number[] = [];
-        const marked = Array(this.vertices).fill(false);
-        marked[s] = true;
-        queue.push(s);
+  // 广度优先搜索
+  bfs(s: number) {
+    const edgeTo: number[] = [];
+    const queue: number[] = [];
+    const marked = Array(this.vertices).fill(false);
+    marked[s] = true;
+    queue.push(s);
 
-        while (queue.length > 0) {
-            const w = queue.shift()!;
-            if (w !== undefined) {
-                console.log("访问了节点 " + w);
-            }
-            this.adj[w].forEach((v) => {
-                if (v !== "" && !marked[v]) {
-                    console.log(v, w);
-                    edgeTo[v] = w;
-                    marked[v] = true;
-                    queue.push(v);
-                }
-            });
+    while (queue.length > 0) {
+      const w = queue.shift()!;
+      if (w !== undefined) {
+        console.log("访问了节点 " + w);
+      }
+      this.adj[w].forEach((v) => {
+        if (v !== "" && !marked[v]) {
+          console.log(v, w);
+          edgeTo[v] = w;
+          marked[v] = true;
+          queue.push(v);
         }
-        // console.log(edgeTo);
-        return {edgeTo, marked};
-    };
+      });
+    }
+    // console.log(edgeTo);
+    return { edgeTo, marked };
+  }
 
-    // 最短路径
-    pathTo(start: number, end: number) {
-        // 如果是start开始的顶点 返回的edgeTo[start]一定等于undefined
-        const {marked, edgeTo} = this.bfs(start);
+  // 最短路径
+  pathTo(start: number, end: number) {
+    // 如果是start开始的顶点 返回的edgeTo[start]一定等于undefined
+    const { marked, edgeTo } = this.bfs(start);
 
-        if (!marked[end]) { // 避免要到达的顶点其实并没有连接
-            return undefined;
-        }
-        const path = [];
-        // 一旦路径到达start 说明已经完成即停止循环
-        for (let i = end; i != start; i = edgeTo[i]) {
-            path.push(i);
-        }
-        path.push(start);
-        return path.reverse();
-    };
+    if (!marked[end]) {
+      // 避免要到达的顶点其实并没有连接
+      return undefined;
+    }
+    const path = [];
+    // 一旦路径到达start 说明已经完成即停止循环
+    for (let i = end; i != start; i = edgeTo[i]) {
+      path.push(i);
+    }
+    path.push(start);
+    return path.reverse();
+  }
 }
 
 const g = new Graph(6);
@@ -118,5 +119,4 @@ console.log("最短路径");
 //    console.log(g.bfs(1,5))
 console.log(g.pathTo(4, 5));
 
-
-export {}
+export {};

@@ -10,8 +10,8 @@
  * 链表中的每个节点的基础类型
  * */
 function Node(element) {
-    this.element = element;
-    this.next = null
+  this.element = element;
+  this.next = null;
 }
 
 /**
@@ -23,17 +23,16 @@ function Node(element) {
  * dispaly 输出所有节点
  **/
 function LList(arr) {
-    if (Array.isArray(arr) || arr == null) {
-    } else {
-        throw new Error("param must be an Array or none")
+  if (Array.isArray(arr) || arr == null) {
+  } else {
+    throw new Error("param must be an Array or none");
+  }
+  this.head = this.end = new Node("head");
+  if (arr != null) {
+    for (let i = 0, length = arr.length; i < length; i++) {
+      this.insert(arr[i], this.end);
     }
-    this.head = this.end = new Node("head");
-    if (arr != null) {
-        for (let i = 0, length = arr.length; i < length; i++) {
-            this.insert(arr[i], this.end)
-        }
-    }
-
+  }
 }
 
 /**
@@ -43,11 +42,11 @@ function LList(arr) {
  * 返回值 找到的节点  || null
  **/
 LList.prototype.find = function (element, fromNode = this.head) {
-    var currNode = fromNode;
-    while (currNode && currNode.element != element) {
-        currNode = currNode.next;
-    }
-    return currNode
+  var currNode = fromNode;
+  while (currNode && currNode.element != element) {
+    currNode = currNode.next;
+  }
+  return currNode;
 };
 /**
  * 插入新的节点
@@ -56,59 +55,58 @@ LList.prototype.find = function (element, fromNode = this.head) {
  * 返回值是 新建的节点
  * */
 LList.prototype.insert = function (newElement, prevElement = this.end) {
-    var newNode = new Node(newElement); // new 新节点
-    var current;
-    if (prevElement instanceof Node) {
-        current = prevElement; // 直接使用节点
-    } else {
-        current = this.find(prevElement); // 找到目标节点
-    }
-    /*if (this.find(newElement)) { // 性能最大的消耗如果 每次都检索是不是已经有该值的节点
+  var newNode = new Node(newElement); // new 新节点
+  var current;
+  if (prevElement instanceof Node) {
+    current = prevElement; // 直接使用节点
+  } else {
+    current = this.find(prevElement); // 找到目标节点
+  }
+  /*if (this.find(newElement)) { // 性能最大的消耗如果 每次都检索是不是已经有该值的节点
      throw new Error(newElement + "has already existed!"); // 如果已经有该值的节点就报错
      } else if (prevElement instanceof Node) {
      current = prevElement; // 直接使用节点
      } else {
      current = this.find(prevElement); // 找到目标节点
      }*/
-    newNode.next = current.next; // 新节点的next为 前一个节点的next
-    current.next = newNode; // 前一个节点的next 为新节点
-    if (current == this.end) {
-        this.end = newNode
-    }
-    return newNode; // 返回新的节点 按次序插入很多节点时直接确认第二个参数
+  newNode.next = current.next; // 新节点的next为 前一个节点的next
+  current.next = newNode; // 前一个节点的next 为新节点
+  if (current == this.end) {
+    this.end = newNode;
+  }
+  return newNode; // 返回新的节点 按次序插入很多节点时直接确认第二个参数
 };
 LList.prototype.insertArr = function (arr, prevElement = this.end) {
-    var current;
-    if (prevElement instanceof Node) {
-        current = prevElement; // 直接使用节点
-    } else {
-        current = this.find(prevElement); // 找到目标节点
-    }
-    for (var i = 0, length = arr.length; i < length; i++) {
-        current = this.insert(arr[i], current)
-    }
+  var current;
+  if (prevElement instanceof Node) {
+    current = prevElement; // 直接使用节点
+  } else {
+    current = this.find(prevElement); // 找到目标节点
+  }
+  for (var i = 0, length = arr.length; i < length; i++) {
+    current = this.insert(arr[i], current);
+  }
 };
 LList.prototype.display = function () {
-    var currNode = this.head;
-    while (!(currNode.next == null)) {
-        console.log(currNode.next.element);
-        currNode = currNode.next;
-    }
+  var currNode = this.head;
+  while (!(currNode.next == null)) {
+    console.log(currNode.next.element);
+    currNode = currNode.next;
+  }
 };
 LList.prototype.remove = function (element) {
-    var prevNode = this.findPrevious(element);
-    if (!(prevNode.next == null)) {
-        prevNode.next = prevNode.next.next; // 将前一个节点的值next 指向 下下个元素
-    }
+  var prevNode = this.findPrevious(element);
+  if (!(prevNode.next == null)) {
+    prevNode.next = prevNode.next.next; // 将前一个节点的值next 指向 下下个元素
+  }
 };
 LList.prototype.findPrevious = function (element) {
-    var currNode = this.head;
-    while (!(currNode.next == null) && (currNode.next.element != element)) {
-        currNode = currNode.next;
-    }
-    return currNode;
+  var currNode = this.head;
+  while (!(currNode.next == null) && currNode.next.element != element) {
+    currNode = currNode.next;
+  }
+  return currNode;
 };
-
 
 /*var cities = new LList(["Conway", "Russellville", "Alma"]);
  cities.insert("afterHead", "head");
@@ -123,7 +121,7 @@ LList.prototype.findPrevious = function (element) {
 console.time("createArr");
 var testArr = ["head"];
 for (let i = 0; i < 999999; i++) {
-    testArr.push(i)
+  testArr.push(i);
 }
 console.timeEnd("createArr");
 
@@ -135,13 +133,11 @@ console.timeEnd("createLList");
 
 // 新建 数组比链表块 4-10倍
 
-
 // set 数据结构
 console.time("createSet");
 var testSet = new Set(testArr);
 console.timeEnd("createSet");
 // 比原生的set快 差距应该就在检查 去重上面
-
 
 console.time("arrAdd");
 testArr.splice(1, 0, "first");

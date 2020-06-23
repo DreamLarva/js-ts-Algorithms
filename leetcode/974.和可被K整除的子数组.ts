@@ -35,7 +35,7 @@ var subarraysDivByK = function (A: number[], K: number): number {
   for (let i = 0; i < A.length; i++) {
     sum += A[i];
     // 注意 C++ 取模的特殊性，当被除数为负数时取模结果为负数，需要纠正
-    const mod = (sum % K + K) % K;
+    const mod = ((sum % K) + K) % K;
     console.log(mod);
     answer += cache[mod] ?? 0;
     cache[mod] = (cache[mod] ?? 0) + 1;
@@ -46,7 +46,7 @@ var subarraysDivByK = function (A: number[], K: number): number {
 
 import assert from "assert";
 
-subarraysDivByK([2, -2, 2, -4, 4], 6)
+subarraysDivByK([2, -2, 2, -4, 4], 6);
 
 // assert.strictEqual(subarraysDivByK([2, -2, 2, -4], 6), 2);
 // assert.strictEqual(subarraysDivByK([-1, 2, 9], 2), 2);

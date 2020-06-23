@@ -1,29 +1,33 @@
-const Benchmark = require('benchmark');
-const suite = new Benchmark.Suite;
+const Benchmark = require("benchmark");
+const suite = new Benchmark.Suite();
 
 const sample = [0, 1, 2, 3];
 suite
-    .add('使用临时变量', function () {
-        const temp = sample[0];
-        sample[0] = sample[1];
-        sample[1] = sample[2];
-        sample[2] = sample[3];
-        sample[3] = temp;
-    })
-    .add('使用数组解构', function () {
-        [sample[0], sample[1], sample[2], sample[3]] = [sample[1], sample[2], sample[3], sample[0]]
+  .add("使用临时变量", function () {
+    const temp = sample[0];
+    sample[0] = sample[1];
+    sample[1] = sample[2];
+    sample[2] = sample[3];
+    sample[3] = temp;
+  })
+  .add("使用数组解构", function () {
+    [sample[0], sample[1], sample[2], sample[3]] = [
+      sample[1],
+      sample[2],
+      sample[3],
+      sample[0],
+    ];
+  })
 
-    })
-
-    // add listeners
-    .on('cycle', function (event) {
-        console.log(String(event.target));
-    })
-    .on('complete', function () {
-        console.log('Fastest is ' + this.filter('fastest').map('name'));
-    })
-    // run async
-    .run({'async': false});
+  // add listeners
+  .on("cycle", function (event) {
+    console.log(String(event.target));
+  })
+  .on("complete", function () {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });
 
 /**
  * 交换两个

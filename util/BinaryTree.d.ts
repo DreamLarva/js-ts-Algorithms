@@ -7,4 +7,4 @@ declare class TreeNode<T = any> {
     preOrderTraversal(): T[];
 }
 declare function createBinaryTree<T>(arr: (T | null)[]): TreeNode<T>;
-export { createBinaryTree, TreeNode, };
+export { createBinaryTree, TreeNode };

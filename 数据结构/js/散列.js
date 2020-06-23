@@ -18,88 +18,100 @@
  * 对数组大小常见的限制是：数组长度应该是一个质数。
  * */
 function HashTable() {
-    this.table = new Array(137);
+  this.table = new Array(137);
 }
 
 HashTable.prototype.simpleHash = function (data) {
-    var total = 0;
-    for (let i = 0; i < data.length; i++) {
-        total += data.charCodeAt(i);
+  var total = 0;
+  for (let i = 0; i < data.length; i++) {
+    total += data.charCodeAt(i);
+  }
+  return total % this.table.length;
+};
+HashTable.prototype.put = function (data) {
+  // 储存一个数据
+  var pos = this.betterHash(data);
+  this.table[pos] = data;
+};
+HashTable.prototype.putArr = function (arr) {
+  // 储存多个数据
+  arr.forEach((v) => {
+    // 箭头函数绑定了作用域
+    var pos = this.betterHash(v);
+    this.table[pos] = v;
+    console.log(pos, v);
+  });
+};
+HashTable.prototype.showDistro = function () {
+  // 打印所有数据
+  var n = 0;
+  for (var i = 0; i < this.table.length; ++i) {
+    if (this.table[i] != undefined) {
+      console.log(i + " : " + this.table[i]);
     }
-    return total % this.table.length;
-};
-HashTable.prototype.put = function (data) { // 储存一个数据
-    var pos = this.betterHash(data);
-    this.table[pos] = data;
-};
-HashTable.prototype.putArr = function (arr) { // 储存多个数据
-    arr.forEach(v => { // 箭头函数绑定了作用域
-        var pos = this.betterHash(v);
-        this.table[pos] = v;
-        console.log(pos, v)
-    });
-
-};
-HashTable.prototype.showDistro = function () { // 打印所有数据
-    var n = 0;
-    for (var i = 0; i < this.table.length; ++i) {
-        if (this.table[i] != undefined) {
-            console.log(i + " : " + this.table[i])
-        }
-    }
+  }
 };
 // 霍纳算法 更好的解决碰撞
 HashTable.prototype.betterHash = function (string) {
-    const H = 31;
-    var total = 0;
-    for (var i = 0; i < string.length; ++i) {
-        total += H * total + string.charCodeAt(i);
-    }
-    total = total % this.table.length;
-    if (total < 0) {
-        total += this.table.length - 1;
-    }
-    return parseInt(total);
+  const H = 31;
+  var total = 0;
+  for (var i = 0; i < string.length; ++i) {
+    total += H * total + string.charCodeAt(i);
+  }
+  total = total % this.table.length;
+  if (total < 0) {
+    total += this.table.length - 1;
+  }
+  return parseInt(total);
 };
 
-
 var T = new HashTable();
-T.putArr(["David", "Jennifer", "Donnie", "Raymond", "Cynthia", "Mike", "Clayton", "Danny", "Jonathan"]);
+T.putArr([
+  "David",
+  "Jennifer",
+  "Donnie",
+  "Raymond",
+  "Cynthia",
+  "Mike",
+  "Clayton",
+  "Danny",
+  "Jonathan",
+]);
 T.showDistro();
-console.log('-----------');
-
+console.log("-----------");
 
 /**
  * 如果用散列来存储数据
  * 那么每个数据就必须要要一个主键 来作为key
  * */
 function HashTableData() {
-    this.table = new Array(137);
+  this.table = new Array(137);
 }
 
 HashTableData.prototype.simpleHash = function (data) {
-    var total = 0;
-    for (let i = 0; i < data.length; i++) {
-        total += data.charCodeAt(i);
-    }
-    return total % this.table.length;
+  var total = 0;
+  for (let i = 0; i < data.length; i++) {
+    total += data.charCodeAt(i);
+  }
+  return total % this.table.length;
 };
 // 霍纳算法 更好的解决碰撞
 HashTableData.prototype.betterHash = function (string) {
-    const H = 31;
-    var total = 0;
-    for (var i = 0; i < string.length; ++i) {
-        total += H * total + string.charCodeAt(i);
-    }
-    total = total % this.table.length;
-    if (total < 0) {
-        total += this.table.length - 1;
-    }
-    return parseInt(total);
+  const H = 31;
+  var total = 0;
+  for (var i = 0; i < string.length; ++i) {
+    total += H * total + string.charCodeAt(i);
+  }
+  total = total % this.table.length;
+  if (total < 0) {
+    total += this.table.length - 1;
+  }
+  return parseInt(total);
 };
-HashTableData.prototype.put = function (key, data) { // 储存一个数据
-    var pos = this.betterHash(key);
-    this.table[pos] = data;
+HashTableData.prototype.put = function (key, data) {
+  // 储存一个数据
+  var pos = this.betterHash(key);
+  this.table[pos] = data;
 };
 /*  HashTableData.prototype.putArr = function (arr) { // 储存多个数据
       arr.forEach(v=> {
@@ -110,20 +122,19 @@ HashTableData.prototype.put = function (key, data) { // 储存一个数据
 
   };*/
 HashTableData.prototype.get = function (key) {
-    return this.table[this.betterHash(key)]
+  return this.table[this.betterHash(key)];
 };
-HashTableData.prototype.showDistro = function () { // 打印所有数据
-    var n = 0;
-    for (var i = 0; i < this.table.length; ++i) {
-        if (this.table[i] != undefined) {
-            console.log(i + " : " + this.table[i])
-        }
+HashTableData.prototype.showDistro = function () {
+  // 打印所有数据
+  var n = 0;
+  for (var i = 0; i < this.table.length; ++i) {
+    if (this.table[i] != undefined) {
+      console.log(i + " : " + this.table[i]);
     }
+  }
 };
-
 
 var TD = new HashTableData();
-var data = {key: "123", value: "abc"};
+var data = { key: "123", value: "abc" };
 TD.put(data.key, data);
 TD.showDistro();
-

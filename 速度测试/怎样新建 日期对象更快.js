@@ -1,37 +1,33 @@
-const Benchmark = require('benchmark');
-const suite = new Benchmark.Suite;
+const Benchmark = require("benchmark");
+const suite = new Benchmark.Suite();
 
 const date = new Date();
 const string = date.toString();
 const timeStamp = date.getTime();
 
-
 suite
-    .add('直接使用日期对象', function () {
-        new Date(date)
-    })
-    .add('使用字符串', function () {
-        new Date(string)
+  .add("直接使用日期对象", function () {
+    new Date(date);
+  })
+  .add("使用字符串", function () {
+    new Date(string);
+  })
+  .add("使用时间戳", function () {
+    new Date(timeStamp);
+  })
+  .add("直接新建", function () {
+    new Date();
+  })
 
-    })
-    .add('使用时间戳', function () {
-        new Date(timeStamp)
-
-    })
-    .add('直接新建', function () {
-        new Date()
-    })
-
-
-    // add listeners
-    .on('cycle', function (event) {
-        console.log(String(event.target));
-    })
-    .on('complete', function () {
-        console.log('Fastest is ' + this.filter('fastest').map('name'));
-    })
-    // run async
-    .run({'async': false});
+  // add listeners
+  .on("cycle", function (event) {
+    console.log(String(event.target));
+  })
+  .on("complete", function () {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });
 
 /**
  * 直接使用日期对象 x 7,871,118 ops/sec ±1.28% (91 runs sampled)

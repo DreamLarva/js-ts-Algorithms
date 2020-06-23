@@ -12,48 +12,45 @@
  * */
 
 export function shellSortWithStaticGaps(arr: number[]) {
-    let len = arr.length;
-    // 定义间隔 必须和下面的数组对应 从大到小
-    let gaps = [701, 301, 132, 57, 23, 10, 4, 1];
+  let len = arr.length;
+  // 定义间隔 必须和下面的数组对应 从大到小
+  let gaps = [701, 301, 132, 57, 23, 10, 4, 1];
 
-    // 间隔按照排序的每次取用的间隔一次减小
-    for (let g = 0; g < gaps.length; g++) {
-        // 对于每个间隔内 页逐渐减小 直到进入 下一个更小的间隔
-        for (let i = gaps[g]; i < len; i++) {
-            // 储存当前节点准备之后插入
-            let temp = arr[i];
-            // 相当于将 从arr[j]开始 想做 每间隔gaps[g]的元素 组成的数组进行插入排序
-            // arr[j - gaps[g]]> temp 而不是再比较 两个间隔之间的元素 是因为 在i值更小的时候已经比较过了 所以只要比temp和上一次间隔的元素的大小就能判断是不是要对当前i和当前间隔进行插入排序
-            let j;
-            for (j = i; j >= gaps[g] && arr[j - gaps[g]] > temp; j -= gaps[g]) {
-                arr[j] = arr[j - gaps[g]];
-            }
-            arr[j] = temp;
-
-        }
-
+  // 间隔按照排序的每次取用的间隔一次减小
+  for (let g = 0; g < gaps.length; g++) {
+    // 对于每个间隔内 页逐渐减小 直到进入 下一个更小的间隔
+    for (let i = gaps[g]; i < len; i++) {
+      // 储存当前节点准备之后插入
+      let temp = arr[i];
+      // 相当于将 从arr[j]开始 想做 每间隔gaps[g]的元素 组成的数组进行插入排序
+      // arr[j - gaps[g]]> temp 而不是再比较 两个间隔之间的元素 是因为 在i值更小的时候已经比较过了 所以只要比temp和上一次间隔的元素的大小就能判断是不是要对当前i和当前间隔进行插入排序
+      let j;
+      for (j = i; j >= gaps[g] && arr[j - gaps[g]] > temp; j -= gaps[g]) {
+        arr[j] = arr[j - gaps[g]];
+      }
+      arr[j] = temp;
     }
+  }
 }
 
-
 export function shellSortWithDynamicGaps(arr: number[]) {
-    const N = arr.length;
-    let h = 1;
-    // 动态生成 shellSort 最佳的间隔
-    while (h < N / 3) {
-        h = 3 * h + 1;
-    }
+  const N = arr.length;
+  let h = 1;
+  // 动态生成 shellSort 最佳的间隔
+  while (h < N / 3) {
+    h = 3 * h + 1;
+  }
 
-    // 这种办法比 向后赋值最后更新到最前面的位置 比不停交换两个元素的位置的速度快的多
-    while (h >= 1) {
-        for (let i = h; i < N; i++) {
-            let temp = arr[i];
-            let j;
-            for (j = i; j >= h && arr[j - h] > temp; j -= h) {
-                arr[j] = arr[j - h];
-            }
-            arr[j] = temp;
-        }
-        h = (h - 1) / 3;
+  // 这种办法比 向后赋值最后更新到最前面的位置 比不停交换两个元素的位置的速度快的多
+  while (h >= 1) {
+    for (let i = h; i < N; i++) {
+      let temp = arr[i];
+      let j;
+      for (j = i; j >= h && arr[j - h] > temp; j -= h) {
+        arr[j] = arr[j - h];
+      }
+      arr[j] = temp;
     }
+    h = (h - 1) / 3;
+  }
 }

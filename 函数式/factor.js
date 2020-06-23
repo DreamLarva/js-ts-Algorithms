@@ -1,57 +1,38 @@
-class MayBe {
-  constructor(value) {
-    this.value = value;
+class Maybe {
+  static just(a) {
+    return new Just(a);
+  }
+  static nothing() {
+    return new Noting();
+  }
+  static fromNullable(a) {
+    return a == null ? this.nothing() : this.just(a);
   }
 
-  static of(value) {
-    return new MayBe(value);
+  static of(a) {
+    return this.just(a);
   }
 
-  isNothing() {
-    return this.value == null;
-  }
-
-  join(){
-    return this.isNothing() ? MayBe.of(null) : this.value
-  }
-
-  map(fn) {
-    return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value));
-  }
 }
 
-class Nothing {
+class Just extends Maybe {
   constructor(value) {
-    this.value = value;
+    super();
+    this._value = value
+  }
+  get value(){
+    return this._value;
+  }
+  map(f){
+    return Just.of(f(this.value))
+  }
+  getOrElse(){
+    return this.value
   }
 
-  static of(value) {
-    return new Nothing(value);
-  }
-
-  map() {
-    return this;
-  }
 }
 
-class Some {
-  constructor(value) {
-    this.value = value;
-  }
+class Noting extends Maybe {}
 
-  static of(value) {
-    return new Some(value);
-  }
 
-  map(fn) {
-    return Some.of(fn(value));
-  }
-}
 
-module.exports = {
-  MayBe,
-  Either: {
-    Some,
-    Nothing,
-  },
-};
