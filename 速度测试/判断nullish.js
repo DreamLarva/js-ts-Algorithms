@@ -10,19 +10,19 @@ suite
     return a == null;
   })
   .add("not nul === null || === undefined", function () {
-    return a === null || undefined;
+    return a === null || a === undefined;
   })
   .add("null == null", function () {
     return b == null;
   })
   .add("null === null || null === undefined", function () {
-    return b === null || undefined;
+    return b === null || b === undefined;
   })
   .add("undefined == null", function () {
     return c == null;
   })
   .add("undefined === null || null === undefined", function () {
-    return c === null || undefined;
+    return c === null || c === undefined;
   })
 
   // add listeners

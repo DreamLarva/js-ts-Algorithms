@@ -49,16 +49,13 @@ var threeSumClosest = function (nums: number[], target: number) {
         result = sum;
       }
 
-      if (sum === target) {
-        return target;
-      }
-      if (sum < target) {
+      if (sum === target) return target;
+      if (sum < target)
         while (left < right && nums[++left] === nums[left - 1]) {}
-      } else {
-        while (left < right && nums[--right] === nums[right + 1]) {}
-      }
+      else while (left < right && nums[--right] === nums[right + 1]) {}
     }
 
+    // 由于是已经排序的 数组, 最左侧的指针的值 如果相同就没有必要再计算一次
     while (nums[i] === nums[++i]) {}
   }
 
@@ -78,5 +75,5 @@ assert.strictEqual(
   -7
 );
 
-threeSumClosest([12, 39, -96, 88, 76, 63, -11, 43, -95, 43], -200);
-threeSumClosest([12, 39, -96, 88, 76, 63, -11, 43, -95, 43], 10);
+// threeSumClosest([12, 39, -96, 88, 76, 63, -11, 43, -95, 43], -200);
+// threeSumClosest([12, 39, -96, 88, 76, 63, -11, 43, -95, 43], 10);
