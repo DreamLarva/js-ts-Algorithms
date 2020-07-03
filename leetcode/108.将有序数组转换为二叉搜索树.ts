@@ -34,28 +34,31 @@ var sortedArrayToBST = function (nums: number[]) {
   return recursionSortedArrayToBS(nums);
 };
 
-function recursionSortedArrayToBS(nums: number[], node = new TreeNode()) {
+function recursionSortedArrayToBS(nums: number[], parentNode = new TreeNode()) {
   if (nums.length === 0) {
     return null;
   }
   // [] [1] []
   if (nums.length === 1) {
-    node.val = nums[0];
+    parentNode.val = nums[0];
   }
   // [] [1] [1]
   else if (nums.length === 2) {
-    node.val = nums[0];
-    node.right = new TreeNode(nums[1]);
+    parentNode.val = nums[0];
+    parentNode.right = new TreeNode(nums[1]);
   } else {
     const medianIndex = Math.floor(nums.length / 2);
-    node.val = nums[medianIndex];
-    node.left = new TreeNode();
-    recursionSortedArrayToBS(nums.slice(0, medianIndex), node.left);
-    node.right = new TreeNode();
-    recursionSortedArrayToBS(nums.slice(medianIndex + 1), node.right);
+    // 设置中间的节点
+    parentNode.val = nums[medianIndex];
+    // 分配左子树
+    parentNode.left = new TreeNode();
+    recursionSortedArrayToBS(nums.slice(0, medianIndex), parentNode.left);
+    // 分配右子树
+    parentNode.right = new TreeNode();
+    recursionSortedArrayToBS(nums.slice(medianIndex + 1), parentNode.right);
   }
 
-  return node;
+  return parentNode;
 }
 
 export {};

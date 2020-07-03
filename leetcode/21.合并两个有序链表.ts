@@ -30,34 +30,64 @@
 import { ListNode, createLinkedList } from "../util/LinkedList";
 
 /**
+ * 递归
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
  */
-
-var mergeTwoLists = function <T>(
-  l1: ListNode<T> | null,
-  l2: ListNode<T> | null
-): ListNode | null {
+var mergeTwoLists1 = function <T>(
+  l1: ListNode<number> | null,
+  l2: ListNode<number> | null
+): ListNode<number> | null {
   // 如果 某一个链表到底了 就返回 另一个
   if (l1 === null) return l2;
   if (l2 === null) return l1;
 
   if (l1.val <= l2.val) {
     // 递归 下一个值
-    l1.next = mergeTwoLists(l1.next, l2);
+    l1.next = mergeTwoLists1(l1.next, l2);
     // 返回本轮较小的值
     return l1;
   } else {
-    l2.next = mergeTwoLists(l1, l2.next);
+    l2.next = mergeTwoLists1(l1, l2.next);
     return l2;
   }
+};
+
+var mergeTwoLists2 = function <T>(
+  l1: ListNode<number> | null,
+  l2: ListNode<number> | null
+): ListNode<number> | null {
+  const head: ListNode<number> = new ListNode(0);
+  let current = head;
+  while (l1 != null && l2 != null) {
+    if (l1.val < l2.val) {
+      current.next = l1;
+      l1 = l1.next;
+    } else {
+      current.next = l2;
+      l2 = l2.next;
+    }
+    current = current.next;
+  }
+
+  current.next = l1 == null ? l2 : l1;
+
+  return head.next;
 };
 
 import assert from "assert";
 
 assert.deepStrictEqual(
-  mergeTwoLists(
+  mergeTwoLists1(
+    createLinkedList([1, 2, 4]),
+    createLinkedList([1, 3, 4])
+  )!.toString(),
+
+  [1, 1, 2, 3, 4, 4]
+);
+assert.deepStrictEqual(
+  mergeTwoLists2(
     createLinkedList([1, 2, 4]),
     createLinkedList([1, 3, 4])
   )!.toString(),

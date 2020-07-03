@@ -19,12 +19,12 @@
   "homepage": "https://github.com/DreamLarva/js-ts-rs-Algorithms#readme",
   "devDependencies": {
     "@types/benchmark": "^1.0.33",
-    "@types/lodash": "^4.14.153",
-    "@types/node": "^10.17.24",
+    "@types/lodash": "^4.14.157",
+    "@types/node": "^10.17.26",
     "axios": "^0.19.2",
     "benchmark": "^2.1.4",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   },
   "dependencies": {
     "@types/ramda": "^0.27.6",
