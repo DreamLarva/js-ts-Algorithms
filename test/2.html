@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=640,minimum-scale=0.5,maximum-scale=1.0,initial-scale=2.0"
+    />
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.15/lodash.js"></script>
+      <style>
+          .square{
+              width: 100px;
+              height: 100px;
+              background:red;
+          }
+      </style>
+  </head>
+  <body>
+    <div class="square">
+
+    </div>
+    <pre>
+      const func = _.cond([
+        [_.matches({ a: 1 }), "1"],
+
+        [_.conforms({ b: _.isNumber }), _.constant("matches B")],
+
+        [_.stubTrue, _.constant("no match")],
+      ]);
+
+      console.log(func({ a: 1 }));
+  </pre
+    >
+    <code>
+      const func = _.cond([ [_.matches({ a: 1 }), "1"], [_.conforms({ b:
+      _.isNumber }), _.constant("matches B")], [_.stubTrue, _.constant("no
+      match")], ]); console.log(func({ a: 1 }));
+    </code>
+    <script></script>
+  </body>
+</html>

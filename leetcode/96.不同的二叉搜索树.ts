@@ -54,12 +54,30 @@ var numTrees_1 = function (n: number): number {
   }
 };
 
+// 动态规划
+const numTrees2 = (n: number) => {
+  const list = Array(n + 1).fill(0);
+  list[0] = 1; // 没有子树 1 种情况 很好理解
+  list[1] = 1; // 由于是二叉搜素数 所以一定 只能成为 左子树 或者 右子树的一种
+  for (let i = 2; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+      list[i] += list[j - 1] * list[i - j];
+    }
+  }
+  return list[n];
+};
+
 import assert from "assert";
 
 assert.strictEqual(numTrees_1(2), 2);
 assert.strictEqual(numTrees_1(3), 5);
 assert.strictEqual(numTrees_1(5), 42);
 assert.strictEqual(numTrees_1(10), 16796);
+
+assert.strictEqual(numTrees2(2), 2);
+assert.strictEqual(numTrees2(3), 5);
+assert.strictEqual(numTrees2(5), 42);
+assert.strictEqual(numTrees2(10), 16796);
 
 const Benchmark = require("benchmark");
 const suite = new Benchmark.Suite();
@@ -69,6 +87,9 @@ suite
   })
   .add("有记忆", function () {
     numTrees_1(10);
+  })
+  .add("动态规划", function () {
+    numTrees2(10);
   })
   // add listeners
   .on("cycle", function (event: any) {

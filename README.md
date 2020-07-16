@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^3.9.5  
+typescript: ^3.9.6  
 ts-node: ^8.10.2  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -197,12 +197,14 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 706 | [设计哈希映射](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/706.设计哈希映射.ts) | 简单 |
 | 707 | [设计链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/707.设计链表.ts) | 中等 |
 | 717 | [1比特与2比特字符](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/717.1比特与2比特字符.ts) | 简单 |
+| 718 | [最长重复子数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/718.最长重复子数组.ts) | 中等 |
 | 724 | [寻找数组的中心索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/724.寻找数组的中心索引.ts) | 简单 |
 | 733 | [图像渲染](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/733.图像渲染.ts) | 简单 |
 | 739 | [每日温度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/739.每日温度.ts) | 中等 |
 | 747 | [至少是其他数字两倍的最大数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/747.至少是其他数字两倍的最大数.ts) | 简单 |
 | 752 | [打开转盘锁](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/752.打开转盘锁.ts) | 中等 |
 | 771 | [宝石与石头](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/771.宝石与石头.ts) | 简单 |
+| 785 | [判断二分图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/785.判断二分图.ts) | 中等 |
 | 788 | [旋转数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/788.旋转数字.ts) | 简单 |
 | 799 | [语法中的第K个符号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/799.语法中的第K个符号.ts) | 中等 |
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 中等 |

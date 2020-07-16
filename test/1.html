@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
     <script src="https://cdn.bootcdn.net/ajax/libs/big.js/5.2.2/big.min.js"></script>
-</head>
-<body>
-<input id="input" type="text">
-<script>
+      <script src="/path/to/js-file-downloader.min.js"></script>
 
-</script>
-</body>
+  </head>
+  <body>
+    <input id="input" type="text" />
+    <script>
+      // Then somewhere in your code
+      new jsFileDownloader({
+        url: "http://alessandropellizzari.it/assets/img/og-image.jpg",
+      })
+        .then(function () {
+          // Called when download ended
+        })
+        .catch(function (error) {
+          // Called when an error occurred
+        });
+    </script>
+  </body>
 </html>
