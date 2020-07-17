@@ -20,20 +20,20 @@
   "devDependencies": {
     "@types/benchmark": "^1.0.33",
     "@types/lodash": "^4.14.157",
-    "@types/node": "^10.17.26",
+    "@types/node": "^10.17.27",
     "axios": "^0.19.2",
     "benchmark": "^2.1.4",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@types/ramda": "^0.27.6",
+    "@types/ramda": "^0.27.11",
     "awilix": "^4.2.6",
     "inversify": "^5.0.1",
-    "lodash": "*",
+    "lodash": "^4.17.19",
     "ramda": "^0.27.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^6.5.5",
+    "rxjs": "^6.6.0",
     "tsyringe": "^3.4.0"
   }
 }
