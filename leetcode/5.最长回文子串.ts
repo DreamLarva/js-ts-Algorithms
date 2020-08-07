@@ -58,49 +58,17 @@ var longestPalindrome = function (s: string) {
 };
 
 /**
- * todo
  * Manacher算法
  * 时间复杂度为 O(n)
  * */
-function Manacher(s: string) {
-  // 添加在每个字符中间添加 # 将字符串隔开
-  // 就能将 所有 1221 这样的 转化为 1#2#2#1 就可以 同 121 这样格式一样处理
-  let text = "";
-  for (let i = 0; i < s.length - 1; i++) {
-    text += s[i] + "#";
-  }
-  text += s[s.length - 1];
+import { manacher1 } from "../算法/manacher马拉车算法";
 
-  // 从左向右 中心拓展判断是不是 回文
-  let index = 0;
-  const map: number[] = [];
-  while (index < text.length) {
-    const middle = index;
-    // if (text[middle] === "#"){
-    //     index++;
-    //     continue
-    // }
-
-    let range = 1;
-    while (
-      middle - range > 0 &&
-      middle + range < text.length &&
-      text[middle - range] === text[middle + range]
-    ) {
-      range++;
-    }
-    map[middle] = range;
-    index++;
-    while (index < middle + range - 1) {}
-  }
-  console.log(map);
-
-  return true;
-}
 
 import assert from "assert";
 
 assert.strictEqual(longestPalindrome("cbbd"), "bb");
 assert.strictEqual(longestPalindrome("abacddc"), "cddc");
+assert.strictEqual(manacher1("abacddc"), "cddc");
+assert.strictEqual(manacher1("abacddc"), "cddc");
 
-Manacher("1234");
+
