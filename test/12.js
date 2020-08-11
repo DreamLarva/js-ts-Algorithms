@@ -22,28 +22,30 @@ nude.on("close", (code) => {
 });
 */
 
-const nude = spawnSync(
-  "cargo",
-  [
-    "run",
-    "--release",
-    "--example",
-    "scan",
-    "/Users/yangjiaqi/Desktop/project/nude-rs/test_data/damita.jpg",
-  ],
-  {
-    cwd: "/Users/yangjiaqi/Desktop/project/nude-rs/",
-  }
-);
+// const nude = spawnSync(
+//   "cargo",
+//   [
+//     "run",
+//     "--release",
+//     "--example",
+//     "scan",
+//     "/Users/yangjiaqi/Desktop/project/nude-rs/test_data/damita.jpg",
+//   ],
+//   {
+//     cwd: "/Users/yangjiaqi/Desktop/project/nude-rs/",
+//   }
+// );
+//
+// console.log(nude);
+// // console.log(nude.output.toString());
+// console.log(nude.stdout.toString());
+// console.log(
+//   nude.stdout.toString()
+//     .match(/{.*}/)[0]
+//     .replace("{", "")
+//     .replace("}", "")
+//     .split(",")
+//     .map(str => str.split(":").map(v => v.trim()))
+// );
 
-console.log(nude);
-// console.log(nude.output.toString());
-console.log(nude.stdout.toString());
-console.log(
-  nude.stdout.toString()
-    .match(/{.*}/)[0]
-    .replace("{", "")
-    .replace("}", "")
-    .split(",")
-    .map(str => str.split(":").map(v => v.trim()))
-);
+console.log(process)

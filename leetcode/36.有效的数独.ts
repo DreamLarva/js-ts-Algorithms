@@ -54,8 +54,8 @@
  * @param {string[][]} board
  * @return {boolean}
  */
-type SudokuElement = "." | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
-var isValidSudoku = function (board: SudokuElement[][]) {
+type SudokuElement = string // "." | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+export default function isValidSudoku(board: SudokuElement[][]) {
   // 存储每列的结果
   const columns: number[][] = Array(9)
     .fill(0)
@@ -90,7 +90,7 @@ var isValidSudoku = function (board: SudokuElement[][]) {
     }
   }
   return true;
-};
+}
 
 import assert from "assert";
 

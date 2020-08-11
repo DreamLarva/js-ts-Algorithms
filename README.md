@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^3.9.6  
+typescript: ^3.9.7  
 ts-node: ^8.10.2  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -54,6 +54,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 34 | [在排序数组中查找元素的第一个和最后一个位置](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/34.在排序数组中查找元素的第一个和最后一个位置.ts) | 中等 |
 | 35 | [搜索插入位置](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/35.搜索插入位置.ts) | 简单 |
 | 36 | [有效的数独](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/36.有效的数独.ts) | 中等 |
+| 37 | [解数独](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/37.解数独.ts) | 困难 |
 | 38 | [报数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/38.报数.ts) | 简单 |
 | 46 | [全排列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/46.全排列.ts) | 中等 |
 | 47 | [全排列II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/47.全排列II.ts) | 中等 |
@@ -65,6 +66,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 54 | [螺旋矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/54.螺旋矩阵.ts) | 中等 |
 | 58 | [最后一个单词的长度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/58.最后一个单词的长度.ts) | 简单 |
 | 61 | [旋转链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/61.旋转链表.ts) | 中等 |
+| 64 | [最小路径和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/64.最小路径和.ts) | 中等 |
 | 66 | [加一](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/66.加一.ts) | 简单 |
 | 67 | [二进制求和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/67.二进制求和.ts) | 简单 |
 | 69 | [x的平方根](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/69.x的平方根.ts) | 简单 |
@@ -165,6 +167,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 384 | [打乱数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/384.打乱数组.ts) | 中等 |
 | 387 | [字符串中的第一个唯一字符](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/387.字符串中的第一个唯一字符.ts) | 简单 |
 | 389 | [找不同](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/389.找不同.ts) | 简单 |
+| 392 | [判断子序列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/392.判断子序列.ts) | 简单 |
 | 394 | [字符串解码](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/394.字符串解码.ts) | 中等 |
 | 400 | [第N个数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/400.第N个数字.ts) | 中等 |
 | 401 | [二进制手表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/401.二进制手表.ts) | 简单 |
@@ -213,5 +216,6 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1005 | [K次取反后最大化的数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1005.K次取反后最大化的数组和.ts) | 简单 |
 | 1014 | [最佳观光组合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1014.最佳观光组合.ts) | 中等 |
 | 1018 | [可被5整除的二进制前缀](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1018.可被5整除的二进制前缀.ts) | 简单 |
+| 1025 | [除数博弈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1025.除数博弈.ts) | 简单 |
 | 1028 | [从先序遍历还原二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1028.从先序遍历还原二叉树.ts) | 困难 |
 | 1071 | [字符串的最大公因子](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1071.字符串的最大公因子.ts) | 简单 |
