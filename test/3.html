@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="input1" type="number">
+<input id="input2" type="date">
+<script>
+ function a(){
+   try{
+     console.log(1)
+     throw new Error(1234)
+     console.log(2)
+   }catch(e){
+     console.log(3)
+     return
+     console.log(4)
+   }finally {
+     console.log(5)
+   }
+
+ }
+</script>
+
+</body>
+</html>

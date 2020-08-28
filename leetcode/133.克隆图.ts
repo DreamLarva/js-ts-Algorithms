@@ -37,10 +37,12 @@ class Node {
 }
 
 /**
- * @param {Node} node
+ * 克隆图
+ * @param  {Node}  node 节点
  * @return {Node}
  */
-var cloneGraph = function (node: Node): Node {
+var cloneGraph = function (node: Node | null | void): Node | null | void {
+  if (node == null) return node;
   const map = new Map();
   return step(node);
 
@@ -72,4 +74,8 @@ import assert from "assert";
   node4.neighbors = [node3, node5];
   node5.neighbors = [node1, node4];
   assert.deepStrictEqual(cloneGraph(node1), node1);
+}
+
+{
+  assert.deepStrictEqual(cloneGraph(null), null);
 }
