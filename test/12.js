@@ -48,4 +48,4 @@ nude.on("close", (code) => {
 //     .map(str => str.split(":").map(v => v.trim()))
 // );
 
-console.log(process)
+

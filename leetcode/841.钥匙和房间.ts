@@ -56,7 +56,77 @@ var canVisitAllRooms = function (rooms: number[][]) {
   return room_visited === rooms.length;
 };
 
+var canVisitAllRooms2 = function (rooms: number[][]) {
+  // bfs
+  let list: number[] = [];
+  const cache: Boolean[] = Array(rooms.length).fill(false);
+  let room_visited = 0;
+  list.push(0);
+  while (list.length) {
+    const room_num = list.shift()!;
+    if (cache[room_num]) continue;
+
+    if (rooms[room_num]) {
+      list = list.concat(rooms[room_num]);
+      cache[room_num] = true;
+      room_visited++;
+    }
+  }
+
+  return room_visited === rooms.length;
+};
+
 import assert from "assert";
 
 assert.strictEqual(canVisitAllRooms([[1], [2], [3], []]), true);
 assert.strictEqual(canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]), false);
+
+assert.strictEqual(canVisitAllRooms2([[1], [2], [3], []]), true);
+assert.strictEqual(canVisitAllRooms2([[1, 3], [3, 0, 1], [2], [0]]), false);
+
+const Benchmark = require("benchmark");
+const suite = new Benchmark.Suite();
+
+suite
+  .add("set", function () {
+    canVisitAllRooms([
+      [1, 3],
+      [3, 0, 1],
+      [2],
+      [0],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+    ]);
+  })
+  .add("array", function () {
+    canVisitAllRooms2([
+      [1, 3],
+      [3, 0, 1],
+      [2],
+      [0],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+    ]);
+  })
+
+  // add listeners
+  .on("cycle", function (event: any) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: any) {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });
+
+/**
+ * 竟然还是 set 的快那么点......
+ * */

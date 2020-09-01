@@ -1,2 +1,4 @@
-declare function f(): Promise<undefined>;
-declare function f1(): Promise<void>;
+declare const obj: {
+    prop: boolean;
+};
+declare function foo(): boolean;
