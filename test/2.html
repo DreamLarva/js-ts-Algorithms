@@ -46,15 +46,9 @@
       </svg>
     </div>
     <pre>
-      const func = _.cond([
-        [_.matches({ a: 1 }), "1"],
-
-        啊啊啊啊啊啊啊啊
-
-        [_.stubTrue, _.constant("no match")],
-      ]);
-
-      console.log(func({ a: 1 }));
+       const func = _.cond([ [_.matches({ a: 1 }), "1"], [_.conforms({ b:
+      _.isNumber }), _.constant("matches B")], [_.stubTrue, _.constant("no
+      match")], ]); console.log(func({ a: 1 }));
   </pre
     >
     <code>
