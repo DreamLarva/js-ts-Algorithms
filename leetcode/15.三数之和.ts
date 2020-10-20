@@ -20,8 +20,8 @@
  * @return {number[][]}
  */
 var threeSum = function (nums: number[]) {
-  // 使用三个指针
-  // 当前指正  当前指针后的一个位置 和 数组最后的位置
+  // 排序后 使用三个指针
+  // 当前指针  当前指针后的一个位置 和 数组最后的位置
   nums.sort((a, b) => a - b);
 
   // 排除极端情况
