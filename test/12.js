@@ -52,3 +52,6 @@ nude.on("close", (code) => {
 const _ = require("lodash")
 
 console.log(_.throttle(() => Promise.resolve(), 1000, {trailing: false}).done(() => console.log(1)));
+
+
+console.log(123123123)
