@@ -7,7 +7,7 @@ export function sortDeep(arr: any[]) {
   function step(data: any) {
     if (Array.isArray(data)) {
       data.forEach((data) => step(data));
-      data.sort((a, b) => a - b);
+      data.sort();
     }
   }
 }
@@ -35,6 +35,8 @@ assert.deepStrictEqual(
     ])
   )
 );
+
+assert.deepStrictEqual(sortDeep([[7], [2, 2, 3]]), sortDeep([[2, 2, 3], [7]]));
 
 {
   const data = [1, 2, 3];
