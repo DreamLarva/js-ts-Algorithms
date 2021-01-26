@@ -12,7 +12,7 @@ export declare class ChildrenPrices extends Price {
 export declare class NewReleasePrice extends Price {
     getPriceCode(): MovieType;
     getCharge(getDaysRented: number): number;
-    getFrequentRenterPoints(daysRented: number): 1 | 2;
+    getFrequentRenterPoints(daysRented: number): 2 | 1;
 }
 export declare class RegularPrice extends Price {
     getPriceCode(): MovieType;

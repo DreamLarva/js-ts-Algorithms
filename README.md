@@ -57,6 +57,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 37 | [解数独](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/37.解数独.ts) | 困难 |
 | 38 | [报数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/38.报数.ts) | 简单 |
 | 39 | [组合总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/39.组合总和.ts) | 中等 |
+| 40 | [组合总和II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/40.组合总和II.ts) | 中等 |
 | 46 | [全排列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/46.全排列.ts) | 中等 |
 | 47 | [全排列II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/47.全排列II.ts) | 中等 |
 | 48 | [旋转图像](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/48.旋转图像.ts) | 中等 |
@@ -117,7 +118,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 189 | [旋转数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/189.旋转数组.ts) | 中等 |
 | 190 | [颠倒二进制位](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/190.颠倒二进制位.ts) | 简单 |
 | 191 | [位1的个数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/191.位1的个数.ts) | 简单 |
-| 198 | [打家劫舍](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/198.打家劫舍.ts) | 简单 |
+| 198 | [打家劫舍](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/198.打家劫舍.ts) | 中等 |
 | 200 | [岛屿数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/200.岛屿数量.ts) | 中等 |
 | 202 | [快乐数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/202.快乐数.ts) | 简单 |
 | 203 | [移除链表元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/203.移除链表元素.ts) | 简单 |
