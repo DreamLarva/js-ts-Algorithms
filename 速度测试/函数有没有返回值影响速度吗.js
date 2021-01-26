@@ -19,10 +19,10 @@ suite
   .run({ async: false });
 
 /**
- 无返回值 x 700,851,792 ops/sec ±1.30% (88 runs sampled)
- 有返回值 x 699,670,420 ops/sec ±1.26% (90 runs sampled)
- Fastest is 无返回值,有返回值
- 结论是没有区别
+ * 无返回值 x 700,851,792 ops/sec ±1.30% (88 runs sampled)
+ * 有返回值 x 699,670,420 ops/sec ±1.26% (90 runs sampled)
+ * Fastest is 无返回值,有返回值
+ * 结论是没有区别
  *
  * 其实相差的还不多
  * */

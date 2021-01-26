@@ -1,3 +1,4 @@
+const _ = require("lodash");
 const Benchmark = require("benchmark");
 const suite = new Benchmark.Suite();
 
@@ -23,6 +24,9 @@ suite
   })
   .add("undefined === null || null === undefined", function () {
     return c === null || c === undefined;
+  })
+  .add("_.isNil", function () {
+    return _.isNil(c);
   })
 
   // add listeners

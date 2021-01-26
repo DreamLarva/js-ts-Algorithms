@@ -52,6 +52,11 @@ i = 5，将 [1,1,1,2,3,4] 操作成 [-1,0,1,2,3,4]，最少 3 次操作；
 import _ from "lodash";
 
 function numsGame(nums: number[]): number[] {
+  /**
+   * todo
+   * 获取中位数 还不够
+   * 当 nums.length 为偶数时 , 还必须分清使用哪个数作为中位数
+   * */
   const median = findKthLargest(nums.slice(), Math.ceil(nums.length / 2));
   console.log("median", median);
   const result: number[] = [];

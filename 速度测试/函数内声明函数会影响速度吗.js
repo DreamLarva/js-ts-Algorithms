@@ -72,5 +72,7 @@ function c() {
 function d() {}
 
 /**
+ * outBlock x 1,714 ops/sec ±1.63% (87 runs sampled)
+ * inBlock x 1,669 ops/sec ±1.20% (88 runs sampled)
  * inBlock 比outBlock 应该多声明 10 ** 6 次函数 然而可能运行可能还稍快一点....
  * */

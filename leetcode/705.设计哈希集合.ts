@@ -10,18 +10,18 @@ remove(value)：将给定值从哈希集合中删除。如果哈希集合中没�
 示例:
 
 MyHashSet hashSet = new MyHashSet();
-hashSet.add(1);        
-hashSet.add(2);        
-hashSet.contains(1);    // 返回 true
-hashSet.contains(3);    // 返回 false (未找到)
-hashSet.add(2);          
-hashSet.contains(2);    // 返回 true
-hashSet.remove(2);          
-hashSet.contains(2);    // 返回  false (已经被删除)
+hashSet.add(1);
+hashSet.add(2);
+hashSet.contains(1);    // 返回 true
+hashSet.contains(3);    // 返回 false (未找到)
+hashSet.add(2);
+hashSet.contains(2);    // 返回 true
+hashSet.remove(2);
+hashSet.contains(2);    // 返回  false (已经被删除)
 
 注意：
 
-所有的值都在 [1, 1000000]的范围内。
+所有的值都在 [1, 1000000]的范围内。
 操作的总数目在[1, 10000]范围内。
 不要使用内建的哈希集合库。
 
@@ -88,14 +88,14 @@ class MyHashSet {
 
 /*
 MyHashSet hashSet = new MyHashSet();
-hashSet.add(1);        
-hashSet.add(2);        
-hashSet.contains(1);    // 返回 true
-hashSet.contains(3);    // 返回 false (未找到)
-hashSet.add(2);          
-hashSet.contains(2);    // 返回 true
-hashSet.remove(2);          
-hashSet.contains(2);    // 返回  false (已经被删除)
+hashSet.add(1);
+hashSet.add(2);
+hashSet.contains(1);    // 返回 true
+hashSet.contains(3);    // 返回 false (未找到)
+hashSet.add(2);
+hashSet.contains(2);    // 返回 true
+hashSet.remove(2);
+hashSet.contains(2);    // 返回  false (已经被删除)
 * */
 import assert from "assert";
 
