@@ -216,6 +216,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 中等 |
 | 844 | [比较含退格的字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/844.比较含退格的字符串.ts) | 简单 |
 | 908 | [最小差值I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/908.最小差值I.ts) | 简单 |
+| 961 | [重复N次的元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/961.重复N次的元素.ts) | 简单 |
 | 974 | [和可被K整除的子数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/974.和可被K整除的子数组.ts) | 中等 |
 | 1002 | [查找常用字符](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1002.查找常用字符.ts) | 简单 |
 | 1005 | [K次取反后最大化的数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1005.K次取反后最大化的数组和.ts) | 简单 |
