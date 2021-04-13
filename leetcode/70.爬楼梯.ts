@@ -77,3 +77,11 @@ function solution2(n: number) {
 }
 
 export {};
+
+import assert from "assert";
+
+assert.strictEqual(solution2(2), 2);
+assert.strictEqual(solution2(3), 3)
+
+
+console.log(solution2(41));

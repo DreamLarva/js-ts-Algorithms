@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^4.1.3  
+typescript: ^4.2.4  
 ts-node: ^9.1.1  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -89,7 +89,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 101 | [对称二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/101.对称二叉树.ts) | 简单 |
 | 102 | [二叉树的层次遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/102.二叉树的层次遍历.ts) | 中等 |
 | 104 | [二叉树的最大深度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/104.二叉树的最大深度.ts) | 简单 |
-| 107 | [二叉树的层次遍历II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/107.二叉树的层次遍历II.ts) | 简单 |
+| 107 | [二叉树的层次遍历II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/107.二叉树的层次遍历II.ts) | 中等 |
 | 108 | [将有序数组转换为二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/108.将有序数组转换为二叉搜索树.ts) | 简单 |
 | 110 | [平衡二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/110.平衡二叉树.ts) | 简单 |
 | 111 | [二叉树的最小深度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/111.二叉树的最小深度.ts) | 简单 |
@@ -165,7 +165,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 349 | [两个数组的交集](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/349.两个数组的交集.ts) | 简单 |
 | 350 | [两个数组的交集II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/350.两个数组的交集II.ts) | 简单 |
 | 367 | [有效的完全平方数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/367.有效的完全平方数.ts) | 简单 |
-| 371 | [两整数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/371.两整数之和.ts) | 简单 |
+| 371 | [两整数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/371.两整数之和.ts) | 中等 |
 | 380 | [常数时间插入、删除和获取随机元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/380.常数时间插入、删除和获取随机元素.ts) | 中等 |
 | 383 | [赎金信](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/383.赎金信.ts) | 简单 |
 | 384 | [打乱数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/384.打乱数组.ts) | 中等 |
@@ -192,6 +192,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 495 | [提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts) | 中等 |
 | 498 | [对角线遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/498.对角线遍历.ts) | 中等 |
 | 509 | [斐波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/509.斐波那契数.ts) | 简单 |
+| 530 | [二叉搜索树的最小绝对差](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/530.二叉搜索树的最小绝对差.ts) | 简单 |
 | 542 | [01矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/542.01矩阵.ts) | 中等 |
 | 557 | [反转字符串中的单词III](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/557.反转字符串中的单词III.ts) | 简单 |
 | 561 | [数组拆分I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/561.数组拆分I.ts) | 简单 |
