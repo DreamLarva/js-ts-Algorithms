@@ -117,6 +117,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 169 | [求众数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/169.求众数.ts) | 简单 |
 | 171 | [Excel表列序号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/171.Excel表列序号.ts) | 简单 |
 | 172 | [阶乘后的零](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/172.阶乘后的零.ts) | 简单 |
+| 179 | [最大数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/179.最大数.ts) | 中等 |
 | 189 | [旋转数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/189.旋转数组.ts) | 中等 |
 | 190 | [颠倒二进制位](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/190.颠倒二进制位.ts) | 简单 |
 | 191 | [位1的个数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/191.位1的个数.ts) | 简单 |
