@@ -80,6 +80,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 83 | [删除排序链表中的重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/83.删除排序链表中的重复元素.ts) | 简单 |
 | 84 | [柱状图中最大的矩形](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/84.柱状图中最大的矩形.ts) | 困难 |
 | 88 | [合并两个有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/88.合并两个有序数组.ts) | 简单 |
+| 91 | [解码方法](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/91.解码方法.ts) | 中等 |
 | 93 | [复原IP地址](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/93.复原IP地址.ts) | 中等 |
 | 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 中等 |
 | 95 | [不同的二叉搜索树II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/95.不同的二叉搜索树II.ts) | 中等 |

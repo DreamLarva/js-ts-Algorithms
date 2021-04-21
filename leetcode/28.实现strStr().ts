@@ -45,12 +45,17 @@ var strStr = function (haystack: string, needle: string) {
 };
 
 /**
+ * 前缀表
  * @description
- *      0   当前字符 再从子串 0位置开始匹配
- *      -1  下一个字符 再从子串 0位置开始匹配
- *      n   当前字符  再从子串 n 位置开始匹配
+ * 0  当前字符 再从子串 0位置开始匹配
+ *
+ * -1 下一个字符 再从子串 0位置开始匹配
+ *
+ * n  当前字符  再从子串 n位置开始匹配
+ *
+
  * @example
- *      ada         =>      [ -1, 0, ,-1 ]
+ *      ada         =>      [ -1, 0, -1 ]
  *      abcabc      =>      [ -1, 0, 0, -1, 0, 0 ]
  *      abad        =>      [ -1, 0, -1, 1 ]
  * */
@@ -97,4 +102,55 @@ function kmp(ts: string, ps: string) {
   }
 }
 
-export {};
+var strStr2 = function (haystack: string, needle: string) {
+  const n = haystack.length,
+    m = needle.length;
+  if (m === 0) {
+    return 0;
+  }
+
+  /**
+   * 生成前缀表
+   * */
+  const pi: number[] = new Array(m).fill(0);
+  /**
+   * i 为总 指针
+   * j 为每次前缀 校对的指针
+   *
+   * i 指针不断向后 , 与  [0,j) 到 j 的字符串 与
+   * */
+  for (let i = 1, j = 0; i < m; i++) {
+    // 一直找到一个 相同的字符 作为一次前缀匹配的开始
+    while (j > 0 && needle[i] !== needle[j]) {
+      j = pi[j - 1];
+    }
+    // 如果相等则 说明符合前缀
+    if (needle[i] == needle[j]) {
+      j++;
+    }
+    // pi 记录如果 i + 1 位置不匹配的话 就应该重新从 pi[i - 1] 位置重新校对
+    pi[i] = j;
+  }
+
+  console.log(pi)
+
+  for (let i = 0, j = 0; i < n; i++) {
+    while (j > 0 && haystack[i] != needle[j]) {
+      j = pi[j - 1];
+    }
+    if (haystack[i] == needle[j]) {
+      j++;
+    }
+    if (j === m) {
+      return i - m + 1;
+    }
+  }
+
+  return -1;
+};
+
+import assert from "assert";
+// assert.strictEqual(strStr("hello", "ll"), 2);
+// assert.strictEqual(strStr2("hello", "ll"), 2);
+
+strStr2("abacabababaa", "ababbabab");
