@@ -47,27 +47,65 @@
   s 只包含数字，并且可能包含前导零。
 * */
 
-function numDecodings(s: string): number {
+var numDecodings = function (s: string) {
+  /**
+   * 动态 规划只存 三个变量 而不存数组
+   * */
+  const n = s.length;
+  let a = 0; // f[i-2]
+  let b = 1; // f[i-1]
+  let c = 0; // f[i]
+  // 注意这里是<=n 所以会多算一个值 作为结果
+  // 所以这里 f[i] 记录的是对应到 s[i - 1] 在内的计算结果
+  // 要得到 s[i] 的结果 就要 f[i+1] 位置的结果
+  for (let i = 1; i <= n; ++i) {
+    // 新的一位 重新计算
+    c = 0;
+
+    // 可以用 1 位
+    if (s[i - 1] !== "0") {
+      c += b;
+    }
+
+    // 可以用 2 位
+    if (
+      i > 1 && // i = 1 计算的是 s[0] 的结果,因为之一个元素 自然不计算 2个元素的情况
+      s[i - 2] !== "0" &&
+      Number(s[i - 2]) * 10 + Number(s[i - 1]) <= 26
+    ) {
+      c += a;
+    }
+    // 对应的值 都后移一位
+    a = b;
+    b = c;
+  }
+  return c;
+};
+
+function numDecodings2(s: string): number {
   /**
    * 动态规划
    * */
   if (s[0] === "0") return 0;
   const cache = Array(s.length).fill(0);
   cache[0] = 1;
-  cache[0] = 1;
 
   for (let i = 1; i < s.length; i++) {
-    let canOne = s[i] !== "0";
-    let canTwo = !(
-      s[i - 1] === "0" ||
-      s[i - 1] > "2" ||
-      (s[i - 1] === "2" && Number(s[i]) > 6)
-    );
-
-    if (canOne) {
+    // 可以用 1 位
+    // 如果上一位是 0 那么说明只 一种情况
+    // 那个0 一定是跟着 f[i - 2] 为一个字符
+    if (s[i - 1] !== "0") {
       cache[i] += cache[i - 1];
     }
-    if (canTwo) {
+
+    // 可以用 2 位
+    if (
+      !(
+        s[i - 1] === "0" ||
+        s[i - 1] > "2" ||
+        (s[i - 1] === "2" && Number(s[i]) > 6)
+      )
+    ) {
       cache[i] += cache[i - 2] ?? 1;
     }
   }
@@ -110,15 +148,17 @@ function numDecodings1(s: string): number {
 }
 
 import assert from "assert";
-assert.strictEqual(numDecodings("12"), 2);
-assert.strictEqual(numDecodings("226"), 3);
-assert.strictEqual(numDecodings("0"), 0);
-assert.strictEqual(numDecodings("06"), 0);
-assert.strictEqual(
-  numDecodings("111111111111111111111111111111111111111111111"),
-  1836311903
-);
+import Benchmark from "benchmark";
+const suite = new Benchmark.Suite();
 
-assert.strictEqual(numDecodings("10"), 1);
-assert.strictEqual(numDecodings("27"), 1);
-assert.strictEqual(numDecodings("2101"), 1);
+// assert.strictEqual(numDecodings("12"), 2);
+assert.strictEqual(numDecodings("226"), 3);
+// assert.strictEqual(numDecodings("0"), 0);
+// assert.strictEqual(numDecodings("06"), 0);
+// assert.strictEqual(
+//   numDecodings("111111111111111111111111111111111111111111111"),
+//   1836311903
+// );
+// assert.strictEqual(numDecodings("10"), 1);
+// assert.strictEqual(numDecodings("27"), 1);
+// assert.strictEqual(numDecodings("2101"), 1);

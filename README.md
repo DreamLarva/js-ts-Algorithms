@@ -167,6 +167,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 347 | [前K个高频元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/347.前K个高频元素.ts) | 中等 |
 | 349 | [两个数组的交集](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/349.两个数组的交集.ts) | 简单 |
 | 350 | [两个数组的交集II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/350.两个数组的交集II.ts) | 简单 |
+| 363 | [矩形区域不超过K的最大数值和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/363.矩形区域不超过K的最大数值和.ts) | 困难 |
 | 367 | [有效的完全平方数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/367.有效的完全平方数.ts) | 简单 |
 | 371 | [两整数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/371.两整数之和.ts) | 中等 |
 | 380 | [常数时间插入、删除和获取随机元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/380.常数时间插入、删除和获取随机元素.ts) | 中等 |
