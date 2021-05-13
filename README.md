@@ -58,6 +58,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 38 | [报数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/38.报数.ts) | 简单 |
 | 39 | [组合总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/39.组合总和.ts) | 中等 |
 | 40 | [组合总和II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/40.组合总和II.ts) | 中等 |
+| 43 | [字符串相乘](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/43.字符串相乘.ts) | 中等 |
 | 46 | [全排列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/46.全排列.ts) | 中等 |
 | 47 | [全排列II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/47.全排列II.ts) | 中等 |
 | 48 | [旋转图像](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/48.旋转图像.ts) | 中等 |
@@ -82,7 +83,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 88 | [合并两个有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/88.合并两个有序数组.ts) | 简单 |
 | 91 | [解码方法](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/91.解码方法.ts) | 中等 |
 | 93 | [复原IP地址](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/93.复原IP地址.ts) | 中等 |
-| 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 中等 |
+| 94 | [二叉树的中序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/94.二叉树的中序遍历.ts) | 简单 |
 | 95 | [不同的二叉搜索树II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/95.不同的二叉搜索树II.ts) | 中等 |
 | 96 | [不同的二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/96.不同的二叉搜索树.ts) | 中等 |
 | 98 | [验证二叉搜索树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/98.验证二叉搜索树.ts) | 中等 |
@@ -106,7 +107,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 141 | [环形链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/141.环形链表.ts) | 简单 |
 | 142 | [环形链表II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/142.环形链表II.ts) | 中等 |
 | 144 | [二叉树的前序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/144.二叉树的前序遍历.ts) | 中等 |
-| 145 | [二叉树的后序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/145.二叉树的后序遍历.ts) | 中等 |
+| 145 | [二叉树的后序遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/145.二叉树的后序遍历.ts) | 简单 |
 | 150 | [逆波兰表达式求值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/150.逆波兰表达式求值.ts) | 中等 |
 | 151 | [翻转字符串里的单词](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/151.翻转字符串里的单词.ts) | 中等 |
 | 153 | [寻找旋转排序数组中的最小值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/153.寻找旋转排序数组中的最小值.ts) | 中等 |
@@ -233,4 +234,6 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1025 | [除数博弈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1025.除数博弈.ts) | 简单 |
 | 1028 | [从先序遍历还原二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1028.从先序遍历还原二叉树.ts) | 困难 |
 | 1071 | [字符串的最大公因子](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1071.字符串的最大公因子.ts) | 简单 |
+| 1269 | [停在原地的方案数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1269.停在原地的方案数.ts) | 困难 |
+| 1310 | [子数组异或查询](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1310.子数组异或查询.ts) | 中等 |
 | 1442 | [形成两个异或相等数组的三元组数目](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1442.形成两个异或相等数组的三元组数目.ts) | 中等 |
