@@ -235,6 +235,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1025 | [除数博弈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1025.除数博弈.ts) | 简单 |
 | 1028 | [从先序遍历还原二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1028.从先序遍历还原二叉树.ts) | 困难 |
 | 1071 | [字符串的最大公因子](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1071.字符串的最大公因子.ts) | 简单 |
+| 1190 | [反转每对括号间的子串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1190.反转每对括号间的子串.ts) | 中等 |
 | 1269 | [停在原地的方案数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1269.停在原地的方案数.ts) | 困难 |
 | 1310 | [子数组异或查询](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1310.子数组异或查询.ts) | 中等 |
 | 1442 | [形成两个异或相等数组的三元组数目](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1442.形成两个异或相等数组的三元组数目.ts) | 中等 |
