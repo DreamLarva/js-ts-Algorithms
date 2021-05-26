@@ -28,7 +28,6 @@
 
 1 <= N <= 1000
 * */
-f
 function divisorGame(N: number): boolean {
     /**
      * 逻辑很简单
