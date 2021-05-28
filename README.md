@@ -1,7 +1,7 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
 typescript: ^4.2.4  
-ts-node: ^9.1.1  
+ts-node: ^10.0.0  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
 
@@ -191,6 +191,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 461 | [汉明距离](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/461.汉明距离.ts) | 简单 |
 | 463 | [岛屿的周长](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/463.岛屿的周长.ts) | 简单 |
 | 476 | [数字的补数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/476.数字的补数.ts) | 简单 |
+| 477 | [汉明距离总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/477.汉明距离总和.ts) | 中等 |
 | 482 | [密钥格式化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/482.密钥格式化.ts) | 简单 |
 | 485 | [最大连续1的个数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/485.最大连续1的个数.ts) | 简单 |
 | 494 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/494.目标和.ts) | 中等 |
