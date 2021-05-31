@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^4.2.4  
+typescript: ^4.3.2  
 ts-node: ^10.0.0  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -195,7 +195,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 482 | [密钥格式化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/482.密钥格式化.ts) | 简单 |
 | 485 | [最大连续1的个数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/485.最大连续1的个数.ts) | 简单 |
 | 494 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/494.目标和.ts) | 中等 |
-| 495 | [提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts) | 中等 |
+| 495 | [提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts) | 简单 |
 | 498 | [对角线遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/498.对角线遍历.ts) | 中等 |
 | 509 | [斐波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/509.斐波那契数.ts) | 简单 |
 | 530 | [二叉搜索树的最小绝对差](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/530.二叉搜索树的最小绝对差.ts) | 简单 |
