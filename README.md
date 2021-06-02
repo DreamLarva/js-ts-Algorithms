@@ -198,6 +198,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 495 | [提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts) | 简单 |
 | 498 | [对角线遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/498.对角线遍历.ts) | 中等 |
 | 509 | [斐波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/509.斐波那契数.ts) | 简单 |
+| 523 | [连续的子数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/523.连续的子数组和.ts) | 中等 |
 | 530 | [二叉搜索树的最小绝对差](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/530.二叉搜索树的最小绝对差.ts) | 简单 |
 | 542 | [01矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/542.01矩阵.ts) | 中等 |
 | 557 | [反转字符串中的单词III](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/557.反转字符串中的单词III.ts) | 简单 |
