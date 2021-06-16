@@ -198,6 +198,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 495 | [提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts) | 简单 |
 | 498 | [对角线遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/498.对角线遍历.ts) | 中等 |
 | 509 | [斐波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/509.斐波那契数.ts) | 简单 |
+| 518 | [零钱兑换II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/518.零钱兑换II.ts) | 中等 |
 | 523 | [连续的子数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/523.连续的子数组和.ts) | 中等 |
 | 530 | [二叉搜索树的最小绝对差](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/530.二叉搜索树的最小绝对差.ts) | 简单 |
 | 542 | [01矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/542.01矩阵.ts) | 中等 |
@@ -226,6 +227,8 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 799 | [语法中的第K个符号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/799.语法中的第K个符号.ts) | 中等 |
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 中等 |
 | 844 | [比较含退格的字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/844.比较含退格的字符串.ts) | 简单 |
+| 852 | [山脉数组的峰顶索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/852.山脉数组的峰顶索引.ts) | 简单 |
+| 877 | [石子游戏](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/877.石子游戏.ts) | 中等 |
 | 908 | [最小差值I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/908.最小差值I.ts) | 简单 |
 | 961 | [重复N次的元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/961.重复N次的元素.ts) | 简单 |
 | 974 | [和可被K整除的子数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/974.和可被K整除的子数组.ts) | 中等 |
@@ -236,6 +239,8 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1018 | [可被5整除的二进制前缀](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1018.可被5整除的二进制前缀.ts) | 简单 |
 | 1025 | [除数博弈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1025.除数博弈.ts) | 简单 |
 | 1028 | [从先序遍历还原二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1028.从先序遍历还原二叉树.ts) | 困难 |
+| 1046 | [最后一块石头的重量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1046.最后一块石头的重量.ts) | 简单 |
+| 1049 | [最后一块石头的重量II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1049.最后一块石头的重量II.ts) | 中等 |
 | 1071 | [字符串的最大公因子](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1071.字符串的最大公因子.ts) | 简单 |
 | 1190 | [反转每对括号间的子串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1190.反转每对括号间的子串.ts) | 中等 |
 | 1269 | [停在原地的方案数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1269.停在原地的方案数.ts) | 困难 |

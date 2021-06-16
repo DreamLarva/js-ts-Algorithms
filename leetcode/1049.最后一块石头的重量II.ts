@@ -61,7 +61,7 @@ function lastStoneWeightII(stones: number[]): number {
       }
     }
   }
-
+  console.log(dp);
   // 最右一列 从下往上 选取结果
   for (let j = m; ; --j) {
     if (dp[n][j]) {
@@ -70,6 +70,11 @@ function lastStoneWeightII(stones: number[]): number {
   }
 }
 
+/**
+ * @link https://leetcode-cn.com/problems/last-stone-weight-ii/solution/zui-hou-yi-kuai-shi-tou-de-zhong-liang-i-95p9/
+ *
+ * 改用一维 使用倒序遍历
+ * */
 export function lastStoneWeightII2(stones: number[]): number {
   let sum = 0;
   for (const weight of stones) {
@@ -78,12 +83,12 @@ export function lastStoneWeightII2(stones: number[]): number {
   const m = Math.floor(sum / 2);
   const dp = new Array(m + 1).fill(false);
   dp[0] = true;
-  // 改用一维 使用倒序遍历
   for (const weight of stones) {
     for (let j = m; j >= weight; --j) {
       dp[j] = dp[j] || dp[j - weight];
     }
   }
+  console.log(dp);
   for (let j = m; ; --j) {
     if (dp[j]) {
       return sum - 2 * j;
@@ -93,4 +98,9 @@ export function lastStoneWeightII2(stones: number[]): number {
 
 import assert from "assert";
 
-assert.strictEqual(lastStoneWeightII2([2, 7, 4, 1, 8, 1]), 1);
+// assert.strictEqual(lastStoneWeightII([2, 7, 4, 1, 8, 1]), 1);
+// assert.strictEqual(lastStoneWeightII2([2, 7, 4, 1, 8, 1]), 1);
+// assert.strictEqual(lastStoneWeightII([3, 2, 1]), 0);
+// assert.strictEqual(lastStoneWeightII2([3, 2, 1]), 0);
+assert.strictEqual(lastStoneWeightII([1, 2, 4]), 1);
+assert.strictEqual(lastStoneWeightII2([1, 2, 4]), 1);
