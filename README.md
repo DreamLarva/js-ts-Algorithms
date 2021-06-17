@@ -71,6 +71,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 58 | [最后一个单词的长度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/58.最后一个单词的长度.ts) | 简单 |
 | 61 | [旋转链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/61.旋转链表.ts) | 中等 |
 | 64 | [最小路径和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/64.最小路径和.ts) | 中等 |
+| 65 | [有效数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/65.有效数字.ts) | 困难 |
 | 66 | [加一](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/66.加一.ts) | 简单 |
 | 67 | [二进制求和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/67.二进制求和.ts) | 简单 |
 | 69 | [x的平方根](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/69.x的平方根.ts) | 简单 |
