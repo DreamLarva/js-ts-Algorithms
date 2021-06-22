@@ -71,7 +71,7 @@ var flatten1 = function (head: Node | null) {
   return head;
 
   function step(head: Node) {
-    let next = null;
+    let next: Node<any> | null = null;
     if (left_junction) {
       next = left_junction.next;
     }
@@ -119,20 +119,10 @@ import { createDoubleLinkedList } from "../util/DoubleLinkedList";
   line_1.next!.next!.child = line_2;
   line_2.next!.child = line_3;
 
-  assert.deepStrictEqual(flatten(line_1)!.toString(), [
-    1,
-    2,
-    3,
-    7,
-    8,
-    11,
-    12,
-    9,
-    10,
-    4,
-    5,
-    6,
-  ]);
+  assert.deepStrictEqual(
+    flatten(line_1)!.toString(),
+    [1, 2, 3, 7, 8, 11, 12, 9, 10, 4, 5, 6]
+  );
 }
 {
   const line_1 = createDoubleLinkedList([1]);

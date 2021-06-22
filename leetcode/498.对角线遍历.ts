@@ -29,7 +29,7 @@
  */
 
 var findDiagonalOrder = function (matrix: any[][]) {
-  const result = [];
+  const result: any[] = [];
   if (matrix.length == 0) {
     return matrix;
   }

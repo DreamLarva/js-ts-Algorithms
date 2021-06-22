@@ -31,7 +31,7 @@ var generate = function (numRows: number) {
   const result = [a1, a2];
   for (let i = numRows - 2; i > 0; i--) {
     const lastArr = last(result);
-    const temp = [];
+    const temp: number[] = [];
     for (let j = 1; j < lastArr.length; j++) {
       temp.push(lastArr[j - 1] + lastArr[j]);
     }

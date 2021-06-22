@@ -11,7 +11,7 @@ class ListNode<T = any> {
   }
 
   toString() {
-    const result = [];
+    const result:T[] = [];
     let node: ListNode<T> | null = this;
     while (node != null) {
       result.push(node.val);

@@ -35,7 +35,7 @@ suite
  * 使用数组解构 x 519,918,156 ops/sec ±1.12% (91 runs sampled)
  * Fastest is 使用临时变量
  *
- * 交换4 个
+ * 交换 4 个
  * 使用临时变量 x 440,126,934 ops/sec ±0.88% (92 runs sampled)
  * 使用数组解构 x 152,257,331 ops/sec ±0.87% (89 runs sampled)
  *

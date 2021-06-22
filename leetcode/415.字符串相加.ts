@@ -70,7 +70,7 @@ var addStrings = function (num1: string, num2: string): string {
  * 从后往前 每位相加
  * */
 var addStrings_2 = function (num1: string, num2: string) {
-  let str = [];
+  let str: number[] = [];
   let p = num1.length - 1;
   let q = num2.length - 1;
   let l1 = num1.split("");

@@ -194,6 +194,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 476 | [数字的补数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/476.数字的补数.ts) | 简单 |
 | 477 | [汉明距离总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/477.汉明距离总和.ts) | 中等 |
 | 482 | [密钥格式化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/482.密钥格式化.ts) | 简单 |
+| 483 | [最小好进制](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/483.最小好进制.ts) | 困难 |
 | 485 | [最大连续1的个数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/485.最大连续1的个数.ts) | 简单 |
 | 494 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/494.目标和.ts) | 中等 |
 | 495 | [提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts) | 简单 |

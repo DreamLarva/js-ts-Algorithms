@@ -12,19 +12,17 @@ function b(str, fractionDigits) {
   return a + "." + b.substr(0, 2).padEnd(2, "0");
 }
 
-console.log(a("12345", 2));
-console.log(b("12345", 2));
 
 const Benchmark = require("benchmark");
 const suite = new Benchmark.Suite();
 
 // add tests
 suite
-  .add("a", function () {
-    a("12345.12345", 20);
+  .add("数学方法", function () {
+    a("12345123451234512345123451234512345.123451234512345123451234512345123451234512345", 20);
   })
-  .add("b", function () {
-    b("12345.12345", 20);
+  .add("字符串方法", function () {
+    b("12345123451234512345123451234512345.123451234512345123451234512345123451234512345", 20);
   })
 
   // add listeners
@@ -36,3 +34,8 @@ suite
   })
   // run async
   .run({ async: false });
+
+/**
+ * 数学方法 x 2,702,888 ops/sec ±1.09% (90 runs sampled)
+ * 字符串方法 x 7,272,226 ops/sec ±1.40% (87 runs sampled)
+ * */

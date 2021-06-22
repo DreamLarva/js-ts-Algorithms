@@ -36,7 +36,7 @@ var levelOrderBottom = function <T>(root: TreeNode<T>) {
   if (root === null) return [];
   let current_layer_nodes = [root];
   let next_layer_nodes: TreeNode<T>[] = [];
-  const result = [];
+  const result: T[][] = [];
 
   while (current_layer_nodes.length) {
     const cache: T[] = [];

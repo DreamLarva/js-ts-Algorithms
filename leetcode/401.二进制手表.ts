@@ -23,15 +23,15 @@
 分钟必须由两位数组成，可能会以零开头，比如 “10:2” 是无效的，应为 “10:02”。
 * */
 /**
- * @param {number} num
+ * @param {number} turnedOn
  * @return {string[]}
  */
-var readBinaryWatch = function (num: number) {
+function readBinaryWatch(turnedOn: number) {
   // 暴力
   // 因为无论什么输入 最多也就算 12 * 60 也就720次 是能够接受的
   const result: string[] = [];
   for (let hour = 0, minute = 0; hour <= 11; ) {
-    if (howManyOne(hour) + howManyOne(minute) === num) {
+    if (howManyOne(hour) + howManyOne(minute) === turnedOn) {
       result.push(`${hour}:${String(minute).padStart(2, "0")}`);
     }
 
@@ -52,7 +52,7 @@ var readBinaryWatch = function (num: number) {
     }
     return result;
   }
-};
+}
 
 import assert from "assert";
 

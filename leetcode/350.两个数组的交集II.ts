@@ -38,7 +38,7 @@ var intersect = function (nums1: number[], nums2: number[]): number[] {
     map[char] = map[char] ? map[char] + 1 : 1;
   }
 
-  const result = [];
+  const result: number[] = [];
   for (const char of long) {
     if (map[char]) {
       result.push(char);

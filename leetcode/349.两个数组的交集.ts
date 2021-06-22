@@ -20,7 +20,7 @@
  * @return {number[]}
  */
 var intersection = function (nums1: number[], nums2: number[]) {
-  const result = [];
+  const result: number[] = [];
   const set1 = new Set(nums1);
   const set2 = new Set(nums2);
 
