@@ -1,9 +1,9 @@
 /**
- * 求最小公约数
+ * 求最大公约数
  * 辗转相除法
  * @link http://blog.jobbole.com/106315/
  * */
-function gcd(a, b) {
+export default function gcd(a: number, b: number) {
   if (a === b) {
     return a;
   }
@@ -24,6 +24,6 @@ function gcd(a, b) {
   }
 }
 
-const assert = require("assert");
+import assert from "assert";
 assert.strictEqual(gcd(18, 24), 6);
 assert.strictEqual(gcd(20, 2100), 20);
