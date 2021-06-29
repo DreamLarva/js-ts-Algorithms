@@ -21,7 +21,7 @@ var decodeString = function (s: string) {
   // 老实的使用栈
   const num_str = "1234567890";
   const alphabet_reg = /^[a-zA-Z]+$/; // 有[]嵌套就有可能有多个 符
-  const stack = [];
+  const stack:string[] = [];
   for (const char of s) {
     if (char === "]") {
       // 找到 对应的 [ 和 他之前的数字

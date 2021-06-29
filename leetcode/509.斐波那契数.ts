@@ -35,11 +35,12 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
  */
 var fib = function (N: number) {
   return ~~(
-    5 ** 0.5 *
-    0.2 *
+    (1 / 5 ** 0.5) *
     (((1 + 5 ** 0.5) / 2) ** N - ((1 - 5 ** 0.5) / 2) ** N)
   );
 };
 
 import assert from "assert";
 assert.strictEqual(fib(4), 3);
+assert.strictEqual(fib(5), 5);
+assert.strictEqual(fib(6), 8);
