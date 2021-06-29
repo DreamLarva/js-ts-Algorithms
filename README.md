@@ -78,6 +78,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 70 | [爬楼梯](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/70.爬楼梯.ts) | 简单 |
 | 73 | [矩阵置零](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/73.矩阵置零.ts) | 中等 |
 | 75 | [颜色分类](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/75.颜色分类.ts) | 中等 |
+| 79 | [单词搜索](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/79.单词搜索.ts) | 中等 |
 | 80 | [删除排序数组中的重复项II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/80.删除排序数组中的重复项II.ts) | 中等 |
 | 83 | [删除排序链表中的重复元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/83.删除排序链表中的重复元素.ts) | 简单 |
 | 84 | [柱状图中最大的矩形](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/84.柱状图中最大的矩形.ts) | 困难 |
