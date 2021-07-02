@@ -68,7 +68,7 @@ function solution2(nums: number[]) {
  * 竟然更慢........
  * */
 function solution3(nums: number[]) {
-  let result = null,
+  let result = -1,
     count = 0;
   let index = 0;
   while (index < nums.length) {
