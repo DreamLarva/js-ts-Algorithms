@@ -1,0 +1,53 @@
+"use strict";
+/*
+给你一个整数数组 A，请你给数组中的每个元素 A[i] 都加上一个任意数字 x （-K <= x <= K），从而得到一个新数组 B 。
+
+返回数组 B 的最大值和最小值之间可能存在的最小差值。
+
+
+示例 1：
+
+输入：A = [1], K = 0
+输出：0
+解释：B = [1]
+示例 2：
+
+输入：A = [0,10], K = 2
+输出：6
+解释：B = [2,8]
+示例 3：
+
+输入：A = [1,3,6], K = 3
+输出：0
+解释：B = [3,3,3] 或 B = [4,4,4]
+
+提示：
+  1 <= A.length <= 10000
+  0 <= A[i] <= 10000
+  0 <= K <= 10000
+
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/smallest-range-i
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+* */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+function smallestRangeI(A, K) {
+    const min = Math.min(...A);
+    const max = Math.max(...A);
+    const dif = max - min;
+    if (dif <= K * 2)
+        return 0;
+    return dif - K * 2;
+}
+function smallestRangeI2(A, K) {
+    return Math.max(0, Math.max(...A) - Math.min(...A) - 2 * K);
+}
+const assert_1 = __importDefault(require("assert"));
+assert_1.default.strictEqual(smallestRangeI([1], 0), 0);
+assert_1.default.strictEqual(smallestRangeI([0, 10], 2), 6);
+assert_1.default.strictEqual(smallestRangeI([1, 3, 6], 3), 0);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiOTA4LuacgOWwj+W3ruWAvEkuanMiLCJzb3VyY2VSb290IjoiLi8iLCJzb3VyY2VzIjpbImxlZXRjb2RlLzkwOC7mnIDlsI/lt67lgLxJLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQStCSTs7Ozs7QUFFSixTQUFTLGNBQWMsQ0FBQyxDQUFXLEVBQUUsQ0FBUztJQUM1QyxNQUFNLEdBQUcsR0FBRyxJQUFJLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7SUFDM0IsTUFBTSxHQUFHLEdBQUcsSUFBSSxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO0lBRTNCLE1BQU0sR0FBRyxHQUFHLEdBQUcsR0FBRyxHQUFHLENBQUM7SUFDdEIsSUFBSSxHQUFHLElBQUksQ0FBQyxHQUFHLENBQUM7UUFBRSxPQUFPLENBQUMsQ0FBQztJQUUzQixPQUFPLEdBQUcsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDO0FBQ3JCLENBQUM7QUFFRCxTQUFTLGVBQWUsQ0FBQyxDQUFXLEVBQUUsQ0FBUztJQUM3QyxPQUFPLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO0FBQzlELENBQUM7QUFFRCxvREFBNEI7QUFDNUIsZ0JBQU0sQ0FBQyxXQUFXLENBQUMsY0FBYyxDQUFDLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7QUFDOUMsZ0JBQU0sQ0FBQyxXQUFXLENBQUMsY0FBYyxDQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDO0FBQ2xELGdCQUFNLENBQUMsV0FBVyxDQUFDLGNBQWMsQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxu57uZ5L2g5LiA5Liq5pW05pWw5pWw57uEIEHvvIzor7fkvaDnu5nmlbDnu4TkuK3nmoTmr4/kuKrlhYPntKAgQVtpXSDpg73liqDkuIrkuIDkuKrku7vmhI/mlbDlrZcgeCDvvIgtSyA8PSB4IDw9IEvvvInvvIzku47ogIzlvpfliLDkuIDkuKrmlrDmlbDnu4QgQiDjgIJcblxu6L+U5Zue5pWw57uEIEIg55qE5pyA5aSn5YC85ZKM5pyA5bCP5YC85LmL6Ze05Y+v6IO95a2Y5Zyo55qE5pyA5bCP5beu5YC844CCXG5cblxu56S65L6LIDHvvJpcblxu6L6T5YWl77yaQSA9IFsxXSwgSyA9IDBcbui+k+WHuu+8mjBcbuino+mHiu+8mkIgPSBbMV1cbuekuuS+iyAy77yaXG5cbui+k+WFpe+8mkEgPSBbMCwxMF0sIEsgPSAyXG7ovpPlh7rvvJo2XG7op6Pph4rvvJpCID0gWzIsOF1cbuekuuS+iyAz77yaXG5cbui+k+WFpe+8mkEgPSBbMSwzLDZdLCBLID0gM1xu6L6T5Ye677yaMFxu6Kej6YeK77yaQiA9IFszLDMsM10g5oiWIEIgPSBbNCw0LDRdXG5cbuaPkOekuu+8mlxuICAxIDw9IEEubGVuZ3RoIDw9IDEwMDAwXG4gIDAgPD0gQVtpXSA8PSAxMDAwMFxuICAwIDw9IEsgPD0gMTAwMDBcblxuXG7mnaXmupDvvJrlipvmiaPvvIhMZWV0Q29kZe+8iVxu6ZO+5o6l77yaaHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvc21hbGxlc3QtcmFuZ2UtaVxu6JGX5L2c5p2D5b2S6aKG5omj572R57uc5omA5pyJ44CC5ZWG5Lia6L2s6L296K+36IGU57O75a6Y5pa55o6I5p2D77yM6Z2e5ZWG5Lia6L2s6L296K+35rOo5piO5Ye65aSE44CCXG4qICovXG5cbmZ1bmN0aW9uIHNtYWxsZXN0UmFuZ2VJKEE6IG51bWJlcltdLCBLOiBudW1iZXIpOiBudW1iZXIge1xuICBjb25zdCBtaW4gPSBNYXRoLm1pbiguLi5BKTtcbiAgY29uc3QgbWF4ID0gTWF0aC5tYXgoLi4uQSk7XG5cbiAgY29uc3QgZGlmID0gbWF4IC0gbWluO1xuICBpZiAoZGlmIDw9IEsgKiAyKSByZXR1cm4gMDtcblxuICByZXR1cm4gZGlmIC0gSyAqIDI7XG59XG5cbmZ1bmN0aW9uIHNtYWxsZXN0UmFuZ2VJMihBOiBudW1iZXJbXSwgSzogbnVtYmVyKTogbnVtYmVyIHtcbiAgcmV0dXJuIE1hdGgubWF4KDAsIE1hdGgubWF4KC4uLkEpIC0gTWF0aC5taW4oLi4uQSkgLSAyICogSyk7XG59XG5cbmltcG9ydCBhc3NlcnQgZnJvbSBcImFzc2VydFwiO1xuYXNzZXJ0LnN0cmljdEVxdWFsKHNtYWxsZXN0UmFuZ2VJKFsxXSwgMCksIDApO1xuYXNzZXJ0LnN0cmljdEVxdWFsKHNtYWxsZXN0UmFuZ2VJKFswLCAxMF0sIDIpLCA2KTtcbmFzc2VydC5zdHJpY3RFcXVhbChzbWFsbGVzdFJhbmdlSShbMSwgMywgNl0sIDMpLCAwKTtcbiJdfQ==

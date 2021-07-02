@@ -1,0 +1,57 @@
+"use strict";
+/*
+961. 重复 N 次的元素
+在大小为 2N 的数组 A 中有 N+1 个不同的元素，其中有一个元素重复了 N 次。
+
+返回重复了 N 次的那个元素。
+
+
+
+示例 1：
+
+输入：[1,2,3,3]
+输出：3
+示例 2：
+
+输入：[2,1,2,5,3,2]
+输出：2
+示例 3：
+
+输入：[5,1,5,2,5,3,5,4]
+输出：5
+
+
+提示：
+
+4 <= A.length <= 10000
+0 <= A[i] < 10000
+A.length 为偶数
+* */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+function repeatedNTimes(A) {
+    // 正常的做法 使用map 计数 一旦等于一半就是结果
+    // 根据题意
+    // 除了那个 重复的元素 则 其他的元素都 是不等的
+    // 取巧的做法 在满足上面的原则 下 一定会出现 3个连续元素中至少有2个相同的情况
+    // 除了等于数组长度 为 4 的情况 可能出爱心 [1,2,3,1] 刚好不满足
+    for (let i = 0; i < A.length - 2; i++) {
+        const a = A[i];
+        const b = A[i + 1];
+        const c = A[i + 2];
+        if (a === b || a === c) {
+            return a;
+        }
+        if (b === c) {
+            return b;
+        }
+    }
+    return A[A.length - 1];
+}
+const assert_1 = __importDefault(require("assert"));
+assert_1.default.strictEqual(repeatedNTimes([1, 2, 3, 3]), 3);
+assert_1.default.strictEqual(repeatedNTimes([2, 1, 2, 5, 3, 2]), 2);
+assert_1.default.strictEqual(repeatedNTimes([5, 1, 5, 2, 5, 3, 5, 4]), 5);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiOTYxLumHjeWkjU7mrKHnmoTlhYPntKAuanMiLCJzb3VyY2VSb290IjoiLi8iLCJzb3VyY2VzIjpbImxlZXRjb2RlLzk2MS7ph43lpI1O5qyh55qE5YWD57SgLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBMkJJOzs7OztBQUVKLFNBQVMsY0FBYyxDQUFDLENBQVc7SUFDakMsNEJBQTRCO0lBRTVCLE9BQU87SUFDUCwyQkFBMkI7SUFDM0IsMkNBQTJDO0lBQzNDLHlDQUF5QztJQUV6QyxLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsQ0FBQyxDQUFDLE1BQU0sR0FBRyxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUU7UUFDckMsTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBQ2YsTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQztRQUNuQixNQUFNLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO1FBRW5CLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxFQUFFO1lBQ3RCLE9BQU8sQ0FBQyxDQUFDO1NBQ1Y7UUFDRCxJQUFJLENBQUMsS0FBSyxDQUFDLEVBQUU7WUFDWCxPQUFPLENBQUMsQ0FBQztTQUNWO0tBQ0Y7SUFFRCxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxHQUFHLENBQUMsQ0FBQyxDQUFBO0FBQ3hCLENBQUM7QUFFRCxvREFBNEI7QUFDNUIsZ0JBQU0sQ0FBQyxXQUFXLENBQUMsY0FBYyxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztBQUNwRCxnQkFBTSxDQUFDLFdBQVcsQ0FBQyxjQUFjLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7QUFDMUQsZ0JBQU0sQ0FBQyxXQUFXLENBQUMsY0FBYyxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuOTYxLiDph43lpI0gTiDmrKHnmoTlhYPntKBcbuWcqOWkp+Wwj+S4uiAyTiDnmoTmlbDnu4QgQSDkuK3mnIkgTisxIOS4quS4jeWQjOeahOWFg+e0oO+8jOWFtuS4reacieS4gOS4quWFg+e0oOmHjeWkjeS6hiBOIOasoeOAglxuXG7ov5Tlm57ph43lpI3kuoYgTiDmrKHnmoTpgqPkuKrlhYPntKDjgIJcblxuXG5cbuekuuS+iyAx77yaXG5cbui+k+WFpe+8mlsxLDIsMywzXVxu6L6T5Ye677yaM1xu56S65L6LIDLvvJpcblxu6L6T5YWl77yaWzIsMSwyLDUsMywyXVxu6L6T5Ye677yaMlxu56S65L6LIDPvvJpcblxu6L6T5YWl77yaWzUsMSw1LDIsNSwzLDUsNF1cbui+k+WHuu+8mjVcblxuXG7mj5DnpLrvvJpcblxuNCA8PSBBLmxlbmd0aCA8PSAxMDAwMFxuMCA8PSBBW2ldIDwgMTAwMDBcbkEubGVuZ3RoIOS4uuWBtuaVsFxuKiAqL1xuXG5mdW5jdGlvbiByZXBlYXRlZE5UaW1lcyhBOiBudW1iZXJbXSk6IG51bWJlciB7XG4gIC8vIOato+W4uOeahOWBmuazlSDkvb/nlKhtYXAg6K6h5pWwIOS4gOaXpuetieS6juS4gOWNiuWwseaYr+e7k+aenFxuXG4gIC8vIOagueaNrumimOaEj1xuICAvLyDpmaTkuobpgqPkuKog6YeN5aSN55qE5YWD57SgIOWImSDlhbbku5bnmoTlhYPntKDpg70g5piv5LiN562J55qEXG4gIC8vIOWPluW3p+eahOWBmuazlSDlnKjmu6HotrPkuIrpnaLnmoTljp/liJkg5LiLIOS4gOWumuS8muWHuueOsCAz5Liq6L+e57ut5YWD57Sg5Lit6Iez5bCR5pyJMuS4quebuOWQjOeahOaDheWGtVxuICAvLyDpmaTkuobnrYnkuo7mlbDnu4Tplb/luqYg5Li6IDQg55qE5oOF5Ya1IOWPr+iDveWHuueIseW/gyBbMSwyLDMsMV0g5Yia5aW95LiN5ruh6LazXG5cbiAgZm9yIChsZXQgaSA9IDA7IGkgPCBBLmxlbmd0aCAtIDI7IGkrKykge1xuICAgIGNvbnN0IGEgPSBBW2ldO1xuICAgIGNvbnN0IGIgPSBBW2kgKyAxXTtcbiAgICBjb25zdCBjID0gQVtpICsgMl07XG5cbiAgICBpZiAoYSA9PT0gYiB8fCBhID09PSBjKSB7XG4gICAgICByZXR1cm4gYTtcbiAgICB9XG4gICAgaWYgKGIgPT09IGMpIHtcbiAgICAgIHJldHVybiBiO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBBW0EubGVuZ3RoIC0gMV1cbn1cblxuaW1wb3J0IGFzc2VydCBmcm9tIFwiYXNzZXJ0XCI7XG5hc3NlcnQuc3RyaWN0RXF1YWwocmVwZWF0ZWROVGltZXMoWzEsIDIsIDMsIDNdKSwgMyk7XG5hc3NlcnQuc3RyaWN0RXF1YWwocmVwZWF0ZWROVGltZXMoWzIsIDEsIDIsIDUsIDMsIDJdKSwgMik7XG5hc3NlcnQuc3RyaWN0RXF1YWwocmVwZWF0ZWROVGltZXMoWzUsIDEsIDUsIDIsIDUsIDMsIDUsIDRdKSwgNSk7XG4iXX0=
