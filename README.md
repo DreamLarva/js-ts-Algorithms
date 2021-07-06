@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^4.3.2  
+typescript: ^4.3.5  
 ts-node: ^10.0.0  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -158,6 +158,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 287 | [寻找重复数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/287.寻找重复数.ts) | 中等 |
 | 290 | [单词模式](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/290.单词模式.ts) | 简单 |
 | 292 | [Nim游戏](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/292.Nim游戏.ts) | 简单 |
+| 297 | [二叉树的序列化与反序列化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/297.二叉树的序列化与反序列化.ts) | 困难 |
 | 300 | [最长上升子序列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/300.最长上升子序列.ts) | 中等 |
 | 303 | [区域和检索-数组不可变](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/303.区域和检索-数组不可变.ts) | 简单 |
 | 319 | [灯泡开关](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/319.灯泡开关.ts) | 中等 |
@@ -248,5 +249,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1190 | [反转每对括号间的子串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1190.反转每对括号间的子串.ts) | 中等 |
 | 1269 | [停在原地的方案数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1269.停在原地的方案数.ts) | 困难 |
 | 1310 | [子数组异或查询](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1310.子数组异或查询.ts) | 中等 |
+| 1418 | [点菜展示表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1418.点菜展示表.ts) | 中等 |
 | 1442 | [形成两个异或相等数组的三元组数目](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1442.形成两个异或相等数组的三元组数目.ts) | 中等 |
 | 1738 | [找出第K大的异或坐标值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1738.找出第K大的异或坐标值.ts) | 中等 |
+| 1833 | [雪糕的最大数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1833.雪糕的最大数量.ts) | 中等 |
