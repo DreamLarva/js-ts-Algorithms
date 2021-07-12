@@ -152,6 +152,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 263 | [丑数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/263.丑数.ts) | 简单 |
 | 264 | [丑数II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/264.丑数II.ts) | 中等 |
 | 268 | [缺失数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/268.缺失数字.ts) | 简单 |
+| 275 | [H指数II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/275.H指数II.ts) | 中等 |
 | 278 | [第一个错误的版本](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/278.第一个错误的版本.ts) | 简单 |
 | 279 | [完全平方数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/279.完全平方数.ts) | 中等 |
 | 283 | [移动零](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/283.移动零.ts) | 简单 |
@@ -234,6 +235,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 852 | [山脉数组的峰顶索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/852.山脉数组的峰顶索引.ts) | 简单 |
 | 877 | [石子游戏](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/877.石子游戏.ts) | 中等 |
 | 908 | [最小差值I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/908.最小差值I.ts) | 简单 |
+| 930 | [和相同的二元子数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/930.和相同的二元子数组.ts) | 中等 |
 | 961 | [重复N次的元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/961.重复N次的元素.ts) | 简单 |
 | 974 | [和可被K整除的子数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/974.和可被K整除的子数组.ts) | 中等 |
 | 993 | [二叉树的堂兄弟节点](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/993.二叉树的堂兄弟节点.ts) | 简单 |
@@ -251,5 +253,6 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1310 | [子数组异或查询](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1310.子数组异或查询.ts) | 中等 |
 | 1418 | [点菜展示表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1418.点菜展示表.ts) | 中等 |
 | 1442 | [形成两个异或相等数组的三元组数目](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1442.形成两个异或相等数组的三元组数目.ts) | 中等 |
+| 1711 | [大餐计数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1711.大餐计数.ts) | 中等 |
 | 1738 | [找出第K大的异或坐标值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1738.找出第K大的异或坐标值.ts) | 中等 |
 | 1833 | [雪糕的最大数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1833.雪糕的最大数量.ts) | 中等 |
