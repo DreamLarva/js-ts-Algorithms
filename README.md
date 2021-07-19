@@ -228,7 +228,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 752 | [打开转盘锁](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/752.打开转盘锁.ts) | 中等 |
 | 771 | [宝石与石头](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/771.宝石与石头.ts) | 简单 |
 | 785 | [判断二分图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/785.判断二分图.ts) | 中等 |
-| 788 | [旋转数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/788.旋转数字.ts) | 简单 |
+| 788 | [旋转数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/788.旋转数字.ts) | 中等 |
 | 799 | [语法中的第K个符号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/799.语法中的第K个符号.ts) | 中等 |
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 中等 |
 | 844 | [比较含退格的字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/844.比较含退格的字符串.ts) | 简单 |
@@ -255,4 +255,6 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1442 | [形成两个异或相等数组的三元组数目](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1442.形成两个异或相等数组的三元组数目.ts) | 中等 |
 | 1711 | [大餐计数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1711.大餐计数.ts) | 中等 |
 | 1738 | [找出第K大的异或坐标值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1738.找出第K大的异或坐标值.ts) | 中等 |
+| 1818 | [绝对差值和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1818.绝对差值和.ts) | 中等 |
 | 1833 | [雪糕的最大数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1833.雪糕的最大数量.ts) | 中等 |
+| 1838 | [最高频元素的频数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1838.最高频元素的频数.ts) | 中等 |

@@ -12,7 +12,7 @@ class DoubleLinkedListNode<T = any> {
   }
 
   toString() {
-    const result = [];
+    const result: T[] = [];
     let node: DoubleLinkedListNode<T> | null = this;
     while (node != null) {
       result.push(node.val);
@@ -33,7 +33,7 @@ class DoubleLinkedListNode<T = any> {
 function createDoubleLinkedList<T>(arr: T[]) {
   const head = new DoubleLinkedListNode(arr[0]);
   let currentNode = head;
-  let lastNode = null;
+  let lastNode: DoubleLinkedListNode<T> | null = null;
   for (let i = 0; i < arr.length; i++) {
     currentNode.next =
       arr[i + 1] == null ? null : new DoubleLinkedListNode(arr[i + 1]);
