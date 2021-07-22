@@ -25,19 +25,17 @@
 链接：https://leetcode-cn.com/problems/copy-list-with-random-pointer
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-/**
- * // Definition for a Node.
- * function Node(val,next,random) {
- *    this.val = val;
- *    this.next = next;
- *    this.random = random;
- * };
- */
-class Node<T = any> {
-  next: null | Node = null;
-  random: null | Node = null;
 
-  constructor(public val: T) {}
+class Node {
+  val: number;
+  next: Node | null;
+  random: Node | null;
+
+  constructor(val?: number, next?: Node, random?: Node) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+    this.random = random === undefined ? null : random;
+  }
 }
 
 /**
@@ -71,7 +69,7 @@ class Node<T = any> {
 //     }
 // };
 
-var copyRandomList = function (head: Node) {
+function copyRandomList(head: Node | null): Node | null {
   /**
    * 按照 原节点 -> 新节点 -> 原节点 -> ... 的次序新建节点
    * 再次遍历的时候 每个random 直接找到相邻的节点就好了
@@ -82,45 +80,41 @@ var copyRandomList = function (head: Node) {
    * 妙  啊
    * */
 
-  if (head == null) {
-    return null;
+  let cur = head;
+  // 第一次循环 在每个节点后 拷贝一个一样的还没有包含 random 指向的节点
+  while (cur != null) {
+    const next = cur.next ?? void 0;
+    cur.next = new Node(cur.val, next);
+    cur = cur.next.next;
   }
-
-  // 第一次迭代 添加 在原节点 旁边添加新节点
-  let currentNode: null | Node = head;
-  while (currentNode != null) {
-    const newNode = new Node(currentNode.val);
-    const next: null | Node = currentNode.next;
-
-    currentNode.next = newNode;
-    newNode.next = next;
-
-    currentNode = next;
-  }
-
-  // 第二次迭代 处理 random 的指向
-  // 一次跳 2 格
-  currentNode = head;
-  while (currentNode != null) {
-    const old_random = currentNode.random;
-    const newNode: null | Node = currentNode.next!;
-    if (old_random && old_random.next) newNode.random = old_random.next;
-    currentNode = newNode.next;
-  }
-
-  // 第三次遍历
-  // 分开两个链表
-  currentNode = head;
-  const new_list_head = currentNode.next;
-  while (currentNode != null) {
-    const next: null | Node = currentNode.next;
-    if (currentNode.next) {
-      currentNode.next = currentNode.next.next;
+  // 第二次循环 链接 random 指向
+  cur = head;
+  let i = 1;
+  let nextRandomNode: Node | null = null;
+  while (cur != null) {
+    if (i % 2 === 0) {
+      // 是新节点
+      cur.random = nextRandomNode;
+    } else {
+      // 是老节点
+      // 存下 random 指向
+      nextRandomNode = cur.random?.next ?? null;
     }
-    currentNode = next;
+    i++;
+    cur = cur.next;
   }
 
-  return new_list_head;
-};
+  const newHead = head?.next ?? null;
+  cur = head;
+  // 第三次循环 删除多余的 链接
+  // 并且还要还原 原
+  while (cur != null) {
+    const next = cur.next;
+    cur.next = cur?.next?.next ?? null;
+    cur = next;
+  }
+
+  return newHead;
+}
 
 export {};

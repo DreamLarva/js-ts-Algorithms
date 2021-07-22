@@ -1,27 +1,28 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
 typescript: ^4.3.5  
-ts-node: ^10.0.0  
+ts-node: ^10.1.0  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
 
 我的 Leetcode : [地址](https://leetcode-cn.com/u/dreamlarva) 
 
 ## 数据结构:
-1.  [二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/二叉树.ts)   
-1.  [双向链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/双向链表.ts)   
-1.  [图-无向图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/图-无向图.ts)   
-1.  [堆](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/堆.ts)   
-1.  [堆化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/堆化.ts)   
-1.  [字典](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/字典.ts)   
-1.  [字典树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/字典树.ts)   
-1.  [循环链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/循环链表.ts)   
-1.  [拓扑排序](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/拓扑排序.ts)   
-1.  [散列-开链法](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-开链法.ts)   
-1.  [散列-线性探查](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-线性探查.ts)   
-1.  [散列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列.ts)   
-1.  [链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/链表.ts)   
-1.  [集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/集合.ts)   
+1. [二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/二叉树.ts)   
+1. [双向链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/双向链表.ts)   
+1. [图-无向图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/图-无向图.ts)   
+1. [堆](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/堆.ts)   
+1. [堆化](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/堆化.ts)   
+1. [字典](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/字典.ts)   
+1. [字典树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/字典树.ts)   
+1. [循环链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/循环链表.ts)   
+1. [拓扑排序](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/拓扑排序.ts)   
+1. [散列-开链法](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-开链法.ts)   
+1. [散列-线性探查](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-线性探查.ts)   
+1. [散列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列.ts)   
+1. [链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/链表.ts)   
+1. [集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/集合.ts)   
+
 ## Leetcode 解题:
 | # | 题名 | 难度 |  
 | --- | --- | --- |  
@@ -258,3 +259,4 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1818 | [绝对差值和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1818.绝对差值和.ts) | 中等 |
 | 1833 | [雪糕的最大数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1833.雪糕的最大数量.ts) | 中等 |
 | 1838 | [最高频元素的频数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1838.最高频元素的频数.ts) | 中等 |
+| 1877 | [数组中最大数对和的最小值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1877.数组中最大数对和的最小值.ts) | 中等 |

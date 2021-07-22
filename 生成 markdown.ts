@@ -21,8 +21,9 @@ import axios from "axios";
   );
   for (const file of dataStructure_dir) {
     const wholeName = path.parse(file).name;
-    text += `1.  [${wholeName}](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/${file})   \n`;
+    text += `1. [${wholeName}](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/${file})   \n`;
   }
+  text += "\n";
 
   text += `## Leetcode 解题:\n`;
   const { data } = await axios("https://leetcode-cn.com/api/problems/all/");

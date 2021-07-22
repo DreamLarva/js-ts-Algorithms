@@ -52,7 +52,7 @@ function convert(s: string, numRows: number) {
 }
 
 function explainLoopArr(num: number): number[] {
-  const result = [];
+  const result: number[] = [];
   let times = 2;
   while (num >= 1 && times-- > 0) {
     result.push(num);
