@@ -260,3 +260,4 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1833 | [雪糕的最大数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1833.雪糕的最大数量.ts) | 中等 |
 | 1838 | [最高频元素的频数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1838.最高频元素的频数.ts) | 中等 |
 | 1877 | [数组中最大数对和的最小值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1877.数组中最大数对和的最小值.ts) | 中等 |
+| 1893 | [检查是否区域内所有整数都被覆盖](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1893.检查是否区域内所有整数都被覆盖.ts) | 简单 |
