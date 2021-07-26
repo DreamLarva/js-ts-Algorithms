@@ -249,6 +249,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1046 | [最后一块石头的重量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1046.最后一块石头的重量.ts) | 简单 |
 | 1049 | [最后一块石头的重量II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1049.最后一块石头的重量II.ts) | 中等 |
 | 1071 | [字符串的最大公因子](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1071.字符串的最大公因子.ts) | 简单 |
+| 1137 | [第N个泰波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1137.第N个泰波那契数.ts) | 简单 |
 | 1190 | [反转每对括号间的子串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1190.反转每对括号间的子串.ts) | 中等 |
 | 1269 | [停在原地的方案数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1269.停在原地的方案数.ts) | 困难 |
 | 1310 | [子数组异或查询](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1310.子数组异或查询.ts) | 中等 |
