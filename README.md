@@ -225,6 +225,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 724 | [寻找数组的中心索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/724.寻找数组的中心索引.ts) | 简单 |
 | 733 | [图像渲染](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/733.图像渲染.ts) | 简单 |
 | 739 | [每日温度](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/739.每日温度.ts) | 中等 |
+| 746 | [使用最小花费爬楼梯](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/746.使用最小花费爬楼梯.ts) | 简单 |
 | 747 | [至少是其他数字两倍的最大数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/747.至少是其他数字两倍的最大数.ts) | 简单 |
 | 752 | [打开转盘锁](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/752.打开转盘锁.ts) | 中等 |
 | 771 | [宝石与石头](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/771.宝石与石头.ts) | 简单 |
