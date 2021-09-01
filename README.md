@@ -102,7 +102,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 118 | [杨辉三角](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/118.杨辉三角.ts) | 简单 |
 | 119 | [杨辉三角II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/119.杨辉三角II.ts) | 简单 |
 | 121 | [买卖股票的最佳时机](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/121.买卖股票的最佳时机.ts) | 简单 |
-| 122 | [买卖股票的最佳时机II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/122.买卖股票的最佳时机II.ts) | 简单 |
+| 122 | [买卖股票的最佳时机II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/122.买卖股票的最佳时机II.ts) | 中等 |
 | 125 | [验证回文串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/125.验证回文串.ts) | 简单 |
 | 133 | [克隆图](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/133.克隆图.ts) | 中等 |
 | 136 | [只出现一次的数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/136.只出现一次的数字.ts) | 简单 |
@@ -117,6 +117,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 155 | [最小栈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/155.最小栈.ts) | 简单 |
 | 160 | [相交链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/160.相交链表.ts) | 简单 |
 | 162 | [寻找峰值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/162.寻找峰值.ts) | 中等 |
+| 165 | [比较版本号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/165.比较版本号.ts) | 中等 |
 | 167 | [两数之和II-输入有序数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/167.两数之和II-输入有序数组.ts) | 简单 |
 | 168 | [Excel表列名称](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/168.Excel表列名称.ts) | 简单 |
 | 169 | [求众数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/169.求众数.ts) | 简单 |
@@ -208,6 +209,8 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 523 | [连续的子数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/523.连续的子数组和.ts) | 中等 |
 | 530 | [二叉搜索树的最小绝对差](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/530.二叉搜索树的最小绝对差.ts) | 简单 |
 | 542 | [01矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/542.01矩阵.ts) | 中等 |
+| 551 | [学生出勤记录I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/551.学生出勤记录I.ts) | 简单 |
+| 552 | [学生出勤记录II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/552.学生出勤记录II.ts) | 困难 |
 | 557 | [反转字符串中的单词III](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/557.反转字符串中的单词III.ts) | 简单 |
 | 561 | [数组拆分I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/561.数组拆分I.ts) | 简单 |
 | 599 | [两个列表的最小索引总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/599.两个列表的最小索引总和.ts) | 简单 |
@@ -256,6 +259,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1310 | [子数组异或查询](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1310.子数组异或查询.ts) | 中等 |
 | 1418 | [点菜展示表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1418.点菜展示表.ts) | 中等 |
 | 1442 | [形成两个异或相等数组的三元组数目](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1442.形成两个异或相等数组的三元组数目.ts) | 中等 |
+| 1646 | [获取生成数组中的最大值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1646.获取生成数组中的最大值.ts) | 简单 |
 | 1711 | [大餐计数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1711.大餐计数.ts) | 中等 |
 | 1738 | [找出第K大的异或坐标值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1738.找出第K大的异或坐标值.ts) | 中等 |
 | 1818 | [绝对差值和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1818.绝对差值和.ts) | 中等 |
