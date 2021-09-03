@@ -19,20 +19,20 @@
   "homepage": "https://github.com/DreamLarva/js-ts-rs-Algorithms#readme",
   "devDependencies": {
     "@types/benchmark": "^2.1.1",
-    "@types/lodash": "^4.14.171",
-    "@types/node": "^14.17.5",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^14.17.14",
     "axios": "^0.21.1",
     "benchmark": "^2.1.4",
-    "ts-node": "^10.1.0",
-    "typescript": "^4.3.5"
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
   },
   "dependencies": {
-    "@datastructures-js/priority-queue": "^5.1.1",
+    "@datastructures-js/priority-queue": "^5.2.0",
     "@datastructures-js/queue": "^4.1.3",
     "@types/ramda": "^0.27.44",
     "awilix": "^4.3.4",
-    "date-fns": "^2.22.1",
-    "date-fns-tz": "^1.1.4",
+    "date-fns": "^2.23.0",
+    "date-fns-tz": "^1.1.6",
     "inversify": "^5.1.1",
     "lodash": "^4.17.21",
     "p-limit": "^3.1.0",
