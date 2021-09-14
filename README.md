@@ -1,7 +1,7 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^4.3.5  
-ts-node: ^10.1.0  
+typescript: ^4.4.2  
+ts-node: ^10.2.1  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
 
@@ -207,6 +207,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 509 | [斐波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/509.斐波那契数.ts) | 简单 |
 | 518 | [零钱兑换II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/518.零钱兑换II.ts) | 中等 |
 | 523 | [连续的子数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/523.连续的子数组和.ts) | 中等 |
+| 524 | [通过删除字母匹配到字典里最长单词](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/524.通过删除字母匹配到字典里最长单词.ts) | 中等 |
 | 530 | [二叉搜索树的最小绝对差](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/530.二叉搜索树的最小绝对差.ts) | 简单 |
 | 542 | [01矩阵](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/542.01矩阵.ts) | 中等 |
 | 551 | [学生出勤记录I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/551.学生出勤记录I.ts) | 简单 |
