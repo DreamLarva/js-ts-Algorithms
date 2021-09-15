@@ -41,7 +41,7 @@ var findPeakElement = function (nums: number[]) {
     /**
      * 注意这里的技巧
      * 避免循环无限进行
-     * 如果是ceil 那么 循环就会无限进行 因为 如果 只剩2个值
+     * 如果是 mid 是 ceil 那么 循环就会无限进行 因为 如果 只剩2个值
      * 那么 使用ceil 使用的 是右边的值 而如果进入第一个分支就会 left 和 right 不变
      * 所以 有 right = mid 这句的存在 那么 如果只有两个值的时候 就不能是右值 反之同理
      * */

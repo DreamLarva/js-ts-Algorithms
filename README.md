@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^4.4.2  
+typescript: ^4.4.3  
 ts-node: ^10.2.1  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
