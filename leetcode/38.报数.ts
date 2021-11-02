@@ -90,4 +90,34 @@ var countAndSay = function (n: number) {
   return result.toString();
 };
 
+/**
+ * @param {number} n
+ * @return {string}
+ */
+var countAndSay2 = function (n) {
+  // 前五项
+  // 递归 + 迭代
+
+  // 终止
+  if (n == 1) return "1";
+
+  // 递归 - //2
+  let str = countAndSay2(n - 1);
+  let temp = str[0];
+  let count = 0;
+  let ans = "";
+  for (let i = 0; i < str.length; i++) {
+    if (temp === str[i]) count++;
+    else {
+      ans = ans + "" + count + temp;
+      temp = str[i];
+      count = 1;
+    }
+    if (i === str.length - 1) {
+      ans = ans + "" + count + temp;
+    }
+  }
+  return ans;
+};
+
 export {};

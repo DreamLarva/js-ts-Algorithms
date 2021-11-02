@@ -157,28 +157,7 @@ export class MaxHeap extends Heap {
 import assert from "assert";
 {
   const minHeap = new MinHeap([
-    2,
-    3,
-    1,
-    3,
-    4,
-    5,
-    1,
-    3,
-    6,
-    7,
-    8,
-    9,
-    54,
-    5,
-    7,
-    3,
-    2,
-    1,
-    2,
-    41,
-    5,
-    7,
+    2, 3, 1, 3, 4, 5, 1, 3, 6, 7, 8, 9, 54, 5, 7, 3, 2, 1, 2, 41, 5, 7,
   ]);
   assert.ok(validHeap(minHeap.data));
   minHeap.insert(0);
@@ -187,28 +166,7 @@ import assert from "assert";
 }
 {
   const maxHeap = new MaxHeap([
-    2,
-    3,
-    1,
-    3,
-    4,
-    5,
-    1,
-    3,
-    6,
-    7,
-    8,
-    9,
-    54,
-    5,
-    7,
-    3,
-    2,
-    1,
-    2,
-    41,
-    5,
-    7,
+    2, 3, 1, 3, 4, 5, 1, 3, 6, 7, 8, 9, 54, 5, 7, 3, 2, 1, 2, 41, 5, 7,
   ]);
   assert.ok(validHeap(maxHeap.data));
   maxHeap.insert(0);

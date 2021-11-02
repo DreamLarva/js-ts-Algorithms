@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^4.4.3  
+typescript: ^4.4.4  
 ts-node: ^10.2.1  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -20,6 +20,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 1. [散列-开链法](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-开链法.ts)   
 1. [散列-线性探查](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-线性探查.ts)   
 1. [散列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列.ts)   
+1. [自定义堆](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/自定义堆.ts)   
 1. [链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/链表.ts)   
 1. [集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/集合.ts)   
 
@@ -122,7 +123,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 168 | [Excel表列名称](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/168.Excel表列名称.ts) | 简单 |
 | 169 | [求众数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/169.求众数.ts) | 简单 |
 | 171 | [Excel表列序号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/171.Excel表列序号.ts) | 简单 |
-| 172 | [阶乘后的零](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/172.阶乘后的零.ts) | 简单 |
+| 172 | [阶乘后的零](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/172.阶乘后的零.ts) | 中等 |
 | 179 | [最大数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/179.最大数.ts) | 中等 |
 | 189 | [旋转数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/189.旋转数组.ts) | 中等 |
 | 190 | [颠倒二进制位](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/190.颠倒二进制位.ts) | 简单 |
@@ -131,7 +132,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 200 | [岛屿数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/200.岛屿数量.ts) | 中等 |
 | 202 | [快乐数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/202.快乐数.ts) | 简单 |
 | 203 | [移除链表元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/203.移除链表元素.ts) | 简单 |
-| 204 | [计数质数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/204.计数质数.ts) | 简单 |
+| 204 | [计数质数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/204.计数质数.ts) | 中等 |
 | 205 | [同构字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/205.同构字符串.ts) | 简单 |
 | 206 | [反转链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/206.反转链表.ts) | 简单 |
 | 208 | [字典树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/208.字典树.ts) | 中等 |
@@ -143,6 +144,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 220 | [存在重复元素III](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/220.存在重复元素III.ts) | 中等 |
 | 225 | [用队列实现栈](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/225.用队列实现栈.ts) | 简单 |
 | 226 | [翻转二叉树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/226.翻转二叉树.ts) | 简单 |
+| 229 | [求众数II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/229.求众数II.ts) | 中等 |
 | 231 | [2的幂](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/231.2的幂.ts) | 简单 |
 | 232 | [用栈实现队列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/232.用栈实现队列.ts) | 简单 |
 | 234 | [回文链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/234.回文链表.ts) | 简单 |
@@ -193,6 +195,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 430 | [扁平化多级双向链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/430.扁平化多级双向链表.ts) | 中等 |
 | 443 | [压缩字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/443.压缩字符串.ts) | 中等 |
 | 447 | [回旋镖的数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/447.回旋镖的数量.ts) | 中等 |
+| 453 | [最小操作次数使数组元素相等](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/453.最小操作次数使数组元素相等.ts) | 简单 |
 | 454 | [四数相加II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/454.四数相加II.ts) | 中等 |
 | 461 | [汉明距离](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/461.汉明距离.ts) | 简单 |
 | 463 | [岛屿的周长](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/463.岛屿的周长.ts) | 简单 |
@@ -214,6 +217,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 552 | [学生出勤记录II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/552.学生出勤记录II.ts) | 困难 |
 | 557 | [反转字符串中的单词III](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/557.反转字符串中的单词III.ts) | 简单 |
 | 561 | [数组拆分I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/561.数组拆分I.ts) | 简单 |
+| 575 | [分糖果](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/575.分糖果.ts) | 简单 |
 | 599 | [两个列表的最小索引总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/599.两个列表的最小索引总和.ts) | 简单 |
 | 622 | [设计循环队列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/622.设计循环队列.ts) | 中等 |
 | 652 | [寻找重复的子树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/652.寻找重复的子树.ts) | 中等 |
@@ -239,6 +243,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 中等 |
 | 844 | [比较含退格的字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/844.比较含退格的字符串.ts) | 简单 |
 | 852 | [山脉数组的峰顶索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/852.山脉数组的峰顶索引.ts) | 简单 |
+| 869 | [重新排序得到2的幂](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/869.重新排序得到2的幂.ts) | 中等 |
 | 877 | [石子游戏](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/877.石子游戏.ts) | 中等 |
 | 908 | [最小差值I](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/908.最小差值I.ts) | 简单 |
 | 930 | [和相同的二元子数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/930.和相同的二元子数组.ts) | 中等 |

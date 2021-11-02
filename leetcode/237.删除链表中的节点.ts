@@ -46,10 +46,9 @@ var deleteNode = function (node: ListNode | null) {
   }
 };
 
-var deleteNode2 = function (node: ListNode) {
-  // 直接删除当前节点
-  node.val = node.next!.val;
-  node.next = node.next!.next;
+function deleteNode2(root: ListNode | null): void {
+  root!.val = root!.next!.val;
+  root!.next = root!.next!.next;
 };
 
 export {};

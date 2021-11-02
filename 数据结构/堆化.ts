@@ -106,6 +106,7 @@ export function validHeap(arr: number[]) {
 }
 
 import assert from "assert";
+import Benchmark from "benchmark";
 import _ from "lodash";
 
 assert.ok(validHeap([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
@@ -118,56 +119,9 @@ assert.ok(
   validHeap(
     heapifyWithSiftUp(
       _.shuffle([
-        2,
-        2,
-        1,
-        1,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        0,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
+        2, 2, 1, 1, 4, 5, 6, 7, 8, 9, 0, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1,
+        2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1,
+        2, 2,
       ])
     )
   )
@@ -177,80 +131,48 @@ assert.ok(
   validHeap(
     heapifyWithSiftDown(
       _.shuffle([
-        2,
-        2,
-        1,
-        1,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        0,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
-        1,
-        2,
-        2,
+        2, 2, 1, 1, 4, 5, 6, 7, 8, 9, 0, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1,
+        2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1,
+        2, 2,
       ])
     )
   )
 );
 
-/*
-
-import Benchmark from "benchmark";
-
-const suite = new Benchmark.Suite;
+/**
+ * 堆化 并不是 是完全排序的
+ * 向上筛选堆化 x 1,271,211 ops/sec ±2.38% (84 runs sampled)
+ * 向下筛选堆化 x 2,619,467 ops/sec ±1.50% (87 runs sampled)
+ * 默认排序 x 253,043 ops/sec ±1.14% (91 runs sampled)
+ * Fastest is 向下筛选堆化
+ * */
+// region
+/*const suite = new Benchmark.Suite();
 suite
-    .add('heapifyWithSiftUp', function () {
-        heapifyWithSiftUp([2, 2, 1, 1, 4, 5, 6, 7, 8, 9, 0, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2]);
-    })
-    .add('heapifyWithSiftDown', function () {
-        heapifyWithSiftDown([2, 2, 1, 1, 4, 5, 6, 7, 8, 9, 0, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2]);
-    })
-    .on('cycle', function (event: Benchmark.Event) {
-        console.log(String(event.target));
-    })
-    .on('complete', function (this: any) {
-        console.log('Fastest is ' + this.filter('fastest').map('name'));
-    })
-    // run async
-    .run({'async': false});
-
-*/
+  .add("向上筛选堆化", function () {
+    heapifyWithSiftUp([
+      2, 2, 1, 1, 4, 5, 6, 7, 8, 9, 0, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2,
+      2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2,
+    ]);
+  })
+  .add("向下筛选堆化", function () {
+    heapifyWithSiftDown([
+      2, 2, 1, 1, 4, 5, 6, 7, 8, 9, 0, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2,
+      2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2,
+    ]);
+  })
+  .add("默认排序", function () {
+    [
+      2, 2, 1, 1, 4, 5, 6, 7, 8, 9, 0, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2,
+      2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2,
+    ].sort();
+  })
+  .on("cycle", function (event: Benchmark.Event) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: any) {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });*/
+// endregion
