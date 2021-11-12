@@ -50,7 +50,7 @@ class Trie {
     let curNode = this.root;
     for (let i = 0; i < prefix.length; i++) {
       const char = prefix.charAt(i);
-      let findNode = null;
+      let findNode: TrieNode | null = null;
       //查看当前节点下 是否能找到字符char
       curNode.children.forEach(function (item) {
         if (item.char === char) {

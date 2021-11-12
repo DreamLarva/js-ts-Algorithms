@@ -20,7 +20,6 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 1. [散列-开链法](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-开链法.ts)   
 1. [散列-线性探查](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列-线性探查.ts)   
 1. [散列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/散列.ts)   
-1. [自定义堆](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/自定义堆.ts)   
 1. [链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/链表.ts)   
 1. [集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/数据结构/集合.ts)   
 
@@ -179,6 +178,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 363 | [矩形区域不超过K的最大数值和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/363.矩形区域不超过K的最大数值和.ts) | 困难 |
 | 367 | [有效的完全平方数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/367.有效的完全平方数.ts) | 简单 |
 | 371 | [两整数之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/371.两整数之和.ts) | 中等 |
+| 375 | [猜数字大小II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/375.猜数字大小II.ts) | 中等 |
 | 380 | [常数时间插入、删除和获取随机元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/380.常数时间插入、删除和获取随机元素.ts) | 中等 |
 | 383 | [赎金信](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/383.赎金信.ts) | 简单 |
 | 384 | [打乱数组](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/384.打乱数组.ts) | 中等 |
