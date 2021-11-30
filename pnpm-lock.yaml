@@ -16,6 +16,7 @@ specifiers:
   ramda: ^0.27.1
   reflect-metadata: ^0.1.13
   ts-node: ^10.4.0
+  tsyringe: ^4.6.0
   typescript: ^4.5.2
 
 dependencies:
@@ -28,6 +29,7 @@ dependencies:
   p-limit: 3.1.0
   ramda: 0.27.1
   reflect-metadata: 0.1.13
+  tsyringe: 4.6.0
 
 devDependencies:
   '@types/benchmark': 2.1.1
@@ -306,8 +308,19 @@ packages:
     resolution: {integrity: sha1-yztD7XJctjZEeCxk+8rX2PKMCoM=, tarball: ts-toolbelt/download/ts-toolbelt-6.15.5.tgz}
     dev: false
 
+  /tslib/1.14.1:
+    resolution: {integrity: sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=, tarball: tslib/download/tslib-1.14.1.tgz}
+    dev: false
+
   /tslib/2.3.1:
     resolution: {integrity: sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=, tarball: tslib/download/tslib-2.3.1.tgz}
+    dev: false
+
+  /tsyringe/4.6.0:
+    resolution: {integrity: sha1-FJFdPX8Ns14c9yab2/fEQHE8jQc=, tarball: tsyringe/download/tsyringe-4.6.0.tgz}
+    engines: {node: '>= 6.0.0'}
+    dependencies:
+      tslib: 1.14.1
     dev: false
 
   /typescript/4.5.2:

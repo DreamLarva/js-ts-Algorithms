@@ -12,8 +12,8 @@ export function qSort(list: number[]): number[] {
   if (list.length === 0) {
     return [];
   }
-  const lesser = [];
-  const greater = [];
+  const lesser: number[] = [];
+  const greater: number[] = [];
   const pivot = list[0];
 
   // 从第一个元素开始 因为第一个值为基准值 如果只剩基准值(递归的最末则不会进这个循环)
@@ -42,8 +42,8 @@ export function qSort1(list: number[]): number[] {
   if (list.length === 0) {
     return [];
   }
-  const lesser = [];
-  const greater = [];
+  const lesser: number[] = [];
+  const greater: number[] = [];
   medianOfThree(list);
   const pivot = list[0];
 
@@ -86,8 +86,8 @@ export function qSort2(list: number[]): number[] {
   if (list.length === 0) {
     return [];
   }
-  const lesser = [];
-  const greater = [];
+  const lesser: number[] = [];
+  const greater: number[] = [];
   medianOfThree(list);
   const pivot = list[0];
 
@@ -112,8 +112,8 @@ export function qSort3(list: number[]): number[] {
   if (list.length === 0) {
     return [];
   }
-  const lesser = [];
-  const greater = [];
+  const lesser: number[] = [];
+  const greater: number[] = [];
   medianOfThree(list);
   const pivot = [list[0]];
 

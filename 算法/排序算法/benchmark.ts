@@ -8,7 +8,7 @@ import { qSort, qSort1, qSort2, qSort3 } from "./quickSort";
 
 // 测试用随机数组
 function generateRandomArr(length: number) {
-  const arr = [];
+  const arr: number[] = [];
   for (let i = 0; i < length; i++) {
     arr.push(Math.floor(Math.random() * length));
   }

@@ -96,7 +96,7 @@ class Graph {
       // 避免要到达的顶点其实并没有连接
       return undefined;
     }
-    const path = [];
+    const path: number[] = [];
     // 一旦路径到达start 说明已经完成即停止循环
     for (let i = end; i != start; i = edgeTo[i]) {
       path.push(i);
