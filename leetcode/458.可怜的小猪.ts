@@ -33,7 +33,7 @@
 1 <= minutesToDie <= minutesToTest <= 100
 * */
 function poorPigs(buckets: number, minutesToDie: number, minutesToTest: number): number {
-  /**
+  /**8
    * 数学解法详细见
    * */
   const n = Math.ceil(minutesToTest / minutesToDie) + 1;
