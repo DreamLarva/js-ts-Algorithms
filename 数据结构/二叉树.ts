@@ -73,7 +73,7 @@ class BST<T = any> {
   }
 
   inOrderAll(node: Node<T> | null) {
-    const result = [];
+    const result: T[] = [];
 
     (function recursion(node) {
       if (!(node === null)) {
@@ -88,7 +88,7 @@ class BST<T = any> {
 
   // 先序遍历
   preOrderAll(node: Node<T> | null) {
-    const result = [];
+    const result: T[] = [];
 
     (function recursion(node) {
       if (!(node === null)) {
@@ -103,7 +103,7 @@ class BST<T = any> {
 
   // 后序遍历
   postOrderAll = function (node: Node<T> | null) {
-    const result = [];
+    const result: T[] = [];
 
     (function recursion(node) {
       if (!(node === null)) {

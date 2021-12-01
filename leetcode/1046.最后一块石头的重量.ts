@@ -34,7 +34,7 @@
 import { MaxPriorityQueue } from "@datastructures-js/priority-queue";
 
 function lastStoneWeight(stones: number[]): number {
-  const pq = new MaxPriorityQueue();
+  const pq = new MaxPriorityQueue<number>();
   for (const stone of stones) {
     pq.enqueue(stone);
   }

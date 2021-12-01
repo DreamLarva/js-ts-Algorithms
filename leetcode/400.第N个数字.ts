@@ -26,7 +26,7 @@ n 是正数且在32为整形范围内 ( n < 231)。
  * @param {number} n
  * @return {number}
  */
-var findNthDigit = function (n: number) {
+function findNthDigit(n: number) {
   if (n < 10) return n;
   /**
    * 0 - 9 共 9 个数
@@ -47,8 +47,8 @@ var findNthDigit = function (n: number) {
   // first为n所属组的第一个数，
   // n / digits当前组的第几个数 (比如4位数 那么每4个数 实际数值 + 1)
   // n % digits为这个数的第几位
-  return Number(String(first + Math.trunc(n / digit))[n % digit]);
-};
+  return Number(String(first + Math.floor(n / digit))[n % digit]);
+}
 
 import assert from "assert";
 
