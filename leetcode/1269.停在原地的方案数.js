@@ -38,62 +38,64 @@
 1 <= steps <= 500
 1 <= arrLen <= 10^6
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @link https://leetcode-cn.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/solution/ting-zai-yuan-di-de-fang-an-shu-by-leetcode-soluti/
  * */
 function numWays1(steps, arrLen) {
-    const MODULO = 1000000007;
-    // 也就是 j 能停留的位置index         数组最右侧 或者 步数的一半(由于必须走回开始的位置, 超过一半步数再往右走是回不来的 所以不需要计算)
-    let maxColumn = Math.min(arrLen - 1, Math.floor(steps / 2));
-    const dp = new Array(steps + 1)
-        .fill(0)
-        //                              加上起点位置 0
-        .map(() => new Array(maxColumn + 1).fill(0));
-    dp[0][0] = 1;
-    // 第一行 也就是 只有0步 所以 出了 j = 0 位置 其他都是 0
-    // 所以下面计算 i 从 1 开始
-    // 多少步
-    for (let i = 1; i <= steps; i++) {
-        //
-        // 在哪一位
-        for (let j = 0; j <= maxColumn; j++) {
-            // dp[i][j] 位置的值 等于 dp[i - 1][j] (这步不动) + dp[i - 1][j - 1](右走一步 到j) + dp[i - 1][j + 1])(左走一步到 j)
-            dp[i][j] = dp[i - 1][j];
-            if (j - 1 >= 0) {
-                dp[i][j] = (dp[i][j] + dp[i - 1][j - 1]) % MODULO;
-            }
-            if (j + 1 <= maxColumn) {
-                dp[i][j] = (dp[i][j] + dp[i - 1][j + 1]) % MODULO;
-            }
-        }
+  const MODULO = 1000000007;
+  // 也就是 j 能停留的位置index         数组最右侧 或者 步数的一半(由于必须走回开始的位置, 超过一半步数再往右走是回不来的 所以不需要计算)
+  let maxColumn = Math.min(arrLen - 1, Math.floor(steps / 2));
+  const dp = new Array(steps + 1)
+    .fill(0)
+    //                              加上起点位置 0
+    .map(() => new Array(maxColumn + 1).fill(0));
+  dp[0][0] = 1;
+  // 第一行 也就是 只有0步 所以 出了 j = 0 位置 其他都是 0
+  // 所以下面计算 i 从 1 开始
+  // 多少步
+  for (let i = 1; i <= steps; i++) {
+    //
+    // 在哪一位
+    for (let j = 0; j <= maxColumn; j++) {
+      // dp[i][j] 位置的值 等于 dp[i - 1][j] (这步不动) + dp[i - 1][j - 1](右走一步 到j) + dp[i - 1][j + 1])(左走一步到 j)
+      dp[i][j] = dp[i - 1][j];
+      if (j - 1 >= 0) {
+        dp[i][j] = (dp[i][j] + dp[i - 1][j - 1]) % MODULO;
+      }
+      if (j + 1 <= maxColumn) {
+        dp[i][j] = (dp[i][j] + dp[i - 1][j + 1]) % MODULO;
+      }
     }
-    return dp[steps][0];
+  }
+  return dp[steps][0];
 }
 function numWays2(steps, arrLen) {
-    const MODULO = 1000000007;
-    let maxColumn = Math.min(arrLen - 1, Math.floor(steps / 2));
-    // 由于 每一个 i 位置的数组 之与 i-1 位置的数组有关, 则只需要留一个数组用来缓存即可
-    let dp = new Array(maxColumn + 1).fill(0);
-    dp[0] = 1;
-    for (let i = 1; i <= steps; i++) {
-        const dpNext = new Array(maxColumn + 1).fill(0);
-        for (let j = 0; j <= maxColumn; j++) {
-            dpNext[j] = dp[j];
-            if (j - 1 >= 0) {
-                dpNext[j] = (dpNext[j] + dp[j - 1]) % MODULO;
-            }
-            if (j + 1 <= maxColumn) {
-                dpNext[j] = (dpNext[j] + dp[j + 1]) % MODULO;
-            }
-        }
-        // 更新 i 位置的 动态规划结果
-        dp = dpNext;
+  const MODULO = 1000000007;
+  let maxColumn = Math.min(arrLen - 1, Math.floor(steps / 2));
+  // 由于 每一个 i 位置的数组 之与 i-1 位置的数组有关, 则只需要留一个数组用来缓存即可
+  let dp = new Array(maxColumn + 1).fill(0);
+  dp[0] = 1;
+  for (let i = 1; i <= steps; i++) {
+    const dpNext = new Array(maxColumn + 1).fill(0);
+    for (let j = 0; j <= maxColumn; j++) {
+      dpNext[j] = dp[j];
+      if (j - 1 >= 0) {
+        dpNext[j] = (dpNext[j] + dp[j - 1]) % MODULO;
+      }
+      if (j + 1 <= maxColumn) {
+        dpNext[j] = (dpNext[j] + dp[j + 1]) % MODULO;
+      }
     }
-    return dp[0];
+    // 更新 i 位置的 动态规划结果
+    dp = dpNext;
+  }
+  return dp[0];
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(numWays1(3, 2), 4);

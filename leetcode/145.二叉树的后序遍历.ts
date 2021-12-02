@@ -63,11 +63,10 @@ function postorderTraversal_1(root: TreeNode<number>) {
 
 import assert from "assert";
 
-assert.deepStrictEqual(postorderTraversal(createBinaryTree([1, null, 2, 3])), [
-  3,
-  2,
-  1,
-]);
+assert.deepStrictEqual(
+  postorderTraversal(createBinaryTree([1, null, 2, 3])),
+  [3, 2, 1]
+);
 assert.deepStrictEqual(
   postorderTraversal_1(createBinaryTree([1, null, 2, 3])),
   [3, 2, 1]

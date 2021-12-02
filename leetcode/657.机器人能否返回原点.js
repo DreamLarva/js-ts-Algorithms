@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 657. 机器人能否返回原点
@@ -25,17 +27,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 解释：机器人向左移动两次。它最终位于原点的左侧，距原点有两次 “移动” 的距离。我们返回 false，因为它在移动结束时没有返回原点。
 * */
 function judgeCircle(moves) {
-    const moveMap = {
-        U: 0,
-        D: 0,
-        L: 0,
-        R: 0,
-    };
-    for (const move of moves) {
-        moveMap[move]++;
-    }
-    const { D, L, R, U } = moveMap;
-    return U === D && R === L;
+  const moveMap = {
+    U: 0,
+    D: 0,
+    L: 0,
+    R: 0,
+  };
+  for (const move of moves) {
+    moveMap[move]++;
+  }
+  const { D, L, R, U } = moveMap;
+  return U === D && R === L;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(judgeCircle("UD"), true);

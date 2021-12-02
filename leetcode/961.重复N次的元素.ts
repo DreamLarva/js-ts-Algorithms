@@ -48,7 +48,7 @@ function repeatedNTimes(A: number[]): number {
     }
   }
 
-  return A[A.length - 1]
+  return A[A.length - 1];
 }
 
 import assert from "assert";

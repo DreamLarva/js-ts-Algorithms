@@ -33,19 +33,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {boolean}
  */
 var hasCycle = function (head) {
-    if (head === null)
-        return false;
-    let fast_pointer = head;
-    let slow_pointer = head;
-    do {
-        // 如果不是环 快指正一定 先到 tail
-        if ((fast_pointer = fast_pointer.next) === null)
-            return false;
-        if ((fast_pointer = fast_pointer.next) === null)
-            return false;
-        slow_pointer = slow_pointer.next; // 慢指针 必定有值
-    } while (slow_pointer !== fast_pointer);
-    return true;
+  if (head === null) return false;
+  let fast_pointer = head;
+  let slow_pointer = head;
+  do {
+    // 如果不是环 快指正一定 先到 tail
+    if ((fast_pointer = fast_pointer.next) === null) return false;
+    if ((fast_pointer = fast_pointer.next) === null) return false;
+    slow_pointer = slow_pointer.next; // 慢指针 必定有值
+  } while (slow_pointer !== fast_pointer);
+  return true;
 };
 /**
  * 快慢指针

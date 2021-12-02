@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
@@ -23,16 +25,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function (nums) {
-    let i = 0, j = 0;
-    for (; i < nums.length; i++) {
-        if (nums[i] !== 0) {
-            // j 为 除去 0 后目标能 i 下标不为 0 数据 放数据的位置(数据不为 0 会 + 1)
-            nums[j++] = nums[i];
-        }
+  let i = 0,
+    j = 0;
+  for (; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      // j 为 除去 0 后目标能 i 下标不为 0 数据 放数据的位置(数据不为 0 会 + 1)
+      nums[j++] = nums[i];
     }
-    while (j < nums.length) {
-        nums[j++] = 0;
-    }
+  }
+  while (j < nums.length) {
+    nums[j++] = 0;
+  }
 };
 const assert_1 = __importDefault(require("assert"));
 const sample = [1, 0, 0, 1];

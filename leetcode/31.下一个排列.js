@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
@@ -24,38 +26,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var nextPermutation = function (nums) {
-    // 最大的数 一定 从最大值开始降序
-    // 先从后向前扫描 直到一个非升序的数字 就是待交换的数字 的 高位
-    for (let i = nums.length - 2; i >= 0; i--) {
-        if (nums[i] < nums[i + 1]) {
-            // 从 该位 向后扫描  由于之前已经证实 之后的数字 一定是降序排列
-            // 找到 一个能 替换 当前数字的位置 (并不破坏 降序排列)
-            const high = nums[i];
-            for (let j = i + 1; j < nums.length; j++) {
-                const next = nums[j + 1] == null ? -Infinity : nums[j + 1]; // 至少是最后一个位置
-                if (high >= next) {
-                    // 交换这两个数
-                    [nums[i], nums[j]] = [nums[j], nums[i]];
-                    // 然后将高位之后的 数字 反转(之后的数字 变为字典序 最小的组合)
-                    if (i + 1 !== nums.length - 1) {
-                        reverse(nums, i + 1, nums.length - 1);
-                    }
-                    return nums;
-                }
-            }
+  // 最大的数 一定 从最大值开始降序
+  // 先从后向前扫描 直到一个非升序的数字 就是待交换的数字 的 高位
+  for (let i = nums.length - 2; i >= 0; i--) {
+    if (nums[i] < nums[i + 1]) {
+      // 从 该位 向后扫描  由于之前已经证实 之后的数字 一定是降序排列
+      // 找到 一个能 替换 当前数字的位置 (并不破坏 降序排列)
+      const high = nums[i];
+      for (let j = i + 1; j < nums.length; j++) {
+        const next = nums[j + 1] == null ? -Infinity : nums[j + 1]; // 至少是最后一个位置
+        if (high >= next) {
+          // 交换这两个数
+          [nums[i], nums[j]] = [nums[j], nums[i]];
+          // 然后将高位之后的 数字 反转(之后的数字 变为字典序 最小的组合)
+          if (i + 1 !== nums.length - 1) {
+            reverse(nums, i + 1, nums.length - 1);
+          }
+          return nums;
         }
+      }
     }
-    nums.reverse();
-    return nums;
+  }
+  nums.reverse();
+  return nums;
 };
 function reverse(nums, start, end) {
-    if (start === end)
-        return;
-    while (start < end) {
-        [nums[start], nums[end]] = [nums[end], nums[start]];
-        start++;
-        end--;
-    }
+  if (start === end) return;
+  while (start < end) {
+    [nums[start], nums[end]] = [nums[end], nums[start]];
+    start++;
+    end--;
+  }
 }
 const assert_1 = __importDefault(require("assert"));
 // assert.deepStrictEqual(

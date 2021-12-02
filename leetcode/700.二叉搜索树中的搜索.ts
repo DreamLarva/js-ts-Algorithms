@@ -51,6 +51,4 @@ function searchBST(root: TreeNode | null, val: number): TreeNode | null {
   return searchBST(root.right, val);
 }
 
-
-
 export {};

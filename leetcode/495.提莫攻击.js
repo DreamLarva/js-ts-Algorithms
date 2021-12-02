@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 在《英雄联盟》的世界中，有一个叫 “提莫” 的英雄，他的攻击可以让敌方英雄艾希（编者注：寒冰射手）进入中毒状态。
@@ -34,17 +36,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var findPoisonedDuration = function (timeSeries, duration) {
-    if (timeSeries.length === 0)
-        return 0;
-    let totalTime = 0;
-    for (let i = 0; i < timeSeries.length; i++) {
-        if (i === 0)
-            continue;
-        totalTime += Math.min(timeSeries[i] - timeSeries[i - 1], duration);
-    }
-    // 最后一次攻击的 持续时间
-    totalTime += duration;
-    return totalTime;
+  if (timeSeries.length === 0) return 0;
+  let totalTime = 0;
+  for (let i = 0; i < timeSeries.length; i++) {
+    if (i === 0) continue;
+    totalTime += Math.min(timeSeries[i] - timeSeries[i - 1], duration);
+  }
+  // 最后一次攻击的 持续时间
+  totalTime += duration;
+  return totalTime;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.deepStrictEqual(findPoisonedDuration([1, 4], 2), 4);

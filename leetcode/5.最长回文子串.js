@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
@@ -21,41 +23,45 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {string}
  */
 var longestPalindrome = function (s) {
-    const str = [...s];
-    let result = [];
-    if (str.join("") === str.reverse().join("")) {
-        return str.join("");
+  const str = [...s];
+  let result = [];
+  if (str.join("") === str.reverse().join("")) {
+    return str.join("");
+  }
+  str.forEach((v, i, a) => {
+    // 123321 格式
+    if (v === a[i + 1]) {
+      let temp = 1;
+      while (
+        i - temp >= 0 &&
+        i + 1 + temp <= a.length - 1 &&
+        a[i + 1 + temp] === a[i - temp]
+      ) {
+        temp++;
+      }
+      temp--;
+      if (result.length < 2 + 2 * temp) {
+        // 这个第一个 2 改成1 竟然不会有错误
+        result = a.slice(i - temp, i + 1 + temp + 1);
+      }
     }
-    str.forEach((v, i, a) => {
-        // 123321 格式
-        if (v === a[i + 1]) {
-            let temp = 1;
-            while (i - temp >= 0 &&
-                i + 1 + temp <= a.length - 1 &&
-                a[i + 1 + temp] === a[i - temp]) {
-                temp++;
-            }
-            temp--;
-            if (result.length < 2 + 2 * temp) {
-                // 这个第一个 2 改成1 竟然不会有错误
-                result = a.slice(i - temp, i + 1 + temp + 1);
-            }
-        }
-        // 12321 格式
-        if (a[i + 1] === a[i - 1]) {
-            let temp = 1;
-            while (i - temp >= 0 &&
-                i + temp <= a.length - 1 &&
-                a[i + temp] === a[i - temp]) {
-                temp++;
-            }
-            temp--;
-            if (result.length < 1 + 2 * temp) {
-                result = a.slice(i - temp, i + temp + 1);
-            }
-        }
-    });
-    return result.join("") || str[0];
+    // 12321 格式
+    if (a[i + 1] === a[i - 1]) {
+      let temp = 1;
+      while (
+        i - temp >= 0 &&
+        i + temp <= a.length - 1 &&
+        a[i + temp] === a[i - temp]
+      ) {
+        temp++;
+      }
+      temp--;
+      if (result.length < 1 + 2 * temp) {
+        result = a.slice(i - temp, i + temp + 1);
+      }
+    }
+  });
+  return result.join("") || str[0];
 };
 /**
  * Manacher算法

@@ -88,7 +88,7 @@ function majorityElement2(nums: number[]) {
   // element1 和 element2 中可能存在非解的
   // 需要再查以便 element1 和 element2 在 nums 中的次数
   // 同样 循环两次, 代码却复杂的很多
-  const ans:number[] = [];
+  const ans: number[] = [];
   if (vote1 > 0 && cnt1 > Math.floor(nums.length / 3)) {
     ans.push(element1);
   }

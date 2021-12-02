@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 877. 石子游戏
@@ -35,29 +37,29 @@ piles.length 是偶数。
 sum(piles) 是奇数。
 * */
 function stoneGame(piles) {
-    /**
-     * 将 数组分成 奇数堆 和 偶数堆
-     * 先选的人 能选择 其中一堆而 保持另一个人为剩下的一堆
-     * 奇数堆 和 偶数堆 必不相等 所以先手必胜
-     * */
-    return true;
+  /**
+   * 将 数组分成 奇数堆 和 偶数堆
+   * 先选的人 能选择 其中一堆而 保持另一个人为剩下的一堆
+   * 奇数堆 和 偶数堆 必不相等 所以先手必胜
+   * */
+  return true;
 }
 function stoneGame1(piles) {
-    /**
-     * https://leetcode-cn.com/problems/stone-game/solution/shi-zi-you-xi-by-leetcode-solution/
-     * 不理解 这个动态规划
-     * */
-    const length = piles.length;
-    const dp = new Array(length).fill(0).map(() => new Array(length).fill(0));
-    for (let i = 0; i < length; i++) {
-        dp[i][i] = piles[i];
+  /**
+   * https://leetcode-cn.com/problems/stone-game/solution/shi-zi-you-xi-by-leetcode-solution/
+   * 不理解 这个动态规划
+   * */
+  const length = piles.length;
+  const dp = new Array(length).fill(0).map(() => new Array(length).fill(0));
+  for (let i = 0; i < length; i++) {
+    dp[i][i] = piles[i];
+  }
+  for (let i = length - 2; i >= 0; i--) {
+    for (let j = i + 1; j < length; j++) {
+      dp[i][j] = Math.max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);
     }
-    for (let i = length - 2; i >= 0; i--) {
-        for (let j = i + 1; j < length; j++) {
-            dp[i][j] = Math.max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);
-        }
-    }
-    return dp[0][length - 1] > 0;
+  }
+  return dp[0][length - 1] > 0;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(stoneGame1([5, 3, 4, 5]), true);

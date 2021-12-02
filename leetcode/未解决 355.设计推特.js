@@ -40,64 +40,64 @@ twitter.getNewsFeed(1);
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
 class ArticleLinkListNode {
-    article;
-    dateStamp;
-    next = null;
-    constructor(article, dateStamp = Date.now()) {
-        this.article = article;
-        this.dateStamp = dateStamp;
-    }
+  article;
+  dateStamp;
+  next = null;
+  constructor(article, dateStamp = Date.now()) {
+    this.article = article;
+    this.dateStamp = dateStamp;
+  }
 }
 class Twitter {
-    usersFollowCache;
-    usersArticlesCache;
-    /**
-     * Initialize your data structure here.
-     */
-    constructor() {
-        // 存储用户关注
-        this.usersFollowCache = {};
-        // 存储用户发布的文章
-        this.usersArticlesCache = {};
-    }
-    /**
-     * Compose a new tweet.
-     * @param {number} userId
-     * @param {number} tweetId
-     * @return {void}
-     */
-    postTweet(userId, tweetId) {
-        const article = this.usersArticlesCache[userId];
-        const lastArticle = new ArticleLinkListNode(tweetId);
-        lastArticle.next = article;
-        this.usersArticlesCache[userId] = lastArticle;
-    }
-    /**
-     * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
-     * @param {number} userId
-     * @return {number[]}
-     */
-    getNewsFeed(userId) {
-        // todo 23. 合并K个排序链表
-    }
-    /**
-     * Follower follows a followee. If the operation is invalid, it should be a no-op.
-     * @param {number} followerId
-     * @param {number} followeeId
-     * @return {void}
-     */
-    follow(followerId, followeeId) {
-        this.usersFollowCache[followerId].add(followeeId);
-    }
-    /**
-     * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
-     * @param {number} followerId
-     * @param {number} followeeId
-     * @return {void}
-     */
-    unfollow(followerId, followeeId) {
-        this.usersFollowCache[followerId].delete(followeeId);
-    }
+  usersFollowCache;
+  usersArticlesCache;
+  /**
+   * Initialize your data structure here.
+   */
+  constructor() {
+    // 存储用户关注
+    this.usersFollowCache = {};
+    // 存储用户发布的文章
+    this.usersArticlesCache = {};
+  }
+  /**
+   * Compose a new tweet.
+   * @param {number} userId
+   * @param {number} tweetId
+   * @return {void}
+   */
+  postTweet(userId, tweetId) {
+    const article = this.usersArticlesCache[userId];
+    const lastArticle = new ArticleLinkListNode(tweetId);
+    lastArticle.next = article;
+    this.usersArticlesCache[userId] = lastArticle;
+  }
+  /**
+   * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+   * @param {number} userId
+   * @return {number[]}
+   */
+  getNewsFeed(userId) {
+    // todo 23. 合并K个排序链表
+  }
+  /**
+   * Follower follows a followee. If the operation is invalid, it should be a no-op.
+   * @param {number} followerId
+   * @param {number} followeeId
+   * @return {void}
+   */
+  follow(followerId, followeeId) {
+    this.usersFollowCache[followerId].add(followeeId);
+  }
+  /**
+   * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+   * @param {number} followerId
+   * @param {number} followeeId
+   * @return {void}
+   */
+  unfollow(followerId, followeeId) {
+    this.usersFollowCache[followerId].delete(followeeId);
+  }
 }
 /**
  * Your Twitter object will be instantiated and called as such:

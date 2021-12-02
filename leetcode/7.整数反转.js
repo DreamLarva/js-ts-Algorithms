@@ -8,22 +8,24 @@
  * Note:
  * The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.
  * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} x
  * @return {number}
  */
 const reverse = function (x) {
-    const maxLimit = Math.pow(2, 32 - 1);
-    const minLimit = -maxLimit;
-    if (x > maxLimit || x < minLimit)
-        return 0;
-    const result = (x > 0 ? 1 : -1) * Number(String(Math.abs(x)).split("").reverse().join(""));
-    // const result = Math.sign(x) * Number(String(Math.abs(x)).split("").reverse().join(""));
-    return result > maxLimit || result < minLimit ? 0 : result;
+  const maxLimit = Math.pow(2, 32 - 1);
+  const minLimit = -maxLimit;
+  if (x > maxLimit || x < minLimit) return 0;
+  const result =
+    (x > 0 ? 1 : -1) * Number(String(Math.abs(x)).split("").reverse().join(""));
+  // const result = Math.sign(x) * Number(String(Math.abs(x)).split("").reverse().join(""));
+  return result > maxLimit || result < minLimit ? 0 : result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(reverse(123), 321);

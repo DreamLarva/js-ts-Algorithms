@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 65. 有效数字
@@ -83,98 +85,103 @@ s 仅含英文字母（大写和小写），数字（0-9），加号 '+' ，减�
  * 指数部分的整数部分
  * */
 function isNumber(s) {
-    let State;
-    (function (State) {
-        State[State["\u521D\u59CB\u72B6\u6001"] = 0] = "\u521D\u59CB\u72B6\u6001";
-        State[State["\u6709\u7B26\u53F7\u6574\u6570"] = 1] = "\u6709\u7B26\u53F7\u6574\u6570";
-        State[State["\u65E0\u7B26\u53F7\u6574\u6570"] = 2] = "\u65E0\u7B26\u53F7\u6574\u6570";
-        State[State["\u5DE6\u4FA7\u6709\u6574\u6570\u7684\u5C0F\u6570\u70B9"] = 3] = "\u5DE6\u4FA7\u6709\u6574\u6570\u7684\u5C0F\u6570\u70B9";
-        State[State["\u5DE6\u4FA7\u65E0\u6574\u6570\u7684\u5C0F\u6570\u70B9"] = 4] = "\u5DE6\u4FA7\u65E0\u6574\u6570\u7684\u5C0F\u6570\u70B9";
-        State[State["\u5C0F\u6570\u90E8\u5206"] = 5] = "\u5C0F\u6570\u90E8\u5206";
-        State[State["\u5B57\u7B26e"] = 6] = "\u5B57\u7B26e";
-        State[State["\u6307\u6570\u90E8\u5206\u7684\u7B26\u53F7\u4F4D"] = 7] = "\u6307\u6570\u90E8\u5206\u7684\u7B26\u53F7\u4F4D";
-        State[State["\u6307\u6570\u90E8\u5206\u7684\u6574\u6570\u90E8\u5206"] = 8] = "\u6307\u6570\u90E8\u5206\u7684\u6574\u6570\u90E8\u5206";
-        State[State["\u7ED3\u675F\u72B6\u6001"] = 9] = "\u7ED3\u675F\u72B6\u6001";
-    })(State || (State = {}));
-    let CharType;
-    (function (CharType) {
-        CharType[CharType["\u6570\u5B57"] = 0] = "\u6570\u5B57";
-        CharType[CharType["\u5B57\u7B26e"] = 1] = "\u5B57\u7B26e";
-        CharType[CharType["\u5C0F\u6570\u70B9"] = 2] = "\u5C0F\u6570\u70B9";
-        CharType[CharType["\u7B26\u53F7"] = 3] = "\u7B26\u53F7";
-        CharType[CharType["\u4E0D\u5408\u6CD5\u5B57\u7B26"] = 4] = "\u4E0D\u5408\u6CD5\u5B57\u7B26";
-    })(CharType || (CharType = {}));
-    const toCharType = (ch) => {
-        if (!isNaN(ch)) {
-            return CharType.数字;
-        }
-        else if (ch.toLowerCase() === "e") {
-            return CharType.字符e;
-        }
-        else if (ch === ".") {
-            return CharType.小数点;
-        }
-        else if (ch === "+" || ch === "-") {
-            return CharType.符号;
-        }
-        else {
-            return CharType.不合法字符;
-        }
-    };
-    const transfer = new Map();
-    const initialMap = new Map();
-    initialMap.set(CharType.数字, State.无符号整数);
-    initialMap.set(CharType.小数点, State.左侧无整数的小数点);
-    initialMap.set(CharType.符号, State.有符号整数);
-    transfer.set(State.初始状态, initialMap);
-    const intSignMap = new Map();
-    intSignMap.set(CharType.数字, State.无符号整数);
-    intSignMap.set(CharType.小数点, State.左侧无整数的小数点);
-    transfer.set(State.有符号整数, intSignMap);
-    const integerMap = new Map();
-    integerMap.set(CharType.数字, State.无符号整数);
-    integerMap.set(CharType.字符e, State.字符e);
-    integerMap.set(CharType.小数点, State.左侧有整数的小数点);
-    transfer.set(State.无符号整数, integerMap);
-    const pointMap = new Map();
-    pointMap.set(CharType.数字, State.小数部分);
-    pointMap.set(CharType.字符e, State.字符e);
-    transfer.set(State.左侧有整数的小数点, pointMap);
-    const pointWithoutIntMap = new Map();
-    pointWithoutIntMap.set(CharType.数字, State.小数部分);
-    transfer.set(State.左侧无整数的小数点, pointWithoutIntMap);
-    const fractionMap = new Map();
-    fractionMap.set(CharType.数字, State.小数部分);
-    fractionMap.set(CharType.字符e, State.字符e);
-    transfer.set(State.小数部分, fractionMap);
-    const expMap = new Map();
-    expMap.set(CharType.数字, State.指数部分的整数部分);
-    expMap.set(CharType.符号, State.指数部分的符号位);
-    transfer.set(State.字符e, expMap);
-    const expSignMap = new Map();
-    expSignMap.set(CharType.数字, State.指数部分的整数部分);
-    transfer.set(State.指数部分的符号位, expSignMap);
-    const expNumberMap = new Map();
-    expNumberMap.set(CharType.数字, State.指数部分的整数部分);
-    transfer.set(State.指数部分的整数部分, expNumberMap);
-    const length = s.length;
-    let state = State.初始状态;
-    for (let i = 0; i < length; i++) {
-        const type = toCharType(s[i]);
-        if (!transfer.get(state).has(type)) {
-            return false;
-        }
-        else {
-            state = transfer.get(state).get(type);
-        }
+  let State;
+  (function (State) {
+    State[(State["\u521D\u59CB\u72B6\u6001"] = 0)] = "\u521D\u59CB\u72B6\u6001";
+    State[(State["\u6709\u7B26\u53F7\u6574\u6570"] = 1)] =
+      "\u6709\u7B26\u53F7\u6574\u6570";
+    State[(State["\u65E0\u7B26\u53F7\u6574\u6570"] = 2)] =
+      "\u65E0\u7B26\u53F7\u6574\u6570";
+    State[
+      (State["\u5DE6\u4FA7\u6709\u6574\u6570\u7684\u5C0F\u6570\u70B9"] = 3)
+    ] = "\u5DE6\u4FA7\u6709\u6574\u6570\u7684\u5C0F\u6570\u70B9";
+    State[
+      (State["\u5DE6\u4FA7\u65E0\u6574\u6570\u7684\u5C0F\u6570\u70B9"] = 4)
+    ] = "\u5DE6\u4FA7\u65E0\u6574\u6570\u7684\u5C0F\u6570\u70B9";
+    State[(State["\u5C0F\u6570\u90E8\u5206"] = 5)] = "\u5C0F\u6570\u90E8\u5206";
+    State[(State["\u5B57\u7B26e"] = 6)] = "\u5B57\u7B26e";
+    State[(State["\u6307\u6570\u90E8\u5206\u7684\u7B26\u53F7\u4F4D"] = 7)] =
+      "\u6307\u6570\u90E8\u5206\u7684\u7B26\u53F7\u4F4D";
+    State[
+      (State["\u6307\u6570\u90E8\u5206\u7684\u6574\u6570\u90E8\u5206"] = 8)
+    ] = "\u6307\u6570\u90E8\u5206\u7684\u6574\u6570\u90E8\u5206";
+    State[(State["\u7ED3\u675F\u72B6\u6001"] = 9)] = "\u7ED3\u675F\u72B6\u6001";
+  })(State || (State = {}));
+  let CharType;
+  (function (CharType) {
+    CharType[(CharType["\u6570\u5B57"] = 0)] = "\u6570\u5B57";
+    CharType[(CharType["\u5B57\u7B26e"] = 1)] = "\u5B57\u7B26e";
+    CharType[(CharType["\u5C0F\u6570\u70B9"] = 2)] = "\u5C0F\u6570\u70B9";
+    CharType[(CharType["\u7B26\u53F7"] = 3)] = "\u7B26\u53F7";
+    CharType[(CharType["\u4E0D\u5408\u6CD5\u5B57\u7B26"] = 4)] =
+      "\u4E0D\u5408\u6CD5\u5B57\u7B26";
+  })(CharType || (CharType = {}));
+  const toCharType = (ch) => {
+    if (!isNaN(ch)) {
+      return CharType.数字;
+    } else if (ch.toLowerCase() === "e") {
+      return CharType.字符e;
+    } else if (ch === ".") {
+      return CharType.小数点;
+    } else if (ch === "+" || ch === "-") {
+      return CharType.符号;
+    } else {
+      return CharType.不合法字符;
     }
-    return [
-        State.无符号整数,
-        State.左侧有整数的小数点,
-        State.小数部分,
-        State.指数部分的整数部分,
-        State.结束状态,
-    ].includes(state);
+  };
+  const transfer = new Map();
+  const initialMap = new Map();
+  initialMap.set(CharType.数字, State.无符号整数);
+  initialMap.set(CharType.小数点, State.左侧无整数的小数点);
+  initialMap.set(CharType.符号, State.有符号整数);
+  transfer.set(State.初始状态, initialMap);
+  const intSignMap = new Map();
+  intSignMap.set(CharType.数字, State.无符号整数);
+  intSignMap.set(CharType.小数点, State.左侧无整数的小数点);
+  transfer.set(State.有符号整数, intSignMap);
+  const integerMap = new Map();
+  integerMap.set(CharType.数字, State.无符号整数);
+  integerMap.set(CharType.字符e, State.字符e);
+  integerMap.set(CharType.小数点, State.左侧有整数的小数点);
+  transfer.set(State.无符号整数, integerMap);
+  const pointMap = new Map();
+  pointMap.set(CharType.数字, State.小数部分);
+  pointMap.set(CharType.字符e, State.字符e);
+  transfer.set(State.左侧有整数的小数点, pointMap);
+  const pointWithoutIntMap = new Map();
+  pointWithoutIntMap.set(CharType.数字, State.小数部分);
+  transfer.set(State.左侧无整数的小数点, pointWithoutIntMap);
+  const fractionMap = new Map();
+  fractionMap.set(CharType.数字, State.小数部分);
+  fractionMap.set(CharType.字符e, State.字符e);
+  transfer.set(State.小数部分, fractionMap);
+  const expMap = new Map();
+  expMap.set(CharType.数字, State.指数部分的整数部分);
+  expMap.set(CharType.符号, State.指数部分的符号位);
+  transfer.set(State.字符e, expMap);
+  const expSignMap = new Map();
+  expSignMap.set(CharType.数字, State.指数部分的整数部分);
+  transfer.set(State.指数部分的符号位, expSignMap);
+  const expNumberMap = new Map();
+  expNumberMap.set(CharType.数字, State.指数部分的整数部分);
+  transfer.set(State.指数部分的整数部分, expNumberMap);
+  const length = s.length;
+  let state = State.初始状态;
+  for (let i = 0; i < length; i++) {
+    const type = toCharType(s[i]);
+    if (!transfer.get(state).has(type)) {
+      return false;
+    } else {
+      state = transfer.get(state).get(type);
+    }
+  }
+  return [
+    State.无符号整数,
+    State.左侧有整数的小数点,
+    State.小数部分,
+    State.指数部分的整数部分,
+    State.结束状态,
+  ].includes(state);
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(isNumber("."), false);

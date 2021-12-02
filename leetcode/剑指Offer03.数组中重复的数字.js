@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 剑指 Offer 03. 数组中重复的数字
@@ -24,14 +26,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 * */
 function findRepeatNumber(nums) {
-    const m = {};
-    for (let i = 0; i < nums.length; i++) {
-        if (m[nums[i]]) {
-            return nums[i];
-        }
-        m[nums[i]] = true;
+  const m = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (m[nums[i]]) {
+      return nums[i];
     }
-    return 0;
+    m[nums[i]] = true;
+  }
+  return 0;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(findRepeatNumber([2, 3, 1, 0, 2, 5, 3]), 2);

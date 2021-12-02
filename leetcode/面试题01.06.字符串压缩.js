@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串aabcccccaaa会变为a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。
@@ -27,8 +29,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {string}
  */
 var compressString = function (S) {
-    const strAfterCompress = S.replace(/(\w)(\1*)/g, (str) => str[0] + str.length);
-    return S.length <= strAfterCompress.length ? S : strAfterCompress;
+  const strAfterCompress = S.replace(
+    /(\w)(\1*)/g,
+    (str) => str[0] + str.length
+  );
+  return S.length <= strAfterCompress.length ? S : strAfterCompress;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(compressString("aabcccccaa"), "a2b1c5a2");

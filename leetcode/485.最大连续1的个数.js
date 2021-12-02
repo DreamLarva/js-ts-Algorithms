@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个二进制数组， 计算其中最大连续1的个数。
@@ -25,31 +27,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var findMaxConsecutiveOnes = function (nums) {
-    if (nums.length === 0)
-        return 0;
-    return Math.max(...nums
-        .join("")
-        .split("0")
-        .map((v) => v.length));
+  if (nums.length === 0) return 0;
+  return Math.max(
+    ...nums
+      .join("")
+      .split("0")
+      .map((v) => v.length)
+  );
 };
 /**
  * 快约20倍
  * */
 var findMaxConsecutiveOnes_1 = function (nums) {
-    if (nums.length === 0)
-        return 0;
-    let max = 0;
-    let current_length = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] === 0) {
-            max = Math.max(max, current_length);
-            current_length = 0;
-        }
-        else {
-            current_length++;
-        }
+  if (nums.length === 0) return 0;
+  let max = 0;
+  let current_length = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      max = Math.max(max, current_length);
+      current_length = 0;
+    } else {
+      current_length++;
     }
-    return Math.max(max, current_length);
+  }
+  return Math.max(max, current_length);
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]), 3);

@@ -153,9 +153,9 @@ assert.deepStrictEqual(sortDeep(combinationSum3([1, 1], 1)), sortDeep([[1]]));
 import Benchmark from "benchmark";
 const suite = new Benchmark.Suite();
 
-const candidates = [1,1];
-const target = 1 // Math.floor(Math.random() * 100);
-console.log(target)
+const candidates = [1, 1];
+const target = 1; // Math.floor(Math.random() * 100);
+console.log(target);
 
 suite
   .add("sort and dfs", function () {

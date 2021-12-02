@@ -14,30 +14,32 @@
 解释: 5! = 120, 尾数中有 1 个零.
 说明: 你算法的时间复杂度应为 O(log n) 。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} n
  * @return {number}
  */
 var trailingZeroes = function (n) {
+  /**
+   * 就是求 阶乘中 5 的数量(2 的数量一定够的)
+   * */
+  let result = 0;
+  let i = 1;
+  while (Math.pow(5, i) <= n) {
     /**
-     * 就是求 阶乘中 5 的数量(2 的数量一定够的)
+     * 5 的个数
+     * 25 的个数 (应该 + 2 但是 5 的个数 已经算过一次了 所以还是 + 1)
+     * 125 的个数 (应该 + 2 但是 5 和 25 都算过一次 所以 还是 + 1)
      * */
-    let result = 0;
-    let i = 1;
-    while (Math.pow(5, i) <= n) {
-        /**
-         * 5 的个数
-         * 25 的个数 (应该 + 2 但是 5 的个数 已经算过一次了 所以还是 + 1)
-         * 125 的个数 (应该 + 2 但是 5 和 25 都算过一次 所以 还是 + 1)
-         * */
-        result += ~~(n / Math.pow(5, i));
-        i++;
-    }
-    return result;
+    result += ~~(n / Math.pow(5, i));
+    i++;
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(trailingZeroes(5), 1);

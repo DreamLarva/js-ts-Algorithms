@@ -29,7 +29,7 @@ var spiralOrder = function (matrix: number[][]) {
   type matrix_layer = [vector, vector]; // 第一个坐标为 左上 第二个坐标为右下
 
   if (matrix.length === 0) return [];
-  const result:number[] = [];
+  const result: number[] = [];
   let layer: matrix_layer = [
     [0, 0],
     [matrix.length - 1, matrix[0].length - 1],

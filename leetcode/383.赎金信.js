@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 const assert_1 = __importDefault(require("assert"));
 /*
@@ -24,27 +26,24 @@ canConstruct("aa", "aab") -> true
  * @return {boolean}
  */
 var canConstruct = function (ransomNote, magazine) {
-    if (ransomNote.length === 0)
-        return true;
-    if (ransomNote.length > magazine.length)
-        return false;
-    const hashTable = {};
-    for (const character of ransomNote) {
-        const count = hashTable[character];
-        if (count) {
-            hashTable[character]++;
-        }
-        else {
-            hashTable[character] = 1;
-        }
+  if (ransomNote.length === 0) return true;
+  if (ransomNote.length > magazine.length) return false;
+  const hashTable = {};
+  for (const character of ransomNote) {
+    const count = hashTable[character];
+    if (count) {
+      hashTable[character]++;
+    } else {
+      hashTable[character] = 1;
     }
-    for (const character of magazine) {
-        const count = hashTable[character];
-        if (count) {
-            hashTable[character]--;
-        }
+  }
+  for (const character of magazine) {
+    const count = hashTable[character];
+    if (count) {
+      hashTable[character]--;
     }
-    return !Object.values(hashTable).some((v) => v > 0);
+  }
+  return !Object.values(hashTable).some((v) => v > 0);
 };
 // 双哈希表你个鬼额
 /*

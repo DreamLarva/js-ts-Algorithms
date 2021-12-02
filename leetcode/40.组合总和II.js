@@ -33,117 +33,136 @@ candidates 中的每个数字在每个组合中只能使用一次。
 链接：https://leetcode-cn.com/problems/combination-sum-ii
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 function combinationSum2(candidates, target) {
-    const sortedData = sortData(candidates);
-    const result = [];
-    dfs(target, 0, sortedData);
-    return result;
-    function dfs(rest, position = 0, restList, resultList = []) {
-        if (rest === 0) {
-            result.push(resultList);
-            return;
-        }
-        if (rest < 0)
-            return;
-        if (restList[position] == null)
-            return;
-        const [val, time] = restList[position++];
-        for (let i = 0; i <= time; i++) {
-            dfs(rest - i * val, position, restList, resultList.concat(...Array(i).fill(val)));
-        }
+  const sortedData = sortData(candidates);
+  const result = [];
+  dfs(target, 0, sortedData);
+  return result;
+  function dfs(rest, position = 0, restList, resultList = []) {
+    if (rest === 0) {
+      result.push(resultList);
+      return;
     }
+    if (rest < 0) return;
+    if (restList[position] == null) return;
+    const [val, time] = restList[position++];
+    for (let i = 0; i <= time; i++) {
+      dfs(
+        rest - i * val,
+        position,
+        restList,
+        resultList.concat(...Array(i).fill(val))
+      );
+    }
+  }
 }
 /**
  * 先整理数据 , 相同的整理到一起
  * */
 function sortData(candidates) {
-    let index = 0;
-    const data = [];
-    const map = {};
-    for (let i = 0; i < candidates.length; i++) {
-        const cur = candidates[i];
-        if (map[cur] != null) {
-            data[map[cur]][1]++;
-        }
-        else {
-            map[cur] = index;
-            data.push([cur, 1]);
-            index++;
-        }
+  let index = 0;
+  const data = [];
+  const map = {};
+  for (let i = 0; i < candidates.length; i++) {
+    const cur = candidates[i];
+    if (map[cur] != null) {
+      data[map[cur]][1]++;
+    } else {
+      map[cur] = index;
+      data.push([cur, 1]);
+      index++;
     }
-    return data;
+  }
+  return data;
 }
 function combinationSum3(candidates, target) {
-    candidates.sort((a, b) => a - b);
-    const result = [];
-    dfs(0, target);
-    return result;
-    function dfs(position, target, status = []) {
-        if (target < 0)
-            return;
-        if (target === 0) {
-            result.push(status.slice());
-            return;
-        }
-        if (position >= candidates.length)
-            return;
-        let last = NaN;
-        for (let i = position; i < candidates.length; i++) {
-            // 妙啊
-            // 保证了 本地的这次循环 相同的值只可能出现一次
-            if (last === candidates[i])
-                continue;
-            // 当前值为
-            last = candidates[i];
-            status.push(candidates[i]);
-            dfs(i + 1, target - candidates[i], status);
-            // 将进入没有 candidates[i] 的流程
-            status.pop();
-        }
+  candidates.sort((a, b) => a - b);
+  const result = [];
+  dfs(0, target);
+  return result;
+  function dfs(position, target, status = []) {
+    if (target < 0) return;
+    if (target === 0) {
+      result.push(status.slice());
+      return;
     }
+    if (position >= candidates.length) return;
+    let last = NaN;
+    for (let i = position; i < candidates.length; i++) {
+      // 妙啊
+      // 保证了 本地的这次循环 相同的值只可能出现一次
+      if (last === candidates[i]) continue;
+      // 当前值为
+      last = candidates[i];
+      status.push(candidates[i]);
+      dfs(i + 1, target - candidates[i], status);
+      // 将进入没有 candidates[i] 的流程
+      status.pop();
+    }
+  }
 }
 const assert_1 = __importDefault(require("assert"));
 const assertHelper_1 = require("../util/assertHelper");
-assert_1.default.deepStrictEqual((0, assertHelper_1.sortDeep)(combinationSum2([10, 1, 2, 7, 6, 1, 5], 8)), (0, assertHelper_1.sortDeep)([
+assert_1.default.deepStrictEqual(
+  (0, assertHelper_1.sortDeep)(combinationSum2([10, 1, 2, 7, 6, 1, 5], 8)),
+  (0, assertHelper_1.sortDeep)([
     [1, 7],
     [1, 2, 5],
     [2, 6],
     [1, 1, 6],
-]));
-assert_1.default.deepStrictEqual((0, assertHelper_1.sortDeep)(combinationSum2([2, 5, 2, 1, 2], 5)), (0, assertHelper_1.sortDeep)([[1, 2, 2], [5]]));
-assert_1.default.deepStrictEqual((0, assertHelper_1.sortDeep)(combinationSum2([1, 1], 1)), (0, assertHelper_1.sortDeep)([[1]]));
-assert_1.default.deepStrictEqual((0, assertHelper_1.sortDeep)(combinationSum3([10, 1, 2, 7, 6, 1, 5], 8)), (0, assertHelper_1.sortDeep)([
+  ])
+);
+assert_1.default.deepStrictEqual(
+  (0, assertHelper_1.sortDeep)(combinationSum2([2, 5, 2, 1, 2], 5)),
+  (0, assertHelper_1.sortDeep)([[1, 2, 2], [5]])
+);
+assert_1.default.deepStrictEqual(
+  (0, assertHelper_1.sortDeep)(combinationSum2([1, 1], 1)),
+  (0, assertHelper_1.sortDeep)([[1]])
+);
+assert_1.default.deepStrictEqual(
+  (0, assertHelper_1.sortDeep)(combinationSum3([10, 1, 2, 7, 6, 1, 5], 8)),
+  (0, assertHelper_1.sortDeep)([
     [1, 7],
     [1, 2, 5],
     [2, 6],
     [1, 1, 6],
-]));
-assert_1.default.deepStrictEqual((0, assertHelper_1.sortDeep)(combinationSum3([2, 5, 2, 1, 2], 5)), (0, assertHelper_1.sortDeep)([[1, 2, 2], [5]]));
-assert_1.default.deepStrictEqual((0, assertHelper_1.sortDeep)(combinationSum3([1, 1], 1)), (0, assertHelper_1.sortDeep)([[1]]));
+  ])
+);
+assert_1.default.deepStrictEqual(
+  (0, assertHelper_1.sortDeep)(combinationSum3([2, 5, 2, 1, 2], 5)),
+  (0, assertHelper_1.sortDeep)([[1, 2, 2], [5]])
+);
+assert_1.default.deepStrictEqual(
+  (0, assertHelper_1.sortDeep)(combinationSum3([1, 1], 1)),
+  (0, assertHelper_1.sortDeep)([[1]])
+);
 const benchmark_1 = __importDefault(require("benchmark"));
 const suite = new benchmark_1.default.Suite();
 const candidates = [1, 1];
 const target = 1; // Math.floor(Math.random() * 100);
 console.log(target);
 suite
-    .add("sort and dfs", function () {
+  .add("sort and dfs", function () {
     combinationSum2(candidates, target);
-})
-    .add("dfs", function () {
+  })
+  .add("dfs", function () {
     combinationSum3(candidates, target);
-})
-    .on("cycle", function (event) {
+  })
+  .on("cycle", function (event) {
     console.log(String(event.target));
-})
-    .on("complete", function () {
+  })
+  .on("complete", function () {
     // console.log('Fastest is ' + this.filter('fastest').map( 'name'));
-})
-    // run async
-    .run({ async: false });
+  })
+  // run async
+  .run({ async: false });
 /**
  * combinationSum3 不整理数据的 快的多
  * */

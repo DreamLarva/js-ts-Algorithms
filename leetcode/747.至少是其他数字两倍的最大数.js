@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 在一个给定的数组nums中，总是存在一个最大元素 。
@@ -34,29 +36,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var dominantIndex = function (nums) {
-    if (nums.length === 1)
-        return 0;
-    let max_index;
-    let second_max_index;
-    if (nums[0] > nums[1]) {
-        max_index = 0;
-        second_max_index = 1;
+  if (nums.length === 1) return 0;
+  let max_index;
+  let second_max_index;
+  if (nums[0] > nums[1]) {
+    max_index = 0;
+    second_max_index = 1;
+  } else {
+    max_index = 1;
+    second_max_index = 0;
+  }
+  for (let i = 2; i < nums.length; i++) {
+    if (nums[i] > nums[max_index]) {
+      second_max_index = max_index;
+      max_index = i;
+      continue;
     }
-    else {
-        max_index = 1;
-        second_max_index = 0;
+    if (nums[i] > nums[second_max_index]) {
+      second_max_index = i;
     }
-    for (let i = 2; i < nums.length; i++) {
-        if (nums[i] > nums[max_index]) {
-            second_max_index = max_index;
-            max_index = i;
-            continue;
-        }
-        if (nums[i] > nums[second_max_index]) {
-            second_max_index = i;
-        }
-    }
-    return nums[second_max_index] * 2 <= nums[max_index] ? max_index : -1;
+  }
+  return nums[second_max_index] * 2 <= nums[max_index] ? max_index : -1;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(dominantIndex([1, 2, 3, 4]), -1);

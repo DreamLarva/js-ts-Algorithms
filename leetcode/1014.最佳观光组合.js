@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 1014. 最佳观光组合
@@ -26,20 +28,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 1 <= A[i] <= 1000
 * */
 function maxScoreSightseeingPair(A) {
-    /**
-     * 将 A[i] + A[j] + i - j 的值 分成 A[i] + i 和 A[j] - j
-     * 怎么任意一个位置上 A[j] - j 的值 是固定的
-     * j 位置上 那么 只要求 A[i] + i 的最大值就行了
-     * 那么从左向右 遍历存下A[i] + i
-     *
-     * */
-    let answer = 0;
-    let left = A[0];
-    for (let i = 1; i < A.length; i++) {
-        answer = Math.max(answer, left + A[i] - i);
-        left = Math.max(left, A[i] + i);
-    }
-    return answer;
+  /**
+   * 将 A[i] + A[j] + i - j 的值 分成 A[i] + i 和 A[j] - j
+   * 怎么任意一个位置上 A[j] - j 的值 是固定的
+   * j 位置上 那么 只要求 A[i] + i 的最大值就行了
+   * 那么从左向右 遍历存下A[i] + i
+   *
+   * */
+  let answer = 0;
+  let left = A[0];
+  for (let i = 1; i < A.length; i++) {
+    answer = Math.max(answer, left + A[i] - i);
+    left = Math.max(left, A[i] + i);
+  }
+  return answer;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(maxScoreSightseeingPair([8, 1, 5, 2, 6]), 11);

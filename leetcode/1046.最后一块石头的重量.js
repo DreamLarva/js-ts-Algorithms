@@ -31,24 +31,25 @@
 链接：https://leetcode-cn.com/problems/last-stone-weight
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 const priority_queue_1 = require("@datastructures-js/priority-queue");
 function lastStoneWeight(stones) {
-    const pq = new priority_queue_1.MaxPriorityQueue();
-    for (const stone of stones) {
-        pq.enqueue(stone);
-    }
-    while (pq.size() > 1) {
-        const a = pq.dequeue()["element"];
-        const b = pq.dequeue()["element"];
-        const diff = a - b;
-        if (diff !== 0)
-            pq.enqueue(diff);
-    }
-    return pq.size() === 0 ? 0 : pq.dequeue()["element"];
+  const pq = new priority_queue_1.MaxPriorityQueue();
+  for (const stone of stones) {
+    pq.enqueue(stone);
+  }
+  while (pq.size() > 1) {
+    const a = pq.dequeue()["element"];
+    const b = pq.dequeue()["element"];
+    const diff = a - b;
+    if (diff !== 0) pq.enqueue(diff);
+  }
+  return pq.size() === 0 ? 0 : pq.dequeue()["element"];
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(lastStoneWeight([2, 7, 4, 1, 8, 1]), 1);

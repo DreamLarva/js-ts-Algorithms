@@ -30,23 +30,23 @@
 链接：https://leetcode-cn.com/problems/pattern-matching-lcci
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 function patternMatching(pattern, value) {
-    if (pattern.length <= 1)
-        return true;
-    if (value === "")
-        return false;
-    const first = pattern[0];
-    const other = first === "a" ? "b" : "a";
-    const reg = pattern
-        .replace(first, "(\\w*)")
-        .replace(other, "(\\w*)")
-        .replace(new RegExp(first, "g"), "\\1")
-        .replace(new RegExp(other, "g"), "\\2");
-    return new RegExp("^" + reg + "$").test(value);
+  if (pattern.length <= 1) return true;
+  if (value === "") return false;
+  const first = pattern[0];
+  const other = first === "a" ? "b" : "a";
+  const reg = pattern
+    .replace(first, "(\\w*)")
+    .replace(other, "(\\w*)")
+    .replace(new RegExp(first, "g"), "\\1")
+    .replace(new RegExp(other, "g"), "\\2");
+  return new RegExp("^" + reg + "$").test(value);
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(patternMatching("abba", "dogcatcatdog"), true);

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
@@ -22,21 +24,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 * */
 const LinkedList_1 = require("../util/LinkedList");
 var mergeTwoLists = function (l1, l2) {
-    // 如果 某一个链表到底了 就返回 另一个
-    if (l1 == null)
-        return l2;
-    if (l2 == null)
-        return l1;
-    if (l1.val <= l2.val) {
-        // 递归 下一个值
-        l1.next = mergeTwoLists(l1.next, l2);
-        // 返回本轮较小的值
-        return l1;
-    }
-    else {
-        l2.next = mergeTwoLists(l1, l2.next);
-        return l2;
-    }
+  // 如果 某一个链表到底了 就返回 另一个
+  if (l1 == null) return l2;
+  if (l2 == null) return l1;
+  if (l1.val <= l2.val) {
+    // 递归 下一个值
+    l1.next = mergeTwoLists(l1.next, l2);
+    // 返回本轮较小的值
+    return l1;
+  } else {
+    l2.next = mergeTwoLists(l1, l2.next);
+    return l2;
+  }
 };
 /**
  * Definition for singly-linked list.
@@ -50,21 +49,26 @@ var mergeTwoLists = function (l1, l2) {
  * @return {ListNode}
  */
 var mergeKLists = function (lists) {
-    let interval = 1;
-    while (interval < lists.length) {
-        for (let i = 0; lists.length - interval * i > 0;) {
-            lists[i] = mergeTwoLists(lists[i], lists[i + interval]);
-            i = interval * ++i * 2;
-        }
-        interval *= 2;
+  let interval = 1;
+  while (interval < lists.length) {
+    for (let i = 0; lists.length - interval * i > 0; ) {
+      lists[i] = mergeTwoLists(lists[i], lists[i + interval]);
+      i = interval * ++i * 2;
     }
-    return lists.length === 0 ? lists : lists[0];
+    interval *= 2;
+  }
+  return lists.length === 0 ? lists : lists[0];
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.deepStrictEqual(mergeKLists([
-    [1, 4, 5],
-    [1, 3, 4],
-    [2, 6],
-].map((v) => (0, LinkedList_1.createLinkedList)(v))), (0, LinkedList_1.createLinkedList)([1, 1, 2, 3, 4, 4, 5, 6]));
+assert_1.default.deepStrictEqual(
+  mergeKLists(
+    [
+      [1, 4, 5],
+      [1, 3, 4],
+      [2, 6],
+    ].map((v) => (0, LinkedList_1.createLinkedList)(v))
+  ),
+  (0, LinkedList_1.createLinkedList)([1, 1, 2, 3, 4, 4, 5, 6])
+);
 assert_1.default.deepStrictEqual(mergeKLists([]), []);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjMu5ZCI5bm2S+S4quaOkuW6j+mTvuihqC5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMjMu5ZCI5bm2S+S4quaOkuW6j+mTvuihqC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBOzs7Ozs7Ozs7Ozs7Ozs7O0lBZ0JJO0FBQ0osbURBQWdFO0FBQ2hFLElBQUksYUFBYSxHQUFHLFVBQ2xCLEVBQXNCLEVBQ3RCLEVBQXNCO0lBRXRCLHNCQUFzQjtJQUN0QixJQUFJLEVBQUUsSUFBSSxJQUFJO1FBQUUsT0FBTyxFQUFFLENBQUM7SUFDMUIsSUFBSSxFQUFFLElBQUksSUFBSTtRQUFFLE9BQU8sRUFBRSxDQUFDO0lBRTFCLElBQUksRUFBRSxDQUFDLEdBQUcsSUFBSSxFQUFFLENBQUMsR0FBRyxFQUFFO1FBQ3BCLFVBQVU7UUFDVixFQUFFLENBQUMsSUFBSSxHQUFHLGFBQWEsQ0FBQyxFQUFFLENBQUMsSUFBSSxFQUFFLEVBQUUsQ0FBQyxDQUFDO1FBQ3JDLFdBQVc7UUFDWCxPQUFPLEVBQUUsQ0FBQztLQUNYO1NBQU07UUFDTCxFQUFFLENBQUMsSUFBSSxHQUFHLGFBQWEsQ0FBQyxFQUFFLEVBQUUsRUFBRSxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQ3JDLE9BQU8sRUFBRSxDQUFDO0tBQ1g7QUFDSCxDQUFDLENBQUM7QUFDRjs7Ozs7O0dBTUc7QUFDSDs7O0dBR0c7QUFDSCxJQUFJLFdBQVcsR0FBRyxVQUFVLEtBQTBCO0lBQ3BELElBQUksUUFBUSxHQUFHLENBQUMsQ0FBQztJQUNqQixPQUFPLFFBQVEsR0FBRyxLQUFLLENBQUMsTUFBTSxFQUFFO1FBQzlCLEtBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLEtBQUssQ0FBQyxNQUFNLEdBQUcsUUFBUSxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUk7WUFDakQsS0FBSyxDQUFDLENBQUMsQ0FBQyxHQUFHLGFBQWEsQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDLEVBQUUsS0FBSyxDQUFDLENBQUMsR0FBRyxRQUFRLENBQUMsQ0FBQyxDQUFDO1lBQ3hELENBQUMsR0FBRyxRQUFRLEdBQUcsRUFBRSxDQUFDLEdBQUcsQ0FBQyxDQUFDO1NBQ3hCO1FBQ0QsUUFBUSxJQUFJLENBQUMsQ0FBQztLQUNmO0lBQ0QsT0FBTyxLQUFLLENBQUMsTUFBTSxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUM7QUFDL0MsQ0FBQyxDQUFDO0FBRUYsb0RBQTRCO0FBRTVCLGdCQUFNLENBQUMsZUFBZSxDQUNwQixXQUFXLENBQ1Q7SUFDRSxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBQ1QsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQztJQUNULENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQztDQUNQLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxJQUFBLDZCQUFnQixFQUFDLENBQUMsQ0FBQyxDQUFDLENBQ2xDLEVBQ0QsSUFBQSw2QkFBZ0IsRUFBQyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUMzQyxDQUFDO0FBQ0YsZ0JBQU0sQ0FBQyxlQUFlLENBQUMsV0FBVyxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbuWQiOW5tiBrIOS4quaOkuW6j+mTvuihqO+8jOi/lOWbnuWQiOW5tuWQjueahOaOkuW6j+mTvuihqOOAguivt+WIhuaekOWSjOaPj+i/sOeul+azleeahOWkjeadguW6puOAglxuXG7npLrkvos6XG5cbui+k+WFpTpcbltcbiAgMS0+NC0+NSxcbiAgMS0+My0+NCxcbiAgMi0+NlxuXVxu6L6T5Ye6OiAxLT4xLT4yLT4zLT40LT40LT41LT42XG5cbuadpea6kO+8muWKm+aJo++8iExlZXRDb2Rl77yJXG7pk77mjqXvvJpodHRwczovL2xlZXRjb2RlLWNuLmNvbS9wcm9ibGVtcy9tZXJnZS1rLXNvcnRlZC1saXN0c1xu6JGX5L2c5p2D5b2S6aKG5omj572R57uc5omA5pyJ44CC5ZWG5Lia6L2s6L296K+36IGU57O75a6Y5pa55o6I5p2D77yM6Z2e5ZWG5Lia6L2s6L296K+35rOo5piO5Ye65aSE44CCXG4qICovXG5pbXBvcnQgeyBMaXN0Tm9kZSwgY3JlYXRlTGlua2VkTGlzdCB9IGZyb20gXCIuLi91dGlsL0xpbmtlZExpc3RcIjtcbnZhciBtZXJnZVR3b0xpc3RzID0gZnVuY3Rpb24gPFQ+KFxuICBsMTogTGlzdE5vZGU8VD4gfCBudWxsLFxuICBsMjogTGlzdE5vZGU8VD4gfCBudWxsXG4pOiBMaXN0Tm9kZSB8IG51bGwge1xuICAvLyDlpoLmnpwg5p+Q5LiA5Liq6ZO+6KGo5Yiw5bqV5LqGIOWwsei/lOWbniDlj6bkuIDkuKpcbiAgaWYgKGwxID09IG51bGwpIHJldHVybiBsMjtcbiAgaWYgKGwyID09IG51bGwpIHJldHVybiBsMTtcblxuICBpZiAobDEudmFsIDw9IGwyLnZhbCkge1xuICAgIC8vIOmAkuW9kiDkuIvkuIDkuKrlgLxcbiAgICBsMS5uZXh0ID0gbWVyZ2VUd29MaXN0cyhsMS5uZXh0LCBsMik7XG4gICAgLy8g6L+U5Zue5pys6L2u6L6D5bCP55qE5YC8XG4gICAgcmV0dXJuIGwxO1xuICB9IGVsc2Uge1xuICAgIGwyLm5leHQgPSBtZXJnZVR3b0xpc3RzKGwxLCBsMi5uZXh0KTtcbiAgICByZXR1cm4gbDI7XG4gIH1cbn07XG4vKipcbiAqIERlZmluaXRpb24gZm9yIHNpbmdseS1saW5rZWQgbGlzdC5cbiAqIGZ1bmN0aW9uIExpc3ROb2RlKHZhbCkge1xuICogICAgIHRoaXMudmFsID0gdmFsO1xuICogICAgIHRoaXMubmV4dCA9IG51bGw7XG4gKiB9XG4gKi9cbi8qKlxuICogQHBhcmFtIHtMaXN0Tm9kZVtdfSBsaXN0c1xuICogQHJldHVybiB7TGlzdE5vZGV9XG4gKi9cbnZhciBtZXJnZUtMaXN0cyA9IGZ1bmN0aW9uIChsaXN0czogKExpc3ROb2RlIHwgbnVsbClbXSkge1xuICBsZXQgaW50ZXJ2YWwgPSAxO1xuICB3aGlsZSAoaW50ZXJ2YWwgPCBsaXN0cy5sZW5ndGgpIHtcbiAgICBmb3IgKGxldCBpID0gMDsgbGlzdHMubGVuZ3RoIC0gaW50ZXJ2YWwgKiBpID4gMDsgKSB7XG4gICAgICBsaXN0c1tpXSA9IG1lcmdlVHdvTGlzdHMobGlzdHNbaV0sIGxpc3RzW2kgKyBpbnRlcnZhbF0pO1xuICAgICAgaSA9IGludGVydmFsICogKytpICogMjtcbiAgICB9XG4gICAgaW50ZXJ2YWwgKj0gMjtcbiAgfVxuICByZXR1cm4gbGlzdHMubGVuZ3RoID09PSAwID8gbGlzdHMgOiBsaXN0c1swXTtcbn07XG5cbmltcG9ydCBhc3NlcnQgZnJvbSBcImFzc2VydFwiO1xuXG5hc3NlcnQuZGVlcFN0cmljdEVxdWFsKFxuICBtZXJnZUtMaXN0cyhcbiAgICBbXG4gICAgICBbMSwgNCwgNV0sXG4gICAgICBbMSwgMywgNF0sXG4gICAgICBbMiwgNl0sXG4gICAgXS5tYXAoKHYpID0+IGNyZWF0ZUxpbmtlZExpc3QodikpXG4gICksXG4gIGNyZWF0ZUxpbmtlZExpc3QoWzEsIDEsIDIsIDMsIDQsIDQsIDUsIDZdKVxuKTtcbmFzc2VydC5kZWVwU3RyaWN0RXF1YWwobWVyZ2VLTGlzdHMoW10pLCBbXSk7XG4iXX0=

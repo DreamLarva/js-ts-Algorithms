@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
@@ -26,33 +28,48 @@ const LinkedList_1 = require("../util/LinkedList");
  * @return {ListNode}
  */
 var removeNthFromEnd = function (head, n) {
-    /**
-     * 老样子 快慢指针
-     * */
-    let slow = head;
-    let fast = next_n(head, n);
-    // 删除的是 head 结点{
-    if (fast === null) {
-        return head.next;
+  /**
+   * 老样子 快慢指针
+   * */
+  let slow = head;
+  let fast = next_n(head, n);
+  // 删除的是 head 结点{
+  if (fast === null) {
+    return head.next;
+  }
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  // 这里的 slow 是要删除的节点的 前一个节点
+  slow.next = slow.next.next;
+  return head;
+  function next_n(listNode, n) {
+    while (n) {
+      listNode = listNode.next;
+      n--;
     }
-    while (fast && fast.next) {
-        slow = slow.next;
-        fast = fast.next;
-    }
-    // 这里的 slow 是要删除的节点的 前一个节点
-    slow.next = slow.next.next;
-    return head;
-    function next_n(listNode, n) {
-        while (n) {
-            listNode = listNode.next;
-            n--;
-        }
-        return listNode;
-    }
+    return listNode;
+  }
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.deepStrictEqual(removeNthFromEnd((0, LinkedList_1.createLinkedList)([1, 2, 3, 4, 5]), 2).toString(), [1, 2, 3, 5]);
-assert_1.default.deepStrictEqual(removeNthFromEnd((0, LinkedList_1.createLinkedList)([1]), 1), null);
-assert_1.default.deepStrictEqual(removeNthFromEnd((0, LinkedList_1.createLinkedList)([1, 2]), 1).toString(), [1]);
-assert_1.default.deepStrictEqual(removeNthFromEnd((0, LinkedList_1.createLinkedList)([1, 2]), 2).toString(), [2]);
+assert_1.default.deepStrictEqual(
+  removeNthFromEnd(
+    (0, LinkedList_1.createLinkedList)([1, 2, 3, 4, 5]),
+    2
+  ).toString(),
+  [1, 2, 3, 5]
+);
+assert_1.default.deepStrictEqual(
+  removeNthFromEnd((0, LinkedList_1.createLinkedList)([1]), 1),
+  null
+);
+assert_1.default.deepStrictEqual(
+  removeNthFromEnd((0, LinkedList_1.createLinkedList)([1, 2]), 1).toString(),
+  [1]
+);
+assert_1.default.deepStrictEqual(
+  removeNthFromEnd((0, LinkedList_1.createLinkedList)([1, 2]), 2).toString(),
+  [2]
+);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTku5Yig6Zmk6ZO+6KGo55qE5YCS5pWw56ysTuS4quiKgueCuS5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMTku5Yig6Zmk6ZO+6KGo55qE5YCS5pWw56ysTuS4quiKgueCuS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBOzs7Ozs7Ozs7Ozs7Ozs7SUFlSTtBQUNKLG1EQUFnRTtBQUVoRTs7OztHQUlHO0FBQ0gsSUFBSSxnQkFBZ0IsR0FBRyxVQUFVLElBQWMsRUFBRSxDQUFTO0lBQ3hEOztTQUVLO0lBQ0wsSUFBSSxJQUFJLEdBQUcsSUFBSSxDQUFDO0lBQ2hCLElBQUksSUFBSSxHQUFHLE1BQU0sQ0FBQyxJQUFJLEVBQUUsQ0FBQyxDQUFDLENBQUM7SUFFM0IsZ0JBQWdCO0lBQ2hCLElBQUksSUFBSSxLQUFLLElBQUksRUFBRTtRQUNqQixPQUFPLElBQUksQ0FBQyxJQUFJLENBQUM7S0FDbEI7SUFFRCxPQUFPLElBQUksSUFBSSxJQUFJLENBQUMsSUFBSSxFQUFFO1FBQ3hCLElBQUksR0FBRyxJQUFJLENBQUMsSUFBSyxDQUFDO1FBQ2xCLElBQUksR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDO0tBQ2xCO0lBQ0QsMEJBQTBCO0lBQzFCLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDLElBQUssQ0FBQyxJQUFJLENBQUM7SUFFNUIsT0FBTyxJQUFJLENBQUM7SUFFWixTQUFTLE1BQU0sQ0FBQyxRQUFrQixFQUFFLENBQVM7UUFDM0MsT0FBTyxDQUFDLEVBQUU7WUFDUixRQUFRLEdBQUcsUUFBUSxDQUFDLElBQUssQ0FBQztZQUMxQixDQUFDLEVBQUUsQ0FBQztTQUNMO1FBQ0QsT0FBTyxRQUFRLENBQUM7SUFDbEIsQ0FBQztBQUNILENBQUMsQ0FBQztBQUVGLG9EQUE0QjtBQUU1QixnQkFBTSxDQUFDLGVBQWUsQ0FDcEIsZ0JBQWdCLENBQUMsSUFBQSw2QkFBZ0IsRUFBQyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBRSxDQUFDLFFBQVEsRUFBRSxFQUNsRSxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUNiLENBQUM7QUFFRixnQkFBTSxDQUFDLGVBQWUsQ0FBQyxnQkFBZ0IsQ0FBQyxJQUFBLDZCQUFnQixFQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsRUFBRSxJQUFJLENBQUMsQ0FBQztBQUV6RSxnQkFBTSxDQUFDLGVBQWUsQ0FDcEIsZ0JBQWdCLENBQUMsSUFBQSw2QkFBZ0IsRUFBQyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBRSxDQUFDLFFBQVEsRUFBRSxFQUN6RCxDQUFDLENBQUMsQ0FBQyxDQUNKLENBQUM7QUFDRixnQkFBTSxDQUFDLGVBQWUsQ0FDcEIsZ0JBQWdCLENBQUMsSUFBQSw2QkFBZ0IsRUFBQyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBRSxDQUFDLFFBQVEsRUFBRSxFQUN6RCxDQUFDLENBQUMsQ0FBQyxDQUNKLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxu57uZ5a6a5LiA5Liq6ZO+6KGo77yM5Yig6Zmk6ZO+6KGo55qE5YCS5pWw56ysIG4g5Liq6IqC54K577yM5bm25LiU6L+U5Zue6ZO+6KGo55qE5aS057uT54K544CCXG5cbuekuuS+i++8mlxuXG7nu5nlrprkuIDkuKrpk77ooag6IDEtPjItPjMtPjQtPjUsIOWSjCBuID0gMi5cblxu5b2T5Yig6Zmk5LqG5YCS5pWw56ys5LqM5Liq6IqC54K55ZCO77yM6ZO+6KGo5Y+Y5Li6IDEtPjItPjMtPjUuXG7or7TmmI7vvJpcblxu57uZ5a6a55qEIG4g5L+d6K+B5piv5pyJ5pWI55qE44CCXG5cbui/m+mYtu+8mlxuXG7kvaDog73lsJ3or5Xkvb/nlKjkuIDotp/miavmj4/lrp7njrDlkJfvvJ9cbiogKi9cbmltcG9ydCB7IExpc3ROb2RlLCBjcmVhdGVMaW5rZWRMaXN0IH0gZnJvbSBcIi4uL3V0aWwvTGlua2VkTGlzdFwiO1xuXG4vKipcbiAqIEBwYXJhbSB7TGlzdE5vZGV9IGhlYWRcbiAqIEBwYXJhbSB7bnVtYmVyfSBuXG4gKiBAcmV0dXJuIHtMaXN0Tm9kZX1cbiAqL1xudmFyIHJlbW92ZU50aEZyb21FbmQgPSBmdW5jdGlvbiAoaGVhZDogTGlzdE5vZGUsIG46IG51bWJlcik6IExpc3ROb2RlIHwgbnVsbCB7XG4gIC8qKlxuICAgKiDogIHmoLflrZAg5b+r5oWi5oyH6ZKIXG4gICAqICovXG4gIGxldCBzbG93ID0gaGVhZDtcbiAgbGV0IGZhc3QgPSBuZXh0X24oaGVhZCwgbik7XG5cbiAgLy8g5Yig6Zmk55qE5pivIGhlYWQg57uT54K5e1xuICBpZiAoZmFzdCA9PT0gbnVsbCkge1xuICAgIHJldHVybiBoZWFkLm5leHQ7XG4gIH1cblxuICB3aGlsZSAoZmFzdCAmJiBmYXN0Lm5leHQpIHtcbiAgICBzbG93ID0gc2xvdy5uZXh0ITtcbiAgICBmYXN0ID0gZmFzdC5uZXh0O1xuICB9XG4gIC8vIOi/memHjOeahCBzbG93IOaYr+imgeWIoOmZpOeahOiKgueCueeahCDliY3kuIDkuKroioLngrlcbiAgc2xvdy5uZXh0ID0gc2xvdy5uZXh0IS5uZXh0O1xuXG4gIHJldHVybiBoZWFkO1xuXG4gIGZ1bmN0aW9uIG5leHRfbihsaXN0Tm9kZTogTGlzdE5vZGUsIG46IG51bWJlcikge1xuICAgIHdoaWxlIChuKSB7XG4gICAgICBsaXN0Tm9kZSA9IGxpc3ROb2RlLm5leHQhO1xuICAgICAgbi0tO1xuICAgIH1cbiAgICByZXR1cm4gbGlzdE5vZGU7XG4gIH1cbn07XG5cbmltcG9ydCBhc3NlcnQgZnJvbSBcImFzc2VydFwiO1xuXG5hc3NlcnQuZGVlcFN0cmljdEVxdWFsKFxuICByZW1vdmVOdGhGcm9tRW5kKGNyZWF0ZUxpbmtlZExpc3QoWzEsIDIsIDMsIDQsIDVdKSwgMikhLnRvU3RyaW5nKCksXG4gIFsxLCAyLCAzLCA1XVxuKTtcblxuYXNzZXJ0LmRlZXBTdHJpY3RFcXVhbChyZW1vdmVOdGhGcm9tRW5kKGNyZWF0ZUxpbmtlZExpc3QoWzFdKSwgMSksIG51bGwpO1xuXG5hc3NlcnQuZGVlcFN0cmljdEVxdWFsKFxuICByZW1vdmVOdGhGcm9tRW5kKGNyZWF0ZUxpbmtlZExpc3QoWzEsIDJdKSwgMSkhLnRvU3RyaW5nKCksXG4gIFsxXVxuKTtcbmFzc2VydC5kZWVwU3RyaWN0RXF1YWwoXG4gIHJlbW92ZU50aEZyb21FbmQoY3JlYXRlTGlua2VkTGlzdChbMSwgMl0pLCAyKSEudG9TdHJpbmcoKSxcbiAgWzJdXG4pO1xuIl19

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
  * @lc app=leetcode.cn id=27 lang=javascript
@@ -67,15 +69,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var removeElement = function (nums, val) {
-    const len = nums.length;
-    let index = 0;
-    for (let pointer = 0; pointer < len; pointer++) {
-        if (nums[pointer] !== val) {
-            nums[index] = nums[pointer];
-            index++;
-        }
+  const len = nums.length;
+  let index = 0;
+  for (let pointer = 0; pointer < len; pointer++) {
+    if (nums[pointer] !== val) {
+      nums[index] = nums[pointer];
+      index++;
     }
-    return index;
+  }
+  return index;
 };
 /*
 * [0,1,2,2,3,0,4,2]

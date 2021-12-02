@@ -16,9 +16,11 @@
 
 所以，4 是第一个错误的版本。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Definition for isBadVersion()
@@ -34,32 +36,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {function}
  */
 var solution = function (isBadVersion) {
+  /**
+   * @param {integer} n Total versions
+   * @return {integer} The first bad version
+   */
+  return function (n) {
+    if (isBadVersion(1)) return 1;
+    let left = 1;
+    let right = n;
     /**
-     * @param {integer} n Total versions
-     * @return {integer} The first bad version
-     */
-    return function (n) {
-        if (isBadVersion(1))
-            return 1;
-        let left = 1;
-        let right = n;
-        /**
-         * left 为 true , right 为 false
-         * left 和 right 不相邻 二分法 得到的
-         *      结果 true 的位置 设置为 新的 left
-         *      结果 false 的位置 设置为 新的 right
-         * 当 left 和 right 相邻的时候 right 就是 结果
-         * */
-        while (true) {
-            if (left + 1 === right)
-                return right;
-            const midIndex = left + Math.floor((right - left) / 2); // 推荐使用 floor 因为其他有类型约束的语言 int 类型 不能整除 就会执行floor 操作
-            if (isBadVersion(midIndex))
-                right = midIndex;
-            else
-                left = midIndex;
-        }
-    };
+     * left 为 true , right 为 false
+     * left 和 right 不相邻 二分法 得到的
+     *      结果 true 的位置 设置为 新的 left
+     *      结果 false 的位置 设置为 新的 right
+     * 当 left 和 right 相邻的时候 right 就是 结果
+     * */
+    while (true) {
+      if (left + 1 === right) return right;
+      const midIndex = left + Math.floor((right - left) / 2); // 推荐使用 floor 因为其他有类型约束的语言 int 类型 不能整除 就会执行floor 操作
+      if (isBadVersion(midIndex)) right = midIndex;
+      else left = midIndex;
+    }
+  };
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(solution((i) => i === 4)(5), 4);

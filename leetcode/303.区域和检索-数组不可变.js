@@ -14,9 +14,11 @@ sumRange(0, 5) -> -3
     1. 你可以假设数组不可变。
     2. 会多次调用 sumRange 方法。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * 根据题意
@@ -24,38 +26,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * 又根据 1. 你可以假设数组不可变。 不用担心原始数据会 变化
  * */
 class NumArray {
-    sum_cache = [];
-    originData;
-    /**
-     * @param {number[]} nums
-     */
-    constructor(nums) {
-        this.originData = nums;
+  sum_cache = [];
+  originData;
+  /**
+   * @param {number[]} nums
+   */
+  constructor(nums) {
+    this.originData = nums;
+  }
+  /**
+   * @param {number} i
+   * @param {number} j
+   * @return {number}
+   */
+  sumRange(i, j) {
+    // 判断缓存j 位置的值 如果有直接用缓存计算
+    if (this.sum_cache[j]) {
+      if (i === 0) return this.sum_cache[j];
+      return this.sum_cache[j] - this.sum_cache[i - 1];
     }
-    /**
-     * @param {number} i
-     * @param {number} j
-     * @return {number}
-     */
-    sumRange(i, j) {
-        // 判断缓存j 位置的值 如果有直接用缓存计算
-        if (this.sum_cache[j]) {
-            if (i === 0)
-                return this.sum_cache[j];
-            return this.sum_cache[j] - this.sum_cache[i - 1];
-        }
-        // 计算缓存
-        while (this.sum_cache.length - 1 !== j) {
-            if (this.sum_cache.length === 0) {
-                this.sum_cache.push(this.originData[0]);
-            }
-            else {
-                const sum_cache_len = this.sum_cache.length;
-                this.sum_cache.push(this.sum_cache[sum_cache_len - 1] + this.originData[sum_cache_len]);
-            }
-        }
-        return this.sumRange(i, j);
+    // 计算缓存
+    while (this.sum_cache.length - 1 !== j) {
+      if (this.sum_cache.length === 0) {
+        this.sum_cache.push(this.originData[0]);
+      } else {
+        const sum_cache_len = this.sum_cache.length;
+        this.sum_cache.push(
+          this.sum_cache[sum_cache_len - 1] + this.originData[sum_cache_len]
+        );
+      }
     }
+    return this.sumRange(i, j);
+  }
 }
 /**
  * Your NumArray object will be instantiated and called as such:

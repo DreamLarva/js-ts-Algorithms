@@ -57,40 +57,41 @@
  * @param {string} s
  * @return {boolean}
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 const leftPart = ["(", "[", "{"];
 const rightPart = [")", "]", "}"];
 var isValid = function (s) {
-    // 使用栈
-    const stack = [];
-    for (const char of s) {
-        // 如果是有右侧
-        if (rightPart.includes(char)) {
-            // 检查stack 顶 是不是 和现在这个是一组的
-            if (isPair(last(stack), char)) {
-                // 是一组就弹出一个左侧的
-                stack.pop();
-            }
-            // 否则是嵌套错误
-            else
-                return false;
-        }
-        // 如果是左侧就 push 进stack
-        else {
-            stack.push(char);
-        }
+  // 使用栈
+  const stack = [];
+  for (const char of s) {
+    // 如果是有右侧
+    if (rightPart.includes(char)) {
+      // 检查stack 顶 是不是 和现在这个是一组的
+      if (isPair(last(stack), char)) {
+        // 是一组就弹出一个左侧的
+        stack.pop();
+      }
+      // 否则是嵌套错误
+      else return false;
     }
-    // 循环完毕 没有任何内容的就算正确
-    return stack.length === 0;
+    // 如果是左侧就 push 进stack
+    else {
+      stack.push(char);
+    }
+  }
+  // 循环完毕 没有任何内容的就算正确
+  return stack.length === 0;
 };
 function last(arr) {
-    return arr[arr.length - 1];
+  return arr[arr.length - 1];
 }
 function isPair(left, right) {
-    return leftPart.indexOf(left) === rightPart.indexOf(right);
+  return leftPart.indexOf(left) === rightPart.indexOf(right);
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(isValid("()"), true);

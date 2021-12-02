@@ -32,95 +32,101 @@
 0 <= rooms[i].length <= 1000
 所有房间中的钥匙数量总计不超过 3000。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number[][]} rooms
  * @return {boolean}
  */
 var canVisitAllRooms = function (rooms) {
-    // bfs
-    let list = [];
-    const set = new Set();
-    let room_visited = 0;
-    list.push(0);
-    while (list.length) {
-        const room_num = list.shift();
-        if (set.has(room_num))
-            continue;
-        if (rooms[room_num]) {
-            list = list.concat(rooms[room_num]);
-            set.add(room_num);
-            room_visited++;
-        }
+  // bfs
+  let list = [];
+  const set = new Set();
+  let room_visited = 0;
+  list.push(0);
+  while (list.length) {
+    const room_num = list.shift();
+    if (set.has(room_num)) continue;
+    if (rooms[room_num]) {
+      list = list.concat(rooms[room_num]);
+      set.add(room_num);
+      room_visited++;
     }
-    return room_visited === rooms.length;
+  }
+  return room_visited === rooms.length;
 };
 var canVisitAllRooms2 = function (rooms) {
-    // bfs
-    let list = [];
-    const cache = Array(rooms.length).fill(false);
-    let room_visited = 0;
-    list.push(0);
-    while (list.length) {
-        const room_num = list.shift();
-        if (cache[room_num])
-            continue;
-        if (rooms[room_num]) {
-            list = list.concat(rooms[room_num]);
-            cache[room_num] = true;
-            room_visited++;
-        }
+  // bfs
+  let list = [];
+  const cache = Array(rooms.length).fill(false);
+  let room_visited = 0;
+  list.push(0);
+  while (list.length) {
+    const room_num = list.shift();
+    if (cache[room_num]) continue;
+    if (rooms[room_num]) {
+      list = list.concat(rooms[room_num]);
+      cache[room_num] = true;
+      room_visited++;
     }
-    return room_visited === rooms.length;
+  }
+  return room_visited === rooms.length;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(canVisitAllRooms([[1], [2], [3], []]), true);
-assert_1.default.strictEqual(canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]), false);
+assert_1.default.strictEqual(
+  canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]),
+  false
+);
 assert_1.default.strictEqual(canVisitAllRooms2([[1], [2], [3], []]), true);
-assert_1.default.strictEqual(canVisitAllRooms2([[1, 3], [3, 0, 1], [2], [0]]), false);
+assert_1.default.strictEqual(
+  canVisitAllRooms2([[1, 3], [3, 0, 1], [2], [0]]),
+  false
+);
 const Benchmark = require("benchmark");
 const suite = new Benchmark.Suite();
 suite
-    .add("set", function () {
+  .add("set", function () {
     canVisitAllRooms([
-        [1, 3],
-        [3, 0, 1],
-        [2],
-        [0],
-        [3, 0, 1],
-        [3, 0, 1],
-        [3, 0, 1],
-        [3, 0, 1],
-        [3, 0, 1],
-        [3, 0, 1],
+      [1, 3],
+      [3, 0, 1],
+      [2],
+      [0],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
     ]);
-})
-    .add("array", function () {
+  })
+  .add("array", function () {
     canVisitAllRooms2([
-        [1, 3],
-        [3, 0, 1],
-        [2],
-        [0],
-        [3, 0, 1],
-        [3, 0, 1],
-        [3, 0, 1],
-        [3, 0, 1],
-        [3, 0, 1],
-        [3, 0, 1],
+      [1, 3],
+      [3, 0, 1],
+      [2],
+      [0],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
+      [3, 0, 1],
     ]);
-})
-    // add listeners
-    .on("cycle", function (event) {
+  })
+  // add listeners
+  .on("cycle", function (event) {
     console.log(String(event.target));
-})
-    .on("complete", function () {
+  })
+  .on("complete", function () {
     console.log("Fastest is " + this.filter("fastest").map("name"));
-})
-    // run async
-    .run({ async: false });
+  })
+  // run async
+  .run({ async: false });
 /**
  * 竟然还是 set 的快那么点......
  * */

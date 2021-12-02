@@ -45,4 +45,4 @@ assert.strictEqual(largestNumber([3, 30, 34, 5, 9]), "9534330");
 assert.strictEqual(largestNumber([1]), "1");
 assert.strictEqual(largestNumber([10]), "10");
 assert.strictEqual(largestNumber([34323, 3432]), "343234323");
-assert.strictEqual(largestNumber([0,0]), "0");
+assert.strictEqual(largestNumber([0, 0]), "0");

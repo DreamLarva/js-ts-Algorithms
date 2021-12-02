@@ -61,7 +61,6 @@ function poorPigs1(
     .fill(0)
     .map(() => new Array(buckets + 1).fill(0));
 
-
   combinations[0][0] = 1;
 
   // 总共的轮数

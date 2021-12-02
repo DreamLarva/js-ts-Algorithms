@@ -101,7 +101,6 @@ assert.deepStrictEqual(findLength1([1, 2, 3, 2, 1], [3, 2, 1, 4, 7]), 3);
 assert.deepStrictEqual(findLength2([1, 2, 3, 2, 1], [3, 2, 1, 4, 7]), 3);
 assert.deepStrictEqual(findLength3([1, 2, 3, 2, 1], [3, 2, 1, 4, 7]), 3);
 
-
 import Benchmark from "benchmark";
 
 const suite = new Benchmark.Suite();

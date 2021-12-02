@@ -16,9 +16,11 @@
 输入: [1,8,6,2,5,4,8,3,7]
 输出: 49
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*容积一定是短的一端乘以两个线段之间的距离
  * 默认从连个线段最远的情况开始考虑
@@ -31,24 +33,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var maxArea = function (height) {
-    let left = 0;
-    let right = height.length - 1;
-    let result = 0;
-    let tVolume = 0;
-    while (left !== right) {
-        tVolume = Math.min(height[left], height[right]) * (right - left);
-        if (tVolume > result) {
-            result = tVolume;
-        }
-        Math.min(height[left], height[right]);
-        if (height[left] > height[right]) {
-            right--;
-        }
-        else {
-            left++;
-        }
+  let left = 0;
+  let right = height.length - 1;
+  let result = 0;
+  let tVolume = 0;
+  while (left !== right) {
+    tVolume = Math.min(height[left], height[right]) * (right - left);
+    if (tVolume > result) {
+      result = tVolume;
     }
-    return result;
+    Math.min(height[left], height[right]);
+    if (height[left] > height[right]) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]), 49);

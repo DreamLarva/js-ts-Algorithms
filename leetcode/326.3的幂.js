@@ -21,21 +21,23 @@
 进阶：
 你能不使用循环或者递归来完成本题吗？
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} n
  * @return {boolean}
  */
 var isPowerOfThree = function (n) {
-    /**
-     * 通过查看相关解析，发现了这个解法，用到了数论的知识，3的幂次的质因子只有3，而所给出的n如果也是3的幂次，
-     * 故而题目中所给整数范围内最大的3的幂次的因子只能是3的幂次，1162261467是3的19次幂，是整数范围内最大的3的幂次
-     * 所以多余所有非0 的质数 都能使用这个办法
-     * */
-    return n > 0 && 1162261467 % n === 0;
+  /**
+   * 通过查看相关解析，发现了这个解法，用到了数论的知识，3的幂次的质因子只有3，而所给出的n如果也是3的幂次，
+   * 故而题目中所给整数范围内最大的3的幂次的因子只能是3的幂次，1162261467是3的19次幂，是整数范围内最大的3的幂次
+   * 所以多余所有非0 的质数 都能使用这个办法
+   * */
+  return n > 0 && 1162261467 % n === 0;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(isPowerOfThree(9), true);

@@ -67,15 +67,14 @@ assert.deepStrictEqual(
   [1, 3, 2, 4]
 );
 assert.deepStrictEqual(oddEvenList(createLinkedList([1]))!.toString(), [1]);
-assert.deepStrictEqual(oddEvenList(createLinkedList([1, 2]))!.toString(), [
-  1,
-  2,
-]);
-assert.deepStrictEqual(oddEvenList(createLinkedList([1, 2, 3]))!.toString(), [
-  1,
-  3,
-  2,
-]);
+assert.deepStrictEqual(
+  oddEvenList(createLinkedList([1, 2]))!.toString(),
+  [1, 2]
+);
+assert.deepStrictEqual(
+  oddEvenList(createLinkedList([1, 2, 3]))!.toString(),
+  [1, 3, 2]
+);
 assert.deepStrictEqual(
   oddEvenList(createLinkedList([1, 2, 3, 4]))!.toString(),
   [1, 3, 2, 4]

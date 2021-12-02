@@ -36,33 +36,33 @@
 1 <= k <= 231 - 1
 
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 function checkSubarraySum(nums, k) {
-    /**
-     * 根据 同余定理
-     * 如果 前缀和 每次取余, 如果出现两次相同的结果 则 存在 和 能被 k整除
-     * */
-    //              余数      index
-    const map = new Map();
-    // 规定空的前缀的结束下标为 -1，由于空的前缀的元素和为 0，因此在哈希表中存入键值对 (0,-1)
-    // 从 index 为 0 为开始的组合
-    map.set(0, -1);
-    let 前缀和余数 = 0;
-    for (let i = 0; i < nums.length; i++) {
-        前缀和余数 = (前缀和余数 + nums[i]) % k;
-        if (map.has(前缀和余数)) {
-            const prevIndex = map.get(前缀和余数);
-            if (i - prevIndex >= 2)
-                return true;
-        }
-        else {
-            map.set(前缀和余数, i);
-        }
+  /**
+   * 根据 同余定理
+   * 如果 前缀和 每次取余, 如果出现两次相同的结果 则 存在 和 能被 k整除
+   * */
+  //              余数      index
+  const map = new Map();
+  // 规定空的前缀的结束下标为 -1，由于空的前缀的元素和为 0，因此在哈希表中存入键值对 (0,-1)
+  // 从 index 为 0 为开始的组合
+  map.set(0, -1);
+  let 前缀和余数 = 0;
+  for (let i = 0; i < nums.length; i++) {
+    前缀和余数 = (前缀和余数 + nums[i]) % k;
+    if (map.has(前缀和余数)) {
+      const prevIndex = map.get(前缀和余数);
+      if (i - prevIndex >= 2) return true;
+    } else {
+      map.set(前缀和余数, i);
     }
-    return false;
+  }
+  return false;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(checkSubarraySum([23, 2, 4, 6, 7], 6), true);

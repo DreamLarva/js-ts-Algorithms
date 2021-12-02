@@ -16,67 +16,71 @@
 链接：https://leetcode-cn.com/problems/generate-parentheses
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} n
  * @return {string[]}
  */
 var generateParenthesis = function (n) {
-    const result = [];
-    backtrack("", 0, n * 2);
-    return result;
-    /**
-     * 回溯法
-     * */
-    function backtrack(str, depth, n) {
-        // console.log(str)
-        if (n === depth) {
-            return result.push(str + ")".repeat(n));
-        }
-        if (depth + 1 <= n) {
-            backtrack(str + "(", depth + 1, n - 1);
-        }
-        for (let i = 1; i <= depth; i++) {
-            // 只添加 )( 而不是 ) 是因为
-            // 如果使用 ) 会出现 之后全是 ) 的情况 就是 重复的操作(和最上面 n === depth 的分支 重复)
-            backtrack(str + ")".repeat(i) + "(", depth - i + 1, n - i - 1);
-        }
+  const result = [];
+  backtrack("", 0, n * 2);
+  return result;
+  /**
+   * 回溯法
+   * */
+  function backtrack(str, depth, n) {
+    // console.log(str)
+    if (n === depth) {
+      return result.push(str + ")".repeat(n));
     }
+    if (depth + 1 <= n) {
+      backtrack(str + "(", depth + 1, n - 1);
+    }
+    for (let i = 1; i <= depth; i++) {
+      // 只添加 )( 而不是 ) 是因为
+      // 如果使用 ) 会出现 之后全是 ) 的情况 就是 重复的操作(和最上面 n === depth 的分支 重复)
+      backtrack(str + ")".repeat(i) + "(", depth - i + 1, n - i - 1);
+    }
+  }
 };
 /**
  * 官方 更优雅的解法
  * */
 var generateParenthesis_1 = function (n) {
-    let res = [];
-    function h(ps, left, right) {
-        if (left == n && right == n) {
-            res.push(ps);
-            return;
-        }
-        // 优先建立 (
-        if (left < n) {
-            h(ps + "(", left + 1, right);
-        }
-        // 再是 ), 又保证了 ( 比 ) 多 才 用) 保证了 () 的合法性 妙啊
-        if (left > right) {
-            h(ps + ")", left, right + 1);
-        }
+  let res = [];
+  function h(ps, left, right) {
+    if (left == n && right == n) {
+      res.push(ps);
+      return;
     }
-    h("", 0, 0);
-    return res;
+    // 优先建立 (
+    if (left < n) {
+      h(ps + "(", left + 1, right);
+    }
+    // 再是 ), 又保证了 ( 比 ) 多 才 用) 保证了 () 的合法性 妙啊
+    if (left > right) {
+      h(ps + ")", left, right + 1);
+    }
+  }
+  h("", 0, 0);
+  return res;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.deepStrictEqual(generateParenthesis(3).sort(), [
-    "((()))",
-    "(()())",
-    "(())()",
-    "()(())",
-    "()()()",
+  "((()))",
+  "(()())",
+  "(())()",
+  "()(())",
+  "()()()",
 ]);
-assert_1.default.deepStrictEqual(generateParenthesis(4).sort(), [
+assert_1.default.deepStrictEqual(
+  generateParenthesis(4).sort(),
+  [
     "(((())))",
     "((()()))",
     "((())())",
@@ -91,15 +95,18 @@ assert_1.default.deepStrictEqual(generateParenthesis(4).sort(), [
     "()(())()",
     "()()(())",
     "()()()()",
-].sort());
+  ].sort()
+);
 assert_1.default.deepStrictEqual(generateParenthesis_1(3).sort(), [
-    "((()))",
-    "(()())",
-    "(())()",
-    "()(())",
-    "()()()",
+  "((()))",
+  "(()())",
+  "(())()",
+  "()(())",
+  "()()()",
 ]);
-assert_1.default.deepStrictEqual(generateParenthesis_1(4).sort(), [
+assert_1.default.deepStrictEqual(
+  generateParenthesis_1(4).sort(),
+  [
     "(((())))",
     "((()()))",
     "((())())",
@@ -114,25 +121,26 @@ assert_1.default.deepStrictEqual(generateParenthesis_1(4).sort(), [
     "()(())()",
     "()()(())",
     "()()()()",
-].sort());
+  ].sort()
+);
 const Benchmark = require("benchmark");
 const suite = new Benchmark.Suite();
 suite
-    .add("mine", function () {
+  .add("mine", function () {
     generateParenthesis(7);
-})
-    .add("other", function () {
+  })
+  .add("other", function () {
     generateParenthesis_1(7);
-})
-    // add listeners
-    .on("cycle", function (event) {
+  })
+  // add listeners
+  .on("cycle", function (event) {
     console.log(String(event.target));
-})
-    .on("complete", function () {
+  })
+  .on("complete", function () {
     console.log("Fastest is " + this.filter("fastest").map("name"));
-})
-    // run async
-    .run({ async: false });
+  })
+  // run async
+  .run({ async: false });
 /**
  * 差不多 我擦
  * */

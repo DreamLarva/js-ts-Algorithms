@@ -41,9 +41,11 @@
  *
  *
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number[]} nums
@@ -54,33 +56,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * 顺序查找
  * */
 function solution1(nums, target) {
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] >= target) {
-            return i;
-        }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] >= target) {
+      return i;
     }
-    return nums.length;
+  }
+  return nums.length;
 }
 /**
  * 二分查找
  * */
 function solution2(nums, target) {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left <= right) {
-        // 分成2份
-        const criticalPoint = ~~((left + right) / 2);
-        if (nums[criticalPoint] < target) {
-            left = criticalPoint + 1;
-        }
-        else if (nums[criticalPoint] > target) {
-            right = criticalPoint - 1;
-        }
-        else {
-            return criticalPoint;
-        }
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    // 分成2份
+    const criticalPoint = ~~((left + right) / 2);
+    if (nums[criticalPoint] < target) {
+      left = criticalPoint + 1;
+    } else if (nums[criticalPoint] > target) {
+      right = criticalPoint - 1;
+    } else {
+      return criticalPoint;
     }
-    return left;
+  }
+  return left;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(solution2([1, 3, 5, 6], 2), 1);

@@ -31,20 +31,21 @@
 链接：https://leetcode-cn.com/problems/smallest-range-i
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 function smallestRangeI(A, K) {
-    const min = Math.min(...A);
-    const max = Math.max(...A);
-    const dif = max - min;
-    if (dif <= K * 2)
-        return 0;
-    return dif - K * 2;
+  const min = Math.min(...A);
+  const max = Math.max(...A);
+  const dif = max - min;
+  if (dif <= K * 2) return 0;
+  return dif - K * 2;
 }
 function smallestRangeI2(A, K) {
-    return Math.max(0, Math.max(...A) - Math.min(...A) - 2 * K);
+  return Math.max(0, Math.max(...A) - Math.min(...A) - 2 * K);
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(smallestRangeI([1], 0), 0);

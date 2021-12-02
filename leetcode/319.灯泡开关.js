@@ -20,20 +20,22 @@
 链接：https://leetcode-cn.com/problems/bulb-switcher
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} n
  * @return {number}
  */
 var bulbSwitch = function (n) {
-    // 第一轮的意思其实就是 每一个灯泡操作一次
-    // 那么只要 操作次数为 偶数次 就会把灯泡关闭
-    // 所以结果就是 只能操作 奇数次的数
-    // 结果是 所有完全平方数 因为 如 4 = 2 * 2  在 2 的时候开了 但是不可能 出现再按照2 开关的情况 所以就会多出这次
-    return Math.floor(n ** 0.5);
+  // 第一轮的意思其实就是 每一个灯泡操作一次
+  // 那么只要 操作次数为 偶数次 就会把灯泡关闭
+  // 所以结果就是 只能操作 奇数次的数
+  // 结果是 所有完全平方数 因为 如 4 = 2 * 2  在 2 的时候开了 但是不可能 出现再按照2 开关的情况 所以就会多出这次
+  return Math.floor(n ** 0.5);
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(bulbSwitch(100), 10);

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定字符串J 代表石头中宝石的类型，和字符串 S代表你拥有的石头。 S 中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。
@@ -31,17 +33,17 @@ J 中的字符不重复。
  * @return {number}
  */
 var numJewelsInStones = function (J, S) {
-    let result = 0;
-    const map = {};
-    for (const gem of J) {
-        map[gem] = true;
+  let result = 0;
+  const map = {};
+  for (const gem of J) {
+    map[gem] = true;
+  }
+  for (const stone of S) {
+    if (map[stone]) {
+      result++;
     }
-    for (const stone of S) {
-        if (map[stone]) {
-            result++;
-        }
-    }
-    return result;
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(numJewelsInStones("aA", "aAAbbbb"), 3);

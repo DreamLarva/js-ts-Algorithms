@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
@@ -30,25 +32,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var findMin = function (nums) {
-    if (nums.length === 1)
-        return nums[0];
-    /**
-     * 依然是二分法
-     * */
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        if (left + 1 === right)
-            return Math.min(nums[left], nums[right]);
-        const mid = Math.ceil((left + right) / 2);
-        if (nums[mid] > nums[right]) {
-            left = mid + 1;
-        }
-        else {
-            right = mid;
-        }
+  if (nums.length === 1) return nums[0];
+  /**
+   * 依然是二分法
+   * */
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    if (left + 1 === right) return Math.min(nums[left], nums[right]);
+    const mid = Math.ceil((left + right) / 2);
+    if (nums[mid] > nums[right]) {
+      left = mid + 1;
+    } else {
+      right = mid;
     }
-    return nums[right];
+  }
+  return nums[right];
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(findMin([3, 4, 5, 1, 2]), 1);

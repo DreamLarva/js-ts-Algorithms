@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 你有一个带有四个圆形拨轮的转盘锁。每个拨轮都有10个数字： '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' 。每个拨轮可以自由旋转：例如把 '9' 变为  '0'，'0' 变为 '9' 。每次旋转都只能旋转一个拨轮的一位数字。
@@ -52,36 +54,36 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 function openLock(deadends, target) {
-    if (target === "0000")
-        return 0;
-    const deadends_set = new Set(deadends);
-    if (deadends_set.has("0000"))
-        return -1;
-    const list = [];
-    list.push(["0000", 0]);
-    while (list.length) {
-        const [node, step] = list.shift();
-        for (let i = 0; i < 4; i++) {
-            for (const action of [1, -1]) {
-                const str_arr = Array.from(node);
-                //        实现 0 -> 9  9 -> 0
-                str_arr[i] = String((parseInt(str_arr[i]) + 10 + action) % 10);
-                const cur = str_arr.join("");
-                if (cur === target)
-                    return step + 1;
-                // 记录已经走过的点
-                if (!deadends_set.has(cur)) {
-                    list.push([cur, step + 1]);
-                    deadends_set.add(cur);
-                }
-            }
+  if (target === "0000") return 0;
+  const deadends_set = new Set(deadends);
+  if (deadends_set.has("0000")) return -1;
+  const list = [];
+  list.push(["0000", 0]);
+  while (list.length) {
+    const [node, step] = list.shift();
+    for (let i = 0; i < 4; i++) {
+      for (const action of [1, -1]) {
+        const str_arr = Array.from(node);
+        //        实现 0 -> 9  9 -> 0
+        str_arr[i] = String((parseInt(str_arr[i]) + 10 + action) % 10);
+        const cur = str_arr.join("");
+        if (cur === target) return step + 1;
+        // 记录已经走过的点
+        if (!deadends_set.has(cur)) {
+          list.push([cur, step + 1]);
+          deadends_set.add(cur);
         }
+      }
     }
-    return -1;
+  }
+  return -1;
 }
 const assert_1 = __importDefault(require("assert"));
 // assert.strictEqual(openLock(["8888"], "0009"), 1);
-assert_1.default.strictEqual(openLock(["0201", "0101", "0102", "1212", "2002"], "0202"), 6);
+assert_1.default.strictEqual(
+  openLock(["0201", "0101", "0102", "1212", "2002"], "0202"),
+  6
+);
 // assert.strictEqual(
 //   openLock(
 //     ["8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"],

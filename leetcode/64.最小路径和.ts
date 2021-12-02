@@ -20,34 +20,34 @@ function last<T>(arr: T[]) {
   return arr[arr.length - 1];
 }
 function minPathSum(grid: number[][]): number {
-    /**
-     * 注意只能 往下 或者 右走那就很好办了
-     * 动态规划 只要看之前 目标点左方 上方 的点的状态就行了
-     * */
-    const map: number[][] = Array.from({ length: grid.length }).map(
-        () => new Array(grid[0].length)
-    );
+  /**
+   * 注意只能 往下 或者 右走那就很好办了
+   * 动态规划 只要看之前 目标点左方 上方 的点的状态就行了
+   * */
+  const map: number[][] = Array.from({ length: grid.length }).map(
+    () => new Array(grid[0].length)
+  );
 
-    map[0][0] = grid[0][0];
-    // 先处理第一行
-    for (let i = 1; i < grid[0].length; i++) {
-        map[0][i] = map[0][i - 1] + grid[0][i];
+  map[0][0] = grid[0][0];
+  // 先处理第一行
+  for (let i = 1; i < grid[0].length; i++) {
+    map[0][i] = map[0][i - 1] + grid[0][i];
+  }
+
+  // 处理第一列
+  for (let i = 1; i < grid.length; i++) {
+    map[i][0] = map[i - 1][0] + grid[i][0];
+  }
+
+  // 处理剩余
+  for (let i = 1; i < grid.length; i++) {
+    for (let j = 1; j < grid[i].length; j++) {
+      map[i][j] = Math.min(map[i - 1][j], map[i][j - 1]) + grid[i][j];
     }
+  }
 
-    // 处理第一列
-    for (let i = 1; i < grid.length; i++) {
-        map[i][0] = map[i - 1][0] + grid[i][0];
-    }
-
-    // 处理剩余
-    for (let i = 1; i < grid.length; i++) {
-        for (let j = 1; j < grid[i].length; j++) {
-            map[i][j] = Math.min(map[i - 1][j], map[i][j - 1]) + grid[i][j];
-        }
-    }
-
-    // return _.last(_.last(map))!;
-    return last(last(map));
+  // return _.last(_.last(map))!;
+  return last(last(map));
 }
 
 import assert from "assert";

@@ -70,7 +70,7 @@ function kthLargestValue2(matrix: number[][], k: number) {
   const m = matrix.length,
     n = matrix[0].length;
   const pre = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
-  const results:number[] = [];
+  const results: number[] = [];
   for (let i = 1; i <= m; ++i) {
     for (let j = 1; j <= n; ++j) {
       pre[i][j] =

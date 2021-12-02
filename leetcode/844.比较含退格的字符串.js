@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 844. 比较含退格的字符串
@@ -45,45 +47,44 @@ S 和 T 只含有小写字母以及字符 '#'。
 你可以用 O(N) 的时间复杂度和 O(1) 的空间复杂度解决该问题吗？
 * */
 function backspaceCompare(S, T) {
-    let S_i = S.length - 1;
-    let S_d = 0;
-    let T_i = T.length - 1;
-    let T_d = 0;
-    while (S_i >= 0 || T_i >= 0) {
-        if (S_d > 0) {
-            if (S[S_i] !== "#") {
-                S_d--;
-                S_i--;
-                continue;
-            }
-        }
-        if (S[S_i] === "#") {
-            S_d++;
-            S_i--;
-            continue;
-        }
-        if (T_d > 0) {
-            if (T[T_i] !== "#") {
-                T_d--;
-                T_i--;
-                continue;
-            }
-        }
-        if (T[T_i] === "#") {
-            T_d++;
-            T_i--;
-            continue;
-        }
-        // S 和 T 的位置上都是非 # 的值
-        if (T[T_i] === S[S_i]) {
-            T_i--;
-            S_i--;
-        }
-        else {
-            return false;
-        }
+  let S_i = S.length - 1;
+  let S_d = 0;
+  let T_i = T.length - 1;
+  let T_d = 0;
+  while (S_i >= 0 || T_i >= 0) {
+    if (S_d > 0) {
+      if (S[S_i] !== "#") {
+        S_d--;
+        S_i--;
+        continue;
+      }
     }
-    return true;
+    if (S[S_i] === "#") {
+      S_d++;
+      S_i--;
+      continue;
+    }
+    if (T_d > 0) {
+      if (T[T_i] !== "#") {
+        T_d--;
+        T_i--;
+        continue;
+      }
+    }
+    if (T[T_i] === "#") {
+      T_d++;
+      T_i--;
+      continue;
+    }
+    // S 和 T 的位置上都是非 # 的值
+    if (T[T_i] === S[S_i]) {
+      T_i--;
+      S_i--;
+    } else {
+      return false;
+    }
+  }
+  return true;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(backspaceCompare("ab#c", "ad#c"), true);

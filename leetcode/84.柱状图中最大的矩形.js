@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 84. 柱状图中最大的矩形
@@ -40,51 +42,50 @@ const lodash_1 = __importDefault(require("lodash"));
  * https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/zhu-zhuang-tu-zhong-zui-da-de-ju-xing-by-leetcode-/
  * */
 var largestRectangleArea = function (heights) {
-    const stack = [];
-    const len = heights.length;
-    const left = Array(len).fill(0); // 不知道左边界的 默认到最左侧
-    const right = Array(len).fill(len); // 不知道右边界 默认到最右侧
-    for (let i = 0; i < len; i++) {
-        while (stack.length !== 0 && heights[lodash_1.default.last(stack)] >= heights[i]) {
-            right[lodash_1.default.last(stack)] = i;
-            stack.pop();
-        }
-        left[i] = stack.length === 0 ? -1 : lodash_1.default.last(stack);
-        stack.push(i);
+  const stack = [];
+  const len = heights.length;
+  const left = Array(len).fill(0); // 不知道左边界的 默认到最左侧
+  const right = Array(len).fill(len); // 不知道右边界 默认到最右侧
+  for (let i = 0; i < len; i++) {
+    while (
+      stack.length !== 0 &&
+      heights[lodash_1.default.last(stack)] >= heights[i]
+    ) {
+      right[lodash_1.default.last(stack)] = i;
+      stack.pop();
     }
-    let answer = 0;
-    for (let i = 0; i < len; ++i) {
-        answer = Math.max(answer, (right[i] - left[i] - 1) * heights[i]);
-    }
-    return answer;
+    left[i] = stack.length === 0 ? -1 : lodash_1.default.last(stack);
+    stack.push(i);
+  }
+  let answer = 0;
+  for (let i = 0; i < len; ++i) {
+    answer = Math.max(answer, (right[i] - left[i] - 1) * heights[i]);
+  }
+  return answer;
 };
 /**
  * 低端单调栈慢的一批
  * */
 var largestRectangleArea1 = function (heights) {
-    if (heights.length === 0)
-        return 0;
-    let answer = heights[0];
-    for (let i = 0; i < heights.length; i++) {
-        if (heights[i] === -1)
-            continue;
-        answer = Math.max(heights[i], answer);
-        const stack = [heights[i]]; // 只能接受更小值的单调栈
-        for (let j = i + 1; j < heights.length; j++) {
-            const top = lodash_1.default.last(stack);
-            if (top >= heights[j]) {
-                stack.push(heights[j]);
-                answer = Math.max(heights[j] * stack.length, answer);
-            }
-            else {
-                stack.push(top);
-                answer = Math.max(top * stack.length, answer);
-            }
-            if (top === heights[j])
-                heights[j] = -1;
-        }
+  if (heights.length === 0) return 0;
+  let answer = heights[0];
+  for (let i = 0; i < heights.length; i++) {
+    if (heights[i] === -1) continue;
+    answer = Math.max(heights[i], answer);
+    const stack = [heights[i]]; // 只能接受更小值的单调栈
+    for (let j = i + 1; j < heights.length; j++) {
+      const top = lodash_1.default.last(stack);
+      if (top >= heights[j]) {
+        stack.push(heights[j]);
+        answer = Math.max(heights[j] * stack.length, answer);
+      } else {
+        stack.push(top);
+        answer = Math.max(top * stack.length, answer);
+      }
+      if (top === heights[j]) heights[j] = -1;
     }
-    return answer;
+  }
+  return answer;
 };
 const assert_1 = __importDefault(require("assert"));
 // assert.strictEqual(largestRectangleArea([0, 9]), 9);

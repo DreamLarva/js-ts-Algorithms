@@ -11,9 +11,11 @@
 输入: a = -2, b = 3
 输出: 1
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} a
@@ -21,24 +23,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var getSum = function (a, b) {
-    // 负数的表示
-    // 符号位为1  其他位反码  然后 -1
-    // 由于 符号位不同 一个正数 一个负数 做 异或运算 一定是负数
-    const sum = a ^ b;
-    // 表示 是不是还有没有进位的 位
-    const carry = (a & b) << 1;
-    if (carry)
-        return getSum(sum, carry);
-    return sum;
+  // 负数的表示
+  // 符号位为1  其他位反码  然后 -1
+  // 由于 符号位不同 一个正数 一个负数 做 异或运算 一定是负数
+  const sum = a ^ b;
+  // 表示 是不是还有没有进位的 位
+  const carry = (a & b) << 1;
+  if (carry) return getSum(sum, carry);
+  return sum;
 };
 var getSum2 = function (a, b) {
-    while (b != 0) {
-        let sum = a ^ b;
-        let carry = (a & b) << 1;
-        a = sum;
-        b = carry;
-    }
-    return a;
+  while (b != 0) {
+    let sum = a ^ b;
+    let carry = (a & b) << 1;
+    a = sum;
+    b = carry;
+  }
+  return a;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(getSum(1, 2), 3);
@@ -47,18 +48,18 @@ assert_1.default.strictEqual(getSum(-9, -1), -10);
 const benchmark_1 = __importDefault(require("benchmark"));
 const suite = new benchmark_1.default.Suite();
 suite
-    .add("recursion", function () {
+  .add("recursion", function () {
     getSum(99999, -1);
-})
-    .add("loop", function () {
+  })
+  .add("loop", function () {
     getSum2(99999, -1);
-})
-    .on("cycle", function (event) {
+  })
+  .on("cycle", function (event) {
     console.log(String(event.target));
-})
-    .on("complete", function () {
+  })
+  .on("complete", function () {
     // console.log('Fastest is ' + this.filter('fastest').map( 'name'));
-})
-    // run async
-    .run({ async: false });
+  })
+  // run async
+  .run({ async: false });
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMzcxLuS4pOaVtOaVsOS5i+WSjC5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMzcxLuS4pOaVtOaVsOS5i+WSjC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7Ozs7O0lBV0k7Ozs7O0FBRUo7Ozs7R0FJRztBQUNILElBQUksTUFBTSxHQUFHLFVBQVUsQ0FBUyxFQUFFLENBQVM7SUFDekMsUUFBUTtJQUNSLHNCQUFzQjtJQUN0QixrQ0FBa0M7SUFDbEMsTUFBTSxHQUFHLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQztJQUNsQixrQkFBa0I7SUFDbEIsTUFBTSxLQUFLLEdBQUcsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQzNCLElBQUksS0FBSztRQUFFLE9BQU8sTUFBTSxDQUFDLEdBQUcsRUFBRSxLQUFLLENBQUMsQ0FBQztJQUNyQyxPQUFPLEdBQUcsQ0FBQztBQUNiLENBQUMsQ0FBQztBQUNGLElBQUksT0FBTyxHQUFHLFVBQVUsQ0FBUyxFQUFFLENBQVM7SUFDMUMsT0FBTyxDQUFDLElBQUksQ0FBQyxFQUFFO1FBQ2IsSUFBSSxHQUFHLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQztRQUNoQixJQUFJLEtBQUssR0FBRyxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDekIsQ0FBQyxHQUFHLEdBQUcsQ0FBQztRQUNSLENBQUMsR0FBRyxLQUFLLENBQUM7S0FDWDtJQUNELE9BQU8sQ0FBQyxDQUFDO0FBQ1gsQ0FBQyxDQUFDO0FBRUYsb0RBQTRCO0FBRTVCLGdCQUFNLENBQUMsV0FBVyxDQUFDLE1BQU0sQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7QUFFcEMsZ0JBQU0sQ0FBQyxXQUFXLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDO0FBQ3JDLGdCQUFNLENBQUMsV0FBVyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUM7QUFDeEMsMERBQWtDO0FBQ2xDLE1BQU0sS0FBSyxHQUFHLElBQUksbUJBQVMsQ0FBQyxLQUFLLEVBQUUsQ0FBQztBQUNwQyxLQUFLO0tBQ0YsR0FBRyxDQUFDLFdBQVcsRUFBRTtJQUNoQixNQUFNLENBQUMsS0FBSyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUM7QUFDcEIsQ0FBQyxDQUFDO0tBQ0QsR0FBRyxDQUFDLE1BQU0sRUFBRTtJQUNYLE9BQU8sQ0FBQyxLQUFLLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztBQUNyQixDQUFDLENBQUM7S0FDRCxFQUFFLENBQUMsT0FBTyxFQUFFLFVBQVUsS0FBc0I7SUFDM0MsT0FBTyxDQUFDLEdBQUcsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUM7QUFDcEMsQ0FBQyxDQUFDO0tBQ0QsRUFBRSxDQUFDLFVBQVUsRUFBRTtJQUNkLG9FQUFvRTtBQUN0RSxDQUFDLENBQUM7SUFDRixZQUFZO0tBQ1gsR0FBRyxDQUFDLEVBQUUsS0FBSyxFQUFFLEtBQUssRUFBRSxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxu5LiN5L2/55So6L+Q566X56ymICsg5ZKMIC0g4oCL4oCL4oCL4oCL4oCL4oCL4oCL77yM6K6h566X5Lik5pW05pWwIOKAi+KAi+KAi+KAi+KAi+KAi+KAi2Eg44CBYiDigIvigIvigIvigIvigIvigIvigIvkuYvlkozjgIJcblxu56S65L6LIDE6XG5cbui+k+WFpTogYSA9IDEsIGIgPSAyXG7ovpPlh7o6IDNcbuekuuS+iyAyOlxuXG7ovpPlhaU6IGEgPSAtMiwgYiA9IDNcbui+k+WHujogMVxuKiAqL1xuXG4vKipcbiAqIEBwYXJhbSB7bnVtYmVyfSBhXG4gKiBAcGFyYW0ge251bWJlcn0gYlxuICogQHJldHVybiB7bnVtYmVyfVxuICovXG52YXIgZ2V0U3VtID0gZnVuY3Rpb24gKGE6IG51bWJlciwgYjogbnVtYmVyKTogbnVtYmVyIHtcbiAgLy8g6LSf5pWw55qE6KGo56S6XG4gIC8vIOespuWPt+S9jeS4ujEgIOWFtuS7luS9jeWPjeeggSAg54S25ZCOIC0xXG4gIC8vIOeUseS6jiDnrKblj7fkvY3kuI3lkIwg5LiA5Liq5q2j5pWwIOS4gOS4qui0n+aVsCDlgZog5byC5oiW6L+Q566XIOS4gOWumuaYr+i0n+aVsFxuICBjb25zdCBzdW0gPSBhIF4gYjtcbiAgLy8g6KGo56S6IOaYr+S4jeaYr+i/mOacieayoeaciei/m+S9jeeahCDkvY1cbiAgY29uc3QgY2FycnkgPSAoYSAmIGIpIDw8IDE7XG4gIGlmIChjYXJyeSkgcmV0dXJuIGdldFN1bShzdW0sIGNhcnJ5KTtcbiAgcmV0dXJuIHN1bTtcbn07XG52YXIgZ2V0U3VtMiA9IGZ1bmN0aW9uIChhOiBudW1iZXIsIGI6IG51bWJlcik6IG51bWJlciB7XG4gIHdoaWxlIChiICE9IDApIHtcbiAgICBsZXQgc3VtID0gYSBeIGI7XG4gICAgbGV0IGNhcnJ5ID0gKGEgJiBiKSA8PCAxO1xuICAgIGEgPSBzdW07XG4gICAgYiA9IGNhcnJ5O1xuICB9XG4gIHJldHVybiBhO1xufTtcblxuaW1wb3J0IGFzc2VydCBmcm9tIFwiYXNzZXJ0XCI7XG5cbmFzc2VydC5zdHJpY3RFcXVhbChnZXRTdW0oMSwgMiksIDMpO1xuXG5hc3NlcnQuc3RyaWN0RXF1YWwoZ2V0U3VtKC0yLCAzKSwgMSk7XG5hc3NlcnQuc3RyaWN0RXF1YWwoZ2V0U3VtKC05LCAtMSksIC0xMCk7XG5pbXBvcnQgQmVuY2htYXJrIGZyb20gXCJiZW5jaG1hcmtcIjtcbmNvbnN0IHN1aXRlID0gbmV3IEJlbmNobWFyay5TdWl0ZSgpO1xuc3VpdGVcbiAgLmFkZChcInJlY3Vyc2lvblwiLCBmdW5jdGlvbiAoKSB7XG4gICAgZ2V0U3VtKDk5OTk5LCAtMSk7XG4gIH0pXG4gIC5hZGQoXCJsb29wXCIsIGZ1bmN0aW9uICgpIHtcbiAgICBnZXRTdW0yKDk5OTk5LCAtMSk7XG4gIH0pXG4gIC5vbihcImN5Y2xlXCIsIGZ1bmN0aW9uIChldmVudDogQmVuY2htYXJrLkV2ZW50KSB7XG4gICAgY29uc29sZS5sb2coU3RyaW5nKGV2ZW50LnRhcmdldCkpO1xuICB9KVxuICAub24oXCJjb21wbGV0ZVwiLCBmdW5jdGlvbiAodGhpczogQmVuY2htYXJrLlN1aXRlKSB7XG4gICAgLy8gY29uc29sZS5sb2coJ0Zhc3Rlc3QgaXMgJyArIHRoaXMuZmlsdGVyKCdmYXN0ZXN0JykubWFwKCAnbmFtZScpKTtcbiAgfSlcbiAgLy8gcnVuIGFzeW5jXG4gIC5ydW4oeyBhc3luYzogZmFsc2UgfSk7XG4iXX0=

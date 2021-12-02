@@ -13,38 +13,36 @@
 输出：0
 注意：本题与主站 154 题相同：https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * 与 153.寻找旋转排序数组中的最小值.ts 不同点 仅在于 可能存在重复点
  * */
 function minArray(numbers) {
-    if (numbers.length === 1)
-        return numbers[0];
-    /**
-     * 依然是二分法
-     * */
-    let left = 0;
-    let right = numbers.length - 1;
-    while (left < right) {
-        if (left + 1 === right)
-            return Math.min(numbers[left], numbers[right]);
-        const mid = Math.ceil((left + right) / 2);
-        // 如果 mid  和 right 相等 则值可能在左边也可能在右边
-        // 官方推荐的方法 是 直接right 向左移一格
-        if (numbers[mid] === numbers[right]) {
-            right -= 1;
-        }
-        else if (numbers[mid] > numbers[right]) {
-            left = mid + 1;
-        }
-        else {
-            right = mid;
-        }
+  if (numbers.length === 1) return numbers[0];
+  /**
+   * 依然是二分法
+   * */
+  let left = 0;
+  let right = numbers.length - 1;
+  while (left < right) {
+    if (left + 1 === right) return Math.min(numbers[left], numbers[right]);
+    const mid = Math.ceil((left + right) / 2);
+    // 如果 mid  和 right 相等 则值可能在左边也可能在右边
+    // 官方推荐的方法 是 直接right 向左移一格
+    if (numbers[mid] === numbers[right]) {
+      right -= 1;
+    } else if (numbers[mid] > numbers[right]) {
+      left = mid + 1;
+    } else {
+      right = mid;
     }
-    return numbers[right];
+  }
+  return numbers[right];
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(minArray([3, 4, 5, 1, 2]), 1);

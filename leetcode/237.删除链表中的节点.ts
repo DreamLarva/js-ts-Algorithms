@@ -49,6 +49,6 @@ var deleteNode = function (node: ListNode | null) {
 function deleteNode2(root: ListNode | null): void {
   root!.val = root!.next!.val;
   root!.next = root!.next!.next;
-};
+}
 
 export {};

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 对于字符串 S 和 T，只有在 S = T + ... + T（T 与自身连接 1 次或多次）时，我们才认定 “T 能除尽 S”。
@@ -38,18 +40,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {string}
  */
 var gcdOfStrings = function (str1, str2) {
-    /**
-     * 既然是找最大公约数
-     * 那么就是用 辗转相除法 或者叫 欧几里得算法
-     * */
-    /**
-     * 先判断是不是 有公约数
-     * */
-    if (str1 + str2 !== str2 + str1)
-        return ""; // 这个是 充要条件
-    // 辗转相除法
-    const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
-    return str1.substr(0, gcd(str1.length, str2.length));
+  /**
+   * 既然是找最大公约数
+   * 那么就是用 辗转相除法 或者叫 欧几里得算法
+   * */
+  /**
+   * 先判断是不是 有公约数
+   * */
+  if (str1 + str2 !== str2 + str1) return ""; // 这个是 充要条件
+  // 辗转相除法
+  const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+  return str1.substr(0, gcd(str1.length, str2.length));
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(gcdOfStrings("ABCABC", "ABC"), "ABC");

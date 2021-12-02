@@ -25,24 +25,26 @@
 输入: 701
 输出: "ZY"
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} n
  * @return {string}
  */
 var convertToTitle = function (n) {
-    let result = "";
-    // 相当于 27进制
-    do {
-        // 这里 取模 如果为 0 则是 Z; 1 是 a
-        n--;
-        result = String.fromCharCode(65 + (n % 26)) + result;
-        n = ~~(n / 26);
-    } while (n > 0);
-    return result;
+  let result = "";
+  // 相当于 27进制
+  do {
+    // 这里 取模 如果为 0 则是 Z; 1 是 a
+    n--;
+    result = String.fromCharCode(65 + (n % 26)) + result;
+    n = ~~(n / 26);
+  } while (n > 0);
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(convertToTitle(27), "AA");

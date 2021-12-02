@@ -41,30 +41,29 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {ListNode}
  */
 class ListNode {
-    val;
-    next;
-    constructor(val) {
-        this.val = val;
-        this.next = null;
-    }
+  val;
+  next;
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
 }
 var deleteDuplicates = function (head) {
-    if (head === null)
-        return null;
-    // 新链表的尾节点
-    let tail = head;
-    // 正在准备插入的原节点
-    let currentNode = head.next;
-    while (currentNode !== null) {
-        if (currentNode.val !== tail.val) {
-            tail.next = currentNode;
-            tail = tail.next;
-        }
-        currentNode = currentNode.next;
+  if (head === null) return null;
+  // 新链表的尾节点
+  let tail = head;
+  // 正在准备插入的原节点
+  let currentNode = head.next;
+  while (currentNode !== null) {
+    if (currentNode.val !== tail.val) {
+      tail.next = currentNode;
+      tail = tail.next;
     }
-    // 保证最后一个 后没有多余的节点
-    tail.next = null;
-    return head;
+    currentNode = currentNode.next;
+  }
+  // 保证最后一个 后没有多余的节点
+  tail.next = null;
+  return head;
 };
 const { createLinkedList } = require("./util/linked_list");
 const linkedList = createLinkedList([1, 1, 2, 3, 3]);

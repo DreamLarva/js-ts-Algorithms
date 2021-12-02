@@ -31,7 +31,7 @@ function getKthFromEnd(head: ListNode | null, k: number): ListNode | null {
     if (k !== 0) k--;
     else result = result!.next;
   }
-  return result
+  return result;
 }
 
 export {};

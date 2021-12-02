@@ -23,9 +23,11 @@
 要求使用空间复杂度为 O(1) 的原地算法。
 
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number[]} nums
@@ -33,27 +35,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function (nums, k) {
-    for (let i = 0; i < k; i++) {
-        nums.unshift(nums.pop());
-    }
+  for (let i = 0; i < k; i++) {
+    nums.unshift(nums.pop());
+  }
 };
 /**
  * 这样操作效率 更高
  * 整块 搬运 内容到头部
  * */
 function rotate1(nums, k) {
-    k %= nums.length;
-    nums.splice(0, 0, ...nums.splice(nums.length - k));
+  k %= nums.length;
+  nums.splice(0, 0, ...nums.splice(nums.length - k));
 }
 const assert_1 = __importDefault(require("assert"));
 {
-    const sample = [1, 2, 3, 4, 5, 6, 7];
-    rotate(sample, 3);
-    assert_1.default.deepStrictEqual(sample, [5, 6, 7, 1, 2, 3, 4]);
+  const sample = [1, 2, 3, 4, 5, 6, 7];
+  rotate(sample, 3);
+  assert_1.default.deepStrictEqual(sample, [5, 6, 7, 1, 2, 3, 4]);
 }
 {
-    const sample = [1, 2, 3, 4, 5, 6, 7];
-    rotate1(sample, 3);
-    assert_1.default.deepStrictEqual(sample, [5, 6, 7, 1, 2, 3, 4]);
+  const sample = [1, 2, 3, 4, 5, 6, 7];
+  rotate1(sample, 3);
+  assert_1.default.deepStrictEqual(sample, [5, 6, 7, 1, 2, 3, 4]);
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTg5LuaXi+i9rOaVsOe7hC5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMTg5LuaXi+i9rOaVsOe7hC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBdUJJOzs7OztBQUVKOzs7O0dBSUc7QUFDSCxJQUFJLE1BQU0sR0FBRyxVQUFVLElBQWMsRUFBRSxDQUFTO0lBQzlDLEtBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUU7UUFDMUIsSUFBSSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsR0FBRyxFQUFHLENBQUMsQ0FBQztLQUMzQjtBQUNILENBQUMsQ0FBQztBQUVGOzs7S0FHSztBQUNMLFNBQVMsT0FBTyxDQUFDLElBQWMsRUFBRSxDQUFTO0lBQ3hDLENBQUMsSUFBSSxJQUFJLENBQUMsTUFBTSxDQUFDO0lBQ2pCLElBQUksQ0FBQyxNQUFNLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDO0FBQ3JELENBQUM7QUFFRCxvREFBNEI7QUFFNUI7SUFDRSxNQUFNLE1BQU0sR0FBRyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDO0lBQ3JDLE1BQU0sQ0FBQyxNQUFNLEVBQUUsQ0FBQyxDQUFDLENBQUM7SUFDbEIsZ0JBQU0sQ0FBQyxlQUFlLENBQUMsTUFBTSxFQUFFLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztDQUN2RDtBQUNEO0lBQ0UsTUFBTSxNQUFNLEdBQUcsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztJQUNyQyxPQUFPLENBQUMsTUFBTSxFQUFFLENBQUMsQ0FBQyxDQUFDO0lBQ25CLGdCQUFNLENBQUMsZUFBZSxDQUFDLE1BQU0sRUFBRSxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUM7Q0FDdkQiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxu57uZ5a6a5LiA5Liq5pWw57uE77yM5bCG5pWw57uE5Lit55qE5YWD57Sg5ZCR5Y+z56e75YqoIGsg5Liq5L2N572u77yM5YW25LitIGsg5piv6Z2e6LSf5pWw44CCXG5cbuekuuS+iyAxOlxuXG7ovpPlhaU6IFsxLDIsMyw0LDUsNiw3XSDlkowgayA9IDNcbui+k+WHujogWzUsNiw3LDEsMiwzLDRdXG7op6Pph4o6XG7lkJHlj7Pml4vovawgMSDmraU6IFs3LDEsMiwzLDQsNSw2XVxu5ZCR5Y+z5peL6L2sIDIg5q2lOiBbNiw3LDEsMiwzLDQsNV1cbuWQkeWPs+aXi+i9rCAzIOatpTogWzUsNiw3LDEsMiwzLDRdXG7npLrkvosgMjpcblxu6L6T5YWlOiBbLTEsLTEwMCwzLDk5XSDlkowgayA9IDJcbui+k+WHujogWzMsOTksLTEsLTEwMF1cbuino+mHijpcbuWQkeWPs+aXi+i9rCAxIOatpTogWzk5LC0xLC0xMDAsM11cbuWQkeWPs+aXi+i9rCAyIOatpTogWzMsOTksLTEsLTEwMF1cbuivtOaYjjpcblxu5bC95Y+v6IO95oOz5Ye65pu05aSa55qE6Kej5Yaz5pa55qGI77yM6Iez5bCR5pyJ5LiJ56eN5LiN5ZCM55qE5pa55rOV5Y+v5Lul6Kej5Yaz6L+Z5Liq6Zeu6aKY44CCXG7opoHmsYLkvb/nlKjnqbrpl7TlpI3mnYLluqbkuLogTygxKSDnmoTljp/lnLDnrpfms5XjgIJcblxuKiAqL1xuXG4vKipcbiAqIEBwYXJhbSB7bnVtYmVyW119IG51bXNcbiAqIEBwYXJhbSB7bnVtYmVyfSBrXG4gKiBAcmV0dXJuIHt2b2lkfSBEbyBub3QgcmV0dXJuIGFueXRoaW5nLCBtb2RpZnkgbnVtcyBpbi1wbGFjZSBpbnN0ZWFkLlxuICovXG52YXIgcm90YXRlID0gZnVuY3Rpb24gKG51bXM6IG51bWJlcltdLCBrOiBudW1iZXIpIHtcbiAgZm9yIChsZXQgaSA9IDA7IGkgPCBrOyBpKyspIHtcbiAgICBudW1zLnVuc2hpZnQobnVtcy5wb3AoKSEpO1xuICB9XG59O1xuXG4vKipcbiAqIOi/meagt+aTjeS9nOaViOeOhyDmm7Tpq5hcbiAqIOaVtOWdlyDmkKzov5Ag5YaF5a655Yiw5aS06YOoXG4gKiAqL1xuZnVuY3Rpb24gcm90YXRlMShudW1zOiBudW1iZXJbXSwgazogbnVtYmVyKSB7XG4gIGsgJT0gbnVtcy5sZW5ndGg7XG4gIG51bXMuc3BsaWNlKDAsIDAsIC4uLm51bXMuc3BsaWNlKG51bXMubGVuZ3RoIC0gaykpO1xufVxuXG5pbXBvcnQgYXNzZXJ0IGZyb20gXCJhc3NlcnRcIjtcblxue1xuICBjb25zdCBzYW1wbGUgPSBbMSwgMiwgMywgNCwgNSwgNiwgN107XG4gIHJvdGF0ZShzYW1wbGUsIDMpO1xuICBhc3NlcnQuZGVlcFN0cmljdEVxdWFsKHNhbXBsZSwgWzUsIDYsIDcsIDEsIDIsIDMsIDRdKTtcbn1cbntcbiAgY29uc3Qgc2FtcGxlID0gWzEsIDIsIDMsIDQsIDUsIDYsIDddO1xuICByb3RhdGUxKHNhbXBsZSwgMyk7XG4gIGFzc2VydC5kZWVwU3RyaWN0RXF1YWwoc2FtcGxlLCBbNSwgNiwgNywgMSwgMiwgMywgNF0pO1xufVxuIl19

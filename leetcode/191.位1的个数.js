@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。
@@ -39,13 +41,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var hammingWeight = function (n) {
-    let result = 0;
-    while (n) {
-        result += n & 1;
-        n >>>= 1; // 使用无符号 右移
-    }
-    return result;
+  let result = 0;
+  while (n) {
+    result += n & 1;
+    n >>>= 1; // 使用无符号 右移
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.strictEqual(hammingWeight(0b00000000000000000000000000001011), 3);
+assert_1.default.strictEqual(
+  hammingWeight(0b00000000000000000000000000001011),
+  3
+);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTkxLuS9jTHnmoTkuKrmlbAuanMiLCJzb3VyY2VSb290IjoiLi8iLCJzb3VyY2VzIjpbImxlZXRjb2RlLzE5MS7kvY0x55qE5Liq5pWwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQThCSTtBQUNKOzs7R0FHRztBQUNILElBQUksYUFBYSxHQUFHLFVBQVUsQ0FBUztJQUNyQyxJQUFJLE1BQU0sR0FBRyxDQUFDLENBQUM7SUFDZixPQUFPLENBQUMsRUFBRTtRQUNSLE1BQU0sSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO1FBQ2hCLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxXQUFXO0tBQ3RCO0lBRUQsT0FBTyxNQUFNLENBQUM7QUFDaEIsQ0FBQyxDQUFDO0FBRUYsb0RBQTRCO0FBRTVCLGdCQUFNLENBQUMsV0FBVyxDQUFDLGFBQWEsQ0FBQyxrQ0FBa0MsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbue8luWGmeS4gOS4quWHveaVsO+8jOi+k+WFpeaYr+S4gOS4quaXoOespuWPt+aVtOaVsO+8jOi/lOWbnuWFtuS6jOi/m+WItuihqOi+vuW8j+S4reaVsOWtl+S9jeaVsOS4uiDigJgx4oCZIOeahOS4quaVsO+8iOS5n+iiq+ensOS4uuaxieaYjumHjemHj++8ieOAglxuXG5cblxu56S65L6LIDHvvJpcblxu6L6T5YWl77yaMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDEwMTFcbui+k+WHuu+8mjNcbuino+mHiu+8mui+k+WFpeeahOS6jOi/m+WItuS4siAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMTAxMSDkuK3vvIzlhbHmnInkuInkvY3kuLogJzEn44CCXG7npLrkvosgMu+8mlxuXG7ovpPlhaXvvJowMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAxMDAwMDAwMFxu6L6T5Ye677yaMVxu6Kej6YeK77ya6L6T5YWl55qE5LqM6L+b5Yi25LiyIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDEwMDAwMDAwIOS4re+8jOWFseacieS4gOS9jeS4uiAnMSfjgIJcbuekuuS+iyAz77yaXG5cbui+k+WFpe+8mjExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTAxXG7ovpPlh7rvvJozMVxu6Kej6YeK77ya6L6T5YWl55qE5LqM6L+b5Yi25LiyIDExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTAxIOS4re+8jOWFseaciSAzMSDkvY3kuLogJzEn44CCXG5cblxu5o+Q56S677yaXG5cbuivt+azqOaEj++8jOWcqOafkOS6m+ivreiogO+8iOWmgiBKYXZh77yJ5Lit77yM5rKh5pyJ5peg56ym5Y+35pW05pWw57G75Z6L44CC5Zyo6L+Z56eN5oOF5Ya15LiL77yM6L6T5YWl5ZKM6L6T5Ye66YO95bCG6KKr5oyH5a6a5Li65pyJ56ym5Y+35pW05pWw57G75Z6L77yM5bm25LiU5LiN5bqU5b2x5ZON5oKo55qE5a6e546w77yM5Zug5Li65peg6K665pW05pWw5piv5pyJ56ym5Y+355qE6L+Y5piv5peg56ym5Y+355qE77yM5YW25YaF6YOo55qE5LqM6L+b5Yi26KGo56S65b2i5byP6YO95piv55u45ZCM55qE44CCXG7lnKggSmF2YSDkuK3vvIznvJbor5Hlmajkvb/nlKjkuozov5vliLbooaXnoIHorrDms5XmnaXooajnpLrmnInnrKblj7fmlbTmlbDjgILlm6DmraTvvIzlnKjkuIrpnaLnmoQg56S65L6LIDMg5Lit77yM6L6T5YWl6KGo56S65pyJ56ym5Y+35pW05pWwIC0z44CCXG5cblxu6L+b6Zi2Olxu5aaC5p6c5aSa5qyh6LCD55So6L+Z5Liq5Ye95pWw77yM5L2g5bCG5aaC5L2V5LyY5YyW5L2g55qE566X5rOV77yfXG4qICovXG4vKipcbiAqIEBwYXJhbSB7bnVtYmVyfSBuIC0gYSBwb3NpdGl2ZSBpbnRlZ2VyXG4gKiBAcmV0dXJuIHtudW1iZXJ9XG4gKi9cbnZhciBoYW1taW5nV2VpZ2h0ID0gZnVuY3Rpb24gKG46IG51bWJlcikge1xuICBsZXQgcmVzdWx0ID0gMDtcbiAgd2hpbGUgKG4pIHtcbiAgICByZXN1bHQgKz0gbiAmIDE7XG4gICAgbiA+Pj49IDE7IC8vIOS9v+eUqOaXoOespuWPtyDlj7Pnp7tcbiAgfVxuXG4gIHJldHVybiByZXN1bHQ7XG59O1xuXG5pbXBvcnQgYXNzZXJ0IGZyb20gXCJhc3NlcnRcIjtcblxuYXNzZXJ0LnN0cmljdEVxdWFsKGhhbW1pbmdXZWlnaHQoMGIwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMTAxMSksIDMpO1xuIl19

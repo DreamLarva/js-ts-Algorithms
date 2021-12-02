@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.lastStoneWeightII2 = void 0;
 /*
@@ -41,37 +43,37 @@ exports.lastStoneWeightII2 = void 0;
 
 * */
 function lastStoneWeightII(stones) {
-    /**
-     * 要使最后一块石头的重量尽可能地小，neg 需要在不超过 ⌊sum/2⌋ 的前提下尽可能地大。
-     * 因此本问题可以看作是背包容量为 ⌊sum/2⌋，物品重量和价值均为 stonesi的 0-1 背包问题。
-     */
-    let sum = 0;
-    for (const weight of stones) {
-        sum += weight;
+  /**
+   * 要使最后一块石头的重量尽可能地小，neg 需要在不超过 ⌊sum/2⌋ 的前提下尽可能地大。
+   * 因此本问题可以看作是背包容量为 ⌊sum/2⌋，物品重量和价值均为 stonesi的 0-1 背包问题。
+   */
+  let sum = 0;
+  for (const weight of stones) {
+    sum += weight;
+  }
+  const n = stones.length,
+    m = Math.floor(sum / 2);
+  const dp = new Array(n + 1).fill(0).map(() => new Array(m + 1).fill(false));
+  dp[0][0] = true;
+  for (let i = 0; i < n; ++i) {
+    for (let j = 0; j <= m; ++j) {
+      if (j < stones[i]) {
+        // 石头太重 肯定凑不出 j , 肯定不选
+        dp[i + 1][j] = dp[i][j];
+      } else {
+        // 如果 dp[i][j] 有方案 说明当前石头,也是不选
+        // 如果 dp[i][j] 没方案 则尝试 dp[i][j - stones[i]]
+        dp[i + 1][j] = dp[i][j] || dp[i][j - stones[i]];
+      }
     }
-    const n = stones.length, m = Math.floor(sum / 2);
-    const dp = new Array(n + 1).fill(0).map(() => new Array(m + 1).fill(false));
-    dp[0][0] = true;
-    for (let i = 0; i < n; ++i) {
-        for (let j = 0; j <= m; ++j) {
-            if (j < stones[i]) {
-                // 石头太重 肯定凑不出 j , 肯定不选
-                dp[i + 1][j] = dp[i][j];
-            }
-            else {
-                // 如果 dp[i][j] 有方案 说明当前石头,也是不选
-                // 如果 dp[i][j] 没方案 则尝试 dp[i][j - stones[i]]
-                dp[i + 1][j] = dp[i][j] || dp[i][j - stones[i]];
-            }
-        }
+  }
+  console.log(dp);
+  // 最右一列 从下往上 选取结果
+  for (let j = m; ; --j) {
+    if (dp[n][j]) {
+      return sum - 2 * j;
     }
-    console.log(dp);
-    // 最右一列 从下往上 选取结果
-    for (let j = m;; --j) {
-        if (dp[n][j]) {
-            return sum - 2 * j;
-        }
-    }
+  }
 }
 /**
  * @link https://leetcode-cn.com/problems/last-stone-weight-ii/solution/zui-hou-yi-kuai-shi-tou-de-zhong-liang-i-95p9/
@@ -79,24 +81,24 @@ function lastStoneWeightII(stones) {
  * 改用一维 使用倒序遍历
  * */
 function lastStoneWeightII2(stones) {
-    let sum = 0;
-    for (const weight of stones) {
-        sum += weight;
+  let sum = 0;
+  for (const weight of stones) {
+    sum += weight;
+  }
+  const m = Math.floor(sum / 2);
+  const dp = new Array(m + 1).fill(false);
+  dp[0] = true;
+  for (const weight of stones) {
+    for (let j = m; j >= weight; --j) {
+      dp[j] = dp[j] || dp[j - weight];
     }
-    const m = Math.floor(sum / 2);
-    const dp = new Array(m + 1).fill(false);
-    dp[0] = true;
-    for (const weight of stones) {
-        for (let j = m; j >= weight; --j) {
-            dp[j] = dp[j] || dp[j - weight];
-        }
+  }
+  console.log(dp);
+  for (let j = m; ; --j) {
+    if (dp[j]) {
+      return sum - 2 * j;
     }
-    console.log(dp);
-    for (let j = m;; --j) {
-        if (dp[j]) {
-            return sum - 2 * j;
-        }
-    }
+  }
 }
 exports.lastStoneWeightII2 = lastStoneWeightII2;
 const assert_1 = __importDefault(require("assert"));

@@ -52,24 +52,16 @@ function checkSubarraySum(nums: number[], k: number): boolean {
     if (map.has(前缀和余数)) {
       const prevIndex = map.get(前缀和余数)!;
       if (i - prevIndex >= 2) return true;
-    }else{
-      map.set(前缀和余数,i)
+    } else {
+      map.set(前缀和余数, i);
     }
   }
 
-  return false
+  return false;
 }
-
 
 import assert from "assert";
 
-assert.strictEqual(
-  checkSubarraySum([23,2,4,6,7],6),
-  true
-)
+assert.strictEqual(checkSubarraySum([23, 2, 4, 6, 7], 6), true);
 
-assert.strictEqual(
-  checkSubarraySum([23,2,6,4,7],6),
-  true
-)
-
+assert.strictEqual(checkSubarraySum([23, 2, 6, 4, 7], 6), true);

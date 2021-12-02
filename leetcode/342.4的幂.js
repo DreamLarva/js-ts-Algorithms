@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个整数 (32 位有符号整数)，请编写一个函数来判断它是否是 4 的幂次方。
@@ -22,18 +24,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {boolean}
  */
 var isPowerOfFour = function (num) {
-    /**
-     * 如果不使用 循环或者 递归就要餐要 题231.2的幂
-     * */
-    // 判断是不是 2 的幂
-    if (num < 0 || num & (num - 1))
-        return false;
-    // 如果是 4 的幂 二进制时 1 是不是在 偶数位上
-    // 与所有 偶数位 都是 1 奇数 都是0 做位与  得到不是0 就是 4的幂
-    // 0x55555555 16 进制
-    // 相当于
-    // 0b(0101)*8
-    return (num & 0x55555555) !== 0;
+  /**
+   * 如果不使用 循环或者 递归就要餐要 题231.2的幂
+   * */
+  // 判断是不是 2 的幂
+  if (num < 0 || num & (num - 1)) return false;
+  // 如果是 4 的幂 二进制时 1 是不是在 偶数位上
+  // 与所有 偶数位 都是 1 奇数 都是0 做位与  得到不是0 就是 4的幂
+  // 0x55555555 16 进制
+  // 相当于
+  // 0b(0101)*8
+  return (num & 0x55555555) !== 0;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(isPowerOfFour(16), true);

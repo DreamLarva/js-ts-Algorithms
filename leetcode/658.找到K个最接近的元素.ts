@@ -57,16 +57,12 @@ var findClosestElements = function (arr: number[], k: number, x: number) {
 
 import assert from "assert";
 
-assert.deepStrictEqual(findClosestElements([1, 2, 3, 4, 5], 4, 3), [
-  1,
-  2,
-  3,
-  4,
-]);
+assert.deepStrictEqual(
+  findClosestElements([1, 2, 3, 4, 5], 4, 3),
+  [1, 2, 3, 4]
+);
 
-assert.deepStrictEqual(findClosestElements([1, 2, 3, 4, 5], 4, -1), [
-  1,
-  2,
-  3,
-  4,
-]);
+assert.deepStrictEqual(
+  findClosestElements([1, 2, 3, 4, 5], 4, -1),
+  [1, 2, 3, 4]
+);

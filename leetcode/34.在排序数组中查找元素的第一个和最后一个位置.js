@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
@@ -29,72 +31,67 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number[]}
  */
 var searchRange = function (nums, target) {
-    /**
-     * 先用二分法 找到一个 等于target 的位置
-     * */
-    const index = getAnyTargetIndex(nums, target);
-    if (index === -1)
-        return [-1, -1];
-    /**
-     * 用两个二分法 分别找到左值 和 右值
-     * */
-    return [
-        getLeftIndex(nums, target, index),
-        getRightIndex(nums, target, index),
-    ];
+  /**
+   * 先用二分法 找到一个 等于target 的位置
+   * */
+  const index = getAnyTargetIndex(nums, target);
+  if (index === -1) return [-1, -1];
+  /**
+   * 用两个二分法 分别找到左值 和 右值
+   * */
+  return [
+    getLeftIndex(nums, target, index),
+    getRightIndex(nums, target, index),
+  ];
 };
 function getLeftIndex(nums, target, index) {
-    let left = 0;
-    let right = index;
-    while (left < right) {
-        /**
-         * 二分法找到 mid 的值为 target 且 左侧的侧的值不是target 的 位置
-         * */
-        const mid = Math.floor((left + right) / 2);
-        if (nums[mid] === target) {
-            right = mid;
-        }
-        else {
-            left = mid + 1;
-        }
-        // 不存在 nums[mid] > target 的情况
+  let left = 0;
+  let right = index;
+  while (left < right) {
+    /**
+     * 二分法找到 mid 的值为 target 且 左侧的侧的值不是target 的 位置
+     * */
+    const mid = Math.floor((left + right) / 2);
+    if (nums[mid] === target) {
+      right = mid;
+    } else {
+      left = mid + 1;
     }
-    return left;
+    // 不存在 nums[mid] > target 的情况
+  }
+  return left;
 }
 function getRightIndex(nums, target, index) {
-    let left = index;
-    let right = nums.length - 1;
-    while (left < right) {
-        /**
-         * 二分法找到 mid 的值为 target 且 左侧的侧的值不是target 的 位置
-         * */
-        const mid = Math.ceil((left + right) / 2);
-        if (nums[mid] === target) {
-            left = mid;
-        }
-        else {
-            right = mid - 1;
-        }
-        // 不存在 nums[mid] < target 的情况
+  let left = index;
+  let right = nums.length - 1;
+  while (left < right) {
+    /**
+     * 二分法找到 mid 的值为 target 且 左侧的侧的值不是target 的 位置
+     * */
+    const mid = Math.ceil((left + right) / 2);
+    if (nums[mid] === target) {
+      left = mid;
+    } else {
+      right = mid - 1;
     }
-    return right;
+    // 不存在 nums[mid] < target 的情况
+  }
+  return right;
 }
 function getAnyTargetIndex(nums, target) {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left <= right) {
-        const mid = (right + left) >> 1;
-        if (nums[mid] === target) {
-            return mid;
-        }
-        else if (nums[mid] < target) {
-            left = mid + 1;
-        }
-        else {
-            right = mid - 1;
-        }
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    const mid = (right + left) >> 1;
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
     }
-    return -1;
+  }
+  return -1;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(getLeftIndex([5, 7, 8, 8, 8, 10], 5, 0), 0);

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 面试题 17.04. 消失的数字
@@ -21,16 +23,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 输出：8
 * */
 function missingNumber(nums) {
-    /**
-     * 直接用 位运算 或非 来解决即可
-     * */
-    let result = 0;
-    for (let i = 0; i < nums.length; i++) {
-        result ^= i;
-        result ^= nums[i];
-    }
-    result ^= nums.length;
-    return result;
+  /**
+   * 直接用 位运算 或非 来解决即可
+   * */
+  let result = 0;
+  for (let i = 0; i < nums.length; i++) {
+    result ^= i;
+    result ^= nums[i];
+  }
+  result ^= nums.length;
+  return result;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(missingNumber([3, 0, 1]), 2);

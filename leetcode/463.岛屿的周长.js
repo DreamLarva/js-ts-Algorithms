@@ -20,52 +20,57 @@
 
 解释: 它的周长是下面图片中的 16 个黄色的边：
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 function islandPerimeter(grid) {
-    /**
-     * 既然只有一个岛屿 且一定互相连接
-     * 那么只要 遍历所有的 格子 如果是岛屿 且周围没有其他岛屿那么就计算周长即可
-     * */
-    let perimeter = 0;
-    for (let y = 0; y < grid.length; y++) {
-        for (let x = 0; x < grid[y].length; x++) {
-            if (grid[y][x] === 1) {
-                perimeter += getPerimeterOfBlock(grid, [x, y]);
-            }
-        }
+  /**
+   * 既然只有一个岛屿 且一定互相连接
+   * 那么只要 遍历所有的 格子 如果是岛屿 且周围没有其他岛屿那么就计算周长即可
+   * */
+  let perimeter = 0;
+  for (let y = 0; y < grid.length; y++) {
+    for (let x = 0; x < grid[y].length; x++) {
+      if (grid[y][x] === 1) {
+        perimeter += getPerimeterOfBlock(grid, [x, y]);
+      }
     }
-    return perimeter;
+  }
+  return perimeter;
 }
 function getPerimeterOfBlock(grid, [x, y]) {
-    let perimeter = 0;
-    const max_y = grid.length - 1;
-    const max_x = grid[0].length - 1;
-    // 判断上侧
-    if (y - 1 < 0 || grid[y - 1][x] === 0) {
-        perimeter++;
-    }
-    // 左侧
-    if (x - 1 < 0 || grid[y][x - 1] === 0) {
-        perimeter++;
-    }
-    // 右侧
-    if (x + 1 > max_x || grid[y][x + 1] === 0) {
-        perimeter++;
-    }
-    // 下侧
-    if (y + 1 > max_y || grid[y + 1][x] === 0) {
-        perimeter++;
-    }
-    return perimeter;
+  let perimeter = 0;
+  const max_y = grid.length - 1;
+  const max_x = grid[0].length - 1;
+  // 判断上侧
+  if (y - 1 < 0 || grid[y - 1][x] === 0) {
+    perimeter++;
+  }
+  // 左侧
+  if (x - 1 < 0 || grid[y][x - 1] === 0) {
+    perimeter++;
+  }
+  // 右侧
+  if (x + 1 > max_x || grid[y][x + 1] === 0) {
+    perimeter++;
+  }
+  // 下侧
+  if (y + 1 > max_y || grid[y + 1][x] === 0) {
+    perimeter++;
+  }
+  return perimeter;
 }
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.strictEqual(islandPerimeter([
+assert_1.default.strictEqual(
+  islandPerimeter([
     [0, 1, 0, 0],
     [1, 1, 1, 0],
     [0, 1, 0, 0],
     [1, 1, 0, 0],
-]), 16);
+  ]),
+  16
+);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNDYzLuWym+Wxv+eahOWRqOmVvy5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvNDYzLuWym+Wxv+eahOWRqOmVvy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBb0JJOzs7OztBQUlKLFNBQVMsZUFBZSxDQUFDLElBQVU7SUFDakM7OztTQUdLO0lBQ0wsSUFBSSxTQUFTLEdBQUcsQ0FBQyxDQUFDO0lBQ2xCLEtBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxJQUFJLENBQUMsTUFBTSxFQUFFLENBQUMsRUFBRSxFQUFFO1FBQ3BDLEtBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxFQUFFLENBQUMsRUFBRSxFQUFFO1lBQ3ZDLElBQUksSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUMsRUFBRTtnQkFDcEIsU0FBUyxJQUFJLG1CQUFtQixDQUFDLElBQUksRUFBRSxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDO2FBQ2hEO1NBQ0Y7S0FDRjtJQUNELE9BQU8sU0FBUyxDQUFDO0FBQ25CLENBQUM7QUFFRCxTQUFTLG1CQUFtQixDQUFDLElBQVUsRUFBRSxDQUFDLENBQUMsRUFBRSxDQUFDLENBQWE7SUFDekQsSUFBSSxTQUFTLEdBQUcsQ0FBQyxDQUFDO0lBQ2xCLE1BQU0sS0FBSyxHQUFHLElBQUksQ0FBQyxNQUFNLEdBQUcsQ0FBQyxDQUFDO0lBQzlCLE1BQU0sS0FBSyxHQUFHLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxNQUFNLEdBQUcsQ0FBQyxDQUFDO0lBQ2pDLE9BQU87SUFDUCxJQUFJLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxJQUFJLElBQUksQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLEtBQUssQ0FBQyxFQUFFO1FBQ3JDLFNBQVMsRUFBRSxDQUFDO0tBQ2I7SUFFRCxLQUFLO0lBQ0wsSUFBSSxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsSUFBSSxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQyxLQUFLLENBQUMsRUFBRTtRQUNyQyxTQUFTLEVBQUUsQ0FBQztLQUNiO0lBRUQsS0FBSztJQUNMLElBQUksQ0FBQyxHQUFHLENBQUMsR0FBRyxLQUFLLElBQUksSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUMsS0FBSyxDQUFDLEVBQUU7UUFDekMsU0FBUyxFQUFFLENBQUM7S0FDYjtJQUVELEtBQUs7SUFDTCxJQUFJLENBQUMsR0FBRyxDQUFDLEdBQUcsS0FBSyxJQUFJLElBQUksQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLEtBQUssQ0FBQyxFQUFFO1FBQ3pDLFNBQVMsRUFBRSxDQUFDO0tBQ2I7SUFFRCxPQUFPLFNBQVMsQ0FBQztBQUNuQixDQUFDO0FBRUQsb0RBQTRCO0FBRTVCLGdCQUFNLENBQUMsV0FBVyxDQUNoQixlQUFlLENBQUM7SUFDZCxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQztJQUNaLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBQ1osQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUM7SUFDWixDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQztDQUNiLENBQUMsRUFDRixFQUFFLENBQ0gsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG7nu5nlrprkuIDkuKrljIXlkKsgMCDlkowgMSDnmoTkuoznu7TnvZHmoLzlnLDlm77vvIzlhbbkuK0gMSDooajnpLrpmYblnLAgMCDooajnpLrmsLTln5/jgIJcblxu572R5qC85Lit55qE5qC85a2Q5rC05bmz5ZKM5Z6C55u05pa55ZCR55u46L+e77yI5a+56KeS57q/5pa55ZCR5LiN55u46L+e77yJ44CC5pW05Liq572R5qC86KKr5rC05a6M5YWo5YyF5Zu077yM5L2G5YW25Lit5oGw5aW95pyJ5LiA5Liq5bKb5bG/77yI5oiW6ICF6K+077yM5LiA5Liq5oiW5aSa5Liq6KGo56S66ZmG5Zyw55qE5qC85a2Q55u46L+e57uE5oiQ55qE5bKb5bG/77yJ44CCXG5cbuWym+Wxv+S4reayoeacieKAnOa5luKAne+8iOKAnOa5luKAnSDmjIfmsLTln5/lnKjlspvlsb/lhoXpg6jkuJTkuI3lkozlspvlsb/lkajlm7TnmoTmsLTnm7jov57vvInjgILmoLzlrZDmmK/ovrnplb/kuLogMSDnmoTmraPmlrnlvaLjgILnvZHmoLzkuLrplb/mlrnlvaLvvIzkuJTlrr3luqblkozpq5jluqblnYfkuI3otoXov4cgMTAwIOOAguiuoeeul+i/meS4quWym+Wxv+eahOWRqOmVv+OAglxuXG5cblxu56S65L6LIDpcblxu6L6T5YWlOlxuW1swLDEsMCwwXSxcbiBbMSwxLDEsMF0sXG4gWzAsMSwwLDBdLFxuIFsxLDEsMCwwXV1cblxu6L6T5Ye6OiAxNlxuXG7op6Pph4o6IOWug+eahOWRqOmVv+aYr+S4i+mdouWbvueJh+S4reeahCAxNiDkuKrpu4ToibLnmoTovrnvvJpcbiogKi9cblxudHlwZSBncmlkID0gKDAgfCAxKVtdW107XG50eXBlIGNvb3JkaW5hdGUgPSBbbnVtYmVyLCBudW1iZXJdO1xuZnVuY3Rpb24gaXNsYW5kUGVyaW1ldGVyKGdyaWQ6IGdyaWQpIHtcbiAgLyoqXG4gICAqIOaXoueEtuWPquacieS4gOS4quWym+WxvyDkuJTkuIDlrprkupLnm7jov57mjqVcbiAgICog6YKj5LmI5Y+q6KaBIOmBjeWOhuaJgOacieeahCDmoLzlrZAg5aaC5p6c5piv5bKb5bG/IOS4lOWRqOWbtOayoeacieWFtuS7luWym+Wxv+mCo+S5iOWwseiuoeeul+WRqOmVv+WNs+WPr1xuICAgKiAqL1xuICBsZXQgcGVyaW1ldGVyID0gMDtcbiAgZm9yIChsZXQgeSA9IDA7IHkgPCBncmlkLmxlbmd0aDsgeSsrKSB7XG4gICAgZm9yIChsZXQgeCA9IDA7IHggPCBncmlkW3ldLmxlbmd0aDsgeCsrKSB7XG4gICAgICBpZiAoZ3JpZFt5XVt4XSA9PT0gMSkge1xuICAgICAgICBwZXJpbWV0ZXIgKz0gZ2V0UGVyaW1ldGVyT2ZCbG9jayhncmlkLCBbeCwgeV0pO1xuICAgICAgfVxuICAgIH1cbiAgfVxuICByZXR1cm4gcGVyaW1ldGVyO1xufVxuXG5mdW5jdGlvbiBnZXRQZXJpbWV0ZXJPZkJsb2NrKGdyaWQ6IGdyaWQsIFt4LCB5XTogY29vcmRpbmF0ZSk6IG51bWJlciB7XG4gIGxldCBwZXJpbWV0ZXIgPSAwO1xuICBjb25zdCBtYXhfeSA9IGdyaWQubGVuZ3RoIC0gMTtcbiAgY29uc3QgbWF4X3ggPSBncmlkWzBdLmxlbmd0aCAtIDE7XG4gIC8vIOWIpOaWreS4iuS+p1xuICBpZiAoeSAtIDEgPCAwIHx8IGdyaWRbeSAtIDFdW3hdID09PSAwKSB7XG4gICAgcGVyaW1ldGVyKys7XG4gIH1cblxuICAvLyDlt6bkvqdcbiAgaWYgKHggLSAxIDwgMCB8fCBncmlkW3ldW3ggLSAxXSA9PT0gMCkge1xuICAgIHBlcmltZXRlcisrO1xuICB9XG5cbiAgLy8g5Y+z5L6nXG4gIGlmICh4ICsgMSA+IG1heF94IHx8IGdyaWRbeV1beCArIDFdID09PSAwKSB7XG4gICAgcGVyaW1ldGVyKys7XG4gIH1cblxuICAvLyDkuIvkvqdcbiAgaWYgKHkgKyAxID4gbWF4X3kgfHwgZ3JpZFt5ICsgMV1beF0gPT09IDApIHtcbiAgICBwZXJpbWV0ZXIrKztcbiAgfVxuXG4gIHJldHVybiBwZXJpbWV0ZXI7XG59XG5cbmltcG9ydCBhc3NlcnQgZnJvbSBcImFzc2VydFwiO1xuXG5hc3NlcnQuc3RyaWN0RXF1YWwoXG4gIGlzbGFuZFBlcmltZXRlcihbXG4gICAgWzAsIDEsIDAsIDBdLFxuICAgIFsxLCAxLCAxLCAwXSxcbiAgICBbMCwgMSwgMCwgMF0sXG4gICAgWzEsIDEsIDAsIDBdLFxuICBdKSxcbiAgMTZcbik7XG4iXX0=

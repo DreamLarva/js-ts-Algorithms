@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个正整数 num，编写一个函数，如果 num 是一个完全平方数，则返回 True，否则返回 False。
@@ -22,77 +24,71 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {boolean}
  */
 var isPerfectSquare = function (num) {
-    let i = 1;
-    let n = i * i;
-    while (n <= num) {
-        if (n == num)
-            return true;
-        else {
-            i++;
-            n = i ** 2;
-        }
+  let i = 1;
+  let n = i * i;
+  while (n <= num) {
+    if (n == num) return true;
+    else {
+      i++;
+      n = i ** 2;
     }
-    return false;
+  }
+  return false;
 };
 /**
  * 非递增而是递减
  * */
 var isPerfectSquare2 = function (num) {
-    let i = num >> 2;
-    let n = i * i;
-    while (n >= num) {
-        if (n == num)
-            return true;
-        else {
-            i--;
-            n = i ** 2;
-        }
+  let i = num >> 2;
+  let n = i * i;
+  while (n >= num) {
+    if (n == num) return true;
+    else {
+      i--;
+      n = i ** 2;
     }
-    return false;
+  }
+  return false;
 };
 /**
  * 二分
  * */
 var isPerfectSquare3 = function (num) {
-    let start = 1;
-    let end = num;
-    let mid = Math.floor(start + (end - start) / 2);
-    while (start <= end) {
-        if (mid ** 2 > num) {
-            end = mid - 1;
-        }
-        else if (mid ** 2 < num) {
-            start = mid + 1;
-        }
-        else
-            return true;
-        mid = Math.floor((end - start) / 2 + start);
-    }
-    return false;
+  let start = 1;
+  let end = num;
+  let mid = Math.floor(start + (end - start) / 2);
+  while (start <= end) {
+    if (mid ** 2 > num) {
+      end = mid - 1;
+    } else if (mid ** 2 < num) {
+      start = mid + 1;
+    } else return true;
+    mid = Math.floor((end - start) / 2 + start);
+  }
+  return false;
 };
 /**
  * 公式
  * 利用 1+3+5+7+9+…+(2n-1)=n^2，即完全平方数肯定是前n个连续奇数的和
  * */
 var isPerfectSquare4 = function (num) {
-    let i = 1;
-    while (num > 0) {
-        num -= i;
-        i += 2;
-    }
-    return num === 0;
+  let i = 1;
+  while (num > 0) {
+    num -= i;
+    i += 2;
+  }
+  return num === 0;
 };
 /**
  * 牛顿迭代法 同 69题
  * */
 var isPerfectSquare5 = function (num) {
-    if (num === 1)
-        return true;
-    let r = num;
-    while (r * r > num) {
-        r = (r + num / r) / 2;
-    }
-    return Number.isInteger(r) && r * r === num;
+  if (num === 1) return true;
+  let r = num;
+  while (r * r > num) {
+    r = (r + num / r) / 2;
+  }
+  return Number.isInteger(r) && r * r === num;
 };
 const assert_1 = __importDefault(require("assert"));
 const benchmark_1 = __importDefault(require("benchmark"));
@@ -105,27 +101,27 @@ assert_1.default.strictEqual(isPerfectSquare5(17), false);
 // );
 const suite = new benchmark_1.default.Suite();
 suite
-    .add("递增", function () {
+  .add("递增", function () {
     isPerfectSquare(99999);
-})
-    .add("递减", function () {
+  })
+  .add("递减", function () {
     isPerfectSquare2(99999);
-})
-    .add("二分", function () {
+  })
+  .add("二分", function () {
     isPerfectSquare3(99999);
-})
-    .add("公式", function () {
+  })
+  .add("公式", function () {
     isPerfectSquare4(99999);
-})
-    .add("牛顿", function () {
+  })
+  .add("牛顿", function () {
     isPerfectSquare5(99999);
-})
-    .on("cycle", function (event) {
+  })
+  .on("cycle", function (event) {
     console.log(String(event.target));
-})
-    .on("complete", function () {
+  })
+  .on("complete", function () {
     // console.log('Fastest is ' + this.filter('fastest').map( 'name'));
-})
-    // run async
-    .run({ async: false });
+  })
+  // run async
+  .run({ async: false });
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMzY3LuacieaViOeahOWujOWFqOW5s+aWueaVsC5qcyIsInNvdXJjZVJvb3QiOiIuLyIsInNvdXJjZXMiOlsibGVldGNvZGUvMzY3LuacieaViOeahOWujOWFqOW5s+aWueaVsC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBOzs7Ozs7Ozs7Ozs7O0lBYUk7QUFDSjs7O0dBR0c7QUFDSCxJQUFJLGVBQWUsR0FBRyxVQUFVLEdBQVc7SUFDekMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBQ1YsSUFBSSxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQztJQUNkLE9BQU8sQ0FBQyxJQUFJLEdBQUcsRUFBRTtRQUNmLElBQUksQ0FBQyxJQUFJLEdBQUc7WUFBRSxPQUFPLElBQUksQ0FBQzthQUNyQjtZQUNILENBQUMsRUFBRSxDQUFDO1lBQ0osQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLENBQUM7U0FDWjtLQUNGO0lBQ0QsT0FBTyxLQUFLLENBQUM7QUFDZixDQUFDLENBQUM7QUFDRjs7S0FFSztBQUNMLElBQUksZ0JBQWdCLEdBQUcsVUFBVSxHQUFXO0lBQzFDLElBQUksQ0FBQyxHQUFHLEdBQUcsSUFBSSxDQUFDLENBQUM7SUFDakIsSUFBSSxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQztJQUNkLE9BQU8sQ0FBQyxJQUFJLEdBQUcsRUFBRTtRQUNmLElBQUksQ0FBQyxJQUFJLEdBQUc7WUFBRSxPQUFPLElBQUksQ0FBQzthQUNyQjtZQUNILENBQUMsRUFBRSxDQUFDO1lBQ0osQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLENBQUM7U0FDWjtLQUNGO0lBQ0QsT0FBTyxLQUFLLENBQUM7QUFDZixDQUFDLENBQUM7QUFFRjs7S0FFSztBQUNMLElBQUksZ0JBQWdCLEdBQUcsVUFBVSxHQUFXO0lBQzFDLElBQUksS0FBSyxHQUFHLENBQUMsQ0FBQztJQUNkLElBQUksR0FBRyxHQUFHLEdBQUcsQ0FBQztJQUNkLElBQUksR0FBRyxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsS0FBSyxHQUFHLENBQUMsR0FBRyxHQUFHLEtBQUssQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO0lBQ2hELE9BQU8sS0FBSyxJQUFJLEdBQUcsRUFBRTtRQUNuQixJQUFJLEdBQUcsSUFBSSxDQUFDLEdBQUcsR0FBRyxFQUFFO1lBQ2xCLEdBQUcsR0FBRyxHQUFHLEdBQUcsQ0FBQyxDQUFDO1NBQ2Y7YUFBTSxJQUFJLEdBQUcsSUFBSSxDQUFDLEdBQUcsR0FBRyxFQUFFO1lBQ3pCLEtBQUssR0FBRyxHQUFHLEdBQUcsQ0FBQyxDQUFDO1NBQ2pCOztZQUFNLE9BQU8sSUFBSSxDQUFDO1FBRW5CLEdBQUcsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUMsR0FBRyxHQUFHLEtBQUssQ0FBQyxHQUFHLENBQUMsR0FBRyxLQUFLLENBQUMsQ0FBQztLQUM3QztJQUNELE9BQU8sS0FBSyxDQUFDO0FBQ2YsQ0FBQyxDQUFDO0FBQ0Y7OztLQUdLO0FBQ0wsSUFBSSxnQkFBZ0IsR0FBRyxVQUFVLEdBQVc7SUFDMUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBQ1YsT0FBTyxHQUFHLEdBQUcsQ0FBQyxFQUFFO1FBQ2QsR0FBRyxJQUFJLENBQUMsQ0FBQztRQUNULENBQUMsSUFBSSxDQUFDLENBQUM7S0FDUjtJQUNELE9BQU8sR0FBRyxLQUFLLENBQUMsQ0FBQztBQUNuQixDQUFDLENBQUM7QUFFRjs7S0FFSztBQUNMLElBQUksZ0JBQWdCLEdBQUcsVUFBVSxHQUFXO0lBQzFDLElBQUksR0FBRyxLQUFLLENBQUM7UUFBRSxPQUFPLElBQUksQ0FBQztJQUMzQixJQUFJLENBQUMsR0FBRyxHQUFHLENBQUM7SUFDWixPQUFPLENBQUMsR0FBRyxDQUFDLEdBQUcsR0FBRyxFQUFFO1FBQ2xCLENBQUMsR0FBRyxDQUFDLENBQUMsR0FBRyxHQUFHLEdBQUcsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDO0tBQ3ZCO0lBQ0QsT0FBTyxNQUFNLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssR0FBRyxDQUFDO0FBQzlDLENBQUMsQ0FBQztBQUVGLG9EQUE0QjtBQUM1QiwwREFBa0M7QUFFbEMsZ0JBQU0sQ0FBQyxXQUFXLENBQUMsZ0JBQWdCLENBQUMsRUFBRSxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUM7QUFDL0MsZ0JBQU0sQ0FBQyxXQUFXLENBQUMsZ0JBQWdCLENBQUMsRUFBRSxDQUFDLEVBQUUsS0FBSyxDQUFDLENBQUM7QUFDaEQsYUFBYTtBQUNiLHNCQUFzQjtBQUN0QiwyQkFBMkI7QUFDM0IsYUFBYTtBQUNiLEtBQUs7QUFFTCxNQUFNLEtBQUssR0FBRyxJQUFJLG1CQUFTLENBQUMsS0FBSyxFQUFFLENBQUM7QUFDcEMsS0FBSztLQUNGLEdBQUcsQ0FBQyxJQUFJLEVBQUU7SUFDVCxlQUFlLENBQUMsS0FBSyxDQUFDLENBQUM7QUFDekIsQ0FBQyxDQUFDO0tBQ0QsR0FBRyxDQUFDLElBQUksRUFBRTtJQUNULGdCQUFnQixDQUFDLEtBQUssQ0FBQyxDQUFDO0FBQzFCLENBQUMsQ0FBQztLQUNELEdBQUcsQ0FBQyxJQUFJLEVBQUU7SUFDVCxnQkFBZ0IsQ0FBQyxLQUFLLENBQUMsQ0FBQztBQUMxQixDQUFDLENBQUM7S0FDRCxHQUFHLENBQUMsSUFBSSxFQUFFO0lBQ1QsZ0JBQWdCLENBQUMsS0FBSyxDQUFDLENBQUM7QUFDMUIsQ0FBQyxDQUFDO0tBQ0QsR0FBRyxDQUFDLElBQUksRUFBRTtJQUNULGdCQUFnQixDQUFDLEtBQUssQ0FBQyxDQUFDO0FBQzFCLENBQUMsQ0FBQztLQUNELEVBQUUsQ0FBQyxPQUFPLEVBQUUsVUFBVSxLQUFzQjtJQUMzQyxPQUFPLENBQUMsR0FBRyxDQUFDLE1BQU0sQ0FBQyxLQUFLLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQztBQUNwQyxDQUFDLENBQUM7S0FDRCxFQUFFLENBQUMsVUFBVSxFQUFFO0lBQ2Qsb0VBQW9FO0FBQ3RFLENBQUMsQ0FBQztJQUNGLFlBQVk7S0FDWCxHQUFHLENBQUMsRUFBRSxLQUFLLEVBQUUsS0FBSyxFQUFFLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG7nu5nlrprkuIDkuKrmraPmlbTmlbAgbnVt77yM57yW5YaZ5LiA5Liq5Ye95pWw77yM5aaC5p6cIG51bSDmmK/kuIDkuKrlrozlhajlubPmlrnmlbDvvIzliJnov5Tlm54gVHJ1Ze+8jOWQpuWImei/lOWbniBGYWxzZeOAglxuXG7or7TmmI7vvJrkuI3opoHkvb/nlKjku7vkvZXlhoXnva7nmoTlupPlh73mlbDvvIzlpoIgIHNxcnTjgIJcblxu56S65L6LIDHvvJpcblxu6L6T5YWl77yaMTZcbui+k+WHuu+8mlRydWVcbuekuuS+iyAy77yaXG5cbui+k+WFpe+8mjE0XG7ovpPlh7rvvJpGYWxzZVxuKiAqL1xuLyoqXG4gKiBAcGFyYW0ge251bWJlcn0gbnVtXG4gKiBAcmV0dXJuIHtib29sZWFufVxuICovXG52YXIgaXNQZXJmZWN0U3F1YXJlID0gZnVuY3Rpb24gKG51bTogbnVtYmVyKSB7XG4gIGxldCBpID0gMTtcbiAgbGV0IG4gPSBpICogaTtcbiAgd2hpbGUgKG4gPD0gbnVtKSB7XG4gICAgaWYgKG4gPT0gbnVtKSByZXR1cm4gdHJ1ZTtcbiAgICBlbHNlIHtcbiAgICAgIGkrKztcbiAgICAgIG4gPSBpICoqIDI7XG4gICAgfVxuICB9XG4gIHJldHVybiBmYWxzZTtcbn07XG4vKipcbiAqIOmdnumAkuWinuiAjOaYr+mAkuWHj1xuICogKi9cbnZhciBpc1BlcmZlY3RTcXVhcmUyID0gZnVuY3Rpb24gKG51bTogbnVtYmVyKSB7XG4gIGxldCBpID0gbnVtID4+IDI7XG4gIGxldCBuID0gaSAqIGk7XG4gIHdoaWxlIChuID49IG51bSkge1xuICAgIGlmIChuID09IG51bSkgcmV0dXJuIHRydWU7XG4gICAgZWxzZSB7XG4gICAgICBpLS07XG4gICAgICBuID0gaSAqKiAyO1xuICAgIH1cbiAgfVxuICByZXR1cm4gZmFsc2U7XG59O1xuXG4vKipcbiAqIOS6jOWIhlxuICogKi9cbnZhciBpc1BlcmZlY3RTcXVhcmUzID0gZnVuY3Rpb24gKG51bTogbnVtYmVyKSB7XG4gIGxldCBzdGFydCA9IDE7XG4gIGxldCBlbmQgPSBudW07XG4gIGxldCBtaWQgPSBNYXRoLmZsb29yKHN0YXJ0ICsgKGVuZCAtIHN0YXJ0KSAvIDIpO1xuICB3aGlsZSAoc3RhcnQgPD0gZW5kKSB7XG4gICAgaWYgKG1pZCAqKiAyID4gbnVtKSB7XG4gICAgICBlbmQgPSBtaWQgLSAxO1xuICAgIH0gZWxzZSBpZiAobWlkICoqIDIgPCBudW0pIHtcbiAgICAgIHN0YXJ0ID0gbWlkICsgMTtcbiAgICB9IGVsc2UgcmV0dXJuIHRydWU7XG5cbiAgICBtaWQgPSBNYXRoLmZsb29yKChlbmQgLSBzdGFydCkgLyAyICsgc3RhcnQpO1xuICB9XG4gIHJldHVybiBmYWxzZTtcbn07XG4vKipcbiAqIOWFrOW8j1xuICog5Yip55SoIDErMys1KzcrOSvigKYrKDJuLTEpPW5eMu+8jOWNs+WujOWFqOW5s+aWueaVsOiCr+WumuaYr+WJjW7kuKrov57nu63lpYfmlbDnmoTlkoxcbiAqICovXG52YXIgaXNQZXJmZWN0U3F1YXJlNCA9IGZ1bmN0aW9uIChudW06IG51bWJlcikge1xuICBsZXQgaSA9IDE7XG4gIHdoaWxlIChudW0gPiAwKSB7XG4gICAgbnVtIC09IGk7XG4gICAgaSArPSAyO1xuICB9XG4gIHJldHVybiBudW0gPT09IDA7XG59O1xuXG4vKipcbiAqIOeJm+mhv+i/reS7o+azlSDlkIwgNjnpophcbiAqICovXG52YXIgaXNQZXJmZWN0U3F1YXJlNSA9IGZ1bmN0aW9uIChudW06IG51bWJlcikge1xuICBpZiAobnVtID09PSAxKSByZXR1cm4gdHJ1ZTtcbiAgbGV0IHIgPSBudW07XG4gIHdoaWxlIChyICogciA+IG51bSkge1xuICAgIHIgPSAociArIG51bSAvIHIpIC8gMjtcbiAgfVxuICByZXR1cm4gTnVtYmVyLmlzSW50ZWdlcihyKSAmJiByICogciA9PT0gbnVtO1xufTtcblxuaW1wb3J0IGFzc2VydCBmcm9tIFwiYXNzZXJ0XCI7XG5pbXBvcnQgQmVuY2htYXJrIGZyb20gXCJiZW5jaG1hcmtcIjtcblxuYXNzZXJ0LnN0cmljdEVxdWFsKGlzUGVyZmVjdFNxdWFyZTUoMTYpLCB0cnVlKTtcbmFzc2VydC5zdHJpY3RFcXVhbChpc1BlcmZlY3RTcXVhcmU1KDE3KSwgZmFsc2UpO1xuLy8g5L2/55So54mb6aG/6L+t5Luj5rOVIOi2heaXtlxuLy8gYXNzZXJ0LnN0cmljdEVxdWFsKFxuLy8gICAgIGlzUGVyZmVjdFNxdWFyZTUoNSksXG4vLyAgICAgZmFsc2UsXG4vLyApO1xuXG5jb25zdCBzdWl0ZSA9IG5ldyBCZW5jaG1hcmsuU3VpdGUoKTtcbnN1aXRlXG4gIC5hZGQoXCLpgJLlop5cIiwgZnVuY3Rpb24gKCkge1xuICAgIGlzUGVyZmVjdFNxdWFyZSg5OTk5OSk7XG4gIH0pXG4gIC5hZGQoXCLpgJLlh49cIiwgZnVuY3Rpb24gKCkge1xuICAgIGlzUGVyZmVjdFNxdWFyZTIoOTk5OTkpO1xuICB9KVxuICAuYWRkKFwi5LqM5YiGXCIsIGZ1bmN0aW9uICgpIHtcbiAgICBpc1BlcmZlY3RTcXVhcmUzKDk5OTk5KTtcbiAgfSlcbiAgLmFkZChcIuWFrOW8j1wiLCBmdW5jdGlvbiAoKSB7XG4gICAgaXNQZXJmZWN0U3F1YXJlNCg5OTk5OSk7XG4gIH0pXG4gIC5hZGQoXCLniZvpob9cIiwgZnVuY3Rpb24gKCkge1xuICAgIGlzUGVyZmVjdFNxdWFyZTUoOTk5OTkpO1xuICB9KVxuICAub24oXCJjeWNsZVwiLCBmdW5jdGlvbiAoZXZlbnQ6IEJlbmNobWFyay5FdmVudCkge1xuICAgIGNvbnNvbGUubG9nKFN0cmluZyhldmVudC50YXJnZXQpKTtcbiAgfSlcbiAgLm9uKFwiY29tcGxldGVcIiwgZnVuY3Rpb24gKHRoaXM6IEJlbmNobWFyay5TdWl0ZSkge1xuICAgIC8vIGNvbnNvbGUubG9nKCdGYXN0ZXN0IGlzICcgKyB0aGlzLmZpbHRlcignZmFzdGVzdCcpLm1hcCggJ25hbWUnKSk7XG4gIH0pXG4gIC8vIHJ1biBhc3luY1xuICAucnVuKHsgYXN5bmM6IGZhbHNlIH0pO1xuIl19

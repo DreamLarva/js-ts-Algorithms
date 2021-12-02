@@ -53,12 +53,8 @@ var merge = function (A: number[], m: number, B: number[], n: number) {
 };
 
 import assert from "assert";
-assert.deepStrictEqual(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3), [
-  1,
-  2,
-  2,
-  3,
-  5,
-  6,
-]);
+assert.deepStrictEqual(
+  merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3),
+  [1, 2, 2, 3, 5, 6]
+);
 assert.deepStrictEqual(merge([0], 0, [1], 1), [1]);

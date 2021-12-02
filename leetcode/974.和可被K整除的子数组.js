@@ -24,25 +24,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
 var subarraysDivByK = function (A, K) {
-    /**
-     * 根据 同余定理 如果 a mode K == b mode K 那么 (a-b) mode K == 0
-     * 且 连续的子数组 P(i,j) = Sum(0,j) - Sum(0,i-1)
-     * 所以记录下每个 0 ~ 下标 i 的数组的和 Sum(0,i)
-     * 那么 每得到得到一个 Sum 就找 之前 同样余数的 Sum 就能组成 一个符合的结果
-     * */
-    // 如果刚好除尽 那么本身就是 一个符合的记过 不需要与之前的记过相对应
-    const cache = { 0: 1 };
-    let sum = 0;
-    let answer = 0;
-    for (let i = 0; i < A.length; i++) {
-        sum += A[i];
-        // 注意 C++ 取模的特殊性，当被除数为负数时取模结果为负数，需要纠正
-        const mod = ((sum % K) + K) % K;
-        console.log(mod);
-        answer += cache[mod] ?? 0;
-        cache[mod] = (cache[mod] ?? 0) + 1;
-    }
-    return answer;
+  /**
+   * 根据 同余定理 如果 a mode K == b mode K 那么 (a-b) mode K == 0
+   * 且 连续的子数组 P(i,j) = Sum(0,j) - Sum(0,i-1)
+   * 所以记录下每个 0 ~ 下标 i 的数组的和 Sum(0,i)
+   * 那么 每得到得到一个 Sum 就找 之前 同样余数的 Sum 就能组成 一个符合的结果
+   * */
+  // 如果刚好除尽 那么本身就是 一个符合的记过 不需要与之前的记过相对应
+  const cache = { 0: 1 };
+  let sum = 0;
+  let answer = 0;
+  for (let i = 0; i < A.length; i++) {
+    sum += A[i];
+    // 注意 C++ 取模的特殊性，当被除数为负数时取模结果为负数，需要纠正
+    const mod = ((sum % K) + K) % K;
+    console.log(mod);
+    answer += cache[mod] ?? 0;
+    cache[mod] = (cache[mod] ?? 0) + 1;
+  }
+  return answer;
 };
 subarraysDivByK([2, -2, 2, -4, 4], 6);
 // assert.strictEqual(subarraysDivByK([2, -2, 2, -4], 6), 2);

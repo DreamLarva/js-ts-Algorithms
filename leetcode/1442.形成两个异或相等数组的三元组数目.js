@@ -56,76 +56,79 @@ b = arr[j] ^ arr[j + 1] ^ ... ^ arr[k]
  * 如 a[i] ^ a[i+1] = n 且 a[j] ^ a[j + 1] ^ ... a[k] = n
  * 则 a[j] ^ a[j + 1] ^ ... a[k] = 0
  * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * 朴实的三重循环
  * */
 function countTriplets(arr) {
-    // 从左向右 累积异或的值
-    const accumulationXorArr = [arr[0]];
-    for (let i = 1; i < arr.length; i++) {
-        accumulationXorArr.push(accumulationXorArr[i - 1] ^ arr[i]);
-    }
-    let result = 0;
-    for (let i = 0; i < accumulationXorArr.length - 1; i++) {
-        for (let j = i + 1; j < accumulationXorArr.length; j++) {
-            for (let k = j; k < accumulationXorArr.length; k++) {
-                const a = accumulationXorArr[j - 1] ^ (i === 0 ? 0 : accumulationXorArr[i - 1]);
-                const b = accumulationXorArr[k] ^ accumulationXorArr[j - 1];
-                if (a === b) {
-                    result++;
-                }
-            }
+  // 从左向右 累积异或的值
+  const accumulationXorArr = [arr[0]];
+  for (let i = 1; i < arr.length; i++) {
+    accumulationXorArr.push(accumulationXorArr[i - 1] ^ arr[i]);
+  }
+  let result = 0;
+  for (let i = 0; i < accumulationXorArr.length - 1; i++) {
+    for (let j = i + 1; j < accumulationXorArr.length; j++) {
+      for (let k = j; k < accumulationXorArr.length; k++) {
+        const a =
+          accumulationXorArr[j - 1] ^ (i === 0 ? 0 : accumulationXorArr[i - 1]);
+        const b = accumulationXorArr[k] ^ accumulationXorArr[j - 1];
+        if (a === b) {
+          result++;
         }
+      }
     }
-    return result;
+  }
+  return result;
 }
 /**
  * 添加 累积异或后 每次遇到按相同值的处理
  * * */
 function countTriplets2(arr) {
-    // 从左向右 累积异或的值
-    const accumulationXorArr = [arr[0]];
-    for (let i = 1; i < arr.length; i++) {
-        accumulationXorArr.push(accumulationXorArr[i - 1] ^ arr[i]);
+  // 从左向右 累积异或的值
+  const accumulationXorArr = [arr[0]];
+  for (let i = 1; i < arr.length; i++) {
+    accumulationXorArr.push(accumulationXorArr[i - 1] ^ arr[i]);
+  }
+  let result = 0;
+  // 存储相同的 累积异或的值的 索引
+  const map = {};
+  // 处理最 index = 0 的值 , 如果 累积异或的值 为 0 ,就是从最左侧开始有一个匹配
+  map[0] = [-1];
+  for (let i = 0; i < accumulationXorArr.length; i++) {
+    const curXor = accumulationXorArr[i];
+    if (map[curXor] == null) {
+      map[curXor] = [i];
+    } else {
+      for (let j = 0; j < map[curXor].length; j++) {
+        result += i - map[curXor][j] - 1;
+      }
+      map[curXor].push(i);
     }
-    let result = 0;
-    // 存储相同的 累积异或的值的 索引
-    const map = {};
-    // 处理最 index = 0 的值 , 如果 累积异或的值 为 0 ,就是从最左侧开始有一个匹配
-    map[0] = [-1];
-    for (let i = 0; i < accumulationXorArr.length; i++) {
-        const curXor = accumulationXorArr[i];
-        if (map[curXor] == null) {
-            map[curXor] = [i];
-        }
-        else {
-            for (let j = 0; j < map[curXor].length; j++) {
-                result += i - map[curXor][j] - 1;
-            }
-            map[curXor].push(i);
-        }
-    }
-    return result;
+  }
+  return result;
 }
 function countTriplets3(arr) {
-    const cnt = new Map(), total = new Map();
-    let ans = 0, s = 0;
-    for (const [k, val] of arr.entries()) {
-        const t = s ^ val;
-        if (cnt.has(t)) {
-            ans += cnt.get(t) * k - total.get(t);
-        }
-        cnt.set(s, (cnt.get(s) ?? 0) + 1);
-        total.set(s, (total.get(s) ?? 0) + k);
-        s = t;
+  const cnt = new Map(),
+    total = new Map();
+  let ans = 0,
+    s = 0;
+  for (const [k, val] of arr.entries()) {
+    const t = s ^ val;
+    if (cnt.has(t)) {
+      ans += cnt.get(t) * k - total.get(t);
     }
-    return ans;
+    cnt.set(s, (cnt.get(s) ?? 0) + 1);
+    total.set(s, (total.get(s) ?? 0) + k);
+    s = t;
+  }
+  return ans;
 }
-;
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(countTriplets([2, 3, 1, 6, 7]), 4);
 assert_1.default.strictEqual(countTriplets([1, 3, 5, 7, 9]), 3);

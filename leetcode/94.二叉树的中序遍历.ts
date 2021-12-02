@@ -67,13 +67,11 @@ var inorderTraversal_1 = function (root: TreeNode<number>) {
 
 import assert from "assert";
 
-assert.deepStrictEqual(inorderTraversal(createBinaryTree([1, null, 2, 3])), [
-  1,
-  3,
-  2,
-]);
-assert.deepStrictEqual(inorderTraversal_1(createBinaryTree([1, null, 2, 3])), [
-  1,
-  3,
-  2,
-]);
+assert.deepStrictEqual(
+  inorderTraversal(createBinaryTree([1, null, 2, 3])),
+  [1, 3, 2]
+);
+assert.deepStrictEqual(
+  inorderTraversal_1(createBinaryTree([1, null, 2, 3])),
+  [1, 3, 2]
+);

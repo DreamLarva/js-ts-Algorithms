@@ -30,51 +30,53 @@ hashSet.contains(2);    // 返回  false (已经被删除)
 链接：https://leetcode-cn.com/problems/design-hashset
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Initialize your data structure here.
  */
 class MyHashSet {
-    length;
-    cache;
-    constructor(length = 101) {
-        this.length = length;
-        this.cache = Array(length)
-            .fill(0)
-            .map(() => []);
-    }
-    getHash(key) {
-        return key % this.length;
-    }
-    /**
-     * @param {number} key
-     * @return {void}
-     */
-    add(key) {
-        if (this.contains(key))
-            return;
-        this.cache[this.getHash(key)].push(key);
-    }
-    /**
-     * @param {number} key
-     * @return {void}
-     */
-    remove(key) {
-        if (!this.contains(key))
-            return;
-        this.cache[this.getHash(key)] = this.cache[this.getHash(key)].filter((v) => v !== key);
-    }
-    /**
-     * Returns true if this set contains the specified element
-     * @param {number} key
-     * @return {boolean}
-     */
-    contains(key) {
-        return this.cache[this.getHash(key)].indexOf(key) !== -1;
-    }
+  length;
+  cache;
+  constructor(length = 101) {
+    this.length = length;
+    this.cache = Array(length)
+      .fill(0)
+      .map(() => []);
+  }
+  getHash(key) {
+    return key % this.length;
+  }
+  /**
+   * @param {number} key
+   * @return {void}
+   */
+  add(key) {
+    if (this.contains(key)) return;
+    this.cache[this.getHash(key)].push(key);
+  }
+  /**
+   * @param {number} key
+   * @return {void}
+   */
+  remove(key) {
+    if (!this.contains(key)) return;
+    this.cache[this.getHash(key)] = this.cache[this.getHash(key)].filter(
+      (v) => v !== key
+    );
+  }
+  /**
+   * Returns true if this set contains the specified element
+   * @param {number} key
+   * @return {boolean}
+   */
+  contains(key) {
+    return this.cache[this.getHash(key)].indexOf(key) !== -1;
+  }
 }
 /**
  * Your MyHashSet object will be instantiated and called as such:

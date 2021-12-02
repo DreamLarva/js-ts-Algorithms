@@ -20,61 +20,63 @@ N 的取值范围是 [1, 10000]。
 链接：https://leetcode-cn.com/problems/rotated-digits
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number} N
  * @return {number}
  */
 var rotatedDigits1 = function (N) {
-    let num = 0;
-    for (let i = 1; i <= N; i++) {
-        isGoodNumber(i) && num++;
-    }
-    return num;
+  let num = 0;
+  for (let i = 1; i <= N; i++) {
+    isGoodNumber(i) && num++;
+  }
+  return num;
 };
 /**
  * 规则 数字 只能是0 1 8 2 5 6 9
  * 且不能只有 1 0 组成
  * */
 function isGoodNumber(num) {
-    let isValid = false;
-    while (num !== 0) {
-        const remainder = num % 10;
-        if ([2, 5, 6, 9].includes(remainder)) {
-            isValid = true;
-            num = Math.floor(num / 10);
-            continue;
-        }
-        if ([1, 0, 8].includes(remainder)) {
-            num = Math.floor(num / 10);
-            continue;
-        }
-        return false;
+  let isValid = false;
+  while (num !== 0) {
+    const remainder = num % 10;
+    if ([2, 5, 6, 9].includes(remainder)) {
+      isValid = true;
+      num = Math.floor(num / 10);
+      continue;
     }
-    return isValid;
+    if ([1, 0, 8].includes(remainder)) {
+      num = Math.floor(num / 10);
+      continue;
+    }
+    return false;
+  }
+  return isValid;
 }
 var rotatedDigits2 = function (N) {
-    let num = 0;
-    for (let i = 1; i <= N; i++) {
-        isGoodNumber2(i) && num++;
-    }
-    return num;
+  let num = 0;
+  for (let i = 1; i <= N; i++) {
+    isGoodNumber2(i) && num++;
+  }
+  return num;
 };
 const map = [0, 0, 1, -1, -1, 1, 1, -1, 0, 1, 0];
 function isGoodNumber2(num) {
-    let isValid = 0;
-    while (num !== 0) {
-        const remainder = num % 10;
-        if (map[remainder] === -1) {
-            return false;
-        }
-        isValid += map[remainder];
-        num = Math.floor(num / 10);
+  let isValid = 0;
+  while (num !== 0) {
+    const remainder = num % 10;
+    if (map[remainder] === -1) {
+      return false;
     }
-    return isValid > 0;
+    isValid += map[remainder];
+    num = Math.floor(num / 10);
+  }
+  return isValid > 0;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(rotatedDigits1(10), 4);
@@ -82,21 +84,21 @@ assert_1.default.strictEqual(rotatedDigits2(10), 4);
 const Benchmark = require("benchmark");
 const suite = new Benchmark.Suite();
 suite
-    .add("===", function () {
+  .add("===", function () {
     rotatedDigits1(10);
-})
-    .add("map", function () {
+  })
+  .add("map", function () {
     rotatedDigits2(10);
-})
-    // add listeners
-    .on("cycle", function (event) {
+  })
+  // add listeners
+  .on("cycle", function (event) {
     console.log(String(event.target));
-})
-    .on("complete", function () {
+  })
+  .on("complete", function () {
     console.log("Fastest is " + this.filter("fastest").map("name"));
-})
-    // run async
-    .run({ async: false });
+  })
+  // run async
+  .run({ async: false });
 /**
  * === x 4,365,630 ops/sec 卤6.26% (85 runs sampled)
  * map x 17,558,885 ops/sec 卤2.90% (86 runs sampled)

@@ -6,50 +6,50 @@ const types_1 = require("./inversify/types");
 const tsyringe_config_1 = require("./tsyringe/tsyringe.config");
 const entities_1 = require("./tsyringe/entities");
 class KatanaNative {
-    hit() {
-        return "cut!";
-    }
+  hit() {
+    return "cut!";
+  }
 }
 class ShurikenNative {
-    throw() {
-        return "hit!";
-    }
+  throw() {
+    return "hit!";
+  }
 }
 class NinjaNative {
-    _katana;
-    _shuriken;
-    constructor(_katana, _shuriken) {
-        this._katana = _katana;
-        this._shuriken = _shuriken;
-    }
-    fight() {
-        return this._katana.hit();
-    }
-    sneak() {
-        return this._shuriken.throw();
-    }
+  _katana;
+  _shuriken;
+  constructor(_katana, _shuriken) {
+    this._katana = _katana;
+    this._shuriken = _shuriken;
+  }
+  fight() {
+    return this._katana.hit();
+  }
+  sneak() {
+    return this._shuriken.throw();
+  }
 }
-const Benchmark = require('benchmark');
-const suite = new Benchmark.Suite;
+const Benchmark = require("benchmark");
+const suite = new Benchmark.Suite();
 suite
-    .add('inversify', function () {
+  .add("inversify", function () {
     inversify_config_1.myContainer.get(types_1.TYPES.Warrior);
-})
-    .add('tsyringe', function () {
+  })
+  .add("tsyringe", function () {
     tsyringe_config_1.myContainer.resolve(entities_1.Ninja);
-})
-    .add('native', function () {
+  })
+  .add("native", function () {
     new NinjaNative(new KatanaNative(), new ShurikenNative());
-})
-    // add listeners
-    .on('cycle', function (event) {
+  })
+  // add listeners
+  .on("cycle", function (event) {
     console.log(String(event.target));
-})
-    .on('complete', function () {
-    console.log('Fastest is ' + this.filter('fastest').map('name'));
-})
-    // run async
-    .run({ 'async': false });
+  })
+  .on("complete", function () {
+    console.log("Fastest is " + this.filter("fastest").map("name"));
+  })
+  // run async
+  .run({ async: false });
 /**
  * inversify    x 163,053 ops/sec ±3.46% (90 runs sampled)
  * tsyringe     x 3,034,294 ops/sec ±1.71% (90 runs sampled)

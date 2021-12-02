@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
@@ -24,44 +26,46 @@ const LinkedList_1 = require("../util/LinkedList");
  * @return {ListNode}
  */
 var swapPairs = function (head) {
-    if (head == null || head.next == null)
-        return head;
-    // 先交换 第一个节点和 第二个节点
-    const current = head;
+  if (head == null || head.next == null) return head;
+  // 先交换 第一个节点和 第二个节点
+  const current = head;
+  const next = current.next;
+  current.next = next.next;
+  next.next = current;
+  step(current);
+  function step(lastNode) {
+    if (lastNode == null || lastNode.next == null || lastNode.next.next == null)
+      return;
+    const current = lastNode.next;
     const next = current.next;
     current.next = next.next;
     next.next = current;
+    lastNode.next = next;
     step(current);
-    function step(lastNode) {
-        if (lastNode == null || lastNode.next == null || lastNode.next.next == null)
-            return;
-        const current = lastNode.next;
-        const next = current.next;
-        current.next = next.next;
-        next.next = current;
-        lastNode.next = next;
-        step(current);
-    }
-    return next;
+  }
+  return next;
 };
 // 最佳的写法
 // 递归 交换后 靠后的节点 后的next
 var swapPairs_2 = function (head) {
-    if (head == null || head.next == null)
-        return head;
-    const current = head;
-    const next = current.next;
-    current.next = swapPairs_2(next.next);
-    next.next = current;
-    return next;
+  if (head == null || head.next == null) return head;
+  const current = head;
+  const next = current.next;
+  current.next = swapPairs_2(next.next);
+  next.next = current;
+  return next;
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.deepStrictEqual(swapPairs((0, LinkedList_1.createLinkedList)([1, 2, 3, 4])).toString(), [
-    2,
-    1,
-    4,
-    3,
-]);
-assert_1.default.deepStrictEqual(swapPairs((0, LinkedList_1.createLinkedList)([1, 2, 3, 4, 5])).toString(), [2, 1, 4, 3, 5]);
-assert_1.default.deepStrictEqual(swapPairs_2((0, LinkedList_1.createLinkedList)([1, 2, 3, 4, 5])).toString(), [2, 1, 4, 3, 5]);
+assert_1.default.deepStrictEqual(
+  swapPairs((0, LinkedList_1.createLinkedList)([1, 2, 3, 4])).toString(),
+  [2, 1, 4, 3]
+);
+assert_1.default.deepStrictEqual(
+  swapPairs((0, LinkedList_1.createLinkedList)([1, 2, 3, 4, 5])).toString(),
+  [2, 1, 4, 3, 5]
+);
+assert_1.default.deepStrictEqual(
+  swapPairs_2((0, LinkedList_1.createLinkedList)([1, 2, 3, 4, 5])).toString(),
+  [2, 1, 4, 3, 5]
+);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjQu5Lik5Lik5Lqk5o2i6ZO+6KGo5Lit55qE6IqC54K5LmpzIiwic291cmNlUm9vdCI6Ii4vIiwic291cmNlcyI6WyJsZWV0Y29kZS8yNC7kuKTkuKTkuqTmjaLpk77ooajkuK3nmoToioLngrkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQTs7Ozs7Ozs7Ozs7Ozs7SUFjSTtBQUNKLG1EQUFnRTtBQUVoRTs7O0dBR0c7QUFDSCxJQUFJLFNBQVMsR0FBRyxVQUFVLElBQXFCO0lBQzdDLElBQUksSUFBSSxJQUFJLElBQUksSUFBSSxJQUFJLENBQUMsSUFBSSxJQUFJLElBQUk7UUFBRSxPQUFPLElBQUksQ0FBQztJQUNuRCxtQkFBbUI7SUFDbkIsTUFBTSxPQUFPLEdBQUcsSUFBSSxDQUFDO0lBQ3JCLE1BQU0sSUFBSSxHQUFHLE9BQU8sQ0FBQyxJQUFJLENBQUM7SUFFMUIsT0FBTyxDQUFDLElBQUksR0FBRyxJQUFLLENBQUMsSUFBSSxDQUFDO0lBQzFCLElBQUssQ0FBQyxJQUFJLEdBQUcsT0FBTyxDQUFDO0lBRXJCLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUVkLFNBQVMsSUFBSSxDQUFDLFFBQXlCO1FBQ3JDLElBQUksUUFBUSxJQUFJLElBQUksSUFBSSxRQUFRLENBQUMsSUFBSSxJQUFJLElBQUksSUFBSSxRQUFRLENBQUMsSUFBSSxDQUFDLElBQUksSUFBSSxJQUFJO1lBQ3pFLE9BQU87UUFDVCxNQUFNLE9BQU8sR0FBRyxRQUFRLENBQUMsSUFBSSxDQUFDO1FBQzlCLE1BQU0sSUFBSSxHQUFHLE9BQU8sQ0FBQyxJQUFJLENBQUM7UUFFMUIsT0FBTyxDQUFDLElBQUksR0FBRyxJQUFLLENBQUMsSUFBSSxDQUFDO1FBQzFCLElBQUssQ0FBQyxJQUFJLEdBQUcsT0FBTyxDQUFDO1FBQ3JCLFFBQVEsQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO1FBRXJCLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUNoQixDQUFDO0lBRUQsT0FBTyxJQUFJLENBQUM7QUFDZCxDQUFDLENBQUM7QUFFRixRQUFRO0FBQ1Isc0JBQXNCO0FBQ3RCLElBQUksV0FBVyxHQUFHLFVBQVUsSUFBcUI7SUFDL0MsSUFBSSxJQUFJLElBQUksSUFBSSxJQUFJLElBQUksQ0FBQyxJQUFJLElBQUksSUFBSTtRQUFFLE9BQU8sSUFBSSxDQUFDO0lBRW5ELE1BQU0sT0FBTyxHQUFHLElBQUksQ0FBQztJQUNyQixNQUFNLElBQUksR0FBRyxPQUFPLENBQUMsSUFBSyxDQUFDO0lBRTNCLE9BQU8sQ0FBQyxJQUFJLEdBQUcsV0FBVyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN0QyxJQUFJLENBQUMsSUFBSSxHQUFHLE9BQU8sQ0FBQztJQUVwQixPQUFPLElBQUksQ0FBQztBQUNkLENBQUMsQ0FBQztBQUVGLG9EQUE0QjtBQUU1QixnQkFBTSxDQUFDLGVBQWUsQ0FBQyxTQUFTLENBQUMsSUFBQSw2QkFBZ0IsRUFBQyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUUsQ0FBQyxRQUFRLEVBQUUsRUFBRTtJQUM1RSxDQUFDO0lBQ0QsQ0FBQztJQUNELENBQUM7SUFDRCxDQUFDO0NBQ0YsQ0FBQyxDQUFDO0FBQ0gsZ0JBQU0sQ0FBQyxlQUFlLENBQ3BCLFNBQVMsQ0FBQyxJQUFBLDZCQUFnQixFQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUUsQ0FBQyxRQUFRLEVBQUUsRUFDeEQsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQ2hCLENBQUM7QUFDRixnQkFBTSxDQUFDLGVBQWUsQ0FDcEIsV0FBVyxDQUFDLElBQUEsNkJBQWdCLEVBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBRSxDQUFDLFFBQVEsRUFBRSxFQUMxRCxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FDaEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG7nu5nlrprkuIDkuKrpk77ooajvvIzkuKTkuKTkuqTmjaLlhbbkuK3nm7jpgrvnmoToioLngrnvvIzlubbov5Tlm57kuqTmjaLlkI7nmoTpk77ooajjgIJcblxu5L2g5LiN6IO95Y+q5piv5Y2V57qv55qE5pS55Y+Y6IqC54K55YaF6YOo55qE5YC877yM6ICM5piv6ZyA6KaB5a6e6ZmF55qE6L+b6KGM6IqC54K55Lqk5o2i44CCXG5cblxuXG7npLrkvos6XG5cbue7meWumiAxLT4yLT4zLT40LCDkvaDlupTor6Xov5Tlm54gMi0+MS0+NC0+My5cblxu5p2l5rqQ77ya5Yqb5omj77yITGVldENvZGXvvIlcbumTvuaOpe+8mmh0dHBzOi8vbGVldGNvZGUtY24uY29tL3Byb2JsZW1zL3N3YXAtbm9kZXMtaW4tcGFpcnNcbuiRl+S9nOadg+W9kumihuaJo+e9kee7nOaJgOacieOAguWVhuS4mui9rOi9veivt+iBlOezu+WumOaWueaOiOadg++8jOmdnuWVhuS4mui9rOi9veivt+azqOaYjuWHuuWkhOOAglxuKiAqL1xuaW1wb3J0IHsgTGlzdE5vZGUsIGNyZWF0ZUxpbmtlZExpc3QgfSBmcm9tIFwiLi4vdXRpbC9MaW5rZWRMaXN0XCI7XG5cbi8qKlxuICogQHBhcmFtIHtMaXN0Tm9kZX0gaGVhZFxuICogQHJldHVybiB7TGlzdE5vZGV9XG4gKi9cbnZhciBzd2FwUGFpcnMgPSBmdW5jdGlvbiAoaGVhZDogTGlzdE5vZGUgfCBudWxsKSB7XG4gIGlmIChoZWFkID09IG51bGwgfHwgaGVhZC5uZXh0ID09IG51bGwpIHJldHVybiBoZWFkO1xuICAvLyDlhYjkuqTmjaIg56ys5LiA5Liq6IqC54K55ZKMIOesrOS6jOS4quiKgueCuVxuICBjb25zdCBjdXJyZW50ID0gaGVhZDtcbiAgY29uc3QgbmV4dCA9IGN1cnJlbnQubmV4dDtcblxuICBjdXJyZW50Lm5leHQgPSBuZXh0IS5uZXh0O1xuICBuZXh0IS5uZXh0ID0gY3VycmVudDtcblxuICBzdGVwKGN1cnJlbnQpO1xuXG4gIGZ1bmN0aW9uIHN0ZXAobGFzdE5vZGU6IExpc3ROb2RlIHwgbnVsbCkge1xuICAgIGlmIChsYXN0Tm9kZSA9PSBudWxsIHx8IGxhc3ROb2RlLm5leHQgPT0gbnVsbCB8fCBsYXN0Tm9kZS5uZXh0Lm5leHQgPT0gbnVsbClcbiAgICAgIHJldHVybjtcbiAgICBjb25zdCBjdXJyZW50ID0gbGFzdE5vZGUubmV4dDtcbiAgICBjb25zdCBuZXh0ID0gY3VycmVudC5uZXh0O1xuXG4gICAgY3VycmVudC5uZXh0ID0gbmV4dCEubmV4dDtcbiAgICBuZXh0IS5uZXh0ID0gY3VycmVudDtcbiAgICBsYXN0Tm9kZS5uZXh0ID0gbmV4dDtcblxuICAgIHN0ZXAoY3VycmVudCk7XG4gIH1cblxuICByZXR1cm4gbmV4dDtcbn07XG5cbi8vIOacgOS9s+eahOWGmeazlVxuLy8g6YCS5b2SIOS6pOaNouWQjiDpnaDlkI7nmoToioLngrkg5ZCO55qEbmV4dFxudmFyIHN3YXBQYWlyc18yID0gZnVuY3Rpb24gKGhlYWQ6IExpc3ROb2RlIHwgbnVsbCk6IExpc3ROb2RlIHwgbnVsbCB7XG4gIGlmIChoZWFkID09IG51bGwgfHwgaGVhZC5uZXh0ID09IG51bGwpIHJldHVybiBoZWFkO1xuXG4gIGNvbnN0IGN1cnJlbnQgPSBoZWFkO1xuICBjb25zdCBuZXh0ID0gY3VycmVudC5uZXh0ITtcblxuICBjdXJyZW50Lm5leHQgPSBzd2FwUGFpcnNfMihuZXh0Lm5leHQpO1xuICBuZXh0Lm5leHQgPSBjdXJyZW50O1xuXG4gIHJldHVybiBuZXh0O1xufTtcblxuaW1wb3J0IGFzc2VydCBmcm9tIFwiYXNzZXJ0XCI7XG5cbmFzc2VydC5kZWVwU3RyaWN0RXF1YWwoc3dhcFBhaXJzKGNyZWF0ZUxpbmtlZExpc3QoWzEsIDIsIDMsIDRdKSkhLnRvU3RyaW5nKCksIFtcbiAgMixcbiAgMSxcbiAgNCxcbiAgMyxcbl0pO1xuYXNzZXJ0LmRlZXBTdHJpY3RFcXVhbChcbiAgc3dhcFBhaXJzKGNyZWF0ZUxpbmtlZExpc3QoWzEsIDIsIDMsIDQsIDVdKSkhLnRvU3RyaW5nKCksXG4gIFsyLCAxLCA0LCAzLCA1XVxuKTtcbmFzc2VydC5kZWVwU3RyaWN0RXF1YWwoXG4gIHN3YXBQYWlyc18yKGNyZWF0ZUxpbmtlZExpc3QoWzEsIDIsIDMsIDQsIDVdKSkhLnRvU3RyaW5nKCksXG4gIFsyLCAxLCA0LCAzLCA1XVxuKTtcbiJdfQ==

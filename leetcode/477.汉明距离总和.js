@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 477. 汉明距离总和
@@ -25,16 +27,16 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 
 * */
 function totalHammingDistance(nums) {
-    let result = 0;
-    // 10^9 < 2^30 (2^0 + .... 2^29)
-    for (let i = 0; i < 30; i++) {
-        let one = 0;
-        for (let j = 0; j < nums.length; j++) {
-            one += (nums[j] >> i) & 1;
-        }
-        result += one * (nums.length - one);
+  let result = 0;
+  // 10^9 < 2^30 (2^0 + .... 2^29)
+  for (let i = 0; i < 30; i++) {
+    let one = 0;
+    for (let j = 0; j < nums.length; j++) {
+      one += (nums[j] >> i) & 1;
     }
-    return result;
+    result += one * (nums.length - one);
+  }
+  return result;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(totalHammingDistance([4, 14, 2]), 6);

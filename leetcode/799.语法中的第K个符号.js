@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 在第一行我们写上一个 0。接下来的每一行，将前一行中的0替换为01，1替换为10。
@@ -40,16 +42,14 @@ K 的范围 [1, 2^(N-1)].
  * @return {number}
  */
 var kthGrammar = function (N, K) {
-    // N 行 K 个 取决于 第 N - 1 行 Math.floor((K + 1)/ 2) 的值
-    if (N === 1)
-        return 0;
-    const last = kthGrammar(N - 1, Math.floor((K + 1) / 2));
-    if (last === 0) {
-        return K % 2 === 1 ? 0 : 1;
-    }
-    else {
-        return K % 2 === 1 ? 1 : 0;
-    }
+  // N 行 K 个 取决于 第 N - 1 行 Math.floor((K + 1)/ 2) 的值
+  if (N === 1) return 0;
+  const last = kthGrammar(N - 1, Math.floor((K + 1) / 2));
+  if (last === 0) {
+    return K % 2 === 1 ? 0 : 1;
+  } else {
+    return K % 2 === 1 ? 1 : 0;
+  }
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(kthGrammar(1, 1), 0);

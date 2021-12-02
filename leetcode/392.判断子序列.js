@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定字符串 s 和 t ，判断 s 是否为 t 的子序列。
@@ -34,24 +36,24 @@ s = "axc", t = "ahbgdc"
  * @return {boolean}
  */
 var isSubsequence1 = function (s, t) {
-    /**
-     * 双指针
-     * */
-    let s_index = 0;
-    let t_index = 0;
-    while (s_index < s.length && t_index < t.length) {
-        if (t[t_index] === s[s_index]) {
-            s_index++;
-        }
-        t_index++;
+  /**
+   * 双指针
+   * */
+  let s_index = 0;
+  let t_index = 0;
+  while (s_index < s.length && t_index < t.length) {
+    if (t[t_index] === s[s_index]) {
+      s_index++;
     }
-    return s_index === s.length;
+    t_index++;
+  }
+  return s_index === s.length;
 };
 var isSubsequence2 = function (s, t) {
-    /**
-     * 直接整个 正则
-     * */
-    return new RegExp(s.split("").join(".*")).test(t);
+  /**
+   * 直接整个 正则
+   * */
+  return new RegExp(s.split("").join(".*")).test(t);
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(isSubsequence1("abc", "ahbgdc"), true);

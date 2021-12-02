@@ -27,12 +27,11 @@ nums 中的所有整数 互不相同
 
 * */
 function largestDivisibleSubset(nums) {
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < nums.length; i++) {
-        for (let j = 0; j < i; j++) {
-        }
-    }
-    return [];
+  nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < i; j++) {}
+  }
+  return [];
 }
 largestDivisibleSubset([1, 2, 3]);
 largestDivisibleSubset([1, 2, 4, 8]);

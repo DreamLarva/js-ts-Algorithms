@@ -30,9 +30,11 @@ n == matrix[i].length
 
 进阶：如果行数远大于列数，该如何设计解决方案？
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 class Solution {
@@ -63,83 +65,81 @@ class Solution {
 }
 * */
 function maxSumSubmatrix(matrix, k) {
-    let ans = -Infinity;
-    const m = matrix.length;
-    const n = matrix[0].length;
-    for (let i = 0; i < m; i++) {
-        // 枚举上边界
-        const sum = Array(n).fill(0);
-        for (let j = i; j < m; j++) {
-            // 枚举下边界
-            for (let c = 0; c < n; c++) {
-                sum[c] += matrix[j][c]; // 更新每列的元素和
-            }
-            const sumSet = new Set();
-            sumSet.add(0);
-            let s = 0;
-            for (const v of sum) {
-                s += v;
-                // 找到 4 或者 > 4但是最接近4 的值
-                // 其他语言中 有 treeSet(java) 或者 sortedList(python) 可以直接获取
-                const ceil = binarySearch([...sumSet].sort((a, b) => b - a), s - k);
-                if (ceil != null) {
-                    ans = Math.max(ans, s - ceil);
-                }
-                sumSet.add(s);
-            }
+  let ans = -Infinity;
+  const m = matrix.length;
+  const n = matrix[0].length;
+  for (let i = 0; i < m; i++) {
+    // 枚举上边界
+    const sum = Array(n).fill(0);
+    for (let j = i; j < m; j++) {
+      // 枚举下边界
+      for (let c = 0; c < n; c++) {
+        sum[c] += matrix[j][c]; // 更新每列的元素和
+      }
+      const sumSet = new Set();
+      sumSet.add(0);
+      let s = 0;
+      for (const v of sum) {
+        s += v;
+        // 找到 4 或者 > 4但是最接近4 的值
+        // 其他语言中 有 treeSet(java) 或者 sortedList(python) 可以直接获取
+        const ceil = binarySearch(
+          [...sumSet].sort((a, b) => b - a),
+          s - k
+        );
+        if (ceil != null) {
+          ans = Math.max(ans, s - ceil);
         }
+        sumSet.add(s);
+      }
     }
-    return ans;
+  }
+  return ans;
 }
 /**
  * 二分查找
  * */
 function binarySearch(nums, target) {
-    if (nums[0] < target)
-        return null;
-    let left = 0;
-    let right = nums.length - 1;
-    while (left <= right) {
-        // 分成2份
-        const criticalPoint = ~~((left + right) / 2);
-        if (nums[criticalPoint] > target) {
-            left = criticalPoint + 1;
-        }
-        else if (nums[criticalPoint] < target) {
-            right = criticalPoint - 1;
-        }
-        else {
-            return nums[criticalPoint];
-        }
+  if (nums[0] < target) return null;
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    // 分成2份
+    const criticalPoint = ~~((left + right) / 2);
+    if (nums[criticalPoint] > target) {
+      left = criticalPoint + 1;
+    } else if (nums[criticalPoint] < target) {
+      right = criticalPoint - 1;
+    } else {
+      return nums[criticalPoint];
     }
-    return nums[Math.max(left - 1, 0)];
+  }
+  return nums[Math.max(left - 1, 0)];
 }
 function maxSumSubmatrix2(matrix, max) {
-    let row = matrix.length; // 行
-    let column = matrix[0].length; // 列
-    let b = Array.from({ length: column }, () => 0); // 存储每列之和
-    let res = -Number.MAX_VALUE;
-    for (let i = 0; i < row; i++) {
-        // 遍历开始行
-        for (let t = 0; t < b.length; t++)
-            b[t] = 0; // 开始行改变之后需要把每列之和置零
-        for (let j = i; j < row; j++) {
-            for (let k = 0; k < column; k++)
-                b[k] += matrix[j][k];
-            // 把所有可能遍历出来
-            for (let m = 0; m < b.length; m++) {
-                let sum = 0;
-                for (let n = m; n < b.length; n++) {
-                    sum += b[n];
-                    if (sum <= max && sum > res) {
-                        // 只有小于max，且大于之前的值
-                        res = sum;
-                    }
-                }
-            }
+  let row = matrix.length; // 行
+  let column = matrix[0].length; // 列
+  let b = Array.from({ length: column }, () => 0); // 存储每列之和
+  let res = -Number.MAX_VALUE;
+  for (let i = 0; i < row; i++) {
+    // 遍历开始行
+    for (let t = 0; t < b.length; t++) b[t] = 0; // 开始行改变之后需要把每列之和置零
+    for (let j = i; j < row; j++) {
+      for (let k = 0; k < column; k++) b[k] += matrix[j][k];
+      // 把所有可能遍历出来
+      for (let m = 0; m < b.length; m++) {
+        let sum = 0;
+        for (let n = m; n < b.length; n++) {
+          sum += b[n];
+          if (sum <= max && sum > res) {
+            // 只有小于max，且大于之前的值
+            res = sum;
+          }
         }
+      }
     }
-    return res;
+  }
+  return res;
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(binarySearch([6, 5, 3, 2, 1], 4), 5);

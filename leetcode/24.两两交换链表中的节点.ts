@@ -62,12 +62,10 @@ var swapPairs_2 = function (head: ListNode | null): ListNode | null {
 
 import assert from "assert";
 
-assert.deepStrictEqual(swapPairs(createLinkedList([1, 2, 3, 4]))!.toString(), [
-  2,
-  1,
-  4,
-  3,
-]);
+assert.deepStrictEqual(
+  swapPairs(createLinkedList([1, 2, 3, 4]))!.toString(),
+  [2, 1, 4, 3]
+);
 assert.deepStrictEqual(
   swapPairs(createLinkedList([1, 2, 3, 4, 5]))!.toString(),
   [2, 1, 4, 3, 5]

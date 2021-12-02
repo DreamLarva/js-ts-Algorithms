@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 有一幅以二维整数数组表示的图画，每一个整数表示该图画的像素值大小，数值在 0 到 65535 之间。
@@ -43,132 +45,185 @@ sr = 1, sc = 1, newColor = 2
  * @return {number[][]}
  */
 var floodFill = function (image, sr, sc, newColor) {
-    // bfs
-    const old_color = image[sr][sc];
-    if (old_color === newColor)
-        return image;
-    const list = [];
-    list.push([sc, sr]);
-    while (list.length) {
-        const [x, y] = list.shift();
-        if (x < 0 || y < 0 || y >= image.length || x >= image[y].length)
-            continue;
-        if (image[y][x] === old_color) {
-            image[y][x] = newColor;
-            // 上
-            list.push([x, y - 1]);
-            // 右
-            list.push([x + 1, y]);
-            // 下
-            list.push([x, y + 1]);
-            // 左
-            list.push([x - 1, y]);
-        }
+  // bfs
+  const old_color = image[sr][sc];
+  if (old_color === newColor) return image;
+  const list = [];
+  list.push([sc, sr]);
+  while (list.length) {
+    const [x, y] = list.shift();
+    if (x < 0 || y < 0 || y >= image.length || x >= image[y].length) continue;
+    if (image[y][x] === old_color) {
+      image[y][x] = newColor;
+      // 上
+      list.push([x, y - 1]);
+      // 右
+      list.push([x + 1, y]);
+      // 下
+      list.push([x, y + 1]);
+      // 左
+      list.push([x - 1, y]);
     }
-    return image;
+  }
+  return image;
 };
 /**
  * 使用回溯法
  * 速度更快 因为 不需要 使用一个多余的队列
  * */
 var floodFill_1 = function (image, sr, sc, newColor) {
-    fill(image, sr, sc, image[sr][sc], newColor);
-    return image;
-    function fill(image, x, y, origColor, newColor) {
-        // 出界：超出数组边界
-        if (!inArea(image, x, y))
-            return;
-        // 碰壁：遇到其他颜色，超出 origColor 区域
-        if (image[x][y] != origColor)
-            return;
-        // 已探索过的 origColor 区域
-        if (image[x][y] == -1)
-            return;
-        // 打标记，以免重复
-        image[x][y] = -1;
-        fill(image, x, y + 1, origColor, newColor);
-        fill(image, x, y - 1, origColor, newColor);
-        fill(image, x - 1, y, origColor, newColor);
-        fill(image, x + 1, y, origColor, newColor);
-        // 将标记替换为 newColor
-        image[x][y] = newColor;
-    }
-    function inArea(image, x, y) {
-        return x >= 0 && x < image.length && y >= 0 && y < image[0].length;
-    }
+  fill(image, sr, sc, image[sr][sc], newColor);
+  return image;
+  function fill(image, x, y, origColor, newColor) {
+    // 出界：超出数组边界
+    if (!inArea(image, x, y)) return;
+    // 碰壁：遇到其他颜色，超出 origColor 区域
+    if (image[x][y] != origColor) return;
+    // 已探索过的 origColor 区域
+    if (image[x][y] == -1) return;
+    // 打标记，以免重复
+    image[x][y] = -1;
+    fill(image, x, y + 1, origColor, newColor);
+    fill(image, x, y - 1, origColor, newColor);
+    fill(image, x - 1, y, origColor, newColor);
+    fill(image, x + 1, y, origColor, newColor);
+    // 将标记替换为 newColor
+    image[x][y] = newColor;
+  }
+  function inArea(image, x, y) {
+    return x >= 0 && x < image.length && y >= 0 && y < image[0].length;
+  }
 };
 const assert_1 = __importDefault(require("assert"));
-assert_1.default.deepStrictEqual(floodFill([
-    [1, 1, 1],
-    [1, 1, 0],
-    [1, 0, 1],
-], 1, 1, 2), [
+assert_1.default.deepStrictEqual(
+  floodFill(
+    [
+      [1, 1, 1],
+      [1, 1, 0],
+      [1, 0, 1],
+    ],
+    1,
+    1,
+    2
+  ),
+  [
     [2, 2, 2],
     [2, 2, 0],
     [2, 0, 1],
-]);
-assert_1.default.deepStrictEqual(floodFill([
+  ]
+);
+assert_1.default.deepStrictEqual(
+  floodFill(
+    [
+      [0, 0, 0],
+      [0, 1, 1],
+    ],
+    1,
+    1,
+    1
+  ),
+  [
     [0, 0, 0],
     [0, 1, 1],
-], 1, 1, 1), [
-    [0, 0, 0],
-    [0, 1, 1],
-]);
-assert_1.default.deepStrictEqual(floodFill([
-    [0, 0, 0],
-    [1, 0, 0],
-], 1, 0, 2), [
+  ]
+);
+assert_1.default.deepStrictEqual(
+  floodFill(
+    [
+      [0, 0, 0],
+      [1, 0, 0],
+    ],
+    1,
+    0,
+    2
+  ),
+  [
     [0, 0, 0],
     [2, 0, 0],
-]);
-assert_1.default.deepStrictEqual(floodFill_1([
-    [1, 1, 1],
-    [1, 1, 0],
-    [1, 0, 1],
-], 1, 1, 2), [
+  ]
+);
+assert_1.default.deepStrictEqual(
+  floodFill_1(
+    [
+      [1, 1, 1],
+      [1, 1, 0],
+      [1, 0, 1],
+    ],
+    1,
+    1,
+    2
+  ),
+  [
     [2, 2, 2],
     [2, 2, 0],
     [2, 0, 1],
-]);
-assert_1.default.deepStrictEqual(floodFill_1([
+  ]
+);
+assert_1.default.deepStrictEqual(
+  floodFill_1(
+    [
+      [0, 0, 0],
+      [0, 1, 1],
+    ],
+    1,
+    1,
+    1
+  ),
+  [
     [0, 0, 0],
     [0, 1, 1],
-], 1, 1, 1), [
-    [0, 0, 0],
-    [0, 1, 1],
-]);
-assert_1.default.deepStrictEqual(floodFill_1([
-    [0, 0, 0],
-    [1, 0, 0],
-], 1, 0, 2), [
+  ]
+);
+assert_1.default.deepStrictEqual(
+  floodFill_1(
+    [
+      [0, 0, 0],
+      [1, 0, 0],
+    ],
+    1,
+    0,
+    2
+  ),
+  [
     [0, 0, 0],
     [2, 0, 0],
-]);
+  ]
+);
 const benchmark_1 = __importDefault(require("benchmark"));
 const suite = new benchmark_1.default.Suite();
 suite
-    .add("bfs", function () {
-    floodFill([
+  .add("bfs", function () {
+    floodFill(
+      [
         [1, 1, 1],
         [1, 1, 0],
         [1, 0, 1],
-    ], 1, 1, 2);
-})
-    .add("backtracking algorithm", function () {
-    floodFill_1([
+      ],
+      1,
+      1,
+      2
+    );
+  })
+  .add("backtracking algorithm", function () {
+    floodFill_1(
+      [
         [1, 1, 1],
         [1, 1, 0],
         [1, 0, 1],
-    ], 1, 1, 2);
-})
-    .on("cycle", function (event) {
+      ],
+      1,
+      1,
+      2
+    );
+  })
+  .on("cycle", function (event) {
     console.log(String(event.target));
-})
-    .on("complete", function () {
+  })
+  .on("complete", function () {
     // console.log('Fastest is ' + this.filter('fastest').map( 'name'));
-})
-    // run async
-    .run({ async: false });
+  })
+  // run async
+  .run({ async: false });
 /**
  * 结论 backtracking >>  bfs > dfs
  * */

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
@@ -35,28 +37,28 @@ const lodash_1 = __importDefault(require("lodash"));
  * @return {number}
  */
 var search = function (nums, target) {
-    if (nums.length === 0 || target < lodash_1.default.first(nums) || target > lodash_1.default.last(nums))
-        return -1;
-    if (target === lodash_1.default.first(nums))
-        return 0;
-    if (target === lodash_1.default.last(nums))
-        return nums.length - 1;
-    let left = 0;
-    let right = nums.length - 1;
-    while (right >= left) {
-        const middleIndex = left + ((right - left) >>> 1);
-        const middle = nums[middleIndex];
-        if (middle === target) {
-            return middleIndex;
-        }
-        else if (target < middle) {
-            right = middleIndex - 1;
-        }
-        else {
-            left = middleIndex + 1;
-        }
-    }
+  if (
+    nums.length === 0 ||
+    target < lodash_1.default.first(nums) ||
+    target > lodash_1.default.last(nums)
+  )
     return -1;
+  if (target === lodash_1.default.first(nums)) return 0;
+  if (target === lodash_1.default.last(nums)) return nums.length - 1;
+  let left = 0;
+  let right = nums.length - 1;
+  while (right >= left) {
+    const middleIndex = left + ((right - left) >>> 1);
+    const middle = nums[middleIndex];
+    if (middle === target) {
+      return middleIndex;
+    } else if (target < middle) {
+      right = middleIndex - 1;
+    } else {
+      left = middleIndex + 1;
+    }
+  }
+  return -1;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(search([-1, 0, 3, 5, 9, 12], 9), 4);

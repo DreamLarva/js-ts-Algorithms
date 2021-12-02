@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 设计一个支持在平均 时间复杂度 O(1) 下，执行以下操作的数据结构。
@@ -44,55 +46,53 @@ const lodash_1 = __importDefault(require("lodash"));
  * Initialize your data structure here.
  */
 class RandomizedSet {
+  /**
+   * 使用一个数组 和 一个哈希表
+   * */
+  map = {};
+  cache = [];
+  constructor() {}
+  contains(val) {
+    return this.map[val] != null;
+  }
+  /**
+   * Inserts a value to the set. Returns true if the set did not already contain the specified element.
+   * @param {number} val
+   * @return {boolean}
+   */
+  insert(val) {
+    if (this.contains(val)) return false;
+    this.cache.push(val);
+    this.map[val] = this.cache.length - 1;
+    return true;
+  }
+  /**
+   * Removes a value from the set. Returns true if the set contained the specified element.
+   * @param {number} val
+   * @return {boolean}
+   */
+  remove(val) {
     /**
-     * 使用一个数组 和 一个哈希表
+     * 删除的时候 把最后一个数据 放到 已经删除了数据额位置 就不用出现循环的情况
+     * 妙啊
      * */
-    map = {};
-    cache = [];
-    constructor() { }
-    contains(val) {
-        return this.map[val] != null;
-    }
-    /**
-     * Inserts a value to the set. Returns true if the set did not already contain the specified element.
-     * @param {number} val
-     * @return {boolean}
-     */
-    insert(val) {
-        if (this.contains(val))
-            return false;
-        this.cache.push(val);
-        this.map[val] = this.cache.length - 1;
-        return true;
-    }
-    /**
-     * Removes a value from the set. Returns true if the set contained the specified element.
-     * @param {number} val
-     * @return {boolean}
-     */
-    remove(val) {
-        /**
-         * 删除的时候 把最后一个数据 放到 已经删除了数据额位置 就不用出现循环的情况
-         * 妙啊
-         * */
-        if (!this.contains(val))
-            return false;
-        const deleteIndex = this.map[val];
-        // 上一次插入的数据的 index 就是 cache 的length
-        const latestData = lodash_1.default.last(this.cache);
-        this.map[latestData] = deleteIndex;
-        this.cache.splice(deleteIndex, 1, latestData);
-        this.cache.pop();
-        delete this.map[val];
-        return true;
-    }
-    /**
-     * Get a random element from the set.
-     * @return {number}
-     */
-    getRandom() {
-        return lodash_1.default.sample(this.cache);
-    }
+    if (!this.contains(val)) return false;
+    const deleteIndex = this.map[val];
+    // 上一次插入的数据的 index 就是 cache 的length
+    const latestData = lodash_1.default.last(this.cache);
+    this.map[latestData] = deleteIndex;
+    this.cache.splice(deleteIndex, 1, latestData);
+    this.cache.pop();
+    delete this.map[val];
+    return true;
+  }
+  /**
+   * Get a random element from the set.
+   * @return {number}
+   */
+  getRandom() {
+    return lodash_1.default.sample(this.cache);
+  }
 }
 /**
  * Your RandomizedSet object will be instantiated and called as such:

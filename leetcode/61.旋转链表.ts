@@ -86,7 +86,7 @@ assert.deepStrictEqual(
   rotateRight(createLinkedList([0, 1, 2]), 4)!.toString(),
   [2, 0, 1]
 );
-assert.deepStrictEqual(rotateRight(createLinkedList([1, 2]), 1)!.toString(), [
-  2,
-  1,
-]);
+assert.deepStrictEqual(
+  rotateRight(createLinkedList([1, 2]), 1)!.toString(),
+  [2, 1]
+);

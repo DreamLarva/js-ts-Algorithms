@@ -1,30 +1,32 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * 回溯算法 不出意外的超时了
  */
 var coinChange1 = function (coins, amount) {
-    let cacheTimes = Infinity;
-    return backtrack(coins.sort((a, b) => b - a), amount);
-    function backtrack(coins, amount, times = 0) {
-        if (times >= cacheTimes)
-            return -1;
-        if (amount === 0) {
-            cacheTimes = Math.min(cacheTimes, times);
-            return times;
-        }
-        if (amount < 0)
-            return -1;
-        const curTimesArr = coins
-            .map((coin) => backtrack(coins, amount - coin, times + 1))
-            .filter((v) => v !== -1);
-        if (curTimesArr.length !== 0)
-            return Math.min(...curTimesArr);
-        return -1;
+  let cacheTimes = Infinity;
+  return backtrack(
+    coins.sort((a, b) => b - a),
+    amount
+  );
+  function backtrack(coins, amount, times = 0) {
+    if (times >= cacheTimes) return -1;
+    if (amount === 0) {
+      cacheTimes = Math.min(cacheTimes, times);
+      return times;
     }
+    if (amount < 0) return -1;
+    const curTimesArr = coins
+      .map((coin) => backtrack(coins, amount - coin, times + 1))
+      .filter((v) => v !== -1);
+    if (curTimesArr.length !== 0) return Math.min(...curTimesArr);
+    return -1;
+  }
 };
 /**
  * 添加 剪枝 的回溯算法
@@ -33,41 +35,43 @@ var coinChange1 = function (coins, amount) {
  * 当 当前数额 以及 更小数额都无法 做到时 就回到 更大数额的 但是用少一枚的数目
  */
 var coinChange2 = function (coins, amount) {
-    let cacheTimes = Infinity;
-    coins.sort((a, b) => a - b);
-    backtrack(coins, coins.length - 1, amount, 0);
-    return cacheTimes === Infinity ? -1 : cacheTimes;
-    function backtrack(coins, index = coins.length - 1, // 限定每次回溯能用到的 值 从大到小
-    amount, times = 0) {
-        if (index < 0)
-            return;
-        if (amount === 0)
-            cacheTimes = Math.min(times, cacheTimes);
-        // 如果 全用 用当前 数额的银币 也会超过已经可以达成的 最小枚数 就剪枝
-        if (cacheTimes <= times + amount / coins[index]) {
-            return;
-        }
-        if (amount % coins[index] === 0) {
-            cacheTimes = Math.min(cacheTimes, times + amount / coins[index]);
-            return;
-        }
-        for (let i = Math.floor(amount / coins[index]); i >= 0; i--) {
-            backtrack(coins, index - 1, amount - coins[index] * i, times + i);
-        }
+  let cacheTimes = Infinity;
+  coins.sort((a, b) => a - b);
+  backtrack(coins, coins.length - 1, amount, 0);
+  return cacheTimes === Infinity ? -1 : cacheTimes;
+  function backtrack(
+    coins,
+    index = coins.length - 1, // 限定每次回溯能用到的 值 从大到小
+    amount,
+    times = 0
+  ) {
+    if (index < 0) return;
+    if (amount === 0) cacheTimes = Math.min(times, cacheTimes);
+    // 如果 全用 用当前 数额的银币 也会超过已经可以达成的 最小枚数 就剪枝
+    if (cacheTimes <= times + amount / coins[index]) {
+      return;
     }
+    if (amount % coins[index] === 0) {
+      cacheTimes = Math.min(cacheTimes, times + amount / coins[index]);
+      return;
+    }
+    for (let i = Math.floor(amount / coins[index]); i >= 0; i--) {
+      backtrack(coins, index - 1, amount - coins[index] * i, times + i);
+    }
+  }
 };
 // 动态规划
 function coinChange(coins, amount) {
-    const dp = new Array(amount + 1).fill(Infinity);
-    dp[0] = 0;
-    for (let i = 1; i < dp.length; i++) {
-        for (const coin of coins) {
-            if (i >= coin) {
-                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
-            }
-        }
+  const dp = new Array(amount + 1).fill(Infinity);
+  dp[0] = 0;
+  for (let i = 1; i < dp.length; i++) {
+    for (const coin of coins) {
+      if (i >= coin) {
+        dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+      }
     }
-    return dp[dp.length - 1] === Infinity ? -1 : dp[dp.length - 1];
+  }
+  return dp[dp.length - 1] === Infinity ? -1 : dp[dp.length - 1];
 }
 const assert_1 = __importDefault(require("assert"));
 // assert.strictEqual(coinChange([1, 2, 5], 11), 3);

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 518. 零钱兑换 II
@@ -39,14 +41,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 结果符合 32 位符号整数
 * */
 function change(amount, coins) {
-    const dp = new Array(amount + 1).fill(0);
-    dp[0] = 1;
-    for (const coin of coins) {
-        for (let i = coin; i <= amount; i++) {
-            dp[i] += dp[i - coin] ?? 0;
-        }
+  const dp = new Array(amount + 1).fill(0);
+  dp[0] = 1;
+  for (const coin of coins) {
+    for (let i = coin; i <= amount; i++) {
+      dp[i] += dp[i - coin] ?? 0;
     }
-    return dp[dp.length - 1];
+  }
+  return dp[dp.length - 1];
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(change(5, [1, 2, 5]), 4);

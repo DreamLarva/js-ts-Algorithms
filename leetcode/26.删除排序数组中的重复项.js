@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
  * @lc app=leetcode.cn id=26 lang=javascript
@@ -61,21 +63,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-    const len = nums.length;
-    // 第一个数据 放过
-    if (len === 1 || len === 0) {
-        return len;
+  const len = nums.length;
+  // 第一个数据 放过
+  if (len === 1 || len === 0) {
+    return len;
+  }
+  // 第n个数据 不能 n - 1 相同
+  let index = 0;
+  for (let pointer = 1; pointer < len; pointer++) {
+    if (nums[index] === nums[pointer]) {
+    } else {
+      nums[++index] = nums[pointer];
     }
-    // 第n个数据 不能 n - 1 相同
-    let index = 0;
-    for (let pointer = 1; pointer < len; pointer++) {
-        if (nums[index] === nums[pointer]) {
-        }
-        else {
-            nums[++index] = nums[pointer];
-        }
-    }
-    return index + 1;
+  }
+  return index + 1;
 };
 const assert_1 = __importDefault(require("assert"));
 const arr = [1, 2, 2, 2, 3];

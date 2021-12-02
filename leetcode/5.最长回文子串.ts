@@ -63,12 +63,9 @@ var longestPalindrome = function (s: string) {
  * */
 import { manacher1 } from "../算法/manacher马拉车算法";
 
-
 import assert from "assert";
 
 assert.strictEqual(longestPalindrome("cbbd"), "bb");
 assert.strictEqual(longestPalindrome("abacddc"), "cddc");
 assert.strictEqual(manacher1("abacddc"), "cddc");
 assert.strictEqual(manacher1("abacddc"), "cddc");
-
-

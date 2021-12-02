@@ -28,9 +28,7 @@ nums 中的所有整数 互不相同
 function largestDivisibleSubset(nums: number[]): number[] {
   nums.sort((a, b) => a - b);
   for (let i = 0; i < nums.length; i++) {
-    for (let j = 0; j < i; j++) {
-
-    }
+    for (let j = 0; j < i; j++) {}
   }
 
   return [];

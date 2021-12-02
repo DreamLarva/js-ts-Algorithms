@@ -1,7 +1,7 @@
+import axios from "axios";
 import { promises as fsPromise } from "fs";
 import path from "path";
 import packageJson from "./package.json";
-import axios from "axios";
 
 (async function () {
   let text = `# Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习\n`;

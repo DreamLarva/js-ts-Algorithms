@@ -27,28 +27,30 @@
 0 <= A[i] < 10000
 A.length 为偶数
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 function repeatedNTimes(A) {
-    // 正常的做法 使用map 计数 一旦等于一半就是结果
-    // 根据题意
-    // 除了那个 重复的元素 则 其他的元素都 是不等的
-    // 取巧的做法 在满足上面的原则 下 一定会出现 3个连续元素中至少有2个相同的情况
-    // 除了等于数组长度 为 4 的情况 可能出爱心 [1,2,3,1] 刚好不满足
-    for (let i = 0; i < A.length - 2; i++) {
-        const a = A[i];
-        const b = A[i + 1];
-        const c = A[i + 2];
-        if (a === b || a === c) {
-            return a;
-        }
-        if (b === c) {
-            return b;
-        }
+  // 正常的做法 使用map 计数 一旦等于一半就是结果
+  // 根据题意
+  // 除了那个 重复的元素 则 其他的元素都 是不等的
+  // 取巧的做法 在满足上面的原则 下 一定会出现 3个连续元素中至少有2个相同的情况
+  // 除了等于数组长度 为 4 的情况 可能出爱心 [1,2,3,1] 刚好不满足
+  for (let i = 0; i < A.length - 2; i++) {
+    const a = A[i];
+    const b = A[i + 1];
+    const c = A[i + 2];
+    if (a === b || a === c) {
+      return a;
     }
-    return A[A.length - 1];
+    if (b === c) {
+      return b;
+    }
+  }
+  return A[A.length - 1];
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(repeatedNTimes([1, 2, 3, 3]), 3);

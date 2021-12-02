@@ -132,7 +132,7 @@ var strStr2 = function (haystack: string, needle: string) {
     pi[i] = j;
   }
 
-  console.log(pi)
+  console.log(pi);
 
   for (let i = 0, j = 0; i < n; i++) {
     while (j > 0 && haystack[i] != needle[j]) {

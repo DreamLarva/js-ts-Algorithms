@@ -30,16 +30,18 @@
 1 <= nums.length <= 100
 0 <= nums[i] <= 109
 * */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 function largestNumber(nums) {
-    return nums
-        .map(String)
-        .sort((a, b) => (parseInt(a + b) > parseInt(b + a) ? -1 : 1))
-        .reduce((previousValue, currentValue) => previousValue + currentValue)
-        .replace(/^0+/, "0");
+  return nums
+    .map(String)
+    .sort((a, b) => (parseInt(a + b) > parseInt(b + a) ? -1 : 1))
+    .reduce((previousValue, currentValue) => previousValue + currentValue)
+    .replace(/^0+/, "0");
 }
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(largestNumber([10, 2]), "210");

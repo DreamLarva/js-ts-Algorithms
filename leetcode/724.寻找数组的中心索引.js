@@ -1,25 +1,31 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var pivotIndex = function (nums) {
-    let left = 0;
-    let right = 0;
-    const diff = new Array(nums.length).fill(0);
-    // 不断累积 每个位置上的左值 和 右值 放在同一个index 进行加减 如果有0 就是成功
-    // 由于 当前位置 左值 会加一次当前位置的值 右值会减一次当前位置的值 所以不会有影响
-    for (let i = 0, j = nums.length - 1 - i; i < nums.length; i++, j = nums.length - 1 - i) {
-        diff[i] += left;
-        left += nums[i];
-        diff[j] -= right;
-        right += nums[j];
-    }
-    return diff.indexOf(0);
+  let left = 0;
+  let right = 0;
+  const diff = new Array(nums.length).fill(0);
+  // 不断累积 每个位置上的左值 和 右值 放在同一个index 进行加减 如果有0 就是成功
+  // 由于 当前位置 左值 会加一次当前位置的值 右值会减一次当前位置的值 所以不会有影响
+  for (
+    let i = 0, j = nums.length - 1 - i;
+    i < nums.length;
+    i++, j = nums.length - 1 - i
+  ) {
+    diff[i] += left;
+    left += nums[i];
+    diff[j] -= right;
+    right += nums[j];
+  }
+  return diff.indexOf(0);
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(pivotIndex([1, 7, 3, 6, 5, 6]), 3);

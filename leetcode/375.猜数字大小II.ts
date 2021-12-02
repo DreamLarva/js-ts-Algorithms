@@ -54,7 +54,7 @@
 1 <= n <= 200
 
 * */
-1
+1;
 function getMoneyAmount(n: number): number {
   /**
    * 使用动态规划

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 不使用任何内建的哈希表库设计一个哈希映射
@@ -38,55 +40,56 @@ hashMap.get(2);            // 返回 -1 (未找到)
  * Initialize your data structure here.
  */
 class MyHashMap {
-    length;
-    cache;
-    constructor(length = 101) {
-        this.length = length;
-        this.cache = Array(length)
-            .fill(0)
-            .map(() => []);
+  length;
+  cache;
+  constructor(length = 101) {
+    this.length = length;
+    this.cache = Array(length)
+      .fill(0)
+      .map(() => []);
+  }
+  getHash(key) {
+    return key % this.length;
+  }
+  contains(key) {
+    return this.cache[this.getHash(key)].some(([_key]) => _key === key);
+  }
+  /**
+   * value will always be non-negative.
+   * @param {number} key
+   * @param {number} value
+   * @return {void}
+   */
+  put(key, value) {
+    if (this.contains(key)) {
+      this.cache[this.getHash(key)].find(([_key]) => _key === key)[1] = value;
+    } else {
+      this.cache[this.getHash(key)].push([key, value]);
     }
-    getHash(key) {
-        return key % this.length;
+  }
+  /**
+   * Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
+   * @param {number} key
+   * @return {number}
+   */
+  get(key) {
+    if (this.contains(key)) {
+      return this.cache[this.getHash(key)].find(([_key]) => _key === key)[1];
     }
-    contains(key) {
-        return this.cache[this.getHash(key)].some(([_key]) => _key === key);
+    return -1;
+  }
+  /**
+   * Removes the mapping of the specified value key if this map contains a mapping for the key
+   * @param {number} key
+   * @return {void}
+   */
+  remove(key) {
+    if (this.contains(key)) {
+      this.cache[this.getHash(key)] = this.cache[this.getHash(key)].filter(
+        ([_key]) => _key !== key
+      );
     }
-    /**
-     * value will always be non-negative.
-     * @param {number} key
-     * @param {number} value
-     * @return {void}
-     */
-    put(key, value) {
-        if (this.contains(key)) {
-            this.cache[this.getHash(key)].find(([_key]) => _key === key)[1] = value;
-        }
-        else {
-            this.cache[this.getHash(key)].push([key, value]);
-        }
-    }
-    /**
-     * Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
-     * @param {number} key
-     * @return {number}
-     */
-    get(key) {
-        if (this.contains(key)) {
-            return this.cache[this.getHash(key)].find(([_key]) => _key === key)[1];
-        }
-        return -1;
-    }
-    /**
-     * Removes the mapping of the specified value key if this map contains a mapping for the key
-     * @param {number} key
-     * @return {void}
-     */
-    remove(key) {
-        if (this.contains(key)) {
-            this.cache[this.getHash(key)] = this.cache[this.getHash(key)].filter(([_key]) => _key !== key);
-        }
-    }
+  }
 }
 /**
  * Your MyHashMap object will be instantiated and called as such:

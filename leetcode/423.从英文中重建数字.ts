@@ -82,5 +82,4 @@ assert.strictEqual(originalDigits("nnei"), "9");
 // assert.strictEqual(originalDigits("owoztneoer"), "012");
 // assert.strictEqual(originalDigits("fviefuro"), "45");
 
-
-type a = {a : unknown}
+type a = { a: unknown };

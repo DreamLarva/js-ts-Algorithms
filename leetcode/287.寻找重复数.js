@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 287. 寻找重复数
@@ -23,25 +25,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 数组中只有一个重复的数字，但它可能不止重复出现一次。
 * */
 var findDuplicate = function (nums) {
-    /**
-     * 很明显 同142. 环形链表II 就是求同环的起点
-     * */
-    let slow = 0;
-    let fast = 0;
-    let len = nums.length;
-    do {
-        fast = nums[fast === 0 ? 0 : fast - 1];
-        fast = nums[fast - 1];
-        slow = nums[slow === 0 ? 0 : slow - 1];
-    } while (nums[slow] !== nums[fast]);
-    // 第二次跑圈 将其中一个 指针指向head节点 并且 都每次只进一步
-    // 相遇的节点 就是相较的节点
-    fast = 0;
-    while (nums[slow] !== nums[fast]) {
-        fast = nums[fast === 0 ? 0 : fast - 1];
-        slow = nums[slow - 1];
-    }
-    return nums[slow];
+  /**
+   * 很明显 同142. 环形链表II 就是求同环的起点
+   * */
+  let slow = 0;
+  let fast = 0;
+  let len = nums.length;
+  do {
+    fast = nums[fast === 0 ? 0 : fast - 1];
+    fast = nums[fast - 1];
+    slow = nums[slow === 0 ? 0 : slow - 1];
+  } while (nums[slow] !== nums[fast]);
+  // 第二次跑圈 将其中一个 指针指向head节点 并且 都每次只进一步
+  // 相遇的节点 就是相较的节点
+  fast = 0;
+  while (nums[slow] !== nums[fast]) {
+    fast = nums[fast === 0 ? 0 : fast - 1];
+    slow = nums[slow - 1];
+  }
+  return nums[slow];
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(findDuplicate([1, 3, 4, 2, 2]), 2);

@@ -72,7 +72,6 @@ function numWays1(steps: number, arrLen: number): number {
   return dp[steps][0];
 }
 
-
 function numWays2(steps: number, arrLen: number): number {
   const MODULO = 1000000007;
   let maxColumn = Math.min(arrLen - 1, Math.floor(steps / 2));
@@ -95,8 +94,6 @@ function numWays2(steps: number, arrLen: number): number {
   }
   return dp[0];
 }
-
-
 
 import assert from "assert";
 assert.strictEqual(numWays1(3, 2), 4);

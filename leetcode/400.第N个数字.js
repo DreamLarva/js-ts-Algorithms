@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 在无限的整数序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...中找到第 n 个数字。
@@ -32,26 +34,25 @@ n 是正数且在32为整形范围内 ( n < 231)。
  * @return {number}
  */
 var findNthDigit = function (n) {
-    if (n < 10)
-        return n;
-    /**
-     * 0 - 9 共 9 个数
-     * 10 - 99 共 90 个数
-     * 100 - 999 共 900 个数
-     * 以此类推 可以得到 数字 在哪个区段
-     * 直列抹平 之前位数的干扰 (如果 n 为4 位数 现在 n - 900 就知道 是从 1000 开始的第几个数)
-     * */
-    n--; // 因为现在包括0 而原先不包括
-    let digit = 1;
-    while (9 * 10 ** (digit - 1) * digit <= n) {
-        n -= 9 * 10 ** (digit - 1) * digit;
-        digit++;
-    }
-    const first = 10 ** (digit - 1);
-    // first为n所属组的第一个数，
-    // n / digits当前组的第几个数 (比如4位数 那么每4个数 实际数值 + 1)
-    // n % digits为这个数的第几位
-    return Number(String(first + Math.trunc(n / digit))[n % digit]);
+  if (n < 10) return n;
+  /**
+   * 0 - 9 共 9 个数
+   * 10 - 99 共 90 个数
+   * 100 - 999 共 900 个数
+   * 以此类推 可以得到 数字 在哪个区段
+   * 直列抹平 之前位数的干扰 (如果 n 为4 位数 现在 n - 900 就知道 是从 1000 开始的第几个数)
+   * */
+  n--; // 因为现在包括0 而原先不包括
+  let digit = 1;
+  while (9 * 10 ** (digit - 1) * digit <= n) {
+    n -= 9 * 10 ** (digit - 1) * digit;
+    digit++;
+  }
+  const first = 10 ** (digit - 1);
+  // first为n所属组的第一个数，
+  // n / digits当前组的第几个数 (比如4位数 那么每4个数 实际数值 + 1)
+  // n % digits为这个数的第几位
+  return Number(String(first + Math.trunc(n / digit))[n % digit]);
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(findNthDigit(9), 9);

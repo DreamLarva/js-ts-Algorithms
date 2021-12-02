@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个字符串，请将字符串里的字符按照出现的频率降序排列。
@@ -50,20 +52,23 @@ const lodash_1 = __importDefault(require("lodash"));
  * @return {string}
  */
 var frequencySort = function (s) {
-    // 其实这就是 桶排序啦
-    const map = {};
-    for (const character of s) {
-        if (map[character] == null) {
-            map[character] = 1;
-        }
-        else {
-            map[character]++;
-        }
+  // 其实这就是 桶排序啦
+  const map = {};
+  for (const character of s) {
+    if (map[character] == null) {
+      map[character] = 1;
+    } else {
+      map[character]++;
     }
-    const sortedPairs = lodash_1.default.sortBy(lodash_1.default.toPairs(map), "[1]", "");
-    return sortedPairs.reduceRight((pre, [character, count]) => {
-        return pre + character.repeat(count);
-    }, "");
+  }
+  const sortedPairs = lodash_1.default.sortBy(
+    lodash_1.default.toPairs(map),
+    "[1]",
+    ""
+  );
+  return sortedPairs.reduceRight((pre, [character, count]) => {
+    return pre + character.repeat(count);
+  }, "");
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(frequencySort("tree"), "eert");

@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。
@@ -26,14 +28,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {void} Do not return anything, modify s in-place instead.
  */
 var reverseString = function (s) {
-    // 首尾指针
-    let head = 0;
-    let tail = s.length - 1;
-    while (head < tail) {
-        [s[head], s[tail]] = [s[tail], s[head]];
-        head++;
-        tail--;
-    }
+  // 首尾指针
+  let head = 0;
+  let tail = s.length - 1;
+  while (head < tail) {
+    [s[head], s[tail]] = [s[tail], s[head]];
+    head++;
+    tail--;
+  }
 };
 const assert_1 = __importDefault(require("assert"));
 const sample = ["1", "2", "3"];

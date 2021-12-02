@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
@@ -33,51 +35,45 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var search = function (nums, target) {
-    /**
-     * 分析
-     * 由于是 升序 数组 且只有一次旋转
-     * 选择 任意一个点 就能够判断是不是 分成左侧部分 和 右侧部分
-     * 左右部分必定至少有一个依然是升序的情况 这就能判断 数据是不是绝对的落在某一侧
-     * */
-    if (nums.length === 0)
-        return -1;
-    if (nums.length === 1)
-        return nums[0] === target ? 0 : -1;
-    let left = 0;
-    let right = nums.length - 1;
-    while (left <= right) {
-        const middle = left + ((right - left) >>> 1);
-        if (nums[middle] === target)
-            return middle;
-        // 由于上面 二分 是向下取整 所有只可能出现
-        // 极端情况下 只有一个值(共一个值) 或者 只有右侧有值左侧没有值(共2个值)
-        // 判断右侧 是否保持升序
-        let sureNotInRight = false;
-        if (nums[middle + 1] <= nums[right]) {
-            // 如果保持升序 就判断 target 是不是落在区间内
-            if (nums[middle + 1] <= target && target <= nums[right]) {
-                left = middle + 1;
-            }
-            else {
-                right = middle - 1;
-                sureNotInRight = true;
-            }
-        }
-        // 判断左侧 是否保持升序
-        let sureNotInLeft = false;
-        if (middle - 1 >= left && nums[left] <= nums[middle - 1]) {
-            if (nums[left] <= target && target <= nums[middle - 1]) {
-                right = middle - 1;
-            }
-            else {
-                left = middle + 1;
-                sureNotInLeft = true;
-            }
-        }
-        if (sureNotInLeft && sureNotInRight)
-            return -1;
+  /**
+   * 分析
+   * 由于是 升序 数组 且只有一次旋转
+   * 选择 任意一个点 就能够判断是不是 分成左侧部分 和 右侧部分
+   * 左右部分必定至少有一个依然是升序的情况 这就能判断 数据是不是绝对的落在某一侧
+   * */
+  if (nums.length === 0) return -1;
+  if (nums.length === 1) return nums[0] === target ? 0 : -1;
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    const middle = left + ((right - left) >>> 1);
+    if (nums[middle] === target) return middle;
+    // 由于上面 二分 是向下取整 所有只可能出现
+    // 极端情况下 只有一个值(共一个值) 或者 只有右侧有值左侧没有值(共2个值)
+    // 判断右侧 是否保持升序
+    let sureNotInRight = false;
+    if (nums[middle + 1] <= nums[right]) {
+      // 如果保持升序 就判断 target 是不是落在区间内
+      if (nums[middle + 1] <= target && target <= nums[right]) {
+        left = middle + 1;
+      } else {
+        right = middle - 1;
+        sureNotInRight = true;
+      }
     }
-    return -1;
+    // 判断左侧 是否保持升序
+    let sureNotInLeft = false;
+    if (middle - 1 >= left && nums[left] <= nums[middle - 1]) {
+      if (nums[left] <= target && target <= nums[middle - 1]) {
+        right = middle - 1;
+      } else {
+        left = middle + 1;
+        sureNotInLeft = true;
+      }
+    }
+    if (sureNotInLeft && sureNotInRight) return -1;
+  }
+  return -1;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(search([4, 5, 6, 7, 0, 1, 2], 0), 4);

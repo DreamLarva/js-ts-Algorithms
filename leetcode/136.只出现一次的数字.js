@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
@@ -24,14 +26,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @return {number}
  */
 var singleNumber = function (nums) {
-    /**
-     * 按位 或 (^) 同样的数字操作两次 就不会有任何影响 以此过滤出现偶数次数的 数字
-     * */
-    let result = 0;
-    for (const num of nums) {
-        result ^= num;
-    }
-    return result;
+  /**
+   * 按位 或 (^) 同样的数字操作两次 就不会有任何影响 以此过滤出现偶数次数的 数字
+   * */
+  let result = 0;
+  for (const num of nums) {
+    result ^= num;
+  }
+  return result;
 };
 const assert_1 = __importDefault(require("assert"));
 assert_1.default.strictEqual(singleNumber([2, 2, 1]), 1);
