@@ -1,7 +1,7 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^4.4.4  
-ts-node: ^10.2.1  
+typescript: ^4.5.2  
+ts-node: ^10.4.0  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
 
@@ -192,11 +192,13 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 409 | [最长回文串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/409.最长回文串.ts) | 简单 |
 | 412 | [Fizz_Buzz](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/412.Fizz_Buzz.ts) | 简单 |
 | 415 | [字符串相加](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/415.字符串相加.ts) | 简单 |
+| 423 | [从英文中重建数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/423.从英文中重建数字.ts) | 中等 |
 | 430 | [扁平化多级双向链表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/430.扁平化多级双向链表.ts) | 中等 |
 | 443 | [压缩字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/443.压缩字符串.ts) | 中等 |
 | 447 | [回旋镖的数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/447.回旋镖的数量.ts) | 中等 |
 | 453 | [最小操作次数使数组元素相等](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/453.最小操作次数使数组元素相等.ts) | 简单 |
 | 454 | [四数相加II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/454.四数相加II.ts) | 中等 |
+| 458 | [可怜的小猪](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/458.可怜的小猪.ts) | 困难 |
 | 461 | [汉明距离](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/461.汉明距离.ts) | 简单 |
 | 463 | [岛屿的周长](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/463.岛屿的周长.ts) | 简单 |
 | 476 | [数字的补数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/476.数字的补数.ts) | 简单 |
@@ -207,6 +209,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 494 | [目标和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/494.目标和.ts) | 中等 |
 | 495 | [提莫攻击](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/495.提莫攻击.ts) | 简单 |
 | 498 | [对角线遍历](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/498.对角线遍历.ts) | 中等 |
+| 506 | [相对名次](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/506.相对名次.ts) | 简单 |
 | 509 | [斐波那契数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/509.斐波那契数.ts) | 简单 |
 | 518 | [零钱兑换II](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/518.零钱兑换II.ts) | 中等 |
 | 523 | [连续的子数组和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/523.连续的子数组和.ts) | 中等 |
@@ -224,6 +227,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 657 | [机器人能否返回原点](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/657.机器人能否返回原点.ts) | 简单 |
 | 658 | [找到K个最接近的元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/658.找到K个最接近的元素.ts) | 中等 |
 | 661 | [图片平滑器](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/661.图片平滑器.ts) | 简单 |
+| 700 | [二叉搜索树中的搜索](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/700.二叉搜索树中的搜索.ts) | 简单 |
 | 704 | [二分查找](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/704.二分查找.ts) | 简单 |
 | 705 | [设计哈希集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/705.设计哈希集合.ts) | 简单 |
 | 706 | [设计哈希映射](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/706.设计哈希映射.ts) | 简单 |
@@ -265,6 +269,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1310 | [子数组异或查询](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1310.子数组异或查询.ts) | 中等 |
 | 1418 | [点菜展示表](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1418.点菜展示表.ts) | 中等 |
 | 1442 | [形成两个异或相等数组的三元组数目](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1442.形成两个异或相等数组的三元组数目.ts) | 中等 |
+| 1446 | [连续字符 ](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1446.连续字符 .ts) | 简单 |
 | 1646 | [获取生成数组中的最大值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1646.获取生成数组中的最大值.ts) | 简单 |
 | 1711 | [大餐计数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1711.大餐计数.ts) | 中等 |
 | 1738 | [找出第K大的异或坐标值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1738.找出第K大的异或坐标值.ts) | 中等 |
