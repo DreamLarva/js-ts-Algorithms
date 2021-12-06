@@ -1,6 +1,4 @@
 /*
- * @lc app=leetcode.cn id=1005 lang=javascript
- *
  * [1005]  K 次取反后最大化的数组和
  *
  * https://leetcode-cn.com/problems/maximize-sum-of-array-after-k-negations/description/
@@ -89,6 +87,56 @@ const largestSumAfterKNegations = function (A: number[], K: number) {
   }
 };
 
+function largestSumAfterKNegations1(nums: number[], k: number): number {
+  nums.sort((a, b) => a - b);
+
+  let minAbs: number = Infinity;
+  for (let i = 0; i < nums.length && k > 0; i++) {
+    k--;
+    const _data = nums[i];
+    if (nums[i] < 0) {
+      nums[i] = -nums[i];
+    }
+
+    minAbs = Math.min(Math.abs(nums[i]), minAbs);
+
+    if (_data >= 0) {
+      k++;
+      break;
+    }
+  }
+
+  let offset = 0;
+  if (k > 0 && k % 2 === 1) {
+    offset = -2 * minAbs;
+  }
+
+  return nums.reduce((a, b) => a + b) + offset;
+}
+
+/**
+ * 按照绝对值排序 ， 就可以省去 找最小绝对值的 流程
+ * */
+var largestSumAfterKNegations2 = function (nums, k) {
+  nums.sort((a, b) => Math.abs(b) - Math.abs(a));
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] < 0 && k > 0) {
+      nums[i] *= -1;
+      k--;
+    }
+  }
+
+  if (k > 0 && k % 2 === 1) {
+    nums[nums.length - 1] *= -1;
+  }
+
+  return nums.reduce((a, b) => {
+    return a + b;
+  });
+};
+
 import assert from "assert";
 
-assert.strictEqual(largestSumAfterKNegations([5, 6, 9, -3, 3], 2), 20);
+// assert.strictEqual(largestSumAfterKNegations([5, 6, 9, -3, 3], 2), 20);
+assert.strictEqual(largestSumAfterKNegations1([5, 6, 9, -3, 3], 2), 20);
+assert.strictEqual(largestSumAfterKNegations1([4, 2, 3], 1), 5);

@@ -273,6 +273,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1646 | [获取生成数组中的最大值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1646.获取生成数组中的最大值.ts) | 简单 |
 | 1711 | [大餐计数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1711.大餐计数.ts) | 中等 |
 | 1738 | [找出第K大的异或坐标值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1738.找出第K大的异或坐标值.ts) | 中等 |
+| 1816 | [ 截断句子](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1816. 截断句子.ts) | 简单 |
 | 1818 | [绝对差值和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1818.绝对差值和.ts) | 中等 |
 | 1833 | [雪糕的最大数量](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1833.雪糕的最大数量.ts) | 中等 |
 | 1838 | [最高频元素的频数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1838.最高频元素的频数.ts) | 中等 |
