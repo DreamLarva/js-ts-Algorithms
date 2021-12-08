@@ -227,6 +227,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 657 | [机器人能否返回原点](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/657.机器人能否返回原点.ts) | 简单 |
 | 658 | [找到K个最接近的元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/658.找到K个最接近的元素.ts) | 中等 |
 | 661 | [图片平滑器](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/661.图片平滑器.ts) | 简单 |
+| 689 | [三个无重叠子数组的最大和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/689.三个无重叠子数组的最大和.ts) | 困难 |
 | 700 | [二叉搜索树中的搜索](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/700.二叉搜索树中的搜索.ts) | 简单 |
 | 704 | [二分查找](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/704.二分查找.ts) | 简单 |
 | 705 | [设计哈希集合](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/705.设计哈希集合.ts) | 简单 |
