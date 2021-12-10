@@ -33,7 +33,7 @@ var threeSum = function (nums: number[]) {
   if (nums[0] > 0) {
     return [];
   }
-  const result = [];
+  const result: number[][] = [];
 
   for (let i = 0; i < nums.length - 2; ) {
     let left = i + 1;
