@@ -4,9 +4,9 @@ specifiers:
   '@datastructures-js/priority-queue': ^5.3.0
   '@datastructures-js/queue': ^4.1.3
   '@types/benchmark': ^2.1.1
-  '@types/lodash': ^4.14.177
+  '@types/lodash': ^4.14.178
   '@types/node': ^14.18.0
-  '@types/ramda': ^0.27.59
+  '@types/ramda': ^0.27.60
   awilix: ^4.3.4
   axios: ^0.21.4
   benchmark: ^2.1.4
@@ -17,12 +17,12 @@ specifiers:
   reflect-metadata: ^0.1.13
   ts-node: ^10.4.0
   tsyringe: ^4.6.0
-  typescript: ^4.5.2
+  typescript: ^4.5.3
 
 dependencies:
   '@datastructures-js/priority-queue': 5.3.0
   '@datastructures-js/queue': 4.1.3
-  '@types/ramda': 0.27.59
+  '@types/ramda': 0.27.60
   awilix: 4.3.4
   inversify: 5.1.1
   lodash: 4.17.21
@@ -33,12 +33,12 @@ dependencies:
 
 devDependencies:
   '@types/benchmark': 2.1.1
-  '@types/lodash': 4.14.177
+  '@types/lodash': 4.14.178
   '@types/node': 14.18.0
   axios: 0.21.4
   benchmark: 2.1.4
-  ts-node: 10.4.0_5fa3e012ffda681857188eee90261f55
-  typescript: 4.5.2
+  ts-node: 10.4.0_efbd19efcdff5017ea393128a26f794c
+  typescript: 4.5.3
 
 packages:
 
@@ -88,16 +88,16 @@ packages:
     resolution: {integrity: sha1-12PfKXF9k6ozPrEfQh7zg6XfVnM=, tarball: '@types/benchmark/download/@types/benchmark-2.1.1.tgz'}
     dev: true
 
-  /@types/lodash/4.14.177:
-    resolution: {integrity: sha512-0fDwydE2clKe9MNfvXHBHF9WEahRuj+msTuQqOmAApNORFvhMYZKNGGJdCzuhheVjMps/ti0Ak/iJPACMaevvw==, tarball: '@types/lodash/download/@types/lodash-4.14.177.tgz'}
+  /@types/lodash/4.14.178:
+    resolution: {integrity: sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==, tarball: '@types/lodash/download/@types/lodash-4.14.178.tgz'}
     dev: true
 
   /@types/node/14.18.0:
     resolution: {integrity: sha512-0GeIl2kmVMXEnx8tg1SlG6Gg8vkqirrW752KqolYo1PHevhhZN3bhJ67qHj+bQaINhX0Ra3TlWwRvMCd9iEfNQ==, tarball: '@types/node/download/@types/node-14.18.0.tgz'}
     dev: true
 
-  /@types/ramda/0.27.59:
-    resolution: {integrity: sha512-X7BMumtWUBUlQUk408KZxiqUFZ7ZKwBJXHT0QJz/HdB3F5fwDnLziXax0QfFXTRDV3FbrAgpOLCbjD010+55uQ==, tarball: '@types/ramda/download/@types/ramda-0.27.59.tgz'}
+  /@types/ramda/0.27.60:
+    resolution: {integrity: sha512-6ie74xhtl2ducVG8cC8mnYwpvIUWHBoLHbmvEsl5qPqJkqVP9ce5yZW10WgheKd2ua1yPIwd0miMWBsG19UmiQ==, tarball: '@types/ramda/download/@types/ramda-0.27.60.tgz'}
     dependencies:
       ts-toolbelt: 6.15.5
     dev: false
@@ -114,7 +114,7 @@ packages:
     dev: true
 
   /arg/4.1.3:
-    resolution: {integrity: sha1-Jp/HrVuOQstjyJbVZmAXJhwUQIk=, tarball: arg/download/arg-4.1.3.tgz?cache=0&sync_timestamp=1632964931259&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Farg%2Fdownload%2Farg-4.1.3.tgz}
+    resolution: {integrity: sha1-Jp/HrVuOQstjyJbVZmAXJhwUQIk=, tarball: arg/download/arg-4.1.3.tgz}
     dev: true
 
   /awilix/4.3.4:
@@ -128,7 +128,7 @@ packages:
   /axios/0.21.4:
     resolution: {integrity: sha1-xnuQ3AVo5cHPKwuFjEO6KOLtpXU=, tarball: axios/download/axios-0.21.4.tgz}
     dependencies:
-      follow-redirects: 1.14.5
+      follow-redirects: 1.14.6
     transitivePeerDependencies:
       - debug
     dev: true
@@ -171,8 +171,8 @@ packages:
     engines: {node: '>=0.3.1'}
     dev: true
 
-  /follow-redirects/1.14.5:
-    resolution: {integrity: sha1-8JpYSJgdPHcrU5Iwl3hSP42Fw4E=, tarball: follow-redirects/download/follow-redirects-1.14.5.tgz}
+  /follow-redirects/1.14.6:
+    resolution: {integrity: sha512-fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A==, tarball: follow-redirects/download/follow-redirects-1.14.6.tgz}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -186,7 +186,7 @@ packages:
     dev: false
 
   /glob/7.2.0:
-    resolution: {integrity: sha1-0VU1r3cy4C6Uj0xBYovZECk/YCM=, tarball: glob/download/glob-7.2.0.tgz?cache=0&sync_timestamp=1636357565068&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fglob%2Fdownload%2Fglob-7.2.0.tgz}
+    resolution: {integrity: sha1-0VU1r3cy4C6Uj0xBYovZECk/YCM=, tarball: glob/download/glob-7.2.0.tgz}
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -212,7 +212,7 @@ packages:
     dev: false
 
   /lodash/4.17.21:
-    resolution: {integrity: sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=, tarball: lodash/download/lodash-4.17.21.tgz}
+    resolution: {integrity: sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=, tarball: lodash/download/lodash-4.17.21.tgz?cache=0&sync_timestamp=1632822706917&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Flodash%2Fdownload%2Flodash-4.17.21.tgz}
 
   /lower-case/2.0.2:
     resolution: {integrity: sha1-b6I3xj29xKgsoP2ILkci3F5jTig=, tarball: lower-case/download/lower-case-2.0.2.tgz}
@@ -271,10 +271,10 @@ packages:
     dev: false
 
   /reflect-metadata/0.1.13:
-    resolution: {integrity: sha1-Z648pXyXKiqhZCsQ/jY/4y1J3Ag=, tarball: reflect-metadata/download/reflect-metadata-0.1.13.tgz}
+    resolution: {integrity: sha1-Z648pXyXKiqhZCsQ/jY/4y1J3Ag=, tarball: reflect-metadata/download/reflect-metadata-0.1.13.tgz?cache=0&sync_timestamp=1633579596473&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Freflect-metadata%2Fdownload%2Freflect-metadata-0.1.13.tgz}
     dev: false
 
-  /ts-node/10.4.0_5fa3e012ffda681857188eee90261f55:
+  /ts-node/10.4.0_efbd19efcdff5017ea393128a26f794c:
     resolution: {integrity: sha1-aA+IlFiF9ObPRQ5/DWIj3UBIlfc=, tarball: ts-node/download/ts-node-10.4.0.tgz}
     hasBin: true
     peerDependencies:
@@ -300,7 +300,7 @@ packages:
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 4.5.2
+      typescript: 4.5.3
       yn: 3.1.1
     dev: true
 
@@ -309,11 +309,11 @@ packages:
     dev: false
 
   /tslib/1.14.1:
-    resolution: {integrity: sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=, tarball: tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1632920830240&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz}
+    resolution: {integrity: sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=, tarball: tslib/download/tslib-1.14.1.tgz}
     dev: false
 
   /tslib/2.3.1:
-    resolution: {integrity: sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=, tarball: tslib/download/tslib-2.3.1.tgz?cache=0&sync_timestamp=1632920830240&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz}
+    resolution: {integrity: sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=, tarball: tslib/download/tslib-2.3.1.tgz}
     dev: false
 
   /tsyringe/4.6.0:
@@ -323,8 +323,8 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /typescript/4.5.2:
-    resolution: {integrity: sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==, tarball: typescript/download/typescript-4.5.2.tgz}
+  /typescript/4.5.3:
+    resolution: {integrity: sha512-eVYaEHALSt+s9LbvgEv4Ef+Tdq7hBiIZgii12xXJnukryt3pMgJf6aKhoCZ3FWQsu6sydEnkg11fYXLzhLBjeQ==, tarball: typescript/download/typescript-4.5.3.tgz}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true

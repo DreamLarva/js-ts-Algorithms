@@ -1,6 +1,6 @@
 # Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习
 环境:  
-typescript: ^4.5.2  
+typescript: ^4.5.3  
 ts-node: ^10.4.0  
 
 Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) 
@@ -247,6 +247,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 788 | [旋转数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/788.旋转数字.ts) | 中等 |
 | 794 | [有效的井字游戏](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/794.有效的井字游戏.ts) | 中等 |
 | 799 | [语法中的第K个符号](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/799.语法中的第K个符号.ts) | 中等 |
+| 807 | [保持城市天际线](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/807.保持城市天际线.ts) | 中等 |
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 中等 |
 | 844 | [比较含退格的字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/844.比较含退格的字符串.ts) | 简单 |
 | 852 | [山脉数组的峰顶索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/852.山脉数组的峰顶索引.ts) | 简单 |
