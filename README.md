@@ -224,6 +224,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 575 | [分糖果](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/575.分糖果.ts) | 简单 |
 | 599 | [两个列表的最小索引总和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/599.两个列表的最小索引总和.ts) | 简单 |
 | 622 | [设计循环队列](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/622.设计循环队列.ts) | 中等 |
+| 630 | [课程表III](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/630.课程表III.ts) | 困难 |
 | 652 | [寻找重复的子树](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/652.寻找重复的子树.ts) | 中等 |
 | 657 | [机器人能否返回原点](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/657.机器人能否返回原点.ts) | 简单 |
 | 658 | [找到K个最接近的元素](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/658.找到K个最接近的元素.ts) | 中等 |
@@ -250,6 +251,7 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 807 | [保持城市天际线](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/807.保持城市天际线.ts) | 中等 |
 | 841 | [钥匙和房间](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/841.钥匙和房间.ts) | 中等 |
 | 844 | [比较含退格的字符串](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/844.比较含退格的字符串.ts) | 简单 |
+| 851 | [喧闹和富有](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/851.喧闹和富有.ts) | 中等 |
 | 852 | [山脉数组的峰顶索引](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/852.山脉数组的峰顶索引.ts) | 简单 |
 | 869 | [重新排序得到2的幂](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/869.重新排序得到2的幂.ts) | 中等 |
 | 877 | [石子游戏](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/877.石子游戏.ts) | 中等 |
