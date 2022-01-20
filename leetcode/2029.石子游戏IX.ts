@@ -68,3 +68,5 @@ function stoneGameIX(stones: number[]): boolean {
   // 最后 B 只能选择较多的数(+1)
   return cache[1] - cache[2] >= 3 || cache[2] - cache[1] >= 3;
 }
+
+import assert from "assert";
