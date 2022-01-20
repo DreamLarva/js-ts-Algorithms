@@ -70,3 +70,4 @@ function stoneGameIX(stones: number[]): boolean {
 }
 
 import assert from "assert";
+assert.strictEqual(stoneGameIX([5, 1, 2, 4, 3]), false);
