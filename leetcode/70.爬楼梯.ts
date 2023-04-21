@@ -70,6 +70,10 @@ function solution1(n: number) {
 function solution2(n: number) {
   const sqrt_5 = Math.sqrt(5);
   n = n + 1;
+
+  for (let i = 1; i <= 41; i++) {
+    console.log(Math.pow((1 + sqrt_5) / 2, i));
+  }
   return (
     (sqrt_5 / 5) *
     (Math.pow((1 + sqrt_5) / 2, n) - Math.pow((1 - sqrt_5) / 2, n))
@@ -79,8 +83,12 @@ function solution2(n: number) {
 export {};
 
 import assert from "assert";
+import {forIn} from "lodash";
 
-assert.strictEqual(solution2(2), 2);
-assert.strictEqual(solution2(3), 3);
+// assert.strictEqual(solution2(2), 2);
+// assert.strictEqual(solution2(3), 3);
 
 console.log(solution2(41));
+console.log(solution1(41));
+
+

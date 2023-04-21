@@ -59,63 +59,6 @@ var findMedianSortedArrays = function (
   );
   return (c1 + c2) * 0.5;
 };
-/*
-var findMedianSortedArrays = function (nums1: number[], nums2: number[]): number {
-    const nums1_len = nums1.length;
-    const nums2_len = nums2.length;
-    let long: number[], short: number[];
-    if (nums1_len > nums2_len) [long, short] = [nums1, nums2];
-    else [long, short] = [nums2, nums1];
-
-    // 如果中位数是一个值 表示 左侧的值的个数
-    // 如果是两个值 表示 左侧的值的个数 + 中位数其中的一个值
-    const before_median_count = (nums1_len + nums2_len) >> 1;
-    let left = 0;
-    let right = before_median_count - left;
-
-    // 如果 两个序列的 值的最大值 大于 非两个序列部分 的最小值 则表示 两个序列的值都小于中位数 继续下一步获取确切的中位数
-    let long_next: number;
-    let short_next: number;
-    let long_cur: number;
-    let short_cur: number;
-
-    let offset = Math.min(Math.ceil(right / 2), short.length);
-    while (true) {
-        let short_index = left - 1; // 表示 还不在 小于中位数的序列中
-        let long_index = right - 1;
-
-        // 如果 两个序列的 值的最大值 大于 非两个序列部分 的最小值 则表示 两个序列的值都小于中位数 继续下一步获取确切的中位数
-        long_next = long_index === long.length - 1 ? Infinity : long[long_index + 1];
-        short_next = short_index === short.length - 1 ? Infinity : short[short_index + 1];
-        long_cur = long_index < 0 ? -Infinity : long[long_index];
-        short_cur = short_index < 0 ? -Infinity : short[short_index];
-
-        if (Math.max(long_cur, short_cur) <= Math.min(long_next, short_next)) break;
-
-        // 如果短的 下一个值更小 说明 短的中应该更多值在序列中
-        // 同时保证 分配到的数额不能越界
-        if (short_next < long_next) {
-            left += offset;
-        }
-        // 如果长的 下一个值更小 说明 短的中应该更少值在序列中
-        else {
-            left -= offset;
-        }
-        right = before_median_count - left;
-        offset = Math.ceil(offset / 2);
-    }
-
-    if (((nums1_len + nums2_len) & 1) === 0) {
-        // 长度为偶数
-        return (Math.max(short_cur, long_cur) + Math.min(short_next, long_next)) / 2;
-
-    } else {
-        // 长度为为奇数
-        return Math.min(long_next, short_next);
-    }
-
-};
-*/
 
 import assert from "assert";
 

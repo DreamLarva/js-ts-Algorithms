@@ -29,7 +29,7 @@ var longestPalindrome = function (s: string) {
         i - temp >= 0 &&
         i + 1 + temp <= a.length - 1 &&
         a[i + 1 + temp] === a[i - temp]
-      ) {
+        ) {
         temp++;
       }
       temp--;
@@ -45,7 +45,7 @@ var longestPalindrome = function (s: string) {
         i - temp >= 0 &&
         i + temp <= a.length - 1 &&
         a[i + temp] === a[i - temp]
-      ) {
+        ) {
         temp++;
       }
       temp--;
@@ -57,15 +57,38 @@ var longestPalindrome = function (s: string) {
   return result.join("") || str[0];
 };
 
+import assert from "assert";
+import Benchmark from "benchmark";
 /**
  * Manacher算法
  * 时间复杂度为 O(n)
  * */
-import { manacher1 } from "../算法/manacher马拉车算法";
-
-import assert from "assert";
+import {manacher1} from "../算法/manacher马拉车算法";
 
 assert.strictEqual(longestPalindrome("cbbd"), "bb");
 assert.strictEqual(longestPalindrome("abacddc"), "cddc");
 assert.strictEqual(manacher1("abacddc"), "cddc");
 assert.strictEqual(manacher1("abacddc"), "cddc");
+
+
+const sample1 = "abacddc";
+const sample2 = "abacddcabacddcabacddcabacddcabacddcabacddcabacddcabacddcabacddcabacddcabacddcabacddc";
+const suite = new Benchmark.Suite()
+suite
+  // add listeners
+  .add("mine", function (event) {
+    longestPalindrome(sample2)
+  })
+  .add("Manacher算法", function (event) {
+    manacher1(sample2)
+  })
+  .on("cycle", function (event: Benchmark.Event) {
+    console.log(String(event.target));
+  })
+  .on("complete", function (this: Benchmark.Suite) {
+    console.log('Fastest is ' + this.filter('fastest').map( 'name'));
+  })
+  // run async
+  .run({async: false});
+
+

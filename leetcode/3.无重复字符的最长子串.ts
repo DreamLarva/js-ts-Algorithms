@@ -28,17 +28,17 @@ var lengthOfLongestSubstring = function (s: string) {
     max = 0; // idx为当前子串的开始位置-1
   for (let i = 0; i < s.length; i++) {
     const character = s[i];
-    // 如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置+1
-    if (location[character] > start_index) {
+
+    // 如果当前字符出现过，那么当前子串的起始位置为这个字符上一次出现的位置 +1
+    if (location[character] != null && location[character] > start_index) {
       start_index = location[character];
     }
 
-    if (i - start_index > max) {
-      max = i - start_index;
-    }
+    max = Math.max(i - start_index, max);
 
     location[character] = i;
   }
+
   return max;
 };
 
@@ -46,7 +46,7 @@ var lengthOfLongestSubstring = function (s: string) {
  * 滑动窗口
  * 滑动窗口是数组/字符串问题中常用的抽象概念。
  * 窗口通常是在数组/字符串中由开始和结束索引定义的一系列元素的集合，即 [i, j)（左闭，右开）。
- * 而滑动窗口是可以将两个边界向某一方向“滑动”的窗口。例如，我们将 [i, j) 向右滑动 1 个元素，则它将变为 [i+1, j+1)（左闭，右开）。
+ * 而滑动窗口是可以将两个边界向某一个方向“滑动”的窗口。例如，我们将 [i, j) 向右滑动 1 个元素，则它将变为 [i+1, j+1)（左闭，右开）。
  *
  * 回到我们的问题，我们使用 HashSet 将字符存储在当前窗口 [i, j)[i,j)（最初 j = i）中。
  * 然后我们向右侧滑动索引 j，如果它不在 HashSet 中，我们会继续滑动 j。直到 s[j] 已经存在于 HashSet 中。
@@ -86,7 +86,7 @@ var lengthOfLongestSubstring2 = function (s: string) {
   const map: { [key: string]: number } = {}; // current index of character
   // try to extend the range [i, j]
   for (let j = 0, i = 0; j < n; j++) {
-    i = Math.max(map[s[j]] || 0, i);
+    i = Math.max(map[s[j]] ?? 0, i);
     ans = Math.max(ans, j - i + 1);
     map[s[j]] = j + 1;
   }

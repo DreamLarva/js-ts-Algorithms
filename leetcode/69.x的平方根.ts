@@ -44,4 +44,38 @@ var mySqrt = function (x: number) {
   return ~~y;
 };
 
+function mySqrt2(x: number) {
+  if (x <= 1) {
+    return x;
+  }
+  let l = 1;
+  let r = x;
+  while (l < r) {
+    let m = Math.ceil(l + (r - l) / 2);
+
+    if (m * m > x) {
+      r = m - 1;
+    } else if (m * m < x) {
+      l = m;
+    } else {
+      return m;
+    }
+  }
+
+  return l;
+}
+
+import assert from "node:assert";
+
+const r = (v: number) => Math.floor(Math.sqrt(v));
+const datum = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2147395599
+]
+for (const data of datum) {
+  assert.equal(
+    mySqrt2(data),
+    r(data)
+  )
+}
+
 export {};

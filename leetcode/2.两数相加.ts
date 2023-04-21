@@ -26,21 +26,24 @@ import assert from "assert";
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers1 = function (l1: ListNode<number>, l2: ListNode<number>) {
-  const firstNode = new ListNode((l1.val + l2.val) % 10);
+var addTwoNumbers1 = function (
+  l1: ListNode<number> | null,
+  l2: ListNode<number> | null
+) {
+  const firstNode = new ListNode((l1!.val + l2!.val) % 10);
   let currentNode = firstNode;
-  let added = l1.val + l2.val >= 10 ? 1 : 0;
+  let carry = l1!.val + l2!.val >= 10 ? 1 : 0;
 
-  while (l1.next !== null || l2.next !== null) {
-    l1 = l1.next ? l1.next : new ListNode(0);
-    l2 = l2.next ? l2.next : new ListNode(0);
-    let sum = l1.val + l2.val + added;
-    added = sum >= 10 ? 1 : 0;
+  while (l1?.next != null || l2?.next != null) {
+    l1 = l1?.next ?? null;
+    l2 = l2?.next ?? null;
+    let sum = (l1?.val ?? 0) + (l2?.val ?? 0) + carry;
+    carry = sum >= 10 ? 1 : 0;
     sum = sum % 10;
-    currentNode.next = new ListNode(sum);
-    currentNode = currentNode.next;
+    currentNode = currentNode.next = new ListNode(sum);
   }
-  if (added > 0) {
+
+  if (carry > 0) {
     currentNode.next = new ListNode(1);
   }
 
