@@ -290,6 +290,8 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 1877 | [数组中最大数对和的最小值](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1877.数组中最大数对和的最小值.ts) | 中等 |
 | 1893 | [检查是否区域内所有整数都被覆盖](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/1893.检查是否区域内所有整数都被覆盖.ts) | 简单 |
 | 2029 | [石子游戏IX](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2029.石子游戏IX.ts) | 中等 |
+| 2096 | [从二叉树一个节点到另一个节点每一步的方向](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2096.从二叉树一个节点到另一个节点每一步的方向.ts) | 中等 |
 | 2109 | [向字符串添加空格](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2109.向字符串添加空格.ts) | 中等 |
-| 2618 | [检查是否是类的对象实例](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2618. 检查是否是类的对象实例.ts) | 中等 |
+| 2618 | [检查是否是类的对象实例](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2618.检查是否是类的对象实例.ts) | 中等 |
 | 2622 | [有时间限制的缓存](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2622.有时间限制的缓存.ts) | 中等 |
+| 2766 | [重新放置石块](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2766.重新放置石块.ts) | 中等 |
