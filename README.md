@@ -295,3 +295,4 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 2618 | [检查是否是类的对象实例](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2618.检查是否是类的对象实例.ts) | 中等 |
 | 2622 | [有时间限制的缓存](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2622.有时间限制的缓存.ts) | 中等 |
 | 2766 | [重新放置石块](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2766.重新放置石块.ts) | 中等 |
+| 2844 | [生成特殊数字的最少操作](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2844.生成特殊数字的最少操作.ts) | 中等 |
