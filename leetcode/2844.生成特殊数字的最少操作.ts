@@ -38,6 +38,7 @@ num 仅由数字 '0' 到 '9' 组成
 num 不含任何前导零
 * */
 function minimumOperations(num: string): number {
+  // 直接暴力的来
   // 既然能被25整除 结尾只能是 25 50 75 00
   // 从后往前查找
   let r = Infinity;
@@ -78,6 +79,8 @@ function minimumOperations1(num: string): number {
   let find0 = -1;
   let find5 = -1;
   let r = Infinity;
+
+  // 贪心算法 从右往左 找到就记下来 0,5 的位置
   for (let i = num.length - 1; i >= 0; i--) {
     if (find0 === -1) {
       if (num[i] === "0") {
@@ -102,10 +105,13 @@ function minimumOperations1(num: string): number {
 
   if (!Number.isFinite(r)) {
     if (find0 !== -1) {
+      // 只保留 "0"
       r = num.length - 1;
     } else if (find5 !== -1) {
+      // 统统不要
       r = num.length;
     } else {
+      // 统统不要
       r = num.length;
     }
   }
