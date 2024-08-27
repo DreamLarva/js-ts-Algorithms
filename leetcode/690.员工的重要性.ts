@@ -53,6 +53,9 @@ class Employee {
   }
 }
 
+/**
+ * 暴力方法也是可以的
+ * */
 function getImportance(employees: Employee[], id: number): number {
   const map = {};
   for (let i = 0; i < employees.length; i++) {
@@ -71,4 +74,25 @@ function dfs(map: Record<number, Employee>, id: number): number {
     map[id].importance,
     ...map[id].subordinates.map((id) => dfs(map, id)),
   ]);
+}
+
+function getImportance2(employees: Employee[], id: number): number {
+  // 广度优先
+  const map = {};
+  for (let i = 0; i < employees.length; i++) {
+    const { importance, subordinates, id } = employees[i];
+    map[id] = {
+      importance,
+      subordinates,
+    };
+  }
+  let queue: number[] = [id];
+  let sum = 0;
+  while (queue.length !== 0) {
+    const id = queue.shift()!;
+    sum += map[id].importance;
+    queue = queue.concat(map[id].subordinates);
+  }
+
+  return sum;
 }
