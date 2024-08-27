@@ -7,7 +7,7 @@ import packageJson from "./package.json";
   let text = `# Typescript 与 Javascript 重构技巧 算法 以及 数据结构 练习\n`;
   text += `环境:  \n`;
   text += `typescript: ${packageJson.devDependencies.typescript}  \n`;
-  text += `ts-node: ${packageJson.devDependencies["ts-node"]}  \n\n`;
+  text += `tsx: ${packageJson.devDependencies["tsx"]}  \n\n`;
 
   text += `Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva/learn-typescript) \n\n`;
   text += `我的 Leetcode : [地址](https://leetcode-cn.com/u/dreamlarva) \n\n`;
