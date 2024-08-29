@@ -65,7 +65,7 @@ function satisfiesConditions(grid: number[][]): boolean {
   }
 
   // 检查列 每个相同即可
-  for (let i = 0; i < grid.length; i++) {
+  for (let i = 1; i < grid.length; i++) {
     for (let j = 0; j < firstRow.length; j++) {
       if (grid[i][j] !== firstRow[j]) {
         return false;
@@ -92,4 +92,4 @@ assert.equal(
   ]),
   false
 );
-assert.equal(satisfiesConditions([[1], [2], [3]]), true);
+assert.equal(satisfiesConditions([[1], [2], [3]]), false);
