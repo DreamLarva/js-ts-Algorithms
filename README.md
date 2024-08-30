@@ -299,3 +299,4 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 2766 | [重新放置石块](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2766.重新放置石块.ts) | 中等 |
 | 2844 | [生成特殊数字的最少操作](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2844.生成特殊数字的最少操作.ts) | 中等 |
 | 3142 | [判断矩阵是否满足条件](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/3142.判断矩阵是否满足条件.ts) | 简单 |
+| 3153 | [所有数对中数位不同之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/3153.所有数对中数位不同之和.ts) | 中等 |
