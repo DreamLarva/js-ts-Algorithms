@@ -304,3 +304,4 @@ Typescript 语法和类型 学习 : [仓库地址](https://github.com/DreamLarva
 | 2860 | [让所有学生保持开心的分组方法数](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/2860.让所有学生保持开心的分组方法数.ts)                       | 中等 |
 | 3142 | [判断矩阵是否满足条件](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/3142.判断矩阵是否满足条件.ts)                                           | 简单 |
 | 3153 | [所有数对中数位不同之和](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/3153.所有数对中数位不同之和.ts)                                       | 中等 |
+| 3174 | [清除数字](https://github.com/DreamLarva/js-ts-Algorithms/blob/master/leetcode/3174.清除数字.ts)                                                                   | 简单 |
